@@ -1012,45 +1012,6 @@
       \range{pages}{26}
       \keyw{Statistics - Machine Learning,Statistics - Methodology}
     \endentry
-    \entry{dudley2011exploiting}{article}{}
-      \name{author}{3}{}{%
-        {{hash=114c526dd431834c9b90ba760eee9ec6}{%
-           family={Dudley},
-           familyi={D\bibinitperiod},
-           given={Joel\bibnamedelima T},
-           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=0b191415bc640cdc67767bea5650c840}{%
-           family={Deshpande},
-           familyi={D\bibinitperiod},
-           given={Tarangini},
-           giveni={T\bibinitperiod}}}%
-        {{hash=1470fbd861fedb4c61d6474acb567bb0}{%
-           family={Butte},
-           familyi={B\bibinitperiod},
-           given={Atul\bibnamedelima J},
-           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Oxford University Press}%
-      }
-      \strng{namehash}{aa5f904b727b923abf77dea0e107d06c}
-      \strng{fullhash}{f5c29f705aea8520255a258a8d4dbcb1}
-      \strng{bibnamehash}{f5c29f705aea8520255a258a8d4dbcb1}
-      \strng{authorbibnamehash}{f5c29f705aea8520255a258a8d4dbcb1}
-      \strng{authornamehash}{aa5f904b727b923abf77dea0e107d06c}
-      \strng{authorfullhash}{f5c29f705aea8520255a258a8d4dbcb1}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Briefings in bioinformatics}
-      \field{number}{4}
-      \field{title}{Exploiting drug--disease relationships for computational drug repositioning}
-      \field{volume}{12}
-      \field{year}{2011}
-      \field{pages}{303\bibrangedash 311}
-      \range{pages}{9}
-    \endentry
     \entry{fontana2019can}{article}{}
       \name{author}{5}{}{%
         {{hash=d0e6c703687099bf4ba8eb33aba30c1b}{%
@@ -1660,60 +1621,6 @@
       \field{dateera}{ce}
       \field{pages}{874\bibrangedash 875}
       \range{pages}{2}
-    \endentry
-    \entry{hurle2013computational}{article}{}
-      \name{author}{6}{}{%
-        {{hash=af257c6a7a5c0b95fc853d9ab6a4d068}{%
-           family={Hurle},
-           familyi={H\bibinitperiod},
-           given={Mark\bibnamedelima R},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=8b737472161f9411595cc50369d7322c}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Lun},
-           giveni={L\bibinitperiod}}}%
-        {{hash=b239f7acd73cb5f46fd76fbb1c20b4b0}{%
-           family={Xie},
-           familyi={X\bibinitperiod},
-           given={Qing},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=71c653a4c0de97c0b8d60ab0318d5bb4}{%
-           family={Rajpal},
-           familyi={R\bibinitperiod},
-           given={Deepak\bibnamedelima K},
-           giveni={D\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-        {{hash=11afccffc831ddfe9d4b21c371d1a20e}{%
-           family={Sanseau},
-           familyi={S\bibinitperiod},
-           given={Philippe},
-           giveni={P\bibinitperiod}}}%
-        {{hash=09c3d70ac81528d36599d546399f1ab1}{%
-           family={Agarwal},
-           familyi={A\bibinitperiod},
-           given={Pankaj},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{3d56c4ffb8fe399e2084db6c73d1e29d}
-      \strng{fullhash}{d4f34549c8bd6ad0d58297206f3eb2ce}
-      \strng{bibnamehash}{d4f34549c8bd6ad0d58297206f3eb2ce}
-      \strng{authorbibnamehash}{d4f34549c8bd6ad0d58297206f3eb2ce}
-      \strng{authornamehash}{3d56c4ffb8fe399e2084db6c73d1e29d}
-      \strng{authorfullhash}{d4f34549c8bd6ad0d58297206f3eb2ce}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Clinical Pharmacology \& Therapeutics}
-      \field{number}{4}
-      \field{title}{Computational drug repositioning: from data to therapeutics}
-      \field{volume}{93}
-      \field{year}{2013}
-      \field{pages}{335\bibrangedash 341}
-      \range{pages}{7}
     \endentry
     \entry{imbens_causal_2015}{book}{}
       \name{author}{2}{}{%
@@ -3015,45 +2922,6 @@
       \endverb
       \keyw{machine learning,causal inference,personalized medicine}
     \endentry
-    \entry{radley2006off}{article}{}
-      \name{author}{3}{}{%
-        {{hash=8132f7decd66f8fc8d16dd02c00839a9}{%
-           family={Radley},
-           familyi={R\bibinitperiod},
-           given={David\bibnamedelima C},
-           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=be9649c6fe0b79c55ca6743faac537a7}{%
-           family={Finkelstein},
-           familyi={F\bibinitperiod},
-           given={Stan\bibnamedelima N},
-           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-        {{hash=d758f7897cd806f021ec01db38d756d8}{%
-           family={Stafford},
-           familyi={S\bibinitperiod},
-           given={Randall\bibnamedelima S},
-           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {American Medical Association}%
-      }
-      \strng{namehash}{a891943b1ab09a5a8af76326a913ddbd}
-      \strng{fullhash}{32acde80771fe4405af9117cd35f79e5}
-      \strng{bibnamehash}{32acde80771fe4405af9117cd35f79e5}
-      \strng{authorbibnamehash}{32acde80771fe4405af9117cd35f79e5}
-      \strng{authornamehash}{a891943b1ab09a5a8af76326a913ddbd}
-      \strng{authorfullhash}{32acde80771fe4405af9117cd35f79e5}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Archives of internal medicine}
-      \field{number}{9}
-      \field{title}{Off-label prescribing among office-based physicians}
-      \field{volume}{166}
-      \field{year}{2006}
-      \field{pages}{1021\bibrangedash 1026}
-      \range{pages}{6}
-    \endentry
     \entry{rahimi_random_2008}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=b2a647ccd84fe455f793167cbe4e9c81}{%
@@ -4145,55 +4013,6 @@
       \endverb
       \keyw{machine learning,simulation,propensity score,health care databases,heterogeneous treatment effects}
     \endentry
-    \entry{yurkovich2015systematic}{article}{}
-      \name{author}{5}{}{%
-        {{hash=563ce65346dce44b35206be2d81b6779}{%
-           family={Yurkovich},
-           familyi={Y\bibinitperiod},
-           given={Marko},
-           giveni={M\bibinitperiod}}}%
-        {{hash=54041d1aae255afbdaac5becd3fae4cb}{%
-           family={Avina-Zubieta},
-           familyi={A\bibinithyphendelim Z\bibinitperiod},
-           given={J\bibnamedelima Antonio},
-           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=15c030eae5656ad81e7f7acc0d3bdd0c}{%
-           family={Thomas},
-           familyi={T\bibinitperiod},
-           given={Jamie},
-           giveni={J\bibinitperiod}}}%
-        {{hash=f64c8e702e52a01a0585faca0b3b058e}{%
-           family={Gorenchtein},
-           familyi={G\bibinitperiod},
-           given={Mike},
-           giveni={M\bibinitperiod}}}%
-        {{hash=d03f1a5b5df155505e507fed67fb18ba}{%
-           family={Lacaille},
-           familyi={L\bibinitperiod},
-           given={Diane},
-           giveni={D\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{cedb87ad4bebefbb5381137fbe04cf5a}
-      \strng{fullhash}{ee03d413b2ec448feadc246986e153d3}
-      \strng{bibnamehash}{ee03d413b2ec448feadc246986e153d3}
-      \strng{authorbibnamehash}{ee03d413b2ec448feadc246986e153d3}
-      \strng{authornamehash}{cedb87ad4bebefbb5381137fbe04cf5a}
-      \strng{authorfullhash}{ee03d413b2ec448feadc246986e153d3}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of clinical epidemiology}
-      \field{number}{1}
-      \field{title}{A systematic review identifies valid comorbidity indices derived from administrative health data}
-      \field{volume}{68}
-      \field{year}{2015}
-      \field{pages}{3\bibrangedash 14}
-      \range{pages}{12}
-    \endentry
     \entry{zadrozny_obtaining_2001}{article}{}
       \name{author}{2}{}{%
         {{hash=17d2d39955db4736e1950d47ee811290}{%
@@ -4231,6 +4050,18 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{beam2018big}
+  \missing{khojaste2022deep}
+  \missing{monshi2020deep}
+  \missing{nassif2022breast}
+  \missing{rajkomar2019machine}
+  \missing{shen2017deep}
+  \missing{shen2019deep}
+  \missing{spasic2020clinical}
+  \missing{vanderweele2019principles}
+  \missing{wang2020prediction}
+  \missing{yala2019deep}
+  \missing{zhang2019radiological}
 \endrefsection
 \endinput
 

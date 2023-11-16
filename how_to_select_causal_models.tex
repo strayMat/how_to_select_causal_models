@@ -26,23 +26,16 @@
 \usepackage{arxiv}
 \usepackage{multicol}
 \setlength{\columnsep}{1cm}
+\usepackage{wrapfig}
+%\usepackage{wraptable}
 \usepackage{authblk}% for author affiliations
 \usepackage[dvipsnames]{xcolor}
 
 \usepackage{comment}
-%\usepackage{snaptodo}
+\setcounter{secnumdepth}{0}
 
 \setlength{\marginparwidth}{1.5cm}
 \setlength\textwidth{177.8mm}
-
-% \snaptodoset{block rise=1em}
-% \snaptodoset{margin block/.style={font=\tiny}} \newcommand{\gv}[1]{%
-%     \snaptodo[margin block/.append style=green!50!black]{%
-% 	\sloppy\textbf{Gael}: #1}}
-
-% \newcommand{\md}[1]{\snaptodo[margin block/.append style=blue]{\textbf{Matt}:
-% #1}} \newcommand{\idea}[1]{\snaptodo[margin block/.append
-% style=red]{\textbf{Idea}: #1}}
 
 % maths commands
 \newcommand{\indep}{\perp \!\!\! \perp}
@@ -85,27 +78,31 @@
 \maketitle
 
 \begin{abstract}
+    \textbf{Background:}
     As predictive models --\emph{eg} from machine learning-- give likely
     outcomes, they may be used to reason on the effect of an intervention,
     a causal-inference task. The increasing complexity of
     health data has opened the door to a plethora of models, but also the
     Pandora box of model selection: which of these models yield the most
-    valid causal estimates?
-    Here we highlight that classic machine-learning model selection
-    does not select the best outcome models for causal inference.
-    Indeed, causal model selection should control both outcome errors
-    for each individual, treated or not
-    treated, whereas only one outcome is observed.
-    Theoretically, simple risks used in machine learning do not control
-    causal effects when treated and non-treated population differ too much.
-    More elaborate risks build proxies of the causal error using
-    ``nuisance'' re-weighting to compute it on the observed data. But
-    does computing these nuisance adds noise to model selection? Drawing
-    from an extensive empirical study, we outline a good causal
-    model-selection procedure: using the so-called
-    $R\text{-risk}$; using flexible estimators to
-    compute the nuisance models on the train set; and splitting out 10\% of
-    the data to compute risks.
+    valid causal estimates? Causal model selection should control both outcome errors for each
+    individual, treated or not treated, whereas only one outcome is observed.
+    Theoretically, simple risks used in machine learning do not control causal
+    effects when treated and non-treated population differ too much. \\
+    \textbf{Methods:}
+    More elaborate risks build proxies of the causal error using ``nuisance''
+    re-weighting to compute it on the observed data. But does computing these
+    nuisance adds noise to model selection? Drawing from an extensive empirical
+    study based on a simulation and three semi-simulated datasets based on real
+    covariates, we compare different metrics for causal model selection.\\
+    \textbf{Results:} Among all metrics the classical mean squared error (ie.
+    factual $\mu\mathrm{-risk}$) is worse and re-weighting it with propensity score
+    ($\mu\mathrm{-risk}_{IPW}$) does not bring much improvements. The
+    $R\text{-risk}$, which includes a model of mean outcome and propensity
+    scores, leads to the best performances.\\
+    \textbf{Conclusions:} We outline a good causal model-selection procedure
+    using the so-called $R\text{-risk}$; using flexible estimators to compute
+    the nuisance models on the train set; and splitting out 10\% of the data to
+    compute risks.
 \end{abstract}
 \keywords{Model Selection, Treatment Effect, G-formula, Observational Study, Machine Learning, }
 \clearpage
@@ -114,37 +111,31 @@
 
     \section{Background}\label{sec:intro}
 
-    \subsection{Extending prediction to prescription requires causal model selection}
+    \subsection{Extending prediction to prescription needs causality}
 
-    % Framing:
-    % - Increasing rich observational, ``real-life'' data.
-    %   - routinely collected health care
-    %   - convenient to build prognostic model (eg using claims or
-    %   administrative data
-    %   \cite{desai2020comparison} ) \cite{yurkovich2015systematic},
-    %   electronic health records \cite{fontana2019can}, encompassing notes and questionnaires
-    %   \cite{horng2017creating,simon2018predicting}
-    % - Motivates building increasingly complex predictive model, such as
-    %   prognostic models
-    % - Plethora of predictive models
-    % - From prediction to prescription There is often a desire to reason on intervention => causal inference is necessary
-
-    Increasingly rich data drives new predictive models. In health, new risks
-    or prognostic models leverage routinely-collected data, sometimes with
-    machine learning \cite{mooney2018bigdata}: predicting morbidity-related
-    outcomes from administrative data \cite{yurkovich2015systematic}, heart
-    failure from claims \cite{desai2020comparison}, sepsis from clinical
-    records \cite{horng2017creating}, suicide attempts from patient records
-    and questionnaires \cite{simon2018predicting}... Data may be difficult to
-    control and model, but claims of accurate prediction can be established
+    Progress in machine learning brings predictive models to new health
+    data \cite{beam2018big,rajkomar2019machine}, with the promise of
+    precision medicine.
+    Automated analysis of
+    medical images is increasingly accurate, \emph{eg} for brain images,
+    \cite{khojaste2022deep,zhang2019radiological} or mammography
+    \cite{yala2019deep,shen2019deep,nassif2022breast}.
+    New prognostic models leverage routinely-collected
+    patient records
+    \cite{mooney2018bigdata}: predicting heart
+    failure from claims \cite{desai2020comparison}, suicide attempts
+    from questionnaires \cite{simon2018predicting}...
+    Clinical notes contain much prognostic information
+    but require text modeling  \cite{horng2017creating,wang2020prediction,spasic2020clinical}.
+    Data may be difficult to
+    control and model, but the accuracy of the prediction can be verified
     on left-out data
     \cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
-    Given a model predicting of an outcome of interest, it is tempting to use
-    it to guide decisions: will an individual benefit or not from an
-    intervention such as surgery \cite{fontana2019can}? This is a
-    causal-inference task and principled approaches can build
-    on contrasting the
-    prediction of the outcome with and without the treatment
+    Given a model predicting a health outcome, precision medicine
+    would like it to guide decisions: will an individual benefit from an
+    intervention such as surgery \cite{fontana2019can}?
+    Contrasting predictions with and without the treatment gives an answer,
+    but statistical validity requires causal inference
     \cite{snowden_implementation_2011,blakely2020reflection}.
 
     % - Causal inference is difficult
@@ -164,128 +155,121 @@
     % The plethora of approaches approaches give different causal-inference
     % estimates => need for guideline on causal model selection.
 
-    Outcome modeling is an integral part of the causal modeling toolkit,
-    under the names of
-    G-computation, G-formula \cite{robins_role_1986}, Q-model
-    \cite{snowden_implementation_2011}, or conditional mean
-    regression \cite{wendling_comparing_2018}. On observational data, causal
-    inference of treatment effects is brittle to un-accounted for
-    confounding, but it can assess
-    effectiveness and safety in real-word practice
-    \cite{black1996we,hernan_methods_2021} or off-label drug usage
-    \cite{radley2006off} for potential repurposing
-    \cite{hurle2013computational,dudley2011exploiting}. Epidemiology has
-    historically focused on methods that model treatment assignment
-    \cite{austin_moving_2015,grose_use_2020}, based on the propensity score
-    \cite{rosenbaum_central_1983} but recent empirical results
-    \cite{wendling_comparing_2018,dorie_automated_2019} show benefits of
-    outcome modeling to estimate average treatment effect (ATE). A major
-    benefit of using outcome modeling for causal inference is that these
-    methods naturally go beyond average effects,
-    estimating individualized or conditional average treatment effects
-    (CATE), important for precision medicine.
+    There is a rich causal-inference statistical literature, which bridges to
+    predictive modeling via so-called \emph{outcome models}, or G-computation,
+    G-formula \cite{robins_role_1986}, Q-model \cite{snowden_implementation_2011},
+    conditional mean regression \cite{wendling_comparing_2018}. A central challenge
+    of inference of treatment effects is that of confounding: spurious associations
+    between treatment allocation and baseline health, \emph{eg} only prescribing a
+    drug to mild cases \citep{hernan_causal_2020,vanderweele2019principles}.
+    Controlled allocation of treatment, as in randomized controlled trials (RCTs),
+    alleviate this concern. Yet most machine-learning models are trained on
+    \emph{observational} data, close to real-word practice
+    \cite{black1996we,hernan_methods_2021} but challenging for causal inference.
+    Causal inference has been central to epidemiology, typically with methods that
+    model treatment assignment \cite{austin_moving_2015,grose_use_2020}, based on
+    propensity scores \cite{rosenbaum_central_1983}. Recent empirical results
+    \cite{wendling_comparing_2018,dorie_automated_2019} show benefits of outcome
+    modeling to estimate average treatment effects. Maybe a greater benefit is
+    that these methods naturally go beyond average effects, estimating
+    individualized or conditional average treatment effects (CATE), central to
+    precision medicine.
     %
     For this purpose, such methods are also invaluable on randomized trials
     \cite{su2018random,lamont2018identification,hoogland2021tutorial}.
 
     %\idea{There is a variety of models for g-estimation}
-    Recent developments have seen the multiplication of predictive modeling
-    methods. Leaving aside the, overwhelming, machine-learning literature,
-    even methods specifically designed for causal
+    There is an explosion of outcome modeling or machine learning methods.
+    For instance, many deep-learning methods have been developed for medical
+    image analysis \cite{shen2017deep,monshi2020deep}.
+    Even outcome-modeling methods specifically designed for causal
     inference are numerous: Bayesian Additive Regression Trees
     \cite{hill_bayesian_2011}, Targeted Maximum Likelihood Estimation
     \cite{laan_targeted_2011,schuler_targeted_2017}, causal boosting
     \cite{powers_methods_2018}, causal multivariate adaptive regression
-    splines (MARS) \cite{powers_methods_2018}, random forests
+    splines \cite{powers_methods_2018}, random forests
     \cite{wager_estimation_2018, athey_generalized_2019},
     Meta-learners \cite{kunzel_metalearners_2019}, R-learners
     \cite{nie_quasioracle_2017}, Doubly robust estimation
     \cite{chernozhukov_double_2018}...
     %\idea{The variety of estimators calls for model selection procedures}
-    The wide variety of methods leaves the applied researcher with the difficult choice
+    The wide variety of methods raises the problem
     of selecting between different estimators based on the data at hand.
     %
-    Indeed, estimates may vary markedly when using different
-    models. For instance, Figure \ref{fig:acic_2016_ate_heterogeneity} shows
-    large variations obtained across four different outcome estimators on
-    2016 semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models
+    Indeed, estimates of treatment effects can vary markedly across different
+    predictive models. For instance, Figure shows
+    large variations obtained across different outcome estimators on
+    semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models
     such as random forests are doing well in most settings except
-    for setups where treated and untreated populations differ markedly in
-    which case a simple linear model (ridge) is to be preferred.
-    However a different choice of hyper-parameters
-    (max depth= 2) for random forests yield the poorest performances.
-    A simple rule of thumb such as preferring more flexible models does not work in
-    general; model selection is necessary.
+    when treated and untreated populations differ noticeably, in
+    which case a linear model (ridge) is to be preferred.
+    However random forests with different hyper-parameters
+    (max depth= 2) yield poor estimates.
+    A simple rule of thumb such as preferring flexible models does not work in
+    general; model selection is needed.
 
     %\idea{It is crucial to have tools for model selection.}
 
-    \begin{figure}[b!]
-        \begin{minipage}{.4\linewidth}
-            \caption{\textbf{Different outcome models lead to different
-                    estimation error on the Average Treatment Effects},
-                with six different outcome
-                models on 77 classic simulations where the true causal effect is
-                known \cite{dorie_automated_2019}. The models are random forests, ridge regression with and without
-                interaction with the treatment,
-                (hyper-parameters detailed in Appendix
-                \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
-                plotted as a function of increasing difference between treated and
-                untreated population --detailed in
-                \autoref{subsec:measuring_overlap}.  \\[1ex]
-                There is no systematic best performer: choosing
-                the best model among a family of candidate estimators is
-                important.
-            }\label{fig:acic_2016_ate_heterogeneity}%
-        \end{minipage}\hfill%
-        \begin{minipage}{.6\linewidth}
-            \centering
-            \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
-        \end{minipage}%
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
+        \caption{\textbf{Different outcome models lead to different
+                estimation errors on the Average Treatment Effects},
+            on 77 classic simulations with known true causal effect
+            \cite{dorie_automated_2019}. The different models are ridge regression
+            and random forests with different hyper-parameters
+            (details
+            \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
+            plotted as a function of increasing difference between treated and
+            untreated population --see
+            \autoref{subsec:measuring_overlap}.
+            There is no systematic best performer; data-driven model
+            selection is important.
+            \label{fig:acic_2016_ate_heterogeneity}%
+        }
     \end{figure}
 
     Standard practices to select models in predictive settings rely on
-    cross-validation on the error on the outcome
+    the error on the outcome
     \cite{poldrack2020establishment,varoquaux2022evaluating}. However, as we
-    will see, these model-selection practices may not pick the best models
+    will see, these practices may not pick the best models
     for causal inference, as they can be misled by inhomogeneities due to
     treatment allocation.
     %
     Given complex, potentially noisy, data, which model is to be most trusted to
-    yield valid causal estimates? Because there is no single learner that performs
+    yield valid causal estimates? As no single learner performs
     best on all data sets, there is a pressing need for clear guidelines to select
     outcome models for causal inference.
 
     \paragraph{Objectives and structure of the paper}
 
-    In this paper, we study \textit{model selection procedures} with a focus
-    on practical settings: \textit{finite samples} settings and without
-    \textit{well-specification} assumption. One question is whether
-    model-selection procedures, that rely on data split, can estimate
-    reliably enough the complex risks, theoretically motivated for causal
-    inference. Indeed, these risks force of departure from standard model-selection
-    procedures as they come with more quantities to estimate, which may
+    In this paper, we study \textit{model selection procedures}
+    in practical settings: \textit{finite samples} settings and without
+    \textit{well-specification} assumption. Asymptotic causal-inference
+    theory calls for complex risks, but a practical question is
+    whether model-selection procedures, that rely on data split, can estimate
+    these risks reliably enough. Indeed, they
+    come with more quantities to estimate, which may
     bring additional variance, leading to worse model selection.
 
-    We first give a simple illustration of the problem of causal model
-    selection and quickly review the important prior art. Then, in Section
-    \ref{sec:framework}, we set causal model selection in the
-    \emph{potential outcome} framework and detail the causal risks and
-    model-selection procedure. Section \ref{sec:theory} gives our theoretical
-    result. In section \ref{sec:empirical_study}, we run a thorough empirical
-    study, with many different settings covered. Finally, we comment our
-    findings in Section \ref{sec:discussion}.
+    We first illustrate the problem of causal model
+    selection and briefly review prior art. Then, Section
+    \ref{sec:framework} sets causal model selection in the
+    \emph{potential outcome} framework and details the causal risks and
+    model-selection procedure. Section \ref{sec:theory} gives theoretical
+    results. Section \ref{sec:empirical_study} details a thorough empirical
+    study, covering many different settings. Finally, Section \ref{sec:discussion}
+    discusses the findings.
     %
     Results outline how to best select outcome models for causal
     inference with an adapted
-    cross-validation that estimate the so-called $R\text{-risk}$.
-    The $R\text{-risk}$
-    modulates observed prediction error to compensate for systematic
-    differences between treated and non-treated individuals. It
-    relies on the two \emph{nuisance} models,
+    cross-validation to estimate the so-called $R\text{-risk}$.
+    This risk compensates for systematic
+    differences between treated and non-treated individuals using
+    two \emph{nuisance} models,
     themselves estimated from data and thus imperfect; yet these
-    imperfections do not undermine the benefit of the $R\text{-risk}$.
+    imperfections do not undermine the $R\text{-risk}$.
 
-    % XXX: merge the two paragraphs, above and below
 
 
     \subsection{Illustration: the best predictor may not estimate best causal
@@ -327,7 +311,7 @@
 
     Using a predictor to reason on causal effects relies on contrasting the
     prediction of the outcome for a given individual with and without the
-    treatment --as detailed in \autoref{sec:neyman_rubin}.
+    treatment --as detailed in the Methods \autoref{sec:neyman_rubin}.
     %
     Given various predictors of the outcome, we are interested in
     selecting those that estimate best the treatment effect.
@@ -448,8 +432,8 @@
     counterfactual nearest neighbors, which has been shown ineffective
     \cite{schuler_comparison_2018}.
 
-    \section{Formal setting of causal inference and model selection}\label{sec:framework}
-
+    %\section{Formal setting of causal inference and model selection}\label{sec:framework}
+    \section{Methods}\label{sec:framework}
     \subsection{The Neyman-Rubin Potential Outcomes framework}%
     \label{sec:neyman_rubin}%
 
@@ -937,20 +921,19 @@
     \begin{equation}
         \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
     \end{equation}
+    \begin{align}
+        \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
+                             & = \int_{\mathcal X, \mathcal A}
+        \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
+    \end{align}
     \begin{equation}
-        \mu\text{-risk}(\mu) = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] = \int_{\mathcal X, \mathcal A}
-        \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)
-    \end{equation}
-    \hspace*{0.5em}
-    \begin{equation}
-        \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{follows from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
+        \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
         %\notag
     \end{equation}
-    \hspace*{0.5em}
-    \begin{equation}
+    \begin{multline}
         R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
-        \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \quad \text{follows directly from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
-    \end{equation}
+        \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
+    \end{multline}
     Thus, differences between causal risks only matter in finite sample regimes.
     Universally consistent learners converge to the Bayes risk in asymptotic
     regimes, making all model selection risks equivalent. However, in practice

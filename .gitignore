@@ -10,3 +10,6 @@
 *.xml
 *.bcf
 *.bbl
+how_to_select_causal_models.aux
+how_to_select_causal_models.log
+how_to_select_causal_models.fdb_latexmk

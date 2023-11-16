@@ -2505,7 +2505,7 @@
     <bcf:citekey order="117">robinson_rootnconsistent_1988</bcf:citekey>
     <bcf:citekey order="118">gretton2012kernel</bcf:citekey>
     <bcf:citekey order="119">shalit_estimating_2017</bcf:citekey>
-    <bcf:citekey order="119">johansson_generalization_2021</bcf:citekey>
+    <bcf:citekey order="119">johansson2022generalization</bcf:citekey>
     <bcf:citekey order="120">sriperumbudur_integral_2009</bcf:citekey>
     <bcf:citekey order="121">dorie_automated_2019</bcf:citekey>
     <bcf:citekey order="122">dorie_automated_2019</bcf:citekey>
@@ -2619,14 +2619,13 @@
     <bcf:citekey order="230">pedregosa_scikitlearn_2011</bcf:citekey>
     <bcf:citekey order="231">jesson_identifying_2020</bcf:citekey>
     <bcf:citekey order="232">gretton2012kernel</bcf:citekey>
-    <bcf:citekey order="233">johansson_generalization_2021</bcf:citekey>
-    <bcf:citekey order="234">sriperumbudur_integral_2009</bcf:citekey>
-    <bcf:citekey order="235">laan_super_2007</bcf:citekey>
-    <bcf:citekey order="236">causalevaluations</bcf:citekey>
-    <bcf:citekey order="237">econml</bcf:citekey>
-    <bcf:citekey order="238">loiseau_external_2022</bcf:citekey>
-    <bcf:citekey order="239">gao_assessment_2021</bcf:citekey>
-    <bcf:citekey order="240">tmle_package_2012</bcf:citekey>
+    <bcf:citekey order="233">sriperumbudur_integral_2009</bcf:citekey>
+    <bcf:citekey order="234">laan_super_2007</bcf:citekey>
+    <bcf:citekey order="235">causalevaluations</bcf:citekey>
+    <bcf:citekey order="236">econml</bcf:citekey>
+    <bcf:citekey order="237">loiseau_external_2022</bcf:citekey>
+    <bcf:citekey order="238">gao_assessment_2021</bcf:citekey>
+    <bcf:citekey order="239">tmle_package_2012</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

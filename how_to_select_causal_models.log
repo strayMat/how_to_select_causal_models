@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  16 NOV 2023 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  16 NOV 2023 18:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -852,15 +852,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'how_to_select_causal_models.bbl' found.
- (./how_to_select_causal_models.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                johansson_generalization_2021
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+ (./how_to_select_causal_models.bbl)
 Package biblatex Info: Reference section=0 on input line 77.
 Package biblatex Info: Reference segment=0 on input line 77.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
@@ -878,23 +870,11 @@ Underfull \hbox (badness 7759) in paragraph at lines 118--118
 [][]\T1/ptm/b/n/12 Extending pre-dic-tion to pre-scrip-tion needs
  []
 
-<images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf, id=180, 946.34492pt x 597.16pt>
+<images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf, id=181, 946.34492pt x 597.16pt>
 File: images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf Graphic file (type pdf)
 <use images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf>
 Package pdftex.def Info: images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf  used on input line 219.
 (pdftex.def)             Requested size: 236.51277pt x 149.24406pt.
-
-Package hyperref Warning: Suppressing empty link on input line 261.
-
-
-Package hyperref Warning: Suppressing empty link on input line 263.
-
-
-Package hyperref Warning: Suppressing empty link on input line 264.
-
-
-Package hyperref Warning: Suppressing empty link on input line 265.
-
 [2
 
 
@@ -903,7 +883,7 @@ LaTeX Font Info:    Trying to load font information for T1+phv on input line 284
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-<images/toy_random_forest_high_R2_high_tau_risk.pdf, id=300, 800.9006pt x 419.24709pt>
+<images/toy_random_forest_high_R2_high_tau_risk.pdf, id=305, 800.9006pt x 419.24709pt>
 File: images/toy_random_forest_high_R2_high_tau_risk.pdf Graphic file (type pdf)
 <use images/toy_random_forest_high_R2_high_tau_risk.pdf>
 Package pdftex.def Info: images/toy_random_forest_high_R2_high_tau_risk.pdf  used on input line 287.
@@ -913,7 +893,7 @@ Overfull \hbox (3.35202pt too wide) in paragraph at lines 290--291
 [][] 
  []
 
-<images/toy_tlinear_model_small_R2_small_tau_risk.pdf, id=301, 780.85023pt x 419.24709pt>
+<images/toy_tlinear_model_small_R2_small_tau_risk.pdf, id=306, 780.85023pt x 419.24709pt>
 File: images/toy_tlinear_model_small_R2_small_tau_risk.pdf Graphic file (type pdf)
 <use images/toy_tlinear_model_small_R2_small_tau_risk.pdf>
 Package pdftex.def Info: images/toy_tlinear_model_small_R2_small_tau_risk.pdf  used on input line 293.
@@ -939,7 +919,7 @@ Underfull \hbox (badness 2173) in paragraph at lines 678--681
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 763.
-<images/estimation_procedure_causal_selection_procedure.png, id=501, 461.35605pt x 185.5581pt>
+<images/estimation_procedure_causal_selection_procedure.png, id=506, 461.35605pt x 185.5581pt>
 File: images/estimation_procedure_causal_selection_procedure.png Graphic file (type png)
 <use images/estimation_procedure_causal_selection_procedure.png>
 Package pdftex.def Info: images/estimation_procedure_causal_selection_procedure.png  used on input line 784.
@@ -1007,9 +987,6 @@ Overfull \hbox (5.53392pt too wide) detected at line 903
  []
 
 
-Package hyperref Warning: Suppressing empty link on input line 906.
-
-
 Overfull \hbox (13.2305pt too wide) detected at line 932
 []
  []
@@ -1018,15 +995,12 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 970
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-
-Package hyperref Warning: Suppressing empty link on input line 999.
-
-<images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf, id=573, 1125.98634pt x 875.67104pt>
+<images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf, id=581, 1125.98634pt x 875.67104pt>
 File: images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf Graphic file (type pdf)
 <use images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>
 Package pdftex.def Info: images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf  used on input line 1008.
 (pdftex.def)             Requested size: 248.96162pt x 193.61026pt.
-[7 <./images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>]
+ [7 <./images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1034.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -1056,45 +1030,38 @@ Underfull \hbox (badness 1688) in paragraph at lines 1149--1149
  []
 
 [8]
-<images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf, id=693, 1223.45999pt x 926.42113pt>
+<images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf, id=702, 1223.45999pt x 926.42113pt>
 File: images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf Graphic file (type pdf)
 <use images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf>
 Package pdftex.def Info: images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf  used on input line 1169.
 (pdftex.def)             Requested size: 248.96162pt x 188.50395pt.
 
-
-LaTeX Warning: Reference `apd:fig:relative_kendalls_all_datasets_all_metrics' on page 9 undefined on input line 1178.
-
-
-LaTeX Warning: Reference `apd:fig:relative_kendalls_all_datasets_all_metrics' on page 9 undefined on input line 1178.
-
-
 Underfull \hbox (badness 1496) in paragraph at lines 1229--1237
  []\T1/ptm/b/n/10 Model se-lec-tion is harder for low pop-u-la-tion over-lap[]
  []
 
-<images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf, id=714, 1350.3535pt x 907.44092pt>
+<images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf, id=725, 1350.3535pt x 907.44092pt>
 File: images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf Graphic file (type pdf)
 <use images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf>
 Package pdftex.def Info: images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf  used on input line 1240.
 (pdftex.def)             Requested size: 248.96162pt x 167.29239pt.
-<images/_3_procedure_r_risk_only_3datasets_twocols.pdf, id=725, 1333.17789pt x 490.10541pt>
+<images/_3_procedure_r_risk_only_3datasets_twocols.pdf, id=736, 1333.17789pt x 490.10541pt>
 File: images/_3_procedure_r_risk_only_3datasets_twocols.pdf Graphic file (type pdf)
 <use images/_3_procedure_r_risk_only_3datasets_twocols.pdf>
 Package pdftex.def Info: images/_3_procedure_r_risk_only_3datasets_twocols.pdf  used on input line 1267.
 (pdftex.def)             Requested size: 248.96162pt x 91.52061pt.
 [9 <./images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf> <./images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf>]
-<images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf, id=929, 1296.11914pt x 475.0021pt>
+<images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf, id=940, 1296.11914pt x 475.0021pt>
 File: images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf Graphic file (type pdf)
 <use images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf>
 Package pdftex.def Info: images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf  used on input line 1298.
 (pdftex.def)             Requested size: 248.96162pt x 91.23705pt.
-<images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf, id=933, 1204.63858pt x 453.3211pt>
+<images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf, id=944, 1204.63858pt x 453.3211pt>
 File: images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf Graphic file (type pdf)
 <use images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf>
 Package pdftex.def Info: images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf  used on input line 1344.
 (pdftex.def)             Requested size: 256.07481pt x 96.3623pt.
-<images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf, id=934, 1324.84854pt x 379.35614pt>
+<images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf, id=945, 1324.84854pt x 379.35614pt>
 File: images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf Graphic file (type pdf)
 <use images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf>
 Package pdftex.def Info: images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf  used on input line 1349.
@@ -1108,9 +1075,6 @@ Overfull \hbox (7.11319pt too wide) in paragraph at lines 1342--1355
 Overfull \hbox (7.11319pt too wide) in paragraph at lines 1342--1355
 []$ 
  []
-
-
-Package hyperref Warning: No autoref name for `definition' on input line 1372.
 
 [10 <./images/_3_procedure_r_risk_only_3datasets_twocols.pdf> <./images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf> <./images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf> <./images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 1429--1429
@@ -1314,46 +1278,43 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 Package hyperref Warning: Suppressing empty link on input line 1665.
 
-
-LaTeX Warning: Citation 'johansson_generalization_2021' on page 18 undefined on input line 1680.
-
 [18]
-<images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf, id=1342, 917.00967pt x 386.60341pt>
+<images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf, id=1354, 917.00967pt x 386.60341pt>
 File: images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf Graphic file (type pdf)
 <use images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf>
 Package pdftex.def Info: images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf  used on input line 1780.
 (pdftex.def)             Requested size: 512.14963pt x 215.91832pt.
-<images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf, id=1343, 925.6984pt x 386.60341pt>
+<images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf, id=1355, 925.6984pt x 386.60341pt>
 File: images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf Graphic file (type pdf)
 <use images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf>
 Package pdftex.def Info: images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf  used on input line 1786.
 (pdftex.def)             Requested size: 512.14963pt x 213.88904pt.
-<images/overlap_measure_acic_2016_recovery_overlap_setup.pdf, id=1346, 881.01645pt x 674.27654pt>
+<images/overlap_measure_acic_2016_recovery_overlap_setup.pdf, id=1358, 881.01645pt x 674.27654pt>
 File: images/overlap_measure_acic_2016_recovery_overlap_setup.pdf Graphic file (type pdf)
 <use images/overlap_measure_acic_2016_recovery_overlap_setup.pdf>
 Package pdftex.def Info: images/overlap_measure_acic_2016_recovery_overlap_setup.pdf  used on input line 1800.
 (pdftex.def)             Requested size: 358.50317pt x 274.37686pt.
-<images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf, id=1347, 924.79567pt x 668.81741pt>
+<images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf, id=1359, 924.79567pt x 668.81741pt>
 File: images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf Graphic file (type pdf)
 <use images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf>
 Package pdftex.def Info: images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf  used on input line 1809.
 (pdftex.def)             Requested size: 358.50317pt x 259.26611pt.
-<images/overlap_measure_caussim_max_ipw_vs_ntv.pdf, id=1348, 908.4941pt x 668.81741pt>
+<images/overlap_measure_caussim_max_ipw_vs_ntv.pdf, id=1360, 908.4941pt x 668.81741pt>
 File: images/overlap_measure_caussim_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images/overlap_measure_caussim_max_ipw_vs_ntv.pdf>
 Package pdftex.def Info: images/overlap_measure_caussim_max_ipw_vs_ntv.pdf  used on input line 1818.
 (pdftex.def)             Requested size: 240.71094pt x 177.20515pt.
-<images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf, id=1349, 908.4941pt x 668.81741pt>
+<images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf, id=1361, 908.4941pt x 668.81741pt>
 File: images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf>
 Package pdftex.def Info: images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf  used on input line 1825.
 (pdftex.def)             Requested size: 240.71094pt x 177.20515pt.
-<images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf, id=1350, 908.73781pt x 703.657pt>
+<images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf, id=1362, 908.73781pt x 703.657pt>
 File: images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf>
 Package pdftex.def Info: images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf  used on input line 1831.
 (pdftex.def)             Requested size: 240.71094pt x 186.38232pt.
-<images/overlap_measure_twins_max_ipw_vs_ntv.pdf, id=1351, 908.4941pt x 668.81741pt>
+<images/overlap_measure_twins_max_ipw_vs_ntv.pdf, id=1363, 908.4941pt x 668.81741pt>
 File: images/overlap_measure_twins_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images/overlap_measure_twins_max_ipw_vs_ntv.pdf>
 Package pdftex.def Info: images/overlap_measure_twins_max_ipw_vs_ntv.pdf  used on input line 1838.
@@ -1364,146 +1325,145 @@ Overfull \hbox (43.90459pt too wide) in paragraph at lines 1924--1946
  []
 
 (./images/_1_r_risk_domination_boxplot_df.tex)
-<images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1797, 959.443pt x 669.71304pt>
+<images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf, id=1810, 1917.26003pt x 989.51567pt>
+File: images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf Graphic file (type pdf)
+<use images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf>
+Package pdftex.def Info: images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf  used on input line 1986.
+(pdftex.def)             Requested size: 512.14963pt x 264.31914pt.
+<images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1813, 959.443pt x 669.71304pt>
 File: images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf Graphic file (type pdf)
 <use images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf>
-Package pdftex.def Info: images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 1985.
+Package pdftex.def Info: images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 2004.
 (pdftex.def)             Requested size: 225.34708pt x 157.29062pt.
-<images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1798, 959.443pt x 669.71304pt>
+<images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1814, 959.443pt x 669.71304pt>
 File: images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf Graphic file (type pdf)
 <use images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf>
-Package pdftex.def Info: images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 1992.
+Package pdftex.def Info: images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 2011.
 (pdftex.def)             Requested size: 225.34708pt x 157.29062pt.
-<images/legend_metrics.pdf, id=1799, 350.5095pt x 793.5246pt>
+<images/legend_metrics.pdf, id=1815, 350.5095pt x 793.5246pt>
 File: images/legend_metrics.pdf Graphic file (type pdf)
 <use images/legend_metrics.pdf>
-Package pdftex.def Info: images/legend_metrics.pdf  used on input line 1998.
+Package pdftex.def Info: images/legend_metrics.pdf  used on input line 2017.
 (pdftex.def)             Requested size: 76.82712pt x 173.9221pt.
 
-Overfull \hbox (25.60904pt too wide) in paragraph at lines 1998--1999
+Overfull \hbox (25.60904pt too wide) in paragraph at lines 2017--2018
  [][] 
  []
 
-<images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1800, 959.443pt x 669.58145pt>
+<images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1816, 959.443pt x 669.58145pt>
 File: images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf Graphic file (type pdf)
 <use images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf>
-Package pdftex.def Info: images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2003.
+Package pdftex.def Info: images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2022.
 (pdftex.def)             Requested size: 225.34708pt x 157.2597pt.
-<images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1801, 959.443pt x 669.71304pt>
+<images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1817, 959.443pt x 669.71304pt>
 File: images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf Graphic file (type pdf)
 <use images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>
-Package pdftex.def Info: images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2010.
+Package pdftex.def Info: images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2029.
 (pdftex.def)             Requested size: 225.34708pt x 157.29062pt.
-<images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1804, 959.00894pt x 669.71304pt>
+<images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1820, 959.00894pt x 669.71304pt>
 File: images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf Graphic file (type pdf)
 <use images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf>
-Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 2044.
+Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 2063.
 (pdftex.def)             Requested size: 225.34708pt x 157.36215pt.
-<images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1805, 958.67021pt x 669.02835pt>
+<images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1821, 958.67021pt x 669.02835pt>
 File: images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf Graphic file (type pdf)
 <use images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf>
-Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 2051.
+Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 2070.
 (pdftex.def)             Requested size: 225.34708pt x 157.26251pt.
 File: images/legend_metrics.pdf Graphic file (type pdf)
 <use images/legend_metrics.pdf>
-Package pdftex.def Info: images/legend_metrics.pdf  used on input line 2057.
+Package pdftex.def Info: images/legend_metrics.pdf  used on input line 2076.
 (pdftex.def)             Requested size: 76.82712pt x 173.9221pt.
 
-Overfull \hbox (25.60904pt too wide) in paragraph at lines 2057--2058
+Overfull \hbox (25.60904pt too wide) in paragraph at lines 2076--2077
  [][] 
  []
 
-<images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1806, 958.67021pt x 668.89676pt>
+<images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1822, 958.67021pt x 668.89676pt>
 File: images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf Graphic file (type pdf)
 <use images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf>
-Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2062.
+Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2081.
 (pdftex.def)             Requested size: 225.34708pt x 157.23158pt.
-<images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1807, 958.67021pt x 669.71304pt>
+<images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1823, 958.67021pt x 669.71304pt>
 File: images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf Graphic file (type pdf)
 <use images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>
-Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2069.
+Package pdftex.def Info: images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2088.
 (pdftex.def)             Requested size: 225.34708pt x 157.42346pt.
-<images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf, id=1809, 1941.02742pt x 635.25356pt>
+<images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf, id=1825, 1941.02742pt x 635.25356pt>
 File: images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
 <use images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf>
-Package pdftex.def Info: images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2101.
+Package pdftex.def Info: images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2120.
 (pdftex.def)             Requested size: 530.06844pt x 173.47878pt.
 
-Overfull \hbox (69.1369pt too wide) in paragraph at lines 2101--2103
+Overfull \hbox (69.1369pt too wide) in paragraph at lines 2120--2122
 [][]
  []
 
-<images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf, id=1810, 1621.24556pt x 635.25356pt>
+<images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf, id=1826, 1621.24556pt x 635.25356pt>
 File: images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
 <use images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf>
-Package pdftex.def Info: images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2108.
+Package pdftex.def Info: images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2127.
 (pdftex.def)             Requested size: 460.93153pt x 180.60326pt.
-<images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf, id=1811, 1621.24556pt x 730.06639pt>
+<images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf, id=1827, 1621.24556pt x 730.06639pt>
 File: images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
 <use images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>
-Package pdftex.def Info: images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2115.
+Package pdftex.def Info: images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2134.
 (pdftex.def)             Requested size: 460.93153pt x 207.55864pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2122
+Underfull \hbox (badness 10000) in paragraph at lines 2117--2141
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2122
+Underfull \hbox (badness 10000) in paragraph at lines 2117--2141
 []
  []
 
 
-LaTeX Warning: Float too large for page by 6.90598pt on input line 2124.
+LaTeX Warning: Float too large for page by 6.90598pt on input line 2143.
 
-<images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf, id=1812, 1946.56091pt x 1426.60995pt>
+<images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf, id=1828, 1946.56091pt x 1426.60995pt>
 File: images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf Graphic file (type pdf)
 <use images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf>
-Package pdftex.def Info: images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf  used on input line 2133.
+Package pdftex.def Info: images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf  used on input line 2152.
 (pdftex.def)             Requested size: 512.14963pt x 375.35057pt.
-<images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1817, 1624.96759pt x 730.06639pt>
+<images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1833, 1624.96759pt x 730.06639pt>
 File: images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2157.
+Package pdftex.def Info: images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2176.
 (pdftex.def)             Requested size: 250.95612pt x 112.74693pt.
-<images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1818, 1624.96759pt x 730.06639pt>
+<images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1834, 1624.96759pt x 730.06639pt>
 File: images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2164.
+Package pdftex.def Info: images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2183.
 (pdftex.def)             Requested size: 250.95612pt x 112.74693pt.
-<images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1819, 1916.31265pt x 635.25356pt>
+<images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1835, 1916.31265pt x 635.25356pt>
 File: images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2171.
+Package pdftex.def Info: images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2190.
 (pdftex.def)             Requested size: 288.59799pt x 95.66194pt.
 
-Overfull \hbox (37.64188pt too wide) in paragraph at lines 2171--2173
+Overfull \hbox (37.64188pt too wide) in paragraph at lines 2190--2192
 [][]
  []
 
-<images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1820, 1624.96759pt x 635.25356pt>
+<images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1836, 1624.96759pt x 635.25356pt>
 File: images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2178.
+Package pdftex.def Info: images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2197.
 (pdftex.def)             Requested size: 250.95612pt x 98.10463pt.
-<images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf, id=1821, 1667.57231pt x 487.44922pt>
+<images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf, id=1837, 1667.57231pt x 487.44922pt>
 File: images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf Graphic file (type pdf)
 <use images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf>
-Package pdftex.def Info: images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf  used on input line 2194.
+Package pdftex.def Info: images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf  used on input line 2213.
 (pdftex.def)             Requested size: 512.14963pt x 149.70193pt.
-<images/caussim_seed_effect.pdf, id=1824, 1257.56961pt x 460.43643pt>
+[23] [24]
+<images/caussim_seed_effect.pdf, id=1858, 1257.56961pt x 460.43643pt>
 File: images/caussim_seed_effect.pdf Graphic file (type pdf)
 <use images/caussim_seed_effect.pdf>
-Package pdftex.def Info: images/caussim_seed_effect.pdf  used on input line 2223.
+Package pdftex.def Info: images/caussim_seed_effect.pdf  used on input line 2242.
 (pdftex.def)             Requested size: 512.14963pt x 187.5085pt.
-[23] [24] [25 <./images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images/legend_metrics.pdf> <./images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [26 <./images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [27 <./images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf> <./images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf> <./images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>] [28 <./images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf>] [29 <./images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf>]
-
-Package hyperref Warning: No autoref name for `definition' on input line 2237.
-
-[30 <./images/caussim_seed_effect.pdf>] (./how_to_select_causal_models.aux)
-
-LaTeX Warning: There were undefined references.
-
+ [25 <./images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf>] [26 <./images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images/legend_metrics.pdf> <./images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [27 <./images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [28 <./images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf> <./images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf> <./images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>] [29 <./images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf>] [30 <./images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf>] [31 <./images/caussim_seed_effect.pdf>] (./how_to_select_causal_models.aux)
 Package rerunfilecheck Info: File `how_to_select_causal_models.out' has not changed.
 (rerunfilecheck)             Checksum: 3566C9639621731E5FB9FC859A0A984C;6930.
 Package logreq Info: Writing requests to 'how_to_select_causal_models.run.xml'.
@@ -1511,18 +1471,18 @@ Package logreq Info: Writing requests to 'how_to_select_causal_models.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26014 strings out of 480171
- 525707 string characters out of 5894489
- 1195759 words of memory out of 5000000
- 43325 multiletter control sequences out of 15000+600000
+ 26023 strings out of 480171
+ 526361 string characters out of 5894489
+ 1195970 words of memory out of 5000000
+ 43330 multiletter control sequences out of 15000+600000
  539520 words of font info for 110 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  70i,18n,79p,2153b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on how_to_select_causal_models.pdf (30 pages, 12312352 bytes).
+Output written on how_to_select_causal_models.pdf (31 pages, 12364862 bytes).
 PDF statistics:
- 3224 PDF objects out of 3580 (max. 8388607)
- 1303 compressed objects within 14 object streams
- 276 named destinations out of 1000 (max. 500000)
- 423 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3366 PDF objects out of 3580 (max. 8388607)
+ 1335 compressed objects within 14 object streams
+ 279 named destinations out of 1000 (max. 500000)
+ 428 words of extra memory for PDF output out of 10000 (max. 10000000)
 

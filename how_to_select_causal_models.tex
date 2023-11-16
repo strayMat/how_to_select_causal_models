@@ -201,7 +201,7 @@ The wide variety of methods raises the problem
 of selecting between different estimators based on the data at hand.
 %
 Indeed, estimates of treatment effects can vary markedly across different
-predictive models. For instance, Figure shows
+predictive models. For instance, Figure \ref{fig:acic_2016_ate_heterogeneity} shows
 large variations obtained across different outcome estimators on
 semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models
 such as random forests are doing well in most settings except
@@ -257,13 +257,13 @@ come with more quantities to estimate, which may
 bring additional variance, leading to worse model selection.
 
 We first illustrate the problem of causal model
-selection and briefly review prior art. Then, Section
-\ref{sec:framework} sets causal model selection in the
+selection and briefly review prior art. Then the methods
+\autoref{sec:framework} sets causal model selection in the
 \emph{potential outcome} framework and details the causal risks and
-model-selection procedure. Section \ref{sec:theory} gives theoretical
-results. Section \ref{sec:empirical_study} details a thorough empirical
-study, covering many different settings. Finally, Section \ref{sec:discussion}
-discusses the findings.
+model-selection procedure. The next \autoref{sec:theory} gives theoretical
+results. The results \autoref{sec:empirical_study} details a thorough empirical
+study, covering many different settings. Finally, we
+discuss the findings in the last \autoref{sec:discussion}.
 %
 Results outline how to best select outcome models for causal
 inference with an adapted
@@ -279,7 +279,7 @@ imperfections do not undermine the $R\text{-risk}$.
 \subsection{Illustration: the best predictor may not estimate best causal
     effects}%
 
-\begin{figure}[t!]
+\begin{figure}[b!]
     %\centering
     {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
             causal inference}}
@@ -565,7 +565,7 @@ $m$ and $e$ are often called
 %is the expected effect of the treatment in the region of the covariate space
 %around X. %Too cultivate
 
-\begin{table*}[!tb]
+\begin{table*}[bt!]
     \makebox[\textwidth]{
         \begin{threeparttable}[b]
             \caption{Review of causal risks
@@ -903,7 +903,7 @@ $\mu\text{-risk}_{IPW}$ takes a simpler form:
 \end{equation*}
 However, we still can have large differences
 between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
-errors between populations as noted in Section \ref{theory:mu_risk_ipw_bound}
+errors between populations as noted by Proposition \ref{theory:prop:mu_risk_ipw_bound}
 and shown experimentally in \citet{schuler_comparison_2018} and our
 results below.
 
@@ -995,10 +995,10 @@ draw the non-treated response surface $\mu_0$ and the causal effect $\tau$. We
 then draw the observations from a mixture two Gaussians, for the treated and non
 treated. We vary the separation between the two Gaussians to control the
 overlap between treated and non-treated populations, an important parameter
-for causal inference (related to $\eta$ in section
-\ref{theory:mu_risk_ipw_bound}). Finally, we generate observed outcomes
+for causal inference (related to $\eta$ in Proposition
+\ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed outcomes
 adding Gaussian noise. We generate 1\,000 of such datasets, with
-uniformly random overlap parameters. Details in
+uniformly random overlap parameters. Example shown in Figure \ref{fig:simulation_examples} and details in
 \ref{apd:experiments:generation}.
 
 \captionsetup[sub]{font=large,labelfont={bf,sf}}%
@@ -1369,7 +1369,7 @@ Our results highlight that they should be selected, validated, and tuned
 using different procedures and error measures than those classically used
 to assess prediction (estimating the so-called $\mu\text{-risk}$).
 Rather, selecting the best outcome model according to the $R\text{-risk}$
-(eq.\,\autoref{def:r_risk}) leads to more valid causal estimates.
+(eq.\, Definition \ref{def:r_risk}) leads to more valid causal estimates.
 
 \paragraph{Nuisance models: more gain than pain}
 %
@@ -1391,7 +1391,7 @@ are estimated-- performs almost as well as an oracle $R\text{-risk}$ --where the
 nuisances are known. This may be explained by
 results that suggest that estimation errors on both
 nuisances partly compensate out in the
-$R\text{-risk} $\cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018,zivich2021machine,naimi2021challenges}.
+$R\text{-risk}$ \cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018,zivich2021machine,naimi2021challenges}.
 
 Note that propensity score models must be selected to estimate
 the individual posterior probability. For this, we used the Brier score,
@@ -1677,7 +1677,7 @@ outside of simulation, requires a sophisticated estimator of discrepancy
 between distributions, as two data points never have the same exact set of
 features. Maximum Mean Discrepancy \cite{gretton2012kernel} is typically
 used in the context of causal inference
-\cite{shalit_estimating_2017,johansson_generalization_2021}. However it
+\cite{shalit_estimating_2017,johansson2022generalization}. However it
 needs a kernel, typically Gaussian, to extrapolate across neighboring
 observations. We prefer avoiding the need to specify such a kernel, as it must
 be adapted to the data which is tricky with categorical or non-Gaussian
@@ -1973,6 +1973,25 @@ $[-1, 1]$ range.
         \ref{fig:relative_kendalls_all_datasets}}\label{apd:table:relative_kendalls_all_datasets}
 \end{table}
 
+
+\paragraph{Figure \ref{apd:fig:relative_kendalls_all_datasets_all_metrics} -
+    Results measured in relative Kendall's for feasible and semi-oracle risks}
+
+Because of extreme propensity scores in the denominator and bayes error residuals in the numerator, the semi-oracle
+$U$-risk has poor performances at bad overlap. Estimating these propensity scores in the is feasible $U$-risk reduces
+the variance since clipping is performed.
+
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf}
+    %\hfill
+    \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$
+        agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
+        the first and last tertiles of the overlap distribution measured with
+        Normalized Total Variation eq. \ref{eq:ntv}.
+    }\label{apd:fig:relative_kendalls_all_datasets_all_metrics}
+\end{figure}
+
 \paragraph{Figure \ref{apd:fig:all_datasets_tau_risk_ranking_agreement} -
     Results measured in absolute Kendall's}
 
@@ -2234,7 +2253,7 @@ allocate to train models, outcomes and nuisances, and to evaluate them.
 Before even model selection, data splitting is often required for
 estimation of the treatment effect, ATE or CATE, for instance to compute
 the nuisances required to optimize the outcome model (as the
-$R\text{-risk}$, definition \autoref{def:r_risk}).
+$R\text{-risk}$, Definition \ref{def:r_risk}).
 %
 The most frequent choice is use 80\% of the data to fit the models,
 and 20\% to evaluate them.

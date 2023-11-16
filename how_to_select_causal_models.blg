@@ -1,17 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'how_to_select_causal_models.blg'
-[41] biber:340> INFO - === Thu Nov 16, 2023, 17:47:00
-[50] Biber.pm:418> INFO - Reading 'how_to_select_causal_models.bcf'
-[108] Biber.pm:972> INFO - Found 99 citekeys in bib section 0
-[115] Biber.pm:4383> INFO - Processing section 0
-[122] Biber.pm:4574> INFO - Looking for bibtex file 'biblio.bib' for section 0
-[126] bibtex.pm:1713> INFO - LaTeX decoding ...
-[199] bibtex.pm:1518> INFO - Found BibTeX data source 'biblio.bib'
-[576] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[576] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[576] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[576] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[642] bbl.pm:654> INFO - Writing 'how_to_select_causal_models.bbl' with encoding 'UTF-8'
-[682] bbl.pm:757> INFO - Output to how_to_select_causal_models.bbl
-[682] Biber.pm:130> WARN - I didn't find a database entry for 'johansson_generalization_2021' (section 0)
-[682] Biber.pm:132> INFO - WARNINGS: 1
+[36] biber:340> INFO - === Thu Nov 16, 2023, 18:44:54
+[43] Biber.pm:418> INFO - Reading 'how_to_select_causal_models.bcf'
+[86] Biber.pm:972> INFO - Found 98 citekeys in bib section 0
+[93] Biber.pm:4383> INFO - Processing section 0
+[98] Biber.pm:4574> INFO - Looking for bibtex file 'biblio.bib' for section 0
+[102] bibtex.pm:1713> INFO - LaTeX decoding ...
+[168] bibtex.pm:1518> INFO - Found BibTeX data source 'biblio.bib'
+[560] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[560] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[561] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[561] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[626] bbl.pm:654> INFO - Writing 'how_to_select_causal_models.bbl' with encoding 'UTF-8'
+[665] bbl.pm:757> INFO - Output to how_to_select_causal_models.bbl

@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber how_to_select_causal_models"] 1700153219 "how_to_select_causal_models.bcf" "how_to_select_causal_models.bbl" "how_to_select_causal_models" 1700154713
+["biber how_to_select_causal_models"] 1700156694 "how_to_select_causal_models.bcf" "how_to_select_causal_models.bbl" "how_to_select_causal_models" 1700156698
   "biblio.bib" 1700151342 88053 a1b582b1e767bb2933769ccd0e448a6d ""
-  "how_to_select_causal_models.bcf" 1700154713 125017 dedb7b2c5dbc440e7252b4f09e6972c6 "pdflatex"
+  "how_to_select_causal_models.bcf" 1700156698 124942 3271eff58b8318e1c22545a7c3c1288c "pdflatex"
   (generated)
   "how_to_select_causal_models.bbl"
   "how_to_select_causal_models.blg"
-["pdflatex"] 1700154711 "/home/mdoutrel/projets/inria/papiers/finished_papers/how_to_select_causal_models_bmc/how_to_select_causal_models.tex" "how_to_select_causal_models.pdf" "how_to_select_causal_models" 1700154713
+["pdflatex"] 1700156697 "/home/mdoutrel/projets/inria/papiers/finished_papers/how_to_select_causal_models_bmc/how_to_select_causal_models.tex" "how_to_select_causal_models.pdf" "how_to_select_causal_models" 1700156698
   "/etc/texmf/web2c/texmf.cnf" 1681411568 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/mdoutrel/projets/inria/papiers/finished_papers/how_to_select_causal_models_bmc/how_to_select_causal_models.tex" 1700154709 113516 8551cf0de62c08999c5823dfe7ed0892 ""
+  "/home/mdoutrel/projets/inria/papiers/finished_papers/how_to_select_causal_models_bmc/how_to_select_causal_models.tex" 1700156689 114637 dcad8507e8b755f0e000c9a422c38462 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136768653 1292 bd42be2f344128bff6d35d98474adfe3 ""
@@ -201,13 +201,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689839141 362444 d082a522277925383c40fd9e80e279fd ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685515347 1435925 f40903dc6276f456956d671aa55b0225 ""
-  "how_to_select_causal_models.aux" 1700154713 60750 1d4833f3ddd5ebf1d5594a6e293bfba8 "pdflatex"
-  "how_to_select_causal_models.bbl" 1700153221 211765 d0e09578061060037c1248e29fd0f432 "biber how_to_select_causal_models"
-  "how_to_select_causal_models.out" 1700154713 6930 3566c9639621731e5fb9fc859a0a984c "pdflatex"
-  "how_to_select_causal_models.run.xml" 1700154713 2496 41efc3df8bf961d507faab0f0f510255 "pdflatex"
-  "how_to_select_causal_models.tex" 1700154709 113516 8551cf0de62c08999c5823dfe7ed0892 ""
+  "how_to_select_causal_models.aux" 1700156698 61730 4ec0b2ef8aa836cada7e1ae4200ffacf "pdflatex"
+  "how_to_select_causal_models.bbl" 1700156695 211723 47daf4da955c37910d85249e7098e6dd "biber how_to_select_causal_models"
+  "how_to_select_causal_models.out" 1700156698 6930 3566c9639621731e5fb9fc859a0a984c "pdflatex"
+  "how_to_select_causal_models.run.xml" 1700156698 2496 41efc3df8bf961d507faab0f0f510255 "pdflatex"
+  "how_to_select_causal_models.tex" 1700156689 114637 dcad8507e8b755f0e000c9a422c38462 ""
   "images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf" 1700132142 32750 a31afaab1b47753ea1c09a224245e5c1 ""
   "images/_1_r_risk_domination_boxplot_df.tex" 1700132142 7155 fdcc8ecb83a8c54962d358b3fe3dfe9b ""
+  "images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf" 1700132142 58847 8a0a03b0f3deeffaa06896f086bcfbea ""
   "images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf" 1700153213 43739 0a902a585fd56a96e636473cb25916e5 ""
   "images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf" 1700132142 61452 496967102bf2fe0e893b63f5a26f997a ""
   "images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf" 1700153685 31432 7f0b2b59b896d62c3d3818b689011e43 ""

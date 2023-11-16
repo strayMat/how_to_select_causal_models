@@ -1,1 +1,12 @@
-how_to_select_causal_models.pdf
+# unwanted latex outputs                                                                                                                                                                    *.aux                                                                                                                                                                                       *.fdb_latexmk                                                                                                                                                                               *.log
+*.fls
+*.jmlr-sample.out
+*.bbl
+*.blg
+*.synctex.gz
+*.out
+*.toc
+*.pag
+*.xml
+*.bcf
+*.bbl

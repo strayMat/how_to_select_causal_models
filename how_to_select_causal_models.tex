@@ -1,6 +1,7 @@
 %\documentclass[MYBIB,STIX1COL]{WileyNJD-v2}
-\documentclass[10pt]{article}
+\documentclass[10pt,twocolumn]{article}
 
+\usepackage[a4paper, left=15mm, right=15mm, top=20mm,]{geometry}
 % declared functions and additional packages
 \usepackage{caption}
 \usepackage{subcaption}
@@ -23,9 +24,9 @@
 \DeclareNameAlias{default}{last-first}
 \usepackage{placeins}
 % associated arxiv class
-\usepackage{arxiv}
+%\usepackage{arxiv}
 \usepackage{multicol}
-\setlength{\columnsep}{1cm}
+\setlength{\columnsep}{0.5cm}
 \usepackage{wrapfig}
 %\usepackage{wraptable}
 \usepackage{authblk}% for author affiliations
@@ -34,8 +35,8 @@
 \usepackage{comment}
 \setcounter{secnumdepth}{0}
 
-\setlength{\marginparwidth}{1.5cm}
-\setlength\textwidth{177.8mm}
+\setlength{\marginparwidth}{0.5cm}
+%\setlength\textwidth{177.8mm}
 
 % maths commands
 \newcommand{\indep}{\perp \!\!\! \perp}
@@ -54,7 +55,11 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{assumption}{Assumption}
 \newtheorem{proof}{Proof}
-
+%
+\def\keywordname{{\bfseries \emph{Keywords}}}%
+\def\keywords#1{\par\addvspace\medskipamount{\rightskip=0pt plus1cm
+\def\and{\ifhmode\unskip\nobreak\fi\ $\cdot$
+}\noindent\keywordname\enspace\ignorespaces#1\par}}
 
 \title{How to select predictive models for causal inference?}
 \addbibresource{biblio.bib}
@@ -64,7 +69,7 @@
 
 \affil[1]{Inria, Soda, Saclay, France}
 \affil[2]{Mission Data, Haute Autorité de Santé, Saint-Denis, France}
-\affil[*]{Corresponding author: matthieu.doutreligne@inria.fr}
+\affil[*]{Corresponding author: m.doutreligne@has-sante.fr}
 
 %\raggedbottom
 
@@ -74,9 +79,8 @@
 
 %\corres{*\email{matthieu.doutreligne@inria.fr}}
 
-
+\onecolumn
 \maketitle
-
 \begin{abstract}
     \textbf{Background:}
     As predictive models --\emph{eg} from machine learning-- give likely
@@ -107,1403 +111,1333 @@
 \keywords{Model Selection, Treatment Effect, G-formula, Observational Study, Machine Learning, }
 \clearpage
 
-\begin{multicols}{2}
-
-    \section{Background}\label{sec:intro}
-
-    \subsection{Extending prediction to prescription needs causality}
-
-    Progress in machine learning brings predictive models to new health
-    data \cite{beam2018big,rajkomar2019machine}, with the promise of
-    precision medicine.
-    Automated analysis of
-    medical images is increasingly accurate, \emph{eg} for brain images,
-    \cite{khojaste2022deep,zhang2019radiological} or mammography
-    \cite{yala2019deep,shen2019deep,nassif2022breast}.
-    New prognostic models leverage routinely-collected
-    patient records
-    \cite{mooney2018bigdata}: predicting heart
-    failure from claims \cite{desai2020comparison}, suicide attempts
-    from questionnaires \cite{simon2018predicting}...
-    Clinical notes contain much prognostic information
-    but require text modeling  \cite{horng2017creating,wang2020prediction,spasic2020clinical}.
-    Data may be difficult to
-    control and model, but the accuracy of the prediction can be verified
-    on left-out data
-    \cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
-    Given a model predicting a health outcome, precision medicine
-    would like it to guide decisions: will an individual benefit from an
-    intervention such as surgery \cite{fontana2019can}?
-    Contrasting predictions with and without the treatment gives an answer,
-    but statistical validity requires causal inference
-    \cite{snowden_implementation_2011,blakely2020reflection}.
-
-    % - Causal inference is difficult
-    % - Beyond the dream of assessing effectiveness and safety in real-word
-    %   practice \cite{black1996we} include off-label drug usage 
-    %   \cite{radley2006off} (which may lead to drug repurposing)
-    % - Plug in that outcome modeling is complementary to RCTs: observational
-    %   data gives weaker evidence than trials, but on both data outcome
-    %   modeling opens the door to individual.
-    % - Epidemiology has focused on propensity-score methods
-    % - Principle causal inference with outcome models is possible
-    % - It brings the promises of \emph{individualized treatment effects} --a
-    %   goal related to capturing heterogeneity and thus CATE--
-    % - It also performs well on causal-inference competition, although they
-    %   focused on the ATE
-
-    % The plethora of approaches approaches give different causal-inference
-    % estimates => need for guideline on causal model selection.
-
-    There is a rich causal-inference statistical literature, which bridges to
-    predictive modeling via so-called \emph{outcome models}, or G-computation,
-    G-formula \cite{robins_role_1986}, Q-model \cite{snowden_implementation_2011},
-    conditional mean regression \cite{wendling_comparing_2018}. A central challenge
-    of inference of treatment effects is that of confounding: spurious associations
-    between treatment allocation and baseline health, \emph{eg} only prescribing a
-    drug to mild cases \citep{hernan_causal_2020,vanderweele2019principles}.
-    Controlled allocation of treatment, as in randomized controlled trials (RCTs),
-    alleviate this concern. Yet most machine-learning models are trained on
-    \emph{observational} data, close to real-word practice
-    \cite{black1996we,hernan_methods_2021} but challenging for causal inference.
-    Causal inference has been central to epidemiology, typically with methods that
-    model treatment assignment \cite{austin_moving_2015,grose_use_2020}, based on
-    propensity scores \cite{rosenbaum_central_1983}. Recent empirical results
-    \cite{wendling_comparing_2018,dorie_automated_2019} show benefits of outcome
-    modeling to estimate average treatment effects. Maybe a greater benefit is
-    that these methods naturally go beyond average effects, estimating
-    individualized or conditional average treatment effects (CATE), central to
-    precision medicine.
-    %
-    For this purpose, such methods are also invaluable on randomized trials
-    \cite{su2018random,lamont2018identification,hoogland2021tutorial}.
-
-    %\idea{There is a variety of models for g-estimation}
-    There is an explosion of outcome modeling or machine learning methods.
-    For instance, many deep-learning methods have been developed for medical
-    image analysis \cite{shen2017deep,monshi2020deep}.
-    Even outcome-modeling methods specifically designed for causal
-    inference are numerous: Bayesian Additive Regression Trees
-    \cite{hill_bayesian_2011}, Targeted Maximum Likelihood Estimation
-    \cite{laan_targeted_2011,schuler_targeted_2017}, causal boosting
-    \cite{powers_methods_2018}, causal multivariate adaptive regression
-    splines \cite{powers_methods_2018}, random forests
-    \cite{wager_estimation_2018, athey_generalized_2019},
-    Meta-learners \cite{kunzel_metalearners_2019}, R-learners
-    \cite{nie_quasioracle_2017}, Doubly robust estimation
-    \cite{chernozhukov_double_2018}...
-    %\idea{The variety of estimators calls for model selection procedures}
-    The wide variety of methods raises the problem
-    of selecting between different estimators based on the data at hand.
-    %
-    Indeed, estimates of treatment effects can vary markedly across different
-    predictive models. For instance, Figure shows
-    large variations obtained across different outcome estimators on
-    semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models
-    such as random forests are doing well in most settings except
-    when treated and untreated populations differ noticeably, in
-    which case a linear model (ridge) is to be preferred.
-    However random forests with different hyper-parameters
-    (max depth= 2) yield poor estimates.
-    A simple rule of thumb such as preferring flexible models does not work in
-    general; model selection is needed.
-
-    %\idea{It is crucial to have tools for model selection.}
-
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
-        \caption{\textbf{Different outcome models lead to different
-                estimation errors on the Average Treatment Effects},
-            on 77 classic simulations with known true causal effect
-            \cite{dorie_automated_2019}. The different models are ridge regression
-            and random forests with different hyper-parameters
-            (details
-            \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
-            plotted as a function of increasing difference between treated and
-            untreated population --see
-            \autoref{subsec:measuring_overlap}.
-            There is no systematic best performer; data-driven model
-            selection is important.
-            \label{fig:acic_2016_ate_heterogeneity}%
-        }
-    \end{figure}
-
-    Standard practices to select models in predictive settings rely on
-    the error on the outcome
-    \cite{poldrack2020establishment,varoquaux2022evaluating}. However, as we
-    will see, these practices may not pick the best models
-    for causal inference, as they can be misled by inhomogeneities due to
-    treatment allocation.
-    %
-    Given complex, potentially noisy, data, which model is to be most trusted to
-    yield valid causal estimates? As no single learner performs
-    best on all data sets, there is a pressing need for clear guidelines to select
-    outcome models for causal inference.
-
-    \paragraph{Objectives and structure of the paper}
-
-    In this paper, we study \textit{model selection procedures}
-    in practical settings: \textit{finite samples} settings and without
-    \textit{well-specification} assumption. Asymptotic causal-inference
-    theory calls for complex risks, but a practical question is
-    whether model-selection procedures, that rely on data split, can estimate
-    these risks reliably enough. Indeed, they
-    come with more quantities to estimate, which may
-    bring additional variance, leading to worse model selection.
-
-    We first illustrate the problem of causal model
-    selection and briefly review prior art. Then, Section
-    \ref{sec:framework} sets causal model selection in the
-    \emph{potential outcome} framework and details the causal risks and
-    model-selection procedure. Section \ref{sec:theory} gives theoretical
-    results. Section \ref{sec:empirical_study} details a thorough empirical
-    study, covering many different settings. Finally, Section \ref{sec:discussion}
-    discusses the findings.
-    %
-    Results outline how to best select outcome models for causal
-    inference with an adapted
-    cross-validation to estimate the so-called $R\text{-risk}$.
-    This risk compensates for systematic
-    differences between treated and non-treated individuals using
-    two \emph{nuisance} models,
-    themselves estimated from data and thus imperfect; yet these
-    imperfections do not undermine the $R\text{-risk}$.
-
-
-
-    \subsection{Illustration: the best predictor may not estimate best causal
-        effects}%
-
-    \begin{figure}[b!]
-        \begin{minipage}{.4\linewidth}
-            \caption[The best predictor may not estimate best causal
-                effects]{\textbf{Illustration}: a) a random-forest estimator
-                with high performance for standard prediction (high $R^2$) but that
-                yields poor causal estimates (large error between true effect $\tau$ and
-                estimated $\hat{\tau}$), b) a linear estimator with smaller
-                prediction performance leading to better causal estimation. \\[1ex]
-                Selecting the estimator with the smallest error to the individual
-                treatment effect $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$
-                --the $\tau\text{-risk}$, def.\,\ref{def:tau_risk} -- would lead to
-                the best causal estimates; however computing this error is not
-                feasible: computing it requires access to unknown quantities:
-                $\tau(x)$. \\[1ex]
-                While the random forest fits the data better than the linear model, it
-                gives worse causal inference because its error is very inhomogeneous between
-                the treated and untreated. The $R^2$ score does not capture this
-                inhomogeneity.
-            }\label{fig:toy_example} \end{minipage}\hfill%
-        \begin{minipage}{.577\linewidth}
-            %\centering
-            {\sffamily\small a) Random forest, good average prediction but bad
-                causal inference}
-
-            \hfill%
-            \includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}%
-
-            {\sffamily\small b) Linear model, worse average prediction but better causal inference}
-
-            \hfill%
-            \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
-        \end{minipage}%
-    \end{figure}
-
-    Using a predictor to reason on causal effects relies on contrasting the
-    prediction of the outcome for a given individual with and without the
-    treatment --as detailed in the Methods \autoref{sec:neyman_rubin}.
-    %
-    Given various predictors of the outcome, we are interested in
-    selecting those that estimate best the treatment effect.
-    %
-    Standard predictive modeling or machine-learning practice selects the
-    best predictor, \emph{ie} the one that minimizes the expected error.
-    However, the best predictor may not be the best model to reason about
-    causal effects of an intervention, as we illustrate below.
-
-    Figure \ref{fig:toy_example} gives a toy example: the
-    outcome $Y \in [0, 1]$, the
-    probability of death, a binary treatment $A \in \{0, 1\}$ and a covariate
-    $X \in \mathbb R$ which summarizes the patient health status (eg. the
-    Charlson co-morbidity index \cite{charlson_new_1987}). We simulate a
-    situation for which the treatment is beneficial (decreases
-    mortality) for patients with high Charlson scores (bad health
-    status). On the contrary, the treatment has little effect for patients in good
-    condition (small Charlson scores).
-
-
-    Figure \ref{fig:toy_example}a shows a random forest predictor with a
-    counter-intuitive behavior: it predicts well on average the outcome (as
-    measured by a regression $R^2$ score) but perform poorly to estimate
-    causal quantities: the average treatment effect $\tau$ (as visible via
-    the error $|\tau - \hat{\tau}|$) or the individual treatment
-    effect (the error $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$).
-    %
-    On the contrary, Figure \ref{fig:toy_example}b shows a linear model with
-    smaller $R^2$ score but better causal inference.%
-
-    Intuitively, the problem is that causal estimation requires controlling
-    an error on both treated and non-treated outcome for the same individual:
-    the observed outcome, and the non-observed \emph{counterfactual} one.
-    The linear model is misspecified --the outcome functions are not
-    linear--, leading to poor $R^2$; but it interpolates better to regions
-    where there are few untreated individuals --high Charlson score-- and
-    thus gives better causal estimates. Conversely, the random forest puts
-    weaker assumptions on the data, thus has higher $R^2$ score but is biased
-    by the treated population in the region with poor overlap region, leading
-    to bad causal estimates.
-
-    This toy example illustrates that the classic minimum Mean Square Error
-    criterion is not suited to choosing a model among a family of candidate
-    estimators for causal inference.
-
-
-
-    \subsection{Prior work: model selection for outcome modeling (g-computation)}%
-
-
-    A natural way to select a predictive model for causal inference would be
-    an error measure between a causal quantity such as the conditional
-    average treatment effects (CATE) and models' estimate. But such error is
-    not a ``feasible'' risk: it cannot be computed solely from observed data
-    and requires oracle knowledge.
-
-    % XXX: I think that I should make the following paragraph shorter
-
-    \paragraph{Simulation studies of causal model selection}
-
-    Using eight simulations setups from \cite{powers_methods_2018}, where
-    the oracle CATE is known, \citet{schuler_comparison_2018} compare four
-    causal risks, concluding that for CATE estimation the best
-    model-selection risk is the so-called $R\text{-risk}$
-    \cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
-    empirical results are clear for randomized treatment allocation but less
-    convincing for observational settings where both simple Mean Squared
-    Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
-    reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
-    appear to perform better than $R\text{-risk}$ on half of the simulations.
-    Another work \cite{alaa_validating_2019} studied empirically both MSE and
-    reweighted MSE risks on the semi-synthetic ACIC 2016 datasets
-    \cite{dorie_automated_2019}, but did not include the $R\text{-risk}$ and
-    looked only at the agreement of the best selected model with the true
-    CATE risk --$\tau\text{-risk}(f)$ def.\, \ref{def:tau_risk}--, not on the
-    full ranking of methods compared to the true CATE. We complete these
-    prior empirical work by studying a wider variety of data generative
-    processes and varying the influence of overlap, an important parameter of
-    the data generation process which makes a given causal metric appropriate
-    \cite{damour_overlap_2020}. We also study how to best adapt
-    cross-validation procedures to causal metrics which themselves come with
-    models to estimate.
-
-    \paragraph{Theoretical studies of causal model selection}
-
-    Several theoretical works have proposed causal model selection procedures
-    that are \emph{consistent}: select the best model in a family given
-    asymptotically large data. These work typically rely on introducing a
-    CATE estimator in the testing procedure. For instance matching
-    \citep{rolling_model_2014}, an IPW estimate
-    \citep{gutierrez_causal_2016}, a doubly robust estimator
-    \citep{saito_counterfactual_2020}, or debiasing the error with influence
-    functions \cite{alaa_validating_2019}. However, for theoretical
-    guarantees to hold, the test-set correction needs to converge to the
-    oracle: it needs to be flexible enough --or well-posed-- and asymptotic
-    data. From a practical perspective, knowing that such requirements are
-    met implies having a good CATE estimate, which amounts to having solved
-    the original problem of causal model selection. We study how causal
-    model-selection procedures behave outside of these settings.
-
-    \paragraph{Statistical guarantees on causal estimation procedures}
-
-    Much work in causal inference has focused on building procedures that
-    guarantee asymptotically consistent estimators. Targeted Machine Learning
-    Estimation (TMLE) \cite{laan_targeted_2011,schuler_targeted_2017} and
-    Double Machine Learning \cite{chernozhukov_double_2018} both provide
-    estimators for Average Treatment Effect combining flexible treatment and
-    outcome models. Here also, theories require asymptotic regimes and
-    models to be \textit{well-specified}.
-
-    By contrast, \citet{johansson_generalization_2021} studies causal
-    estimation without assuming that estimators are well specified. They derive an
-    upper bound on the oracle error to the CATE ($\tau\text{-risk}$) that involves
-    the error on the outcome and the similarity of the distributions between the
-    features of treated and control patients. However, they focus on using this
-    upper bound for estimation, and do not give insights on model selection. In
-    addition, for hyperparameter selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
-    counterfactual nearest neighbors, which has been shown ineffective
-    \cite{schuler_comparison_2018}.
-
-    %\section{Formal setting of causal inference and model selection}\label{sec:framework}
-    \section{Methods}\label{sec:framework}
-    \subsection{The Neyman-Rubin Potential Outcomes framework}%
-    \label{sec:neyman_rubin}%
-
-    \paragraph{Settings}
-
-    The Neyman-Rubin Potential Outcomes framework
-    \cite{naimi2023defining,imbens_causal_2015} enables statistical
-    reasoning on causal treatment effects: Given an outcome $Y \in \mathbb R$ (eg.
-    mortality risk or hospitalization length), function of a binary treatment $A \in
-        \mathcal{A} = \{0, 1\}$ (eg.~a medical act, a drug administration), and baseline
-    covariates $X \in \mathcal{X} \subset \mathbb{R}^d$, we observe the factual
-    distribution,
-    $O = (Y(A), X, A) \sim \mathcal D = \mathbb P(y, x, a)$. However, we want to model the existence of potential observations
-    (unobserved ie. counterfactual) that correspond to a different treatment. Thus we want
-    quantities on the counterfactual distribution
-    $O^{*} = (Y(1), Y(0), X, A) \sim \mathcal D^{*} = \mathbb P(y(1), y(0), x, a)$.
-
-    Popular quantities of interest (estimands) are:
-    at the population level, the
-    Average Treatment Effect
-    \begin{equation*}
-        \text{(ATE)}\qquad
-        \tau \myeq \; \mathbb{E}_{Y(1),Y(0) \sim \mathcal D^*}[Y(1) - Y(0)];
-    \end{equation*}
-    to model heterogeneity, the Conditional Average Treatment Effect
-    \begin{equation*}
-        \text{(CATE)}\qquad
-        \tau (x) \myeq \; \mathbb{E}_{Y(1),Y(0) \sim \mathcal{D}^\star}[Y(1) - Y(0) | X=x].
-    \end{equation*}
-
-    \paragraph{Causal assumptions}
-
-    Some assumptions are necessary to assure identifiability of the causal estimands
-    in observational settings \cite{rubin_causal_2005}. We assume the usual
-    strong ignorability assumptions, composed of \emph{1)}
-    \emph{unconfoundedness} $\{Y(0),
-        Y(1) \} \indep A | X$, \emph{~2)} \emph{strong overlap} ie. every patient has a
-    strictly positive probability to receive each treatment, \emph{3)}
-    \emph{consistency}, and \emph{4)} \emph{generalization} (detailed in Appendix
-    \ref{apd:causal_assumptions}). In this work, we investigate the
-    role of the overlap \cite{damour_overlap_2020}, which is testable with
-    data.
-
-    \paragraph{Estimating treatment effects with outcome models}\label{subsec:estimators}
-
-    Should we know the two expected outcomes for a given $X$,
-    we could compute the
-    difference between them, which gives the causal effect of the treatment.
-    %
-    These two expected outcomes can be computed from the observed data:
-    the consistency \ref{assumption:consistency} and unconfoundedness
-    \ref{assumption:ignorability} assumptions imply the equality of two different
-    expectations:
-    \begin{equation}\label{eq:mu_identification}
-        \mathbb E_{Y(a) \sim \mathcal{D^{\star}}} [Y(a)|X=x] = \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
-    \end{equation}
-    On the left, the expectation is taken on the counterfactual unobserved
-    distribution. On the right, the expectation is taken on the factual observed
-    distribution conditionally on the treatment. This equality is referred as the
-    g-formula identification \cite{robins_new_1986}. For the rest of the
-    paper, the expectations will always be taken on the factual observed
-    distribution $\mathcal{D}$, and we will omit
-    to explicitly specify the distribution. This identification leads to outcome based estimators (ie.
-    g-computation estimators\cite{snowden_implementation_2011}), targeting the
-    ATE $\tau$ with outcome modeling:
-    \begin{equation}
-        \tau = \mathbb E_{Y \sim \mathcal{D^{\star}}}[Y(1) - Y(0)|X=x] = \mathbb E_{Y \sim \mathcal{D}}[Y|A=1] - \mathbb E_{Y \sim \mathcal{D}}[Y| A=0]
-        \label{eq:tau_population}
-    \end{equation}
-    This equation has two central quantities: the conditional expectancy
-    function of the outcome associated to specific covariates and
-    treatment or not is, often called the \emph{response function}:
-    \begin{equation}
-        \text{(Response function)}
-        \qquad
-        \mu_{a}(x) \myeq \; \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a].
-        \label{def:mu_a}
-    \end{equation}
-
-    Given a sample of data and the oracle response functions $\mu_0, \mu_1$, the
-    finite sum version of \autoref{eq:tau_population} leads to an
-    estimator of the ATE written:
-    \begin{equation}
-        \hat \tau = \frac{1}{n} \biggl(\sum_{i=1}^n \mu_{1}(x_i) - \mu_{0}(x_i) \biggr)
-        \label{eq:ate_estimate}
-    \end{equation}
-    This estimator is an oracle \textbf{finite sum estimator} by opposition to the
-    population expression of $\tau$, $\mathbb{E}[\mu_{1}(x_i) - \mu_{0}(x_i)]
-    $,
-    which involves an expectation taken on the full
-    distribution $\mathcal D$, which is observable but requires infinite data. For
-    each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
-    $\hat \ell$ to note its finite sum version.
-
-    Similarly to the ATE, for the CATE, at the individual level:
-    \begin{equation}
-        \tau(x) = \mu_{1}(x) - \mu_{0}(x)
-        \label{eq:cate_estimate}
-    \end{equation}
-
-    \paragraph{Robinson decomposition}
-    Another decomposition of the outcome model plays in important role,
-    the R-decomposition
-    \cite{robinson_rootnconsistent_1988}:
-    introducing two quantities, the conditional mean outcome
-    and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}):
-    \begin{align}
-        \text{(Conditional mean outcome)} \qquad  m(x) \myeq \; & \mathbb E_{Y \sim \mathcal{D}} [Y|X=x].
-        \label{def:m}
-        \\
-        \text{(Propensity score)}\qquad
-        e(x) \myeq \;                                           & \mathbb P[A=1|X=x],
-        \label{def:propensity_score}
-    \end{align}
-    the outcome can be written
-    \begin{equation}\label{eq:r_decomposition}
-        \text{(R-decomposition)}\qquad y(a) = m(x) + \big( a - e(x) \big) \tau(x) + \varepsilon(x; a) \quad\text{with}\quad \mathbb E[\varepsilon(X; A)|X, A] = 0
-    \end{equation}
-    $m$ and $e$ are often called
-    \emph{nuisances} \cite{chernozhukov_double_2018}; they are unknown in
-    general.
-
-    %As noted by \cite{johansson_generalization_2021}, the machine learning
-    %community often referred to the CATE by ITE, the Individual Treatment Effect.
-    %From a purely causal point of view, the ITE is uniquely defined for each
-    %individual and might not be accessible: $ITE(x_i) = Y_i(1) -  Y_i(0)$. On the
-    %contrary, the CATE can always be derived by taking conditional expectancies. It
-    %is the expected effect of the treatment in the region of the covariate space
-    %around X. %Too cultivate
-
-    \subsection{Model-selection risks, oracle and feasible}\label{sec:problem:model_selection}
-
-    \paragraph{Causal model selection}\label{sec:problem:causal_selection}
-
-    We formalize model selection for causal estimation. Thanks to the g-formula
-    identification (\autoref{eq:mu_identification}), a given outcome model $f: \mathcal X
-        \times \mathcal A \rightarrow \mathcal{Y}$ --learned from data or built from
-    domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
-    \ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
-    %
-    Let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
-    a family of such estimators. Our goal is to select the best candidate in this
-    family for the observed dataset $O$ using a risk of interest
-    $\ell$:
-    \begin{equation}
-        f^*_{\ell} = \argmin_{f \in \mathcal{F}} \ell(f, O)
-        \label{eq:causal_model_selection}
-    \end{equation}
-
-    We now detail possible risks $\ell$, risks useful for causal
-    model selection, and how to compute them.
-
-
-    \paragraph{The $\tau\text{-risk}$: an oracle error risk}\label{paragraph:oracle_metrics}
-    %
-    As we would like to target the CATE, the following
-    evaluation risk is natural:
-    \begin{definition}[$\tau\text{-risk}(f)$]\label{def:tau_risk} also called PEHE
-        \cite{schulam_reliable_2017, hill_bayesian_2011}:
-        \begin{equation*}\label{eq:tau_risk}
-            \tau\text{-risk}(f) = \mathbb E_{X\sim p(X)}[(\tau(X) - \hat \tau_f(X))^2]
-        \end{equation*}
-        its finite-sum version over the observed data:
-        \begin{equation*}
-            \widehat{\tau\text{-risk}}(f) = \sum_{x \in O} \big(\tau(x) - \hat \tau_f(x)\big)^2
-        \end{equation*}
-    \end{definition}
-
-    However these risks are not feasible because the oracles $\tau(x)$ are
-    not accessible, with the observed data $(Y, X, A) \sim \mathcal D$.
-
-
-    \paragraph{Feasible error risks}\label{paragraph:feasible_metrics}
-    \emph{Feasible} risks are based on the prediction error of the outcome model
-    and \emph{observable} quantities.
-
-    \begin{definition}[Factual $\mu\text{-risk}$]\label{def:mu_risk}
-        \cite{shalit_estimating_2017} This is the usual Mean Squared Error on
-        the target y. It is what is typically meant by ``generalization error'' in
-        supervised learning and estimated with cross-validation:
-        \begin{equation*}\label{eq:mu_risk}
-            \mu\text{-risk}(f)=\mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[(Y-f(X ; A))^2 \right]
-        \end{equation*}
-    \end{definition}
-
-    The following risks use the nuisances $e$
-    --propensity score, def \ref{def:propensity_score}-- and $m$ --conditional mean
-    outcome, def \ref{def:m}. We give the definitions as \textit{semi-oracles},
-    function of the true unknown nuisances, but later instantiate them with estimated
-    nuisances, noted $\big(\check e, \check m \big)$. Semi-oracles risks are
-    superscripted with the $^{\star}$ symbol.
-
-
-    \begin{definition}[$\mu\text{-risk}_{IPW}^{\star}$]\label{def:mu_ipw_risk}
-        \cite{vanderlaan_unified_2003} Let the inverse propensity weighting
-        function $w(x, a) = \frac{a}{e(x)} + \frac{1 - a}{1 - e(x)}$, we define the
-        semi-oracle Inverse Propensity Weighting risk,
-        \begin{equation*}\label{eq:mu_ipw_risk}
-            \mu\text{-risk}_{IPW}^{\star}(f) = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big) (Y-f(X ; A))^2 \right]
-        \end{equation*}
-    \end{definition}
-
-    \smallskip
-
-    \begin{definition}[$\tau\text{-risk}^{\star}_{IPW}$]\label{def:tau_ipw_risk}
-        \cite{wager_estimation_2018}
-        The CATE $\tau(x)$ can be estimated propensity score, with a
-        regression against inverse propensity weighted outcomes \cite{
-            athey2016recursive,gutierrez_causal_2016,wager_estimation_2018}. From this objective, we can derive
-        the $\tau\text{-risk}_{IPW}$.
-        \begin{equation*}
-            \tau\text{-risk}^{\star}_{IPW}(f) =\mathbb{E}_{(Y, X, A) \sim
-                \mathcal D} \left[ \Big(Y \frac{A - e(X)}{e(X)
-                    (1-e(X))}-\tau_f\left(X\right)\Big)^2 \right]  =\mathbb{E}_{(Y, X, A)
-                \sim \mathcal D} \left[ \left(Y \left( \frac{A}{e(X)} -
-                \frac{1-A}{1-e(X)}\right)-\tau_f\left(X\right)\right)^2 \right]
-        \end{equation*}
-    \end{definition}
-
-    \begin{definition}[$U\text{-risk}^{\star}$]\label{def:u_risk}
-        \cite{kunzel_metalearners_2019,nie_quasioracle_2017} Based on
-        the Robinson decomposition --eq. \ref{eq:r_decomposition}
-        \cite{robinson_rootnconsistent_1988}, the U-learner
-        uses the $A-e(X)$ term
-        in the denominator. The derived risk is:
-        \begin{equation*}
-            U\text{-risk}^{\star}(f) =\mathbb{E}_{(Y, X, A) \sim \mathcal D}
-            \left[
-                \left( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -
-                \tau_f\left(X\right)\right)^{2} \right]
-        \end{equation*}
-        Note that extreme propensity weights in the
-        denominator term might inflate errors in the numerator due to imperfect
-        estimation of the mean outcome $m$
-        the numerator errors, leading to a highly biased metric.
-    \end{definition}
-
-    \begin{definition}[$R\text{-risk}^{\star}$]\label{def:r_risk}
-        \cite{nie_quasioracle_2017,schuler_comparison_2018}
-        The $R\text{-risk}$ also uses two nuisance $m$ and $e$:
-        \begin{equation*}
-            R\text{-risk}^{\star}(f) =\mathbb{E}_{(Y, X, A) \sim \mathcal D} \big[
-                \big(\left(Y-m\left(X\right)\right) -\left(A-e\left(X\right)\right) \tau_f\left(X\right)\big)^{2} \big]
-        \end{equation*}
-    \end{definition}
-
-    It is also motivated by the Robinson decomposition --eq. \ref{eq:r_decomposition}
-    \cite{robinson_rootnconsistent_1988}. It performs well in various simulations
-    where using lasso, boosting or kernel ridge regressions for both the nuisances
-    $(\check e, \check m)$ and the target $\hat \tau(x)$
-    \cite{nie_quasioracle_2017}.
-
-    These risks are summarized in Table \ref{tab:evaluation_metrics}.
-
-    \begin{table}[!h]
-        \makebox[\linewidth]{
-            \begin{threeparttable}[b]
-                \caption{Review of causal risks}
-                \centering
-                \label{tab:evaluation_metrics}
-                \begin{tabular}{llr}
-                    \toprule
-                    Risk                                                                                           & Equation
-                                                                                                                   & Reference                                                                                                                                           \\
-                    \midrule
-                    $mse(\tau(X), \tau_f(X))=\tau\text{-risk}$                                                     & $\mathbb E_{X\sim
-                                p(X)}[(\tau(X) - \hat \tau_f(X))^2] $
-                                                                                                                   & Eq. \ref{eq:tau_risk} \cite{hill_bayesian_2011}                                                                                                     \\
-                    $mse(Y, f(X)) = \mu\text{-risk}$                                                               & $\mathbb{E}_{(Y, X, A)
-                            \sim \mathcal D}\left[(Y-f(X ; A))^2 \right]$
-                                                                                                                   & Def. \ref{def:mu_risk} \cite{schuler_comparison_2018}                                                                                               \\
-                    $\mu\text{-risk}_{IPW}^*$                                                                      & $\mathbb{E}_{(Y, X, A)
-                            \sim \mathcal D}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big)
-                    (Y-f(X ; A))^2 \right]$                                                                        & Def.
-                    \ref{def:mu_ipw_risk} \cite{vanderlaan_unified_2003}                                                                                                                                                                                                 \\
-                    $\tau\text{-risk}^{\star}_{IPW}$                                                               & $\mathbb{E}_{(Y, X, A) \sim \mathcal D} \left[ \Big(Y \left( \frac{A}{e(X)} - \frac{1-A}{1-e(X)}\right)-\hat \tau_f\left(X\right)\Big)^2 \right]$ &
-                    Def. \ref{def:tau_ipw_risk} \cite{wager_estimation_2018}
-                    \\
-                    $U\text{-risk}^*$                                                                              & $\mathbb{E}_{(Y, X, A) \sim \mathcal D}  \big[
-                    \big( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -  \hat \tau_f\left(X\right)\big)^{2} \big]$ &
-                    Def. \ref{def:u_risk} \cite{nie_quasioracle_2017}
-                    \\
-                    $R\text{-risk}^*$ \tnote{1}                                                                    & $\mathbb{E}_{(Y, X, A)
-                            \sim \mathcal D} \big[\big(\left(Y-m\left(X\right)\right)
-                    -\left(A-e\left(X\right)\right) \hat \tau_f\left(X\right)\big)^{2} \big]$                      &
-                    Def. \ref{def:r_risk} \cite{nie_quasioracle_2017}
-                    \\
-                    \bottomrule
-                \end{tabular}
-                \begin{tablenotes}
-                    \item [1] Called $\tau \text{-risk}_R$ in
-                    \citet{schuler_comparison_2018}.
-                \end{tablenotes}
-            \end{threeparttable}
-        }
-    \end{table}
-
-    \subsection{Estimation and model selection procedure}\label{problem:estimation_procedure}
-
-    Causal model selection (as in
-    \autoref{eq:causal_model_selection}) may involve estimating various quantities
-    from the observed data: the outcome model $f$, its induced risk as
-    introduce in the previous section, and possibly nuisances required by the
-    risk.
-    Given a dataset with $N$ samples, we split out a train and a test sets
-    $(\mathcal{T}, \mathcal{S})$. We
-    fit each candidate estimator $f \in \mathcal{F}$ on $\mathcal{T}$. We also fit
-    the nuisance models $(\check e, \check m)$ on the train set
-    $\mathcal{T}$, setting hyperparameters by a nested
-    cross-validation before fitting the nuisance estimators with these parameters
-    on the full train set. Causal quantities are then computed by applying the fitted  candidates
-    estimators $f \in \mathcal{F}$ on the test set $\mathcal{S}$. Finally, we
-    compute the model-selection metrics for
-    each candidate model on the test set. This procedure is described in Algorithm
-    \ref{problem:estimation_procedure:algo} and Figure
-    \ref{problem:estimation_procedure:figure}.
-
-    As extreme inverse propensity weights induce high variance, clipping can be
-    useful for numerical stability
-    \cite{swaminathan_counterfactual_2015, ionides_truncated_2008}.
-
-    \begin{algorithm}[!htbp]
-        \caption{Evaluation of selection procedures for one
-            simulation}\label{problem:estimation_procedure:algo} {%
-            Given a train and a test sets $(\mathcal{T}, \mathcal{S}) \sim \mathcal{D}$,
-            a family of candidate estimators $\{f \in \mathcal F\}$, a set of causal
-            metrics $\ell \in \mathcal L$:
-            \begin{enumerate}
-                \item Prefit: Learn estimators for unknown nuisance quantities $(\check e,\,\check m)$ on the training set $\mathcal{T}$
-                \item Fit: $\forall f \in \mathcal{F}$ learn $\hat f(\cdot, a)$ on
-                      $\mathcal T$
-                \item Model selection: $\forall{x} \in \mathcal{S}$ predict $\big(\hat f(x, 1), \hat f(x, 0)\big)$ and evaluate each candidate estimator with
-                      each causal metric $\mathcal M(\hat f, \mathcal{S})$. For each causal
-                      metric $\ell  \in \mathcal{L}$ and each candidate estimator $f \in
-                          \mathcal{F}$, store the metric value: $\ell(f, \mathcal S)$ -- possibly
-                      function of $\check e$ and $\check m$
-                      %\item Metric evaluation: return the oracle evaluation metrics
-                      %evaluated on $\mathcal{S}$: $\big(\widehat{\tau\text{-risk}}(\hat
-                      %f^*_{\ell}); \widehat{\ell}_{ATE}(\hat f^*_{\ell}) \big)$
-            \end{enumerate}
-
-        }
-    \end{algorithm}
-
-
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.7\linewidth]{images/estimation_procedure_causal_selection_procedure.png}
-        \caption{Estimation procedure for causal model
-            selection.}\label{problem:estimation_procedure:figure}
-    \end{figure}
-
-    \section{Theory: Links between feasible and oracle risks}\label{sec:theory}
-
-    We now relate two feasible risks, $\mu \text{-risk}_{IPW}$ and the
-    $R\text{-risk}$ to the oracle $\tau\text{-risk}$. Both results make
-    explicit the role of overlap for the performances of causal risks.
-
-    These bounds depend on a specific form of residual that we now define: for each potential outcome, $a \in  \{0; 1\}$, the variance conditionally on $x$
-    is\cite{shalit_estimating_2017}:
-    \begin{equation*}\label{eq:residuals}
-        \sigma_{y}^{2}(x ; a) \overset{\text{def}}{=}
-        \int_{y}\left(y-\mu_{a}(x)\right)^{2} p(y \mid x=x ; A=a) \, d y
-    \end{equation*}
-    Integrating over the population, we get the Bayes squared error:
-    $\sigma^2_{B}(a) = \int_{\mathcal X} \sigma_y^2(x;a) p(x)dx$
-    and its propensity weighted version:
-    $\tilde{\sigma}^2_{B}(a) = \int_{\mathcal X}\sigma_y^2(x;a)\,  p(x;
-        a)\,dx$. In case of a purely deterministic link between the
-    covariates, the treatment, and the outcome, these residual terms are null.
-
-
-    \subsection{Upper bound of $\tau\text{-risk}$ with
-        $\mu\text{-risk}_{IPW}$}\label{theory:mu_risk_ipw_bound}
-
-    \begin{proposition}[Upper bound with $\mu \text{-risk}_{IPW}$
-        ]\label{theory:prop:mu_risk_ipw_bound}
-        \cite{johansson_generalization_2021} Given an outcome model $f$, let a
-        weighting function $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$ as the
-        Inverse Propensity Weight. Then, under overlap (assumption
-        \ref{assumption:overlap}), we have:
-        \begin{equation*}
-            \tau\text{-risk}(f) \leq \; 2 \, \mu\text{-risk}_{IPW}(w, f)
-            - 2 \, \big(\sigma^2_{B}(1) +  \sigma^2_{B}(0)\big)
-        \end{equation*}
-    \end{proposition}
-    This result has been derived in previous work
-    \cite{johansson_generalization_2021}. It links $\mu\text{-risk}_{IPW}$ to
-    the squared residuals of each population thanks to a reweighted mean-variance
-    decomposition. For completeness, we provide the proof in .
-
-    The upper-bound comes from the triangular inequality applied to the residuals of
-    both populations. Interestingly, the two quantities are equal when the
-    absolute residuals on treated and untreated populations are equal on the
-    whole covariate space, \emph{ie} for all
-    $x \in \mathcal X, |\mu_1(x) - f(x, 1)| = |\mu_0(x) - f(x, 0)|$.
-    The main source of difference between the oracle $\tau \text{-risk}$ and the
-    reweighted mean squared error, $\mu\text{-risk}_{IPW}$, comes from heterogeneous
-    residuals between populations. These quantities are difficult to characterize as
-    they are linked both to the estimator and to the data distribution.
-    %
-    This bound indicates that minimizing the $\mu\text{-risk}_{IPW}$ helps to
-    minimize the $\tau\text{-risk}$, which leads to
-    interesting optimization procedures \cite{johansson_generalization_2021}. However, there is no
-    guarantee that this bound is tight, which makes it less useful for model
-    selection.
-
-    Assuming strict overlap (probability of all individuals being treated or not
-    bounded away from 0 and 1 by $\eta$, appendix \ref{apd:causal_assumptions}), the
-    above bound simplifies into a looser one involving the usual mean squared error:
-    $\tau\text{-risk}(f)\leq \frac{2}{\eta}\, \mu\text{-risk}(f) -  2 \, \big(\sigma^2_{B}(1) +  \sigma^2_{B}(0)\big)$. For weak overlap (propensity scores not bounded far from 0
-    or 1), this bound is very loose (as shown in Figure \ref{fig:toy_example})
-    and is not appropriate to discriminate between models with close performances.
-
-    %\md{Lower bound: I think that there is no lower bound of the tau-risk with the
-    %mu-risk. That means that we can have a mu risk of 0 wheras the taurisk is
-    %non-null. Todo for myself: develop an example with overfitted 1NN on the
-    %observed data.}
-
-    \subsection{Reformulation of the $R\text{-risk}$ as reweighted
-        $\tau\text{-risk}$}\label{theory:r_risk_rewrite}
-
-    We now derive a novel rewriting of the $R\text{-risk}$, making explicit its link
-    with the oracle $\tau \text{-risk}$.
-
-    \begin{proposition}[$R \text{-risk}$ as reweighted
-            $\tau\text{-risk}$]\label{theory:prop:r_risk_rewrite} Given an outcome model
-        $f$, its $R\text{-risk}$ appears as weighted version of its $\tau\text{-risk}$
-        (Proof in Appendix \ref{apd:proofs:r_risk_rewrite}):
-        \begin{equation}
-            R\text{-risk}^*(f) = \int_{x} e(x)\big(1-e(x)\big)\big(\tau(x)-\tau_ {f}(x)\big)^{2} p(x) d x \;+\; \tilde{\sigma}_B^2(1) \;+\; \tilde{\sigma}_B^{2}(0)
-        \end{equation}
-    \end{proposition}
-
-    The $R \text{-risk}$ targets the oracle at the cost of an overlap re-weighting
-    and the addition of the reweighted Bayes residuals, which are independent of
-    $f$. In good overlap regions the weights $e(x) \big(1-e(x) \big)$ are close to
-    $\frac{1}{4}$, hence the $R \text{-risk}$ is close to the desired gold-standard
-    $\tau \text{-risk}$. On the contrary, for units with extreme overlap violation,
-    these weights goes down to zero with the propensity score.
-
-    % \begin{remark}[Trivial upper bound] Because $e(x)\leq1$ and $(1-e(x))\leq1$,
-    %   we see immediately that \begin{equation} R \text{-risk}^* \leqslant
-    %   \tau{\text{-risk}}+\tilde{\sigma_{B}}(1)^{2}+\tilde{\sigma_{B}}^{2}(0)
-    %   \end{equation} \end{remark}
-
-    % \begin{remark}[Lower bound] Due to strict overlap assumption, \begin{equation}
-    %   R \text{-risk}^* \geqslant \eta (1 - \eta)
-    %   \tau{\text{-risk}}-\tilde{\sigma_{B}}(1)^{2}-\tilde{\sigma_{B}}^{2}(0)
-    %   \end{equation} \end{remark}
-
-    % \begin{remark}[Cases of loose upper bounds] Giving a strict overlap assumption
-    %   $\eta$, we can exhibit for all $C \; st. \; \eta^{-1}>C>1$, simple
-    %   simulations where: \begin{equation} R \text{-risk}^* \leqslant C \; \eta \;
-    %   \tau \text{-risk}(f) \quad \end{equation} \end{remark}
-
-    \subsection{Interesting special cases}
-
-    \paragraph{Randomization special case}\label{remark:rct} If the treatment is
-    randomized as in RCTs, $p(A=1 \mid X=x) = p(A=1)=p_A$, thus
-    $\mu\text{-risk}_{IPW}$ takes a simpler form:
-    \begin{equation*}
-        \mu\text{-risk}_{IPW} = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{p_A} + \frac{1-A}{1-p_A} \Big) (Y-f(X ; A))^2 \right]
-    \end{equation*}
-    However, even if we have randomization, we still can have large differences
-    between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
-    errors between populations as noted in Section \ref{theory:mu_risk_ipw_bound}
-    and shown experimentally in simulations \cite{schuler_comparison_2018}.
-
-    Concerning the $R\text{-risk}$, replacing $e(x)$ by its randomized value $p_A$
-    in Proposition \ref{theory:prop:r_risk_rewrite} yields the oracle
-    $\tau\text{-risk}$ up to multiplicative and additive constants:
-    \begin{equation}
-        R\text{-risk} = p_A \, (1-p_A) \, \tau\text{-risk} \;+\; (1 - p_A) \,\sigma_B^2(0) \;+\; p_A \sigma_B^2(1)
-    \end{equation}
-    Therefore, optimizing estimators for CATE with $R\text{-risk}^*$ in the
-    randomized setting is optimal if we target the $\tau\text{-risk}$. This explains
-    the strong performances of $R\text{-risk}$ in randomized setups
-    \cite{schuler_comparison_2018} and is a strong argument in favor of this
-    risk for heterogeneity estimation in RCTs.
-
-    \paragraph{Oracle Bayes predictor}\label{remark:bayes_oracle} Consider the case
-    where we have access to the oracle Bayes predictor for the outcome ie.~$f(x,
-        a)=\mu(x, a)$, then all risks are equivalent up to the residual variance:
-    \begin{equation}
-        \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
-    \end{equation}
-    \begin{align}
-        \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
-                             & = \int_{\mathcal X, \mathcal A}
-        \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
-    \end{align}
-    \begin{equation}
-        \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
-        %\notag
-    \end{equation}
-    \begin{multline}
-        R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
-        \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
-    \end{multline}
-    Thus, differences between causal risks only matter in finite sample regimes.
-    Universally consistent learners converge to the Bayes risk in asymptotic
-    regimes, making all model selection risks equivalent. However, in practice
-    choices must be made in non-asymptotic regimes.
-
-    \section{Empirical Study}\label{sec:empirical_study}
-
-    %We now explore empirically the behavior of these different causal selection
-    %metrics.
-    %\subsection{Causal metrics under evaluation}
-
-    We evaluate the following causal metrics, oracle and feasible
-    versions, presented in Table
-    \ref{tab:evaluation_metrics}:
-    $\widehat{\mu\text{-risk}}_{IPW}^*$,
-    $\widehat{R\text{-risk}}^*$,
-    $\widehat{U\text{-risk}}^*$,
-    $\widehat{\tau\text{-risk}_{IPW}}^*$,
-    $\widehat{\mu\text{-risk}}$,
-    $\widehat{\mu\text{-risk}}_{IPW}$,
-    $\widehat{R\text{-risk}}$,
-    $\widehat{U\text{-risk}}$,
-    $\widehat{\tau\text{-risk}_{IPW}}$.
-    We benchmark the metrics in a variety of settings:
-    many different simulated data generation
-    processes and three semi-simulated datasets \footnote{Scripts for the simulations and the selection procedure are available at
-        \url{https://github.com/strayMat/caussim}.
-    }.
-
-    \subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
-
-    \paragraph{Data Generation Process}
-
-    We use simulated data, on which the ground-truth causal effect is known. Going
-    further than prior empirical studies of causal model selection
-    \cite{schuler_comparison_2018,alaa_validating_2019}, we use multiple
-    generative processes, to reach more general conclusions (as discussed
-    in Appendix \ref{apd:results:fig:seed_effect}).
-
-    We generate the response functions using random bases.
-    Basis extension methods are common in biostatistics, \emph{eg} functional
-    regression with splines
-    \cite{howe_splines_2011, perperoglou_review_2019}. By allowing the
-    function to vary at specific knots, they give flexible --non-linear--
-    models of the studied mechanisms. Taking inspiration from splines, we use
-    random approximation of Radial Basis Function (RBF) kernels
-    \cite{rahimi_random_2008} to generate the response surfaces. RBF use the
-    same process as polynomial splines but replace polynomial by Gaussian
-    kernels. Unlike polynomials, Gaussian kernels have
-    decreasing influences in the input space.
-    This avoids unrealistic divergences of the population response surfaces
-    at the ends of the feature space.
-
-    The number of basis functions --\emph{ie. knots}--, controls the complexity of
-    the ground-truth response surfaces and treatment. We first use this process to
-    draw the non-treated response surface $\mu_0$ and the causal-effect $\tau$. We
-    then draw the observations from a mixture two Gaussians, for the treated and non
-    treated. We vary the separation between the two Gaussians to control the amount
-    of overlap between treated and control populations, as it an important parameter
-    for causal inference (related to $\eta$ which appears in section
-    \ref{theory:mu_risk_ipw_bound}). Finally, we generate the observed outcomes
-    adding Gaussian noise. We generated such datasets 1000 times, with
-    uniformly random overlap parameters $\theta \in \left[ 0, 2.5 \right]$. Appendix
-    \ref{apd:experiments:generation} gives more details on the data generation.
-
-    \captionsetup[sub]{font=large,labelfont={bf,sf}}%
-
-    \begin{figure}[!t]
-        \begin{minipage}{0.48\linewidth}
+
+\twocolumn
+\section{Background}\label{sec:intro}
+
+\subsection{Extending prediction to prescription needs causality}
+
+Progress in machine learning brings predictive models to new health
+data \cite{beam2018big,rajkomar2019machine}, with the promise of
+precision medicine.
+Automated analysis of
+medical images is increasingly accurate, \emph{eg} for brain images,
+\cite{khojaste2022deep,zhang2019radiological} or mammography
+\cite{yala2019deep,shen2019deep,nassif2022breast}.
+New prognostic models leverage routinely-collected
+patient records
+\cite{mooney2018bigdata}: predicting heart
+failure from claims \cite{desai2020comparison}, suicide attempts
+from questionnaires \cite{simon2018predicting}...
+Clinical notes contain much prognostic information
+but require text modeling  \cite{horng2017creating,wang2020prediction,spasic2020clinical}.
+Data may be difficult to
+control and model, but the accuracy of the prediction can be verified
+on left-out data
+\cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
+Given a model predicting a health outcome, precision medicine
+would like it to guide decisions: will an individual benefit from an
+intervention such as surgery \cite{fontana2019can}?
+Contrasting predictions with and without the treatment gives an answer,
+but statistical validity requires causal inference
+\cite{snowden_implementation_2011,blakely2020reflection}.
+
+% - Causal inference is difficult
+% - Beyond the dream of assessing effectiveness and safety in real-word
+%   practice \cite{black1996we} include off-label drug usage 
+%   \cite{radley2006off} (which may lead to drug repurposing)
+% - Plug in that outcome modeling is complementary to RCTs: observational
+%   data gives weaker evidence than trials, but on both data outcome
+%   modeling opens the door to individual.
+% - Epidemiology has focused on propensity-score methods
+% - Principle causal inference with outcome models is possible
+% - It brings the promises of \emph{individualized treatment effects} --a
+%   goal related to capturing heterogeneity and thus CATE--
+% - It also performs well on causal-inference competition, although they
+%   focused on the ATE
+
+% The plethora of approaches approaches give different causal-inference
+% estimates => need for guideline on causal model selection.
+
+There is a rich causal-inference statistical literature, which bridges to
+predictive modeling via so-called \emph{outcome models}, or G-computation,
+G-formula \cite{robins_role_1986}, Q-model \cite{snowden_implementation_2011},
+conditional mean regression \cite{wendling_comparing_2018}. A central challenge
+of inference of treatment effects is that of confounding: spurious associations
+between treatment allocation and baseline health, \emph{eg} only prescribing a
+drug to mild cases \citep{hernan_causal_2020,vanderweele2019principles}.
+Controlled allocation of treatment, as in randomized controlled trials (RCTs),
+alleviate this concern. Yet most machine-learning models are trained on
+\emph{observational} data, close to real-word practice
+\cite{black1996we,hernan_methods_2021} but challenging for causal inference.
+Causal inference has been central to epidemiology, typically with methods that
+model treatment assignment \cite{austin_moving_2015,grose_use_2020}, based on
+propensity scores \cite{rosenbaum_central_1983}. Recent empirical results
+\cite{wendling_comparing_2018,dorie_automated_2019} show benefits of outcome
+modeling to estimate average treatment effects. Maybe a greater benefit is
+that these methods naturally go beyond average effects, estimating
+individualized or conditional average treatment effects (CATE), central to
+precision medicine.
+%
+For this purpose, such methods are also invaluable on randomized trials
+\cite{su2018random,lamont2018identification,hoogland2021tutorial}.
+
+%\idea{There is a variety of models for g-estimation}
+There is an explosion of outcome modeling or machine learning methods.
+For instance, many deep-learning methods have been developed for medical
+image analysis \cite{shen2017deep,monshi2020deep}.
+Even outcome-modeling methods specifically designed for causal
+inference are numerous: Bayesian Additive Regression Trees
+\cite{hill_bayesian_2011}, Targeted Maximum Likelihood Estimation
+\cite{laan_targeted_2011,schuler_targeted_2017}, causal boosting
+\cite{powers_methods_2018}, causal multivariate adaptive regression
+splines \cite{powers_methods_2018}, random forests
+\cite{wager_estimation_2018, athey_generalized_2019},
+Meta-learners \cite{kunzel_metalearners_2019}, R-learners
+\cite{nie_quasioracle_2017}, Doubly robust estimation
+\cite{chernozhukov_double_2018}...
+%\idea{The variety of estimators calls for model selection procedures}
+The wide variety of methods raises the problem
+of selecting between different estimators based on the data at hand.
+%
+Indeed, estimates of treatment effects can vary markedly across different
+predictive models. For instance, Figure shows
+large variations obtained across different outcome estimators on
+semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models
+such as random forests are doing well in most settings except
+when treated and untreated populations differ noticeably, in
+which case a linear model (ridge) is to be preferred.
+However random forests with different hyper-parameters
+(max depth= 2) yield poor estimates.
+A simple rule of thumb such as preferring flexible models does not work in
+general; model selection is needed.
+
+%\idea{It is crucial to have tools for model selection.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
+    \caption{\textbf{Different outcome models lead to different
+            estimation errors on the Average Treatment Effects},
+        on 77 classic simulations with known true causal effect
+        \cite{dorie_automated_2019}. The different models are ridge regression
+        and random forests with different hyper-parameters
+        (details
+        \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
+        plotted as a function of increasing difference between treated and
+        untreated population --see
+        \autoref{subsec:measuring_overlap}.
+        There is no systematic best performer; data-driven model
+        selection is important.
+        \label{fig:acic_2016_ate_heterogeneity}%
+    }
+\end{figure}
+
+Standard practices to select models in predictive settings rely on
+the error on the outcome
+\cite{poldrack2020establishment,varoquaux2022evaluating}. However, as we
+will see, these practices may not pick the best models
+for causal inference, as they can be misled by inhomogeneities due to
+treatment allocation.
+%
+Given complex, potentially noisy, data, which model is to be most trusted to
+yield valid causal estimates? As no single learner performs
+best on all data sets, there is a pressing need for clear guidelines to select
+outcome models for causal inference.
+
+\paragraph{Objectives and structure of the paper}
+
+In this paper, we study \textit{model selection procedures}
+in practical settings: \textit{finite samples} settings and without
+\textit{well-specification} assumption. Asymptotic causal-inference
+theory calls for complex risks, but a practical question is
+whether model-selection procedures, that rely on data split, can estimate
+these risks reliably enough. Indeed, they
+come with more quantities to estimate, which may
+bring additional variance, leading to worse model selection.
+
+We first illustrate the problem of causal model
+selection and briefly review prior art. Then, Section
+\ref{sec:framework} sets causal model selection in the
+\emph{potential outcome} framework and details the causal risks and
+model-selection procedure. Section \ref{sec:theory} gives theoretical
+results. Section \ref{sec:empirical_study} details a thorough empirical
+study, covering many different settings. Finally, Section \ref{sec:discussion}
+discusses the findings.
+%
+Results outline how to best select outcome models for causal
+inference with an adapted
+cross-validation to estimate the so-called $R\text{-risk}$.
+This risk compensates for systematic
+differences between treated and non-treated individuals using
+two \emph{nuisance} models,
+themselves estimated from data and thus imperfect; yet these
+imperfections do not undermine the $R\text{-risk}$.
+
+
+
+\subsection{Illustration: the best predictor may not estimate best causal
+    effects}%
+
+\begin{figure}[t!]
+    %\centering
+    {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
+            causal inference}}
+
+    \includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}%
+
+    {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
+            prediction but better causal inference}}
+
+    \hfill%
+    \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
+
+    \caption[The best predictor may not estimate best causal
+        effects]{\textbf{Illustration}: a) a random-forest estimator
+        with high performance for standard prediction (high $R^2$) but that
+        yields poor causal estimates (large error between true effect $\tau$ and
+        estimated $\hat{\tau}$), b) a linear estimator with smaller
+        prediction performance leading to better causal estimation. \\[1ex]
+        Selecting the estimator with the smallest error to the individual
+        treatment effect $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$
+        --the $\tau\text{-risk}$, def.\,\ref{def:tau_risk} -- would lead to
+        the best causal estimates; however computing this error is not
+        feasible: it requires access to unknown quantities:
+        $\tau(x)$. \\[1ex]
+        While the random forest fits the data better than the linear model, it
+        gives worse causal inference because its error is inhomogeneous between
+        treated and untreated. The $R^2$ score does not capture this
+        inhomogeneity.
+        \label{fig:toy_example}
+    }
+\end{figure}
+
+Using a predictor to reason on causal effects relies on contrasting the
+prediction of the outcome for a given individual with and without the
+treatment --as detailed in \autoref{sec:neyman_rubin}.
+%
+Given various predictors of the outcome, which one should we use?
+%
+Standard predictive modeling or machine-learning practice selects the
+predictor that minimizes the expected error.
+However, this predictor may not be the best model to reason about
+causal effects of an intervention, as we illustrate below.
+
+Figure \ref{fig:toy_example} gives a toy example: the probability $Y$ of
+an undesirable
+outcome (\emph{eg} death), a binary treatment $A \in \{0, 1\}$, and a covariate
+$X \in \mathbb R$ summarizing the patient health status (eg. the
+Charlson index \cite{charlson_new_1987}). We simulate a
+treatment beneficial (decreases $Y$) for patients with high Charlson scores (bad health
+status) but with little effect for patients in good
+condition (low Charlson scores).
+
+
+Figure \ref{fig:toy_example}a shows a random forest predictor with a
+counter-intuitive behavior: it predicts well on average the outcome (as measured
+by a regression $R^2$ score) but perform poorly to estimate causal quantities:
+the average treatment effect $\tau$ (as visible via the error $|\tau -
+    \hat{\tau}|$) or the conditional average treatment effect (the error
+$\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$, called CATE).
+%
+On the contrary, Figure \ref{fig:toy_example}b shows a linear model with
+smaller $R^2$ score but better causal inference.%
+
+The problem is that causal estimation requires controlling
+an error on both treated and non-treated outcome for the same individual:
+the observed outcome, and the non-observed \emph{counterfactual} one.
+The linear model is misspecified --the outcome functions are not
+linear--, leading to poor $R^2$; but it interpolates better to regions
+where there are few untreated individuals --high Charlson score-- and
+thus gives better causal estimates. Conversely, the random forest puts
+weaker assumptions on the data, thus has higher $R^2$ score but is biased
+by the treated population in the poor-overlap region, leading
+to bad causal estimates.
+
+This toy example illustrates that the classic minimum Mean Square Error
+criterion is not suited to choosing a model among candidate
+estimators for causal inference.
+
+
+
+\subsection{Prior work: model selection for outcome modeling (g-computation)}%
+
+
+A natural way to select a predictive model for causal inference would be
+an error measure between a causal quantity such as the CATE and models' estimate. But such error is
+not a ``feasible'' risk: it cannot be computed solely from observed data
+and requires oracle knowledge.
+
+% XXX: I think that I should make the following paragraph shorter
+
+\paragraph{Simulation studies of causal model selection}
+
+Using eight simulations setups from \cite{powers_methods_2018}, where
+the oracle CATE is known, \citet{schuler_comparison_2018} compare four
+causal risks, concluding that for CATE estimation the best
+model-selection risk is the so-called $R\text{-risk}$
+\cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
+empirical results are clear for randomized treatment allocation but less
+convincing for observational settings where both simple Mean Squared
+Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
+reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
+appear to perform better than $R\text{-risk}$ on half of the simulations.
+Another work \cite{alaa_validating_2019} studied empirically both MSE and
+reweighted MSE risks on the semi-synthetic ACIC 2016 datasets
+\cite{dorie_automated_2019}, but did not include the $R\text{-risk}$. We complete these
+prior empirical work by studying a wider variety of data generative
+processes and varying the influence of overlap, an important parameter of
+the data generation process which makes a given causal metric appropriate
+\cite{damour_overlap_2020}. We also study how to best adapt
+cross-validation procedures to causal metrics which themselves come with
+models to estimate.
+
+\paragraph{Theoretical studies of causal model selection}
+
+Several theoretical works have proposed causal model selection procedures
+that are \emph{consistent}: select the best model in a family given
+asymptotically large data. These work rely on introducing a
+CATE estimator in the testing procedure: matching
+\citep{rolling_model_2014}, an IPW estimate
+\citep{gutierrez_causal_2016}, a doubly robust estimator
+\citep{saito_counterfactual_2020}, or debiasing the error with influence
+functions \cite{alaa_validating_2019}. However, for theoretical
+guarantees to hold, the test-set correction needs to converge to the
+oracle: it needs to be flexible enough --well-posed-- and asymptotic
+data. From a practical perspective, meeting such requirements
+implies having a good CATE estimate, thus having solved
+the original problem of causal model selection.
+
+\paragraph{Statistical guarantees on causal estimation procedures}
+
+Much work in causal inference has focused on procedures that
+guarantee asymptotically consistent estimators, such as Targeted
+Machine Learning
+Estimation (TMLE) \cite{laan_targeted_2011,schuler_targeted_2017} or
+Double Machine Learning \cite{chernozhukov_double_2018}. Here also, theories require asymptotic regimes and
+models to be \textit{well-specified}.
+
+By contrast, \citet{johansson2022generalization} studies causal estimation
+without assuming that estimators are well specified. They derive an upper bound
+on the oracle error to the CATE ($\tau\text{-risk}$) that involves the error on
+the outcome and the similarity of the distributions of treated and control
+patients. However, they use this upper bound for model optimization,
+and do not give insights on model selection. In addition, for hyperparameter
+selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
+counterfactual nearest neighbors, which has been shown ineffective
+\cite{schuler_comparison_2018}.
+
+
+%\section{Formal setting of causal inference and model selection}\label{sec:framework}
+\section{Methods}\label{sec:framework}
+\subsection{The Neyman-Rubin Potential Outcomes framework}%
+\label{sec:neyman_rubin}%
+
+\paragraph{Settings}
+
+The Neyman-Rubin Potential Outcomes framework
+\cite{naimi2023defining,imbens_causal_2015} enables statistical reasoning on
+causal treatment effects: Given an outcome $Y \in \mathbb R$ (eg. mortality risk
+or hospitalization length), function of a binary treatment $A \in \mathcal{A} =
+    \{0, 1\}$ (eg.~a medical procedure, a drug administration), and baseline
+covariates $X \in \mathcal{X} \subset \mathbb{R}^d$, we observe the factual
+distribution, $O = (Y(A), X, A) \sim \mathcal D = \mathbb P(y, x, a)$. However,
+we want to model the existence of potential observations (unobserved ie.
+counterfactual) that correspond to a different treatment. Thus we want
+quantities on the counterfactual distribution $O^{*} = (Y(1), Y(0), X, A) \sim
+    \mathcal D^{*} = \mathbb P(y(1), y(0), x, a)$.
+
+Popular quantities of interest (estimands) are:
+at the population level, the
+Average Treatment Effect
+\begin{flalign*}
+    \text{ATE} &  &
+    \tau \myeq \; \mathbb{E}_{Y(1),Y(0) \sim \mathcal D^*}[Y(1) - Y(0)];
+               &  &
+\end{flalign*}
+at the individual level, to model heterogeneity, the Conditional Average Treatment Effect
+\begin{flalign*}
+    \text{CATE} &  &
+    \tau (x) \myeq \; \mathbb{E}_{Y(1),Y(0) \sim \mathcal{D}^\star}[Y(1) - Y(0) | X=x].
+                &  &
+\end{flalign*}
+
+\paragraph{Causal assumptions}
+
+Assumptions are necessary for causal estimands to be
+identifiability
+in observational settings \cite{rubin_causal_2005}. We assume the usual
+strong ignorability assumptions: \emph{1)}
+\emph{unconfoundedness} \mbox{$\{Y(0),
+        Y(1) \} \indep A | X$}, \emph{~2)} \emph{strong overlap} ie. every patient has a
+strictly positive probability to receive each treatment, \emph{3)}
+\emph{consistency}, and \emph{4)} \emph{generalization} (detailed in
+\ref{apd:causal_assumptions}).
+
+\paragraph{Estimating treatment effects with outcome models}\label{subsec:estimators}
+
+Should we know the two expected outcomes for a given $X$,
+we could compute the
+difference between them, which gives the causal effect of the treatment.
+%
+These two expected outcomes can be computed from the observed data:
+the consistency \ref{assumption:consistency} and unconfoundedness
+\ref{assumption:ignorability} assumptions imply the equality of two different
+expectations:
+\begin{equation}\label{eq:mu_identification}
+    \mathbb E_{Y(a) \sim \mathcal{D^{\star}}} [Y(a)|X=x] = \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
+\end{equation}
+On the left, the expectation is taken on the counterfactual unobserved
+distribution. On the right, the expectation is taken on the factual observed
+distribution conditionally on the treatment. This equality is referred as the
+g-formula identification \cite{robins_new_1986}. For the rest of the
+paper, the expectations will always be taken on the factual observed
+distribution $\mathcal{D}$. This identification leads to outcome based estimators (ie.
+g-computation estimators \cite{snowden_implementation_2011}), targeting the
+ATE $\tau$ with outcome modeling:
+\begin{eqnarray}
+    \tau =& \mathbb E_{Y \sim \mathcal{D^{\star}}}[Y(1) - Y(0)|X=x]
+    \notag
+    \\
+    = &\mathbb E_{Y \sim \mathcal{D}}[Y|A=1] - \mathbb E_{Y \sim \mathcal{D}}[Y| A=0]
+    \label{eq:tau_population}
+\end{eqnarray}
+This equation builds on two quantities: the conditional expectancy
+of the outcome given the covariates and either
+treatment or no no treatment, called \emph{response function}:
+\begin{flalign*}
+    \text{Response function}
+     &  &
+    \mu_{a}(x) \myeq \; \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
+     &  &
+\end{flalign*}
+
+Given a sample of data and the oracle response functions $\mu_0, \mu_1$, the
+finite sum version of \autoref{eq:tau_population} leads to an
+estimator of the ATE written:
+\begin{equation}
+    \hat \tau = \frac{1}{n} \biggl(\sum_{i=1}^n \mu_{1}(x_i) - \mu_{0}(x_i) \biggr)
+    \label{eq:ate_estimate}
+\end{equation}
+This estimator is an oracle \textbf{finite sum estimator} by opposition to the
+population expression of $\tau$, $\mathbb{E}[\mu_{1}(x_i) - \mu_{0}(x_i)]
+$,
+which involves an expectation taken on the full
+distribution $\mathcal D$, which is observable but requires infinite data. For
+each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
+$\hat \ell$ to note its finite sum version.
+
+Similarly to the ATE, at the individual level, the CATE:
+\begin{equation}
+    \tau(x) = \mu_{1}(x) - \mu_{0}(x)
+    \label{eq:cate_estimate}
+\end{equation}
+
+\paragraph{Robinson decomposition}
+The \emph{R-decomposition}
+of the outcome model plays an important role,
+\cite{robinson_rootnconsistent_1988}:
+introducing two quantities, the conditional mean outcome
+and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}):
+\begin{flalign}
+    \text{Conditional mean outcome} &                    & m(x) \myeq \; & \mathbb E_{Y \sim
+    \mathcal{D}} [Y|X=x]            &                    &
+    \label{def:m}
+    \\
+    \text{Propensity score}         &                    &
+    e(x) \myeq \;                   & \mathbb P[A=1|X=x]
+    \label{def:propensity_score}
+\end{flalign}
+the outcome can be written
+\begin{flalign}\label{eq:r_decomposition}
+    \text{R-decomposition}            &  & y(a) = m(x) + \big( a - e(x) \big)
+    \tau(x) + \varepsilon(x; a)\notag &  &
+    \\\ &&\text{with}\quad \mathbb E[\varepsilon(X; A)|X, A] = 0&&
+\end{flalign}
+$m$ and $e$ are often called
+\emph{nuisances} \cite{chernozhukov_double_2018}; they are unknown.
+
+%As noted by \cite{johansson2022generalization}, the machine learning
+%community often referred to the CATE by ITE, the Individual Treatment Effect.
+%From a purely causal point of view, the ITE is uniquely defined for each
+%individual and might not be accessible: $ITE(x_i) = Y_i(1) -  Y_i(0)$. On the
+%contrary, the CATE can always be derived by taking conditional expectancies. It
+%is the expected effect of the treatment in the region of the covariate space
+%around X. %Too cultivate
+
+\begin{table*}[!tb]
+    \makebox[\textwidth]{
+        \begin{threeparttable}[b]
+            \caption{Review of causal risks
+                ---
+                The $R\text{-risk}^*$ is called $\tau \text{-risk}_R$ in
+                \citet{schuler_comparison_2018}.
+                \label{tab:evaluation_metrics}}
             \centering
-            %\makebox[(\textwidth-9mm)/2]{\textbf{a. Caussim}}
-            \includegraphics[width=0.98\linewidth,clip,trim={0 15.3cm 0 0}]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.48\linewidth}
-            \hfill%
-            \includegraphics[width=0.98\linewidth,clip,trim={0 0 0 17cm}]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
-        \end{minipage}
-        \caption{Example of the simulation setup in the input space with two
-            knots --\emph{ie.}basis functions. The left panel gives
-            views of the observations in feature space, while the right panel displays the
-            two response surfaces on a 1D cut along the black lines drawn on
-            the left panel.}
-        \label{fig:simulation_examples}
-    \end{figure}
-
-
-    \paragraph{Family of candidate estimators}
-
-    We test model selection on a family of candidate estimators that
-    approximate imperfectly the data-generating process. To build such an
-    estimator in two steps, we first use a RBF expansion
-    similar as the one used for the data-generation generation process. Concretely,
-    we choose two random knots and apply a transformation of the raw data features
-    with the same Gaussian kernel used for the data-generation mechanism. This step
-    is referred as the featurization. Then, we fit a linear regression on
-    these
-    transformed features. We consider two ways of combining these steps for outcome
-    mode; using common nomenclature \cite{kunzel_metalearners_2019}, we refer
-    to these regression structures as different meta-learners which differ on how
-    they model, jointly or not, the treated and the non treated:
-    \begin{itemize}
-        \item SLearner: A single learner for both population, taking the treatment as
-              a supplementary covariate.
-
-        \item SftLearner: A single set of basis functions is sampled at random for both
-              populations, leading to a given feature space used to model both the treat and
-              the non treated, then two
-              separate different regressors are fitted on this representation.
-        \item TLearner: Two completely different learners for each population, hence
-              separate featurization and separate regressors.
-    \end{itemize}
-
-    We do not include more elaborated meta-learners such as R-learner
-    \cite{nie_quasioracle_2017} or X-learner
-    \cite{kunzel_metalearners_2019}. Our goal is not to have the best possible
-    learner but to have a variety of sub-optimal learners in order to compare the
-    different causal metrics. For the same reason, we did not include more powerful
-    outcome models such as random forests or boosting trees.
-
-    For the regression step, we fit a Ridge regression on the transformed features
-    with 6 different choices of the regularization parameter $\lambda \in [10^{-3},
-            10^{-2}, 10^{-1}, 1, 10^{1}, 10^{2}]$, coupled with a TLearner or a SftLearner.
-    We sample 10 different random basis for the learning procedure and the
-    featurization yielding a family $\mathcal F$ of 120 candidate estimators.
-    %
-
-    \subsection{Semi-simulated datasets}
-
-    \paragraph{Datasets}\label{semi_simulated:datasets}
-
-    We also use semi-simulated datasets, where a known synthetic causal effect is
-    added to real --non synthetic-- covariate. We study datasets used in previous work
-    to evaluate causal inference:
-    \begin{description}
-        \item[ACIC 2016] \cite{dorie_automated_2019}: The dataset is based on the
-            Collaborative Perinatal Project \cite{niswander_women_1972}, a RCT
-            conducted on a cohort of pregnant women to identify causes of infants’
-            developmental disorders. The initial intervention was a child’s birth
-            weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
-            IQ after a given follow-up period. The study contained $N=4\,802$ data
-            points with $D=55$ features (5 binary, 27 count data, and 23
-            continuous). They simulated 77 different setups with varying parameters
-            for treatment and response generation models, treatment assignment
-            probabilities, overlap, and interactions between treatment and
-            covariates \footnote{Original R code available at
-                \href{https://github.com/vdorie/aciccomp/tree/master/2016}{https://github.com/vdorie/aciccomp/tree/master/2016}
-                to generate 77 simulations settings.}. We used 10 different seeds for
-            every setup, totalizing 770 dataset instances.
-
-        \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: The raw covariates
-            data comes from the Linked Births and Infant Deaths Database (LBIDD)
-            \cite{macdorman_infant_1998} with $D=177$ covariates. Treatment and
-            outcome models have been simulated with complex models to reflect
-            different scenarii. The data do not provide the true propensity
-            scores, so we evaluate only feasible metrics, which do not require this
-            nuisance parameter. We used all 432 datasets\footnote{Using the scaling part of the data, from
-                \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}} of size $N=5\,000$.
-
-
-        \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of the
-            real data on twin births and mortality rates in the USA from 1989-1991
-            \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
-            and $D=50$ covariates\footnote{We obtained the dataset from
-                \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
-            weight of the heavier twin at birth. This is a "true" counterfactual dataset
-            --as remarked in \cite{curth_really_2021}-- in the sense that we have
-            both potential outcomes with each twin. They simulate the treatment with a
-            sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
-            the 45 other covariates:
-            \begin{equation}
-                \mathbf{t}_{i} \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
-                \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
-                \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right) \quad \text{with} \;
-                w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1)
-            \end{equation}
-            We built upon this equation, adding a non-constant slope in the
-            treatment sigmoid, allowing us to control the amount of overlap between
-            treated and control populations.
-            We sampled uniformly 1\,000 different overlap parameters between 0 and
-            2.5, totalizing 1\,000 dataset instances. Unlike the previous datasets,
-            only the overlap varies for these instances. The response surfaces are
-            fixed by the original twin outcomes.
-    \end{description}
-
-    \paragraph{Family of candidate
-        estimators}\label{semi_simulated:candidate_estimators}
-
-    For these three datasets, the family of candidate estimators are gradient
-    boosting trees for both the response surfaces and the treatment
-    \footnote{Scikit-learn regressor,
-        \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html}{HistGradientBoostingRegressor},
-        and classifier,
-        \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html}{HistGradientBoostingClassifier}.}
-    with S-learner, learning rate
-    in $\{0.01, 0.1, 1\}$, and maximum number of leaf nodes in $\{25, 27, 30, 32,
-        35, 40\}$ resulting in a family of size 18.
-
-    \paragraph{Nuisance estimators}
-
-    Drawing inspiration from the TMLE literature that uses combination of flexible
-    machine learning methods \cite{schuler_targeted_2017}, we use as models
-    for the nuisances $\check e$ (respectively $\check m$) a form of meta-learner: a
-    stacked estimator of ridge and boosting classifiers (respectively
-    regressions). We select hyper-parameters with randomized search on a validation set
-    $\mathcal{V}$ and keep them fix for model selection (detailed of the hyper
-    parameters in Appendix \ref{apd:experiments:nuisances_hp}). As extreme inverse
-    propensity weights induce high variance, we use clipping
-    \cite{swaminathan_counterfactual_2015, ionides_truncated_2008} to bound
-    $min(\check e, 1-\check e)$ away from 0 with a fixed $\eta=10^{-10}$, ensuring
-    strict overlap for numerical stability.
-
-
-    %\paragraph{Model selection procedure}\label{semi_simulated:selection_procedure}
-
-    %We used the same training procedure procedure as in
-    %\ref{paragraph:selection_procedure} (Details in supp.~mat.
-    %\ref{apd:selection_procedure_acic}).
-
-    \subsection{Measuring overlap between treated and non treated}\label{subsec:measuring_overlap}
-
-    %\idea{Overlap is important but not easily measurable}
-    Good overlap, or ``positivity'' between treated and control population is
-    crucial for causal inference as it is required by the positivity assumption
-    \ref{assumption:overlap} for causal identification. It is typically assessed by
-    qualitative methods using population histograms (as in Figure
-    \ref{fig:toy_example}) or side-by-side box plots, or quantitative approaches
-    such as Standardized Mean Difference
-    \cite{austin_introduction_2011,austin_moving_2015}. While these methods are
-    useful to decide if positivity holds, they do not summarize a dataset's overlap
-    in a single measure. Rather, we compute the divergence
-    between the population covariate distributions $\mathbb P(X|A=0)$ and $\mathbb
-        P(X|A=1)$ to characterize the behavior of causal risk
-    \cite{damour_overlap_2020,johansson_generalization_2021}. We introduce the
-    Normalized Total Variation (NTV), a divergence based on the sole propensity
-    score. Details are given in Appendix \ref{apd:motivation_ntv}.
-
-    \begin{figure}[!b]
-        \centering
-        \includegraphics[width=\textwidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf}
-        \hfill
-        \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$ agreement with $\tau\text{-risk}$, measured
-            as the difference between each metric Kendall's $\tau$ and the mean kendall's
-            $\tau$ over all metric:  $\kappa(\ell,\tau\mathrm{{-risk}}) - mean_{\ell} \big(\kappa(\ell,\tau\mathrm{{-rRisk}}) \big)$. Strong and Weak overlap correspond
-            to the first and
-            last tertiles of the overlap distribution measured with Normalized Total
-            Varation eq. \ref{eq:ntv}.
-            Appendix \ref{apd:experiments:additional_results} presents the same results
-            measured with absolute Kendall's in Figure
-            \ref{apd:fig:all_datasets_tau_risk_ranking_agreement} and with
-            $\tau\mathrm{-risk}$ gains in Figure \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}. Table \ref{apd:table:relative_kendalls_all_datasets} displays the median
-            and IQR for the relative Kendall's results.}\label{fig:relative_kendalls_all_datasets}
-    \end{figure}
-
-    \subsection{Empirical results: factors driving good model selection across
-        datasets}\label{empirical_study:results}
-
-
-    \paragraph{The $R\text{-risk}$ is the best metric}
-
-    Each metric ranks differently the candidate models. Figure
-    \ref{fig:relative_kendalls_all_datasets} shows the agreement between the
-    ideal ranking of methods given the oracle $\tau\text{-risk}$ and
-    the different causal metrics under evaluation. We measure this agreement
-    with a relative\footnote{To remove the variance
-        across datasets (some datasets lead to easier model selection than
-        others), we report values for one metric relative to the mean of all
-        metrics for a given dataset instance: $\text{Relative} \, \kappa(\ell,\tau\mathrm{{-risk}})=
-            \kappa(\ell,\tau\mathrm{{-risk}}) -
-            mean_{\ell}\big(\kappa(\ell,\tau\mathrm{{-risk}})\big)$} Kendall tau $\kappa$ (eq.
-    \ref{eq:kendall_tau}) \cite{kendall_new_1938}.
-    Given the importance of overlap in
-    how well metrics approximate the oracle $\tau\text{-risk}$
-    (\autoref{apd:proofs:mu_risk_ipw_bound}), we separate
-    strong and weak overlap --defined as first and
-    last tertile of the Normalized Total Variation, eq. \ref{eq:ntv}.
-
-    Among all metrics the classical mean squared error (ie. factual
-    $\mu\text{-risk}$) is worse and reweighting it with propensity score
-    ($\mu\text{-risk}_{IPW}$) does not bring much improvements. The
-    $R\text{-risk}$, which includes a model of mean outcome and propensity
-    scores, leads to the best performances. Interestingly, the
-    $U\text{-risk}$, which uses the same nuisances, has good performances for
-    strong overlap but deteriorates in weak overlap, probably due variance
-    inflation when dividing by extreme propensity scores.
-
-    Beyond the rankings, the differences in terms of absolute
-    ability to select the best model are large: The model selected by the R-risk
-    achieves a $\tau\text{-risk}$ only 1\% higher
-    than that of the best
-    possible candidate for strong overlap on Caussim, but selecting with
-    the $\mu\text{-risk}$ or $\mu\text{-risk}_{IPW}$ --as per machine-learning
-    practice-- leads to 10\% excess risk and using $\tau\text{-risk}_{IPW}$
-    --as in some causal-inference methods \citep{athey2016recursive,gutierrez_causal_2016}--leads to 100\% excess risk
-    (Figure
-    \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}). Across
-    other datasets, the $R\text{-risk}$ consistently decreases the
-    risk compared to the $\mu\text{-risk}$:
-    0.1\% compared to 1\% on ACIC2016,  1\% compared to 20\% on ACIC 2018,
-    and 0.05\% compared to 1\% on Twins.
-
-
-    \paragraph{Model selection is harder in settings of low population
-        overlap}
-
-    Model selection for
-    causal inference becomes more and more difficult with increasingly different
-    treated and control populations
-    (Figure \ref{fig:all_datasets_overlap_effect_r_risk}). The
-    absolute Kendall's coefficient correlation with $\tau\text{-risk}$
-    drops from values around 0.9 (excellent agreement with oracle selection) to 0.6 on
-    both Caussim and ACIC 2018
-    (Appendix \ref{apd:experiments:additional_results},
-    Figure {\ref{apd:fig:all_datasets_tau_risk_ranking_agreement}}).
-
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.9\textwidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only.pdf}
-        \hfill
-        \caption{\textbf{Model selection is harder in settings of low population
-                overlap}:
-            Kendall's $\tau$ agreement with $\tau\text{-risk}$. Strong, medium and Weak overlap
-            are the tertiles of the overlap distribution measured with NTV eq. \ref{eq:ntv}. Appendix \ref{apd:experiments:additional_results} presents results for all
-            metrics in Figure \ref{apd:fig:all_datasets_overlap_effect} and in absolute
-            Kendall's and continuous overlap values in Figure
-                {\ref{apd:fig:all_datasets_tau_risk_ranking_agreement}}.}\label{fig:all_datasets_overlap_effect_r_risk}
-    \end{figure}
+            \begin{tabular}{llr}
+                \toprule
+                Risk                                                                                           & Equation
+                                                                                                               & Reference                                                                                                                                           \\
+                \midrule
+                $mse(\tau(X), \tau_f(X))=\tau\text{-risk}$                                                     & $\mathbb E_{X\sim
+                            p(X)}[(\tau(X) - \hat \tau_f(X))^2] $
+                                                                                                               & Eq. \ref{eq:tau_risk} \cite{hill_bayesian_2011}                                                                                                     \\
+                $mse(Y, f(X)) = \mu\text{-risk}$                                                               & $\mathbb{E}_{(Y, X, A)
+                        \sim \mathcal D}\left[(Y-f(X ; A))^2 \right]$
+                                                                                                               & Def. \ref{def:mu_risk} \cite{schuler_comparison_2018}                                                                                               \\
+                $\mu\text{-risk}_{IPW}^*$                                                                      & $\mathbb{E}_{(Y, X, A)
+                        \sim \mathcal D}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big)
+                (Y-f(X ; A))^2 \right]$                                                                        & Def.
+                \ref{def:mu_ipw_risk} \cite{vanderlaan_unified_2003}                                                                                                                                                                                                 \\
+                $\tau\text{-risk}^{\star}_{IPW}$                                                               & $\mathbb{E}_{(Y, X, A) \sim \mathcal D} \left[ \Big(Y \left( \frac{A}{e(X)} - \frac{1-A}{1-e(X)}\right)-\hat \tau_f\left(X\right)\Big)^2 \right]$ &
+                Def. \ref{def:tau_ipw_risk} \cite{wager_estimation_2018}
+                \\
+                $U\text{-risk}^*$                                                                              & $\mathbb{E}_{(Y, X, A) \sim \mathcal D}  \big[
+                \big( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -  \hat \tau_f\left(X\right)\big)^{2} \big]$ &
+                Def. \ref{def:u_risk} \cite{nie_quasioracle_2017}
+                \\
+                $R\text{-risk}^*$                                                                              & $\mathbb{E}_{(Y, X, A)
+                        \sim \mathcal D} \big[\big(\left(Y-m\left(X\right)\right)
+                -\left(A-e\left(X\right)\right) \hat \tau_f\left(X\right)\big)^{2} \big]$                      &
+                Def. \ref{def:r_risk} \cite{nie_quasioracle_2017}
+                \\
+                \bottomrule
+            \end{tabular}
+        \end{threeparttable}
+    }
+\end{table*}
 
 
 
-    \paragraph{Nuisances can be estimated on the same data as outcome models}
+\subsection{Model-selection risks, oracle and feasible}\label{sec:problem:model_selection}
 
-    Using the train set $\mathcal{T}$ both to fit the candidate estimator and the
-    nuisance estimates is a form of double dipping which can lead errors in
-    nuisances to be correlated to that of outcome models
-    \cite{nie_quasioracle_2017}. In theory, these correlations can bias model
-    selection and, strictly speaking, there are theoretical arguments
-    to split out a third separated data set --a ``nuisance set''-- to fit the
-    nuisance models. The drawback is that it depletes the data available for
-    model estimation and selection. However, Figure \ref{fig:procedures_comparison} shows that
-    there is no substantial differences between a procedure with a separated
-    nuisance set and the simpler shared nuisance-candidate set procedure
-    (results for all metrics in Figure
-    \ref{apd:fig:procedures_comparison_all_metrics}).
+\paragraph{Causal model selection}\label{sec:problem:causal_selection}
 
-    \begin{figure}[!h]
-        %\centering
-        \begin{subfigure}[b]{0.48\textwidth}
-            %\centering
-            %\caption{\textbf{Two sets procedure}}
-            \includegraphics[width=2\textwidth]{images/_3_procedure_r_risk_only_3datasets.pdf}
-        \end{subfigure}
-        \hfill
-        \caption{\textbf{Nuisances can be estimated on the same data as outcome
-                models}: Results for the R-risk are similar between the
-            \textcolor{MidnightBlue}{shared
-                nuisances/candidate set} and
-            the \textcolor{RedOrange}{separated nuisances set} procedures. Figure
-            \ref{apd:fig:procedures_comparison_all_metrics} details results for all metrics.}\label
-        {fig:procedures_comparison}
-    \end{figure}
+We formalize model selection for causal estimation. Thanks to the g-formula
+identification (\autoref{eq:mu_identification}), a given outcome model $f: \mathcal X
+    \times \mathcal A \rightarrow \mathcal{Y}$ --learned from data or built from
+domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
+\ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
+%
+Let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
+a family of such estimators. Our goal is to select the best candidate in this
+family for the observed dataset $O$ using a risk
+$\ell$:
+\begin{equation}
+    f^*_{\ell} = \argmin_{f \in \mathcal{F}} \ell(f, O)
+    \label{eq:causal_model_selection}
+\end{equation}
+
+We now detail possible risks $\ell$, risks useful for causal
+model selection, and how to compute them.
 
 
-    \paragraph{Stacked models are good overall estimators of nuisances}
+\paragraph{The $\tau\text{-risk}$: an oracle error risk}\label{paragraph:oracle_metrics}
+%
+As we would like to target the CATE, the following
+evaluation risk is natural:
+\begin{definition}[$\tau\text{-risk}(f)$]\label{def:tau_risk} also called PEHE
+    \cite{schulam_reliable_2017, hill_bayesian_2011}:
+    \begin{equation*}\label{eq:tau_risk}
+        \tau\text{-risk}(f) = \mathbb E_{X\sim p(X)}[(\tau(X) - \hat \tau_f(X))^2]
+    \end{equation*}
+\end{definition}
 
-    Oracle versions of every risks recover more often the best estimator.
-    However, in configurations that we investigated,
-    stacked nuisances estimators (boosting and linear) lead to feasible
-    metrics with close performances to the oracles ones. This suggests that the
-    corresponding estimators recover well-enough the true nuisances.
-    One may wonder if it may be useful to use simpler models for the
-    nuisances, in particular in settings where there are less data or where
-    the true models are linear.
-    Figure \ref{fig:all_datasets_nuisances_comparison} compares causal model
-    selection estimating nuisances with stacked estimators or linear model.
-    It comprises the Twins data, where the true propensity model is linear,
-    and a downsampled version of this data, to study a situation favorable to
-    linear models. In these settings,
-    stacked and linear estimations of the nuisances performs equivalently.
-    Overall, Figure \ref{apd:fig:nuisances_comparison_twins} suggests that
-    to estimate nuisance it suffices to use adaptive models as built by
-    stacking linear models and gradient-boosted trees.
-    Figure \ref{apd:fig:nuisances_comparison} in the appendices, details
-    other causal metrics.
+Given observed data from $p(X)$, the expectation is computed with a
+finite sum, as in eq.\,\ref{eq:ate_estimate}, to give an estimated
+value $\widehat{\tau\text{-risk}}(f)$.
+%
+However this risk is not feasible as the oracles $\tau(x)$ are
+not accessible with the observed data $(Y, X, A) \sim \mathcal D$.
 
-    \begin{figure}[!h]
-        \begin{subfigure}[b]{0.48\textwidth}
-            \centering
-            \includegraphics[width=2\textwidth]{images/_4_nuisance_models_r_risk_only_3datasets.pdf}
-        \end{subfigure}
-        \hfill
-        \caption{\textbf{\textcolor{DarkOrchid}{Stacked
-                    models} are good overall estimators of the nuisances}:
-            Results are shown only for the
-            R-risk. Details for every metrics are provided in Figure
-            \ref{apd:fig:nuisances_comparison}. For Twins, where the true propensity
-            model is linear, \textcolor{DarkOrchid}{stacked} and
-            \textcolor{ForestGreen}{linear}
-            estimations of the nuisances performs equivalently, even for a downsampled version
-            (N=4794). }\label{fig:all_datasets_nuisances_comparison}
-    \end{figure}
+\paragraph{Feasible error risks}\label{paragraph:feasible_metrics}
+\emph{Feasible} risks are based on the prediction error of the outcome model
+and \emph{observable} quantities.
 
-    \paragraph{Use 90\% of the data to estimate outcome models, 10\% to
-        select them}
+All expectations below are on observed distribution:
+$(Y, X, A) \sim \mathcal D$.
 
-    For best causal modeling, the analyst often faces a compromise: given a finite
-    data sample, should she allocate most of the data to estimate the outcome model,
-    thus maximizing chances of achieving a high-quality outcome model but leaving
-    little data for model selection. Or, she could choose a bigger test set for
-    model selection and effect estimation. For causal model selection, there
-    is no established practice (as reviewed in Appendix \ref{apd:results:k_fold_choices}).
+\begin{definition}[Factual $\mu\text{-risk}$]\label{def:mu_risk}
+    \cite{shalit_estimating_2017} This is the usual Mean Squared Error on
+    the target y. It is what is typically meant by ``generalization error'' in
+    supervised learning:
+    \begin{equation*}\label{eq:mu_risk}
+        \mu\text{-risk}(f)=\mathbb{E}\left[(Y-f(X ; A))^2 \right]
+    \end{equation*}
+\end{definition}
 
-    We investigate such tradeoff varying the ratio between train and test
-    data size. For this, we first split out 30\% of the data as a holdout set
-    $\mathcal{V}$ on which we use the oracle response functions to derive
-    silver-standard estimates of the causal quantities of interest. We then
-    use the standard estimation procedure on the remaining 70\% of the data,
-    splitting it into train $\mathcal{T}$ and test $\mathcal{S}$ of varying
-    sizes. We finally measure the error between this estimate and the
-    silver-standard one.
-
-    We consider two different analytic goals: estimating a average
-    treatment effect --a single number used for policy making-- and a
-    CATE --A full model of the treatment effect as a function of covariates
-    $X$. Given that the latter is a much more complex object than the former,
-    the optimal train/test ratio might vary. To measure errors, we use for
-    the ATE the relative absolute ATE bias between the ATE computed with the
-    selected outcome model on the test set, and the true ATE as evaluated on
-    the holdout set $\mathcal{V}$. For the CATE, we compare the
-    $\tau\text{-risk}$
-    of the best selected model applied on the holdout set $\mathcal{V}$. We explore this trade-off for the ACIC 2016 dataset and the R-risk.
-
-    \begin{figure}[!t]
-        %\centering
-        \begin{minipage}{.5\textwidth}
-            \centerline{\textbf{a) CATE estimation error}}
-
-            \includegraphics[height=.35\textwidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16.pdf}
-        \end{minipage}
-        \begin{minipage}{.5\textwidth}
-            %\centering
-            \centerline{\textbf{b) ATE estimation error}}
-            \includegraphics[height=.35\textwidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16.pdf}
-        \end{minipage}%
-        %\hspace{0.3\textwidth}
-        \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears as a good
-                trade-off.} b) For ATE, there is a small signal pointing also to
-            0.9/0.1 (K=10).
-            for ATE. Experiences on 10 replications of all 78 instances of the ACIC 2016
-            data.}\label{fig:train_test_ratio}
-    \end{figure}
-
-    Figure \ref{fig:train_test_ratio} shows that a train/test ratio of
-    0.9/0.1 (K=10) appears as a good trade-off for CATE and ATE estimation,
-    thought there is little difference with a split of 0.8/0.2 (K=5).
+We now detail risks that use the nuisances $e$
+--propensity score, def \ref{def:propensity_score}-- and $m$ --conditional mean
+outcome, def \ref{def:m}. We give the definitions as \textit{semi-oracles},
+function of the true unknown nuisances, but later instantiate them with estimated
+nuisances, noted $\big(\check e, \check m \big)$. Semi-oracles risks are
+superscripted with the $^{\star}$ symbol.
 
 
+\begin{definition}[$\mu\text{-risk}_{IPW}^{\star}$]\label{def:mu_ipw_risk}
+    \cite{vanderlaan_unified_2003} Let the inverse propensity weighting
+    function $w(x, a) = \frac{a}{e(x)} + \frac{1 - a}{1 - e(x)}$, we define the
+    semi-oracle Inverse Propensity Weighting risk,
+    \begin{equation*}\label{eq:mu_ipw_risk}
+        \mu\text{-risk}_{IPW}^{\star}(f) = \mathbb{E}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big) (Y-f(X ; A))^2 \right]
+    \end{equation*}
+\end{definition}
 
-    \section{Discussion and conclusion}\label{sec:discussion}
-
-    Predictive models are increasingly used to reason about causal effects.
-    Our results highlight that they should be selected, validated, and tuned
-    using different procedures and error measures than those classically used
-    to assess prediction (estimating the so-called $\mu\text{-risk}$).
-    Rather, selecting the best outcome model according to the $R\text{-risk}$
-    (eq.\,\autoref{def:r_risk}) leads to more valid causal estimates.
-    %
-    Estimating this risk requires a markedly more complex procedure than
-    standard cross-validation used \emph{e.g.} in machine learning: it involves
-    fitting nuisance models necessary for model evaluation, though our
-    empirical results show that these can be learned on the same set of data
-    as the outcome model evaluated.
-    %
-    A poor estimation of the nuisance models may compromise the benefits of
-    the more complex $R\text{-risk}$ (as shown in Figure
-    \ref{fig:all_datasets_nuisances_comparison}). However controlling and selecting
-    these latter models is easier because they are associated to errors on
-    observed distributions. Our empirical results show that when selecting
-    these models in a flexible family of models the $R\text{-risk}$ dominates
-    simpler risks for model selection.
-    %
-    Results show that going from an oracle $R\text{-risk}$ --where the
-    nuisances are known-- to a feasible $R\text{-risk}$ --where the nuisances
-    are estimated-- decreases only very slightly the model-selection
-    performance of the $R\text{-risk}$. This may be explained by
-    theoretical results that suggest that estimation errors on both
-    nuisances partly compensate out in the
-    $R\text{-risk}$\cite{daniel2018double,naimi2021challenges,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018}.
-    % 
-    %The usage of the $R\text{-risk}$ can also be understood as a
-    %$\tau \text{-risk}$ reweighted by the propensity score
-    %(prop \autoref{theory:prop:r_risk_rewrite}).
-    %
-
-    For strong overlap, the conventional procedure ($\mu\text{-risk}$) appears theoretically motivated
-    (\autoref{theory:mu_risk_ipw_bound}), however empirical results show that
-    even in this regime the $R\text{-risk}$ brings a sizeable benefit,
-    in agreement with \citet{schuler_comparison_2018}.
-
-    Our results points to K=5 or 10 for the choice of the number of folds used in
-    cross-validation for CATE and ATE, aligned with previous empirical evidence for
-    ATE \cite{chernozhukov_double_2018}.
+\smallskip
 
 
-    \paragraph{Extension to binary outcome}
-    While we focused on continuous outcomes, in medicine, the target outcome
-    is often a categorical variable such as mortality status or diagnosis. In
-    this case, it may be interesting to focus on other estimands than the
-    Average Treatment Effect $\mathbb{E}[Y(1)] -\mathbb{E}[Y(0)] $, for instance the relative risk
-    $\frac{\mathbb P(Y(1) = 1)}{\mathbb P(Y(0) = 1)}$
-    or the odd ratio, $\frac{\mathbb P(Y(1) = 1) / [1 - \mathbb P(Y(1)
-        =1)]}{\mathbb P(Y(0) = 1) / [1 - \mathbb P(Y(0) = 1]}$ are often used
-    \cite{austin2017estimating}. While the odds ratio is natural for
-    case-control studies \cite{rothman2008case}, a good choice of measure
-    can reduce heterogeneity \cite{colnet2023risk}.
-    Using as an estimand the log of
-    these values is suitable to additive models (for reasoning or noise
-    assumptions). In the log domain, the relative risk or the odds ratio are
-    written as a difference, as the ATE: $\log \mathbb{P}(Y(1)=1) - \log
-        \mathbb{P}(Y(0=1)$ or $\log (\mathbb{P}(Y(1)=1) / [1 -\mathbb{P}(Y(1)=1)]
-        ) - \log \mathbb{P}(Y(0=1) / [1 -\mathbb{P}(Y(0)=1)]$. Hence, the
-    framework studied here (\autoref{sec:neyman_rubin}) can directly apply.
-    It is particularly easy for the log odds ratio, as it is the output of a
-    logistic regression or any model with a cross-entropy loss.
+\begin{definition}[$\tau\text{-risk}^{\star}_{IPW}$]\label{def:tau_ipw_risk}
+    \cite{wager_estimation_2018}
+    The CATE $\tau(x)$ can be estimated with a
+    regression against inverse propensity weighted outcomes \cite{
+        athey2016recursive,gutierrez_causal_2016,wager_estimation_2018},
+    the $\tau\text{-risk}_{IPW}$.
+    \begin{equation*}
+        \tau\text{-risk}^{\star}_{IPW}(f) =\mathbb{E}
+        \left[ \Big(Y \frac{A - e(X)}{e(X)
+                (1-e(X))}-\tau_f\left(X\right)\Big)^2 \right]
+        %  =\mathbb{E}_{(Y, X, A)
+        %            \sim \mathcal D} \left[ \left(Y \left( \frac{A}{e(X)} -
+        %            \frac{1-A}{1-e(X)}\right)-\tau_f\left(X\right)\right)^2 \right]
+    \end{equation*}
+\end{definition}
 
-    \paragraph{Going further}
-    % Estimation of the nuisances, calibration
-    The $R\text{-risk}$ needs good estimation of nuisance models. The
-    propensity score $e$ calls for a control on the estimation of the
-    individual posterior probability. We have used the Brier score to select
-    these models, as it is minimized by the true individual probability. Regarding model-selection for
-    propensity score, an easy mistake is to use expected calibration errors
-    popular in machine learning
-    \cite{platt_probabilistic_1999,zadrozny_obtaining_2001,niculescu-mizil_predicting_2005,minderer_revisiting_2021}
-    as these select not for the individual posterior probability but for an
-    aggregate error rate \cite{perez2022beyond}. An
-    open question is whether a better metric than the brier score can be designed that controls for $e \, (1 - e)$, the quantity used in
-    the $R\text{-risk}$, rather than $e$.
+\begin{definition}[$U\text{-risk}^{\star}$]\label{def:u_risk}
+    \cite{kunzel_metalearners_2019,nie_quasioracle_2017} Based on
+    the Robinson decomposition --eq. \ref{eq:r_decomposition}, the U-learner
+    uses the $A-e(X)$ term
+    in the denominator. The derived risk is:
+    \begin{equation*}
+        U\text{-risk}^{\star}(f) =\mathbb{E}
+        \left[
+            \left( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -
+            \tau_f\left(X\right)\right)^{2} \right]
+    \end{equation*}
+    Note that extreme propensity weights in the
+    denominator term might inflate errors in the numerator due to imperfect
+    estimation of the mean outcome $m$.
+\end{definition}
 
-    %\idea{Treatment heterogeneity seems important.}
-    The quality of model selection varies substantially from one
-    data-generating mechanism to another. The overlap appears as an important
-    parameter: when the treated and untreated, causal model selection is very
-    hard. However, remaining variance in the empirical results suggests that
-    other parameters of the data generation processes come into play.
-    Intuitively, the complexity of the response surfaces and the treatment
-    heterogeneity interact with overlap violations: when extrapolations to
-    weak-overlap regions is hard, causal model selection is hard.
+\begin{definition}[$R\text{-risk}^{\star}$]\label{def:r_risk}
+    \cite{nie_quasioracle_2017,schuler_comparison_2018}
+    The $R\text{-risk}$ also uses two nuisance $m$ and $e$:
+    \begin{equation*}
+        R\text{-risk}^{\star}(f) =\mathbb{E} \big[
+            \big(\left(Y-m\left(X\right)\right) -\left(A-e\left(X\right)\right) \tau_f\left(X\right)\big)^{2} \big]
+    \end{equation*}
+\end{definition}
 
-    Nevertheless, from a practical perspective, our study establishes that
-    the $R\text{-risk}$ is the best option to select predictive models for
-    causal inference, without requiring assumptions on the data-generating
-    mechanism, the amount of data at hand, or the specific estimators used to
-    build predictive models.
+It is also based on the Robinson decomposition --eq. \ref{eq:r_decomposition}. %It performs well in various
+%simulations, estimating the nuisances
+%$(\check e, \check m)$ with
+%lasso, boosting or kernel ridge regressions
+%\cite{nie_quasioracle_2017}.
 
-    % XXX: need a final positive
-    % remark
-    % Maybe that as our work has no
-    % requirement on the learning procedure,
-    % it contributes to ensuring the
-    % validity of causal inference on complex databases such as clinical
-    % records with a lot of open-ended text that must be analyzed with
-    % language models.
+These risks are summarized in Table \ref{tab:evaluation_metrics}.
 
-    % Sentence stolen, adapt
-    % unlike parametric regression, machine learning (ML) methods do not
-    % generally require precise
-    % knowledge of the true data generating mechanisms
+\subsection{Estimation and model selection procedure}\label{problem:estimation_procedure}
 
-\end{multicols}{2}
+Causal model selection (as in
+\autoref{eq:causal_model_selection}) may involve estimating various quantities
+from the observed data: the outcome model $f$, its induced risk as
+introduce in the previous section, and possibly nuisances required by the
+risk.
+Given a dataset with $N$ samples, we split out a train and a test sets
+$(\mathcal{T}, \mathcal{S})$. We
+fit each candidate estimator $f \in \mathcal{F}$ on $\mathcal{T}$. We also fit
+the nuisance models $(\check e, \check m)$ on the train set
+$\mathcal{T}$, setting hyperparameters by a nested
+cross-validation before fitting the nuisance estimators with these parameters
+on the full train set. Causal quantities are then computed by applying the fitted  candidates
+estimators $f \in \mathcal{F}$ on the test set $\mathcal{S}$. Finally, we
+compute the model-selection metrics for
+each candidate model on the test set. This procedure is described in Algorithm
+\ref{problem:estimation_procedure:algo} and Figure
+\ref{problem:estimation_procedure:figure}.
+
+As extreme inverse propensity weights induce high variance, clipping can be
+useful for numerical stability
+\cite{swaminathan_counterfactual_2015, ionides_truncated_2008}.
+
+\begin{algorithm}[!htbp]
+    \caption{Model selection procedure}\label{problem:estimation_procedure:algo} {%
+        Given train and test sets $(\mathcal{T}, \mathcal{S}) \sim \mathcal{D}$,
+        a candidate estimators $f$, a causal
+        metrics $\ell$:
+        \begin{enumerate}
+            \item Prefit: Learn estimators for unknown nuisance quantities $(\check e,\,\check m)$ on the training set $\mathcal{T}$
+            \item Fit: learn $\hat f(\cdot, a)$ on
+                  $\mathcal T$
+            \item Model selection: $\forall{x} \in \mathcal{S}$ predict
+                  $\big(\hat f(x, 1), \hat f(x, 0)\big)$ and evaluate the estimator storing the metric value: $\ell(f, \mathcal S)$ -- possibly
+                  function of $\check e$ and $\check m$
+                  %\item Metric evaluation: return the oracle evaluation metrics
+                  %evaluated on $\mathcal{S}$: $\big(\widehat{\tau\text{-risk}}(\hat
+                  %f^*_{\ell}); \widehat{\ell}_{ATE}(\hat f^*_{\ell}) \big)$
+        \end{enumerate}
+
+    }
+\end{algorithm}
+
+
+\begin{figure}[h!]
+    \includegraphics[width=\linewidth]{images/estimation_procedure_causal_selection_procedure.png}
+    \caption{Estimation procedure for causal model
+        selection.}\label{problem:estimation_procedure:figure}
+\end{figure}
+
+
+
+\section{Theory: Links between feasible and oracle risks}\label{sec:theory}
+
+We now relate two feasible risks, $\mu \text{-risk}_{IPW}$ and the
+$R\text{-risk}$ to the oracle $\tau\text{-risk}$. Both results make
+explicit the role of overlap for the performances of causal risks.
+
+These bounds depend on a specific form of residual that we now define: for each potential outcome, $a \in  \{0; 1\}$, the variance conditionally on $x$
+is \cite{shalit_estimating_2017}:
+\begin{equation*}\label{eq:residuals}
+    \sigma_{y}^{2}(x ; a) \overset{\text{def}}{=}
+    \int_{y}\left(y-\mu_{a}(x)\right)^{2} p(y \mid x=x ; A=a) \, d y
+\end{equation*}
+Integrating over the population, we get the Bayes squared error:
+$\sigma^2_{B}(a) = \int_{\mathcal X} \sigma_y^2(x;a) p(x)dx$
+and its propensity weighted version:
+$\tilde{\sigma}^2_{B}(a) = \int_{\mathcal X}\sigma_y^2(x;a)\,  p(x;
+    a)\,dx$. In case of a purely deterministic link between the
+covariates, the treatment, and the outcome, these residual terms are null.
+
+
+\subsection{Upper bound of $\tau\text{-risk}$ with
+    $\mu\text{-risk}_{IPW}$}\label{theory:mu_risk_ipw_bound}
+
+\begin{proposition}[Upper bound with $\mu \text{-risk}_{IPW}$
+    ]\label{theory:prop:mu_risk_ipw_bound}
+    \cite{johansson2022generalization} Given an outcome model $f$, let a
+    weighting function\\ $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$ as the
+    Inverse Propensity Weight. Then, under overlap (assumption
+    \ref{assumption:overlap}), we have:
+    \begin{equation*}
+        \tau\text{-risk}(f) \leq \; 2 \, \mu\text{-risk}_{IPW}(w, f)
+        - 2 \, \big(\sigma^2_{B}(1) +  \sigma^2_{B}(0)\big)
+    \end{equation*}
+\end{proposition}
+This result has been derived in previous work
+\cite{johansson2022generalization}. It links $\mu\text{-risk}_{IPW}$ to
+the squared residuals of each population. For completeness, we provide the proof in \ref{apd:proofs}.
+
+The upper-bound comes from the triangular inequality applied to the residuals of
+both populations. The two quantities are equal when the
+absolute residuals on treated and untreated populations are equal on the
+whole covariate space:
+$\forall x \in \mathcal X, |\mu_1(x) - f(x, 1)| = |\mu_0(x) - f(x, 0)|$.
+The main difference between the oracle $\tau \text{-risk}$ and the
+reweighted mean squared error, $\mu\text{-risk}_{IPW}$, comes from heterogeneous
+residuals between populations.
+% These quantities are difficult to characterize as
+%they are linked both to the estimator and to the data distribution.
+%
+This bound shows that minimizing the $\mu\text{-risk}_{IPW}$ helps to
+minimize the $\tau\text{-risk}$, which leads to
+interesting optimization procedures \cite{johansson2022generalization}. However, there is no
+guarantee that this bound is tight, which makes it fragile for model
+selection.
+
+Assuming strict overlap (probability of all individuals being treated or not
+bounded away from 0 and 1 by $\eta$, \ref{apd:causal_assumptions}), the
+above bound simplifies into a looser one involving the usual mean squared error:
+$\tau\text{-risk}(f)\leq \frac{2}{\eta}\, \mu\text{-risk}(f) -  2 \, \big(\sigma^2_{B}(1) +  \sigma^2_{B}(0)\big)$. For weak overlap (propensity scores not bounded far from 0
+or 1), this bound is very loose (as shown in Figure \ref{fig:toy_example})
+and is not appropriate to discriminate between models with close performances.
+
+%\md{Lower bound: I think that there is no lower bound of the tau-risk with the
+%mu-risk. That means that we can have a mu risk of 0 wheras the taurisk is
+%non-null. Todo for myself: develop an example with overfitted 1NN on the
+%observed data.}
+
+\subsection{Reformulation of the $R\text{-risk}$ as reweighted
+    $\tau\text{-risk}$}\label{theory:r_risk_rewrite}
+
+We now derive a novel rewriting of the $R\text{-risk}$, making explicit its link
+with the oracle $\tau \text{-risk}$.
+
+\begin{proposition}[$R \text{-risk}$ as reweighted
+        $\tau\text{-risk}$]\label{theory:prop:r_risk_rewrite} Given an outcome model
+    $f$, its $R\text{-risk}$ appears as weighted version of its $\tau\text{-risk}$
+    (Proof in \ref{apd:proofs:r_risk_rewrite}):
+    \begin{align}
+        R\text{-risk}^*(f) & = \int_{x} e(x)\big(1-e(x)\big)\big(\tau(x)-\tau_ {f}(x)\big)^{2} p(x) d x \nonumber \\
+                           & \quad\; + \tilde{\sigma}_B^2(1) + \tilde{\sigma}_B^{2}(0)
+    \end{align}
+\end{proposition}
+
+The $R \text{-risk}$ targets the oracle at the cost of an overlap re-weighting
+and the addition of the reweighted Bayes residuals, which are independent of
+$f$. In good overlap regions the weights $e(x) \big(1-e(x) \big)$ are close to
+$\frac{1}{4}$, hence the $R \text{-risk}$ is close to the desired gold-standard
+$\tau \text{-risk}$. On the contrary, for units with extreme overlap violation,
+these weights go down to zero with the propensity score.
+
+% \begin{remark}[Trivial upper bound] Because $e(x)\leq1$ and $(1-e(x))\leq1$,
+%   we see immediately that \begin{equation} R \text{-risk}^* \leqslant
+%   \tau{\text{-risk}}+\tilde{\sigma_{B}}(1)^{2}+\tilde{\sigma_{B}}^{2}(0)
+%   \end{equation} \end{remark}
+
+% \begin{remark}[Lower bound] Due to strict overlap assumption, \begin{equation}
+%   R \text{-risk}^* \geqslant \eta (1 - \eta)
+%   \tau{\text{-risk}}-\tilde{\sigma_{B}}(1)^{2}-\tilde{\sigma_{B}}^{2}(0)
+%   \end{equation} \end{remark}
+
+% \begin{remark}[Cases of loose upper bounds] Giving a strict overlap assumption
+%   $\eta$, we can exhibit for all $C \; st. \; \eta^{-1}>C>1$, simple
+%   simulations where: \begin{equation} R \text{-risk}^* \leqslant C \; \eta \;
+%   \tau \text{-risk}(f) \quad \end{equation} \end{remark}
+
+\subsection{Interesting special cases}
+
+\paragraph{Randomization special case}\label{remark:rct} If the treatment is
+randomized as in RCTs, $p(A=1 \mid X=x) = p(A=1)=p_A$, thus
+$\mu\text{-risk}_{IPW}$ takes a simpler form:
+\begin{equation*}
+    \mu\text{-risk}_{IPW} = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{p_A} + \frac{1-A}{1-p_A} \Big) (Y-f(X ; A))^2 \right]
+\end{equation*}
+However, we still can have large differences
+between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
+errors between populations as noted in Section \ref{theory:mu_risk_ipw_bound}
+and shown experimentally in \citet{schuler_comparison_2018} and our
+results below.
+
+Concerning the $R\text{-risk}$, replacing $e(x)$ by its randomized value $p_A$
+in Proposition \ref{theory:prop:r_risk_rewrite} yields the oracle
+$\tau\text{-risk}$ up to multiplicative and additive constants:
+\begin{equation*}
+    R\text{-risk} = p_A \, (1-p_A) \, \tau\text{-risk} \;+\; (1 - p_A) \,\sigma_B^2(0) \;+\; p_A \sigma_B^2(1)
+\end{equation*}
+Thus, selecting estimators with $R\text{-risk}^*$ in
+randomized setting controls the $\tau\text{-risk}$. This explains
+the strong performances of $R\text{-risk}$ in randomized setups
+\cite{schuler_comparison_2018} and is a strong argument to use it
+to estimate heterogeneity in RCTs.
+
+\paragraph{Oracle Bayes predictor}\label{remark:bayes_oracle} If we
+have access to the oracle Bayes predictor for the outcome ie.~$f(x,
+    a)=\mu(x, a)$, then all risks are equivalent up to the residual variance:
+\begin{equation}
+    \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
+\end{equation}
+\begin{align}
+    \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
+                         & = \int_{\mathcal X, \mathcal A}
+    \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
+\end{align}
+\begin{equation}
+    \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
+    %\notag
+\end{equation}
+\begin{multline}
+    R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
+    \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
+\end{multline}
+
+Thus, differences between causal risks only matter in finite sample regimes.
+Universally consistent learners converge to the Bayes risk in asymptotic
+regimes, making all model selection risks equivalent. In practice however,
+choices must be made in non-asymptotic regimes.
+
+
+\section{Empirical Study}\label{sec:empirical_study}
+
+%We now explore empirically the behavior of these different causal selection
+%metrics.
+%\subsection{Causal metrics under evaluation}
+
+We evaluate the following causal metrics, oracle and feasible
+versions, presented in Table
+\ref{tab:evaluation_metrics}:\\
+$\widehat{\mu\text{-risk}}_{IPW}^*$,
+$\widehat{R\text{-risk}}^*$,
+$\widehat{U\text{-risk}}^*$,
+$\widehat{\tau\text{-risk}_{IPW}}^*$,
+$\widehat{\mu\text{-risk}}$,
+$\widehat{\mu\text{-risk}}_{IPW}$,
+$\widehat{R\text{-risk}}$,
+$\widehat{U\text{-risk}}$,
+$\widehat{\tau\text{-risk}_{IPW}}$.
+We benchmark the metrics in a variety of settings:
+many different simulated data generation
+processes and three semi-simulated datasets \footnote{Scripts for the simulations and the selection procedure are available at
+    \url{https://github.com/soda-inria/caussim}.
+}.
+
+\subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
+
+\paragraph{Data Generation}
+
+We use simulated data, on which the ground-truth causal effect is known. Going
+beyond prior empirical studies of causal model selection
+\cite{schuler_comparison_2018,alaa_validating_2019}, we use many
+generative processes, to reach more general conclusions (as discussed
+in \ref{apd:results:fig:seed_effect}).
+
+We generate the response functions using random bases. Basis extension methods
+are common in biostatistics, \emph{eg} functional regression with splines
+\cite{howe_splines_2011, perperoglou_review_2019}. By allowing the function to
+vary at specific knots, they give flexible non-linear models. We use random approximation of Radial Basis Function (RBF) kernels
+\cite{rahimi_random_2008} to generate the response functions. RBF use the same
+process as polynomial splines but replace polynomial by Gaussian kernels. Unlike
+polynomials, Gaussian kernels have decreasing influences in the input space.
+This avoids unrealistic divergences of the response surfaces at the
+ends of the feature space.
+
+The number of basis functions --\emph{ie. knots}--, controls the complexity of
+the ground-truth response surfaces and treatment. We first use this process to
+draw the non-treated response surface $\mu_0$ and the causal effect $\tau$. We
+then draw the observations from a mixture two Gaussians, for the treated and non
+treated. We vary the separation between the two Gaussians to control the
+overlap between treated and non-treated populations, an important parameter
+for causal inference (related to $\eta$ in section
+\ref{theory:mu_risk_ipw_bound}). Finally, we generate observed outcomes
+adding Gaussian noise. We generate 1\,000 of such datasets, with
+uniformly random overlap parameters. Details in
+\ref{apd:experiments:generation}.
+
+\captionsetup[sub]{font=large,labelfont={bf,sf}}%
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
+
+    \caption{Example of the simulation setup in the input space with two
+        knots --\emph{ie.}basis functions. The top panel
+        shows the observations in feature space, while the bottom panel displays the
+        two response surfaces on a 1D cut along the black lines drawn on
+        the top panel.}
+    \label{fig:simulation_examples}
+\end{figure}
+
+
+\paragraph{Family of candidate estimators}
+
+We test model selection on a family of candidate estimators that
+approximate imperfectly the data-generating process. To build such an
+estimator, we first use a RBF expansion
+similar to the one used for data generation.
+We choose two random knots and apply a transformation of the raw data features
+with a Gaussian kernel. This step
+is referred as the featurization. Then, we fit a linear regression on
+these
+transformed features. We consider two ways of combining these steps for outcome
+mode; we use common nomenclature \cite{kunzel_metalearners_2019,shen2023rctrep} to refer
+to these different meta-learners that differ on how
+they model, jointly or not, the treated and the non treated:
+\begin{itemize}
+    \item SLearner: A single learner for both population, taking the treatment as
+          a supplementary covariate.
+
+    \item SftLearner: A single set of basis functions is sampled at random for both
+          populations, leading to a given feature space used to model both the treat and
+          the non treated, then two
+          separate different regressors are fitted on this shared representation.
+    \item TLearner: Two completely different learners for each population, hence
+          separate feature representations and regressors.
+\end{itemize}
+
+We do not include more elaborated meta-learners such as R-learner
+\cite{nie_quasioracle_2017} or X-learner
+\cite{kunzel_metalearners_2019}. Our goal is not to have the best possible
+learner but to have a variety of sub-optimal learners to compare the
+different causal metrics. For the same reason, we did not include more powerful
+outcome models such as random forests or boosting trees.
+
+For the regression step, we fit a Ridge regression on the transformed features
+with 6 different choices of the regularization parameter $\lambda \in [10^{-3},
+        10^{-2}, 10^{-1}, 1, 10^{1}, 10^{2}]$, coupled with a TLearner or a SftLearner.
+We sample 10 different random basis for learning and
+featurization yielding a family $\mathcal F$ of 120 candidate estimators.
+%
+
+\subsection{Semi-simulated datasets}
+
+\paragraph{Datasets}\label{semi_simulated:datasets}
+
+We also use classic benchmarks of the causal-inference
+literature, semi-simulated data adding a known synthetic causal effect to real --non synthetic-- covariate:
+\begin{description}
+    \item[ACIC 2016] \cite{dorie_automated_2019}: The dataset is based on the
+        Collaborative Perinatal Project \cite{niswander_women_1972}, a RCT
+        studying infants’
+        developmental disorders. The initial intervention was a child’s birth
+        weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
+        IQ after a follow-up period. The study contained $N=4\,802$ data
+        points with $D=55$ features (5 binary, 27 count data, and 23
+        continuous). They simulated 77 different setups varying parameters
+        for treatment and response models, overlap, and interactions between treatment and
+        covariates \footnote{Original R code available at
+            \url{https://github.com/vdorie/aciccomp/tree/master/2016}
+            to generate 77 simulations settings.}. We used 10 different seeds for
+        each setup, totaling 770 dataset instances.
+
+    \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: Starting from data
+        from the Linked Births and Infant Deaths Database (LBIDD)
+        \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
+        outcome models are simulated with complex models to reflect
+        different scenarii. The data do not provide the true propensity
+        scores, so we evaluate only feasible metrics, which do not require this
+        nuisance parameter. We used all 432 datasets\footnote{Using the scaling part of the data, from
+            \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}} of size $N=5\,000$.
+
+
+    \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of
+        real data on twin births and mortality rates
+        \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
+        and $D=50$ covariates\footnote{We obtained the dataset from
+            \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
+        weight of the heavier twin at birth. This is a "true" counterfactual dataset
+        \cite{curth_really_2021} in the sense that we have
+        both potential outcomes with each twin. They simulate the treatment with a
+        sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
+        the 45 other covariates:
+        \begin{align}
+            \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
+            \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
+            \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
+            w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
+        \end{align}
+        We add a non-constant slope in the
+        sigmoid to control the overlap between
+        treated and control populations.
+        We sampled uniformly 1\,000 different overlap parameters between 0 and
+        2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
+        only the overlap varies for these instances. The response surfaces are
+        set by the original outcomes.
+\end{description}
+
+\paragraph{Family of candidate
+    estimators}\label{semi_simulated:candidate_estimators}
+
+For these three datasets, the family of candidate estimators are gradient
+boosting trees for both the response surfaces and the treatment
+\footnote{Scikit-learn regressor,
+    \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html}{HistGradientBoostingRegressor},
+    and classifier,
+    \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html}{HistGradientBoostingClassifier}.}
+with S-learner, learning rate
+in $\{0.01, 0.1, 1\}$, and maximum number of leaf nodes in $\{25, 27, 30, 32,
+    35, 40\}$ resulting in a family of size 18.
+
+\paragraph{Nuisance estimators}
+
+Drawing inspiration from the TMLE literature that uses combination of flexible
+machine learning methods \cite{schuler_targeted_2017}, we use as models
+for the nuisances $\check e$ (respectively $\check m$) a form of meta-learner: a
+stacked estimator of ridge and boosting classifiers (respectively
+regressions). We select hyper-parameters with randomized search on a validation set
+$\mathcal{V}$ and keep them fix for model selection
+(\ref{apd:experiments:nuisances_hp} lists hyperparameters). As extreme inverse
+propensity weights induce high variance, we use clipping
+\cite{swaminathan_counterfactual_2015, ionides_truncated_2008} to bound
+$min(\check e, 1-\check e)$ away from 0 with a fixed $\eta=10^{-10}$, ensuring
+strict overlap for numerical stability.
+
+
+%\paragraph{Model selection procedure}\label{semi_simulated:selection_procedure}
+
+%We used the same training procedure procedure as in
+%\ref{paragraph:selection_procedure} (Details in supp.~mat.
+%\ref{apd:selection_procedure_acic}).
+
+\subsection{Measuring overlap between treated and non treated}\label{subsec:measuring_overlap}
+
+%\idea{Overlap is important but not easily measurable}
+Good overlap between treated and control population is
+crucial for causal inference as it is required by the positivity assumption
+\ref{assumption:overlap}. It is often assessed by
+comparing visually population distributions (as in Figure
+\ref{fig:toy_example}) or computing standardized difference on each
+feature
+\cite{austin_introduction_2011,austin_moving_2015}. While these methods are
+useful to decide if positivity holds, they do not yield a
+single measure. Rather, we compute the divergence
+between the population covariate distributions $\mathbb P(X|A=0)$ and $\mathbb
+    P(X|A=1)$
+\cite{damour_overlap_2020,johansson2022generalization}. We introduce the
+Normalized Total Variation (NTV), a divergence based on the sole propensity
+score (see \ref{apd:motivation_ntv}).
+
+\begin{figure}[!b]
+    \centering
+    \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf}
+    %\hfill
+    \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$ agreement with $\tau\text{-risk}$.
+        Strong and Weak overlap correspond to the first and last tertiles of the overlap distribution measured with
+        Normalized Total Variation eq. \ref{eq:ntv}. \ref{apd:experiments:additional_results} presents the same results
+        by adding semi-oracle risks in Figure \ref{apd:fig:relative_kendalls_all_datasets_all_metrics}, measured with
+        absolute Kendall's in Figure \ref{apd:fig:all_datasets_tau_risk_ranking_agreement} and with $\tau\mathrm{-risk}$
+        gains in Figure \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}. Table
+        \ref{apd:table:relative_kendalls_all_datasets} gives median and
+        IQR of the relative Kendall.}\label{fig:relative_kendalls_all_datasets}
+\end{figure}
+
+\subsection{Results: factors driving good model selection}\label{empirical_study:results}
+
+
+\paragraph{The $R\text{-risk}$ is the best metric}
+
+Each metric ranks differently the candidate models. Figure
+\ref{fig:relative_kendalls_all_datasets} shows the agreement between the
+ideal ranking of methods given the oracle $\tau\text{-risk}$ and
+the different feasible causal metrics. We measure this agreement
+with a relative\footnote{To remove the variance
+    across datasets (some datasets lead to easier model selection than
+    others), we report values for one metric relative to the mean of all
+    metrics for a given dataset instance: $\text{Relative} \, \kappa(\ell,\tau\mathrm{{-risk}})=
+        \kappa(\ell,\tau\mathrm{{-risk}}) -
+        mean_{\ell}\big(\kappa(\ell,\tau\mathrm{{-risk}})\big)$} Kendall tau $\kappa$ (eq.
+\ref{eq:kendall_tau}) \cite{kendall_new_1938}.
+Given the importance of overlap in
+how well metrics approximate the oracle $\tau\text{-risk}$
+(\ref{apd:proofs:mu_risk_ipw_bound}), we separate
+strong and weak overlap.
+
+Among all metrics, the classical mean squared error (ie. factual
+$\mu\text{-risk}$) is worse and reweighting it with propensity score
+($\mu\text{-risk}_{IPW}$) does not bring much improvements. The
+$R\text{-risk}$, which includes a model of mean outcome and propensity
+scores, leads to the best performances. Interestingly, the
+$U\text{-risk}$, which uses the same nuisances, deteriorates in weak overlap, probably due to variance
+inflation when dividing by extreme propensity scores.
+
+Beyond rankings, the differences in terms of absolute
+ability to select the best model are large: The R-risk selects a model
+with a $\tau\text{-risk}$ only 1\% higher
+than the best
+possible candidate for strong overlap on Caussim, but selecting with
+the $\mu\text{-risk}$ or $\mu\text{-risk}_{IPW}$ --as per machine-learning
+practice-- leads to 10\% excess risk and using $\tau\text{-risk}_{IPW}$
+--as in some causal-inference methods \citep{athey2016recursive,gutierrez_causal_2016}--leads to 100\% excess risk
+(Figure
+\ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}). Across
+datasets, the $R\text{-risk}$ consistently decreases the
+risk compared to the $\mu\text{-risk}$:
+0.1\% compared to 1\% on ACIC2016,  1\% compared to 20\% on ACIC2018,
+and 0.05\% compared to 1\% on Twins.
+
+
+\paragraph{Model selection is harder for low population
+    overlap}
+
+Model selection for
+causal inference becomes more and more difficult with increasingly different
+treated and control populations
+(Figure \ref{fig:all_datasets_overlap_effect_r_risk}). The
+absolute Kendall's coefficient correlation with $\tau\text{-risk}$
+drops from values around 0.9 (excellent agreement with oracle selection) to 0.6 on
+both Caussim and ACIC 2018
+(\ref{apd:experiments:additional_results}).
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf}
+    %\hfill
+    \caption{\textbf{Model selection is harder for low population
+            overlap}:
+        Kendall's $\tau$ agreement with $\tau\text{-risk}$. Strong, medium and Weak overlap
+        are the tertiles of the overlap measured with NTV eq. \ref{eq:ntv}. \ref{apd:experiments:additional_results} presents results for all
+        metrics in Figure \ref{apd:fig:all_datasets_overlap_effect} in absolute
+        Kendall's and continuous overlap values in Figure
+            {\ref{apd:fig:all_datasets_tau_risk_ranking_agreement}}.}\label{fig:all_datasets_overlap_effect_r_risk}
+\end{figure}
+
+
+
+\paragraph{Nuisances can be estimated on the same data as outcome models}
+
+Using the train set $\mathcal{T}$ both to fit the candidate estimator and the
+nuisance estimates is a form of double dipping which can lead errors in
+nuisances correlated to that of outcome models
+\cite{nie_quasioracle_2017}. In theory, these correlations can bias model
+selection and, strictly speaking, push
+to split out a third separated data set --a ``nuisance set''-- to fit the
+nuisance models. The drawback is that it depletes the data available for
+model estimation and selection. However, Figure
+\ref{fig:procedures_comparison} shows no substantial difference between a procedure with a separated
+nuisance set and the simpler shared nuisance-candidate set procedure.
+
+\begin{figure}[!tb]
+    \includegraphics[width=\linewidth]{images/_3_procedure_r_risk_only_3datasets_twocols.pdf}
+
+    \caption{\textbf{Nuisances can be estimated on the same data as outcome
+            models}: Results for the R-risk are similar between the
+        \textcolor{MidnightBlue}{shared
+            nuisances/candidate set} and
+        the \textcolor{RedOrange}{separated nuisances set} procedures. Figure
+        \ref{apd:fig:procedures_comparison_all_metrics} details results for all metrics.}\label{fig:procedures_comparison}
+\end{figure}
+
+
+\paragraph{Stacked models are good overall estimators of nuisances}
+
+For every risk, the oracle version recovers better the best estimator.
+However,
+stacked nuisances estimators (boosting and linear) lead to feasible
+metrics with close performances to the oracles ones: the
+corresponding estimators recover well-enough the true nuisances.
+One may wonder if simpler models for the nuisance could be useful,
+in particular in data-poor settings or when the true models are linear.
+Figure \ref{fig:all_datasets_nuisances_comparison} compares causal model
+selection estimating nuisances with stacked estimators or linear model.
+It comprises the Twins data, where the true propensity model is linear,
+and a downsampled version of this data, to study a situation favorable to
+linear models. In these settings,
+stacked and linear estimations of the nuisances performs equivalently.
+Detailed analysis (Figure \ref{apd:fig:nuisances_comparison_twins})
+confirms that using adaptive models --as built by
+stacking linear models and gradient-boosted trees-- suffices to estimate nuisance.
+
+\begin{figure}[!tb]
+    \includegraphics[width=\linewidth]{images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf}
+
+    \caption{\textbf{\textcolor{DarkOrchid}{Stacked
+                models} are good overall estimators of the nuisances}:
+        Results are shown only for the
+        R-risk; Figure \ref{apd:fig:nuisances_comparison}
+        details every metrics. For Twins, where the true propensity
+        model is linear, \textcolor{DarkOrchid}{stacked} and
+        \textcolor{ForestGreen}{linear}
+        estimations of the nuisances performs equivalently, even for a downsampled version
+        (N=4794). }\label{fig:all_datasets_nuisances_comparison}
+\end{figure}
+
+\paragraph{Use 90\% of the data to estimate outcome models, 10\% to
+    select them}
+
+The analyst faces a compromise: given a finite
+data sample, should she allocate more data to estimate the outcome model,
+thus improving the quality of the outcome model but leaving
+little data for model selection. Or, she could choose a bigger test set for
+model selection and effect estimation. For causal model selection, there
+is no established practice (as reviewed in \ref{apd:results:k_fold_choices}).
+
+We investigate such tradeoff varying the ratio between train and test
+data size. For this, we first split out 30\% of the data as a holdout set
+$\mathcal{V}$ on which we use the oracle response functions to derive
+silver-standard estimates of causal quantities. We then
+use the standard estimation procedure on the remaining 70\% of the data,
+splitting it into train $\mathcal{T}$ and test $\mathcal{S}$ of varying
+sizes. We finally measure the error between this estimate and the
+silver standard.
+
+We consider two different analytic goals: estimating a average
+treatment effect --a single number used for policy making-- and a
+CATE --a full model of the treatment effect as a function of covariates
+$X$. Given that the latter is a much more complex object than the former,
+the optimal train/test ratio might vary. To measure errors, we use for
+the ATE the relative absolute ATE bias between the ATE computed with the
+selected outcome model on the test set, and the true ATE as evaluated on
+the holdout set $\mathcal{V}$. For the CATE, we compare the
+$\tau\text{-risk}$
+of the best selected model applied on the holdout set $\mathcal{V}$. We explore this trade-off for the ACIC 2016 dataset and the R-risk.
+
+\begin{figure}[!t]
+    \begin{minipage}{.5\textwidth}
+        \centerline{\textbf{a) CATE estimation error}}
+        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf}
+    \end{minipage}
+    %\hspace{0.3\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \centerline{\textbf{b) ATE estimation error}}
+        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf}
+    \end{minipage}%
+    \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears a good
+            trade-off.} b) For ATE, there is a small signal pointing also to
+        0.9/0.1 (K=10).
+        for ATE. Experiences on 10 replications of all 78 instances of the ACIC 2016
+        data.}\label{fig:train_test_ratio}
+\end{figure}
+
+Figure \ref{fig:train_test_ratio} shows that a train/test ratio of
+0.9/0.1 (K=10) or 0.8/0.2 (K=5) appears best to estimate CATE and
+ATE.
+
+
+
+\section{Discussion and conclusion}\label{sec:discussion}
+
+Predictive models are increasingly used to reason about causal effects,
+for instance in precision medicine to drive individualized decision.
+Our results highlight that they should be selected, validated, and tuned
+using different procedures and error measures than those classically used
+to assess prediction (estimating the so-called $\mu\text{-risk}$).
+Rather, selecting the best outcome model according to the $R\text{-risk}$
+(eq.\,\autoref{def:r_risk}) leads to more valid causal estimates.
+
+\paragraph{Nuisance models: more gain than pain}
+%
+Estimating the $R\text{-risk}$ requires a more complex procedure than
+standard cross-validation used \emph{e.g.}~in machine learning: it involves
+fitting nuisance models necessary for model evaluation, though our
+results show that these can be learned on the same set of data
+as the outcome model evaluated.
+
+The nuisance models must be well estimated (Figure
+\ref{fig:all_datasets_nuisances_comparison}). However these models are
+easier to select and control than a causally-valid outcome model,
+as they are associated to errors on
+observed distributions. Our results show that using for nuisance models
+a flexible stacking-based family of estimator suffices for good model selection.
+%
+In fact, a feasible $R\text{-risk}$ --where the nuisances
+are estimated-- performs almost as well as an oracle $R\text{-risk}$ --where the
+nuisances are known. This may be explained by
+results that suggest that estimation errors on both
+nuisances partly compensate out in the
+$R\text{-risk} $\cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018,zivich2021machine,naimi2021challenges}.
+
+Note that propensity score models must be selected to estimate
+the individual posterior probability. For this, we used the Brier score,
+is minimized by the true individual probability. An easy mistake is to
+use calibration errors popular in machine learning
+\cite{platt_probabilistic_1999,zadrozny_obtaining_2001,niculescu-mizil_predicting_2005,minderer_revisiting_2021}
+as these select not for the individual posterior probability but for an
+aggregate error rate \cite{perez2022beyond}.
+
+
+\paragraph{Extension to binary outcomes}
+While we focused on continuous outcomes, in medicine, the target outcome
+is often a categorical variable such as mortality status or diagnosis. In
+this case, it may be interesting to focus on other estimands than the
+Average Treatment Effect $\mathbb{E}[Y(1)] -\mathbb{E}[Y(0)] $, for instance the relative risk
+$\frac{\mathbb P(Y(1) = 1)}{\mathbb P(Y(0) = 1)}$
+or the odd ratio, $\frac{\mathbb P(Y(1) = 1) / [1 - \mathbb P(Y(1)
+    =1)]}{\mathbb P(Y(0) = 1) / [1 - \mathbb P(Y(0) = 1]}$ are often used
+\cite{austin2017estimating}. While the odds ratio is natural for
+case-control studies \cite{rothman2008case}, other measures
+can reduce heterogeneity \cite{colnet2023risk}.
+In the log domain, the ratios are written as a difference, the
+framework studied here (\autoref{sec:neyman_rubin}) can directly apply.
+In particular, the log odds ratio is estimated by the common
+cross-entropy loss (or log loss) as in logistic regression.
+
+\paragraph{More $R\text{-risk}$ to select models driving decisions}
+
+Prediction models have flourished because their predictions can be easily
+demonstrated and validated on left-out data. But they require more
+careful validation for decision making, using a metric accounting for the
+putative intervention, the $R\text{-risk}$. Even when treated and
+untreated population differ little, as in RCTs, the $R\text{-risk}$
+brings a sizeable benefit. To facilitate better model selection, we provide Python
+code\footnote{\url{https://github.com/soda-inria/causal_model_selection}}.
+Using the $R\text{-risk}$ does make evaluation more
+complicated not only because the procedure is more involved, but also
+because each intervention requires a dedicated evaluation. However, such
+off-policy evaluation remains much less costly than the recommended good
+practice of impact evaluation testing the ability of a prediction model
+to actually guide patient health \cite{hendriksen2013diagnostic}. Also,
+the model-selection procedure puts no constraints on the models used to
+build predictive models: it opens the door to evaluating a wide range of
+models, from gradient boosting to convolutional neutral, or language
+models.
+
 
 \section*{Acknowledgments}
 
@@ -1523,7 +1457,11 @@ The authors declare no potential conflict of interests.
 
 \clearpage
 
+\onecolumn
+
 \appendix
+%\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{3}
 
 %The following supporting information is available as part of the online article:
 

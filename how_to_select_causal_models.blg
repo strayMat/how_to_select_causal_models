@@ -1,28 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'how_to_select_causal_models.blg'
-[39] biber:340> INFO - === Thu Nov 16, 2023, 17:14:37
-[48] Biber.pm:418> INFO - Reading 'how_to_select_causal_models.bcf'
-[103] Biber.pm:972> INFO - Found 95 citekeys in bib section 0
-[111] Biber.pm:4383> INFO - Processing section 0
-[117] Biber.pm:4574> INFO - Looking for bibtex file 'biblio.bib' for section 0
-[122] bibtex.pm:1713> INFO - LaTeX decoding ...
-[196] bibtex.pm:1518> INFO - Found BibTeX data source 'biblio.bib'
-[575] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[575] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[575] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[575] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[633] bbl.pm:654> INFO - Writing 'how_to_select_causal_models.bbl' with encoding 'UTF-8'
-[670] bbl.pm:757> INFO - Output to how_to_select_causal_models.bbl
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'beam2018big' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'rajkomar2019machine' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'khojaste2022deep' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'zhang2019radiological' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'yala2019deep' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'shen2019deep' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'nassif2022breast' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'wang2020prediction' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'spasic2020clinical' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'vanderweele2019principles' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'shen2017deep' (section 0)
-[671] Biber.pm:130> WARN - I didn't find a database entry for 'monshi2020deep' (section 0)
-[671] Biber.pm:132> INFO - WARNINGS: 12
+[41] biber:340> INFO - === Thu Nov 16, 2023, 17:47:00
+[50] Biber.pm:418> INFO - Reading 'how_to_select_causal_models.bcf'
+[108] Biber.pm:972> INFO - Found 99 citekeys in bib section 0
+[115] Biber.pm:4383> INFO - Processing section 0
+[122] Biber.pm:4574> INFO - Looking for bibtex file 'biblio.bib' for section 0
+[126] bibtex.pm:1713> INFO - LaTeX decoding ...
+[199] bibtex.pm:1518> INFO - Found BibTeX data source 'biblio.bib'
+[576] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[576] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[576] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[576] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[642] bbl.pm:654> INFO - Writing 'how_to_select_causal_models.bbl' with encoding 'UTF-8'
+[682] bbl.pm:757> INFO - Output to how_to_select_causal_models.bbl
+[682] Biber.pm:130> WARN - I didn't find a database entry for 'johansson_generalization_2021' (section 0)
+[682] Biber.pm:132> INFO - WARNINGS: 1

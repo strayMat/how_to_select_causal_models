@@ -47,28 +47,13 @@
       \field{labeltitlesource}{title}
       \field{abstract}{The problem of estimating causal effects of treatments from observational data falls beyond the realm of supervised learning \{—\} because counterfactual data is inaccessible, we can never observe th...}
       \field{day}{24}
-      \field{issn}{2640-3498}
       \field{journaltitle}{International Conference on Machine Learning}
-      \field{langid}{english}
       \field{month}{5}
       \field{title}{Validating Causal Inference Models via Influence Functions}
-      \field{urlday}{11}
-      \field{urlmonth}{1}
-      \field{urlyear}{2021}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{191\bibrangedash 201}
       \range{pages}{11}
-      \verb{file}
-      \verb Full Text PDF:C\:\\Users\\m.doutreligne\\Zotero\\storage\\8QMMCA2S\\Alaa et Schaar - 2019 - Validating Causal Inference Models via Influence F.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\YL5ECHVP\\alaa19a.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb http://proceedings.mlr.press/v97/alaa19a.html
-      \endverb
-      \verb{url}
-      \verb http://proceedings.mlr.press/v97/alaa19a.html
-      \endverb
     \endentry
     \entry{almond_costs_2005}{article}{}
       \name{author}{3}{}{%
@@ -100,26 +85,10 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Low birth weight (LBW) infants experience severe health and developmental difficulties that can impose large costs on society. However, estimates of the return to LBW-prevention from cross-sectional associations may be biased by omitted variables, such as genetic factors. To address this, we compare the hospital costs, health at birth, and infant mortality rates between heavier and lighter infants from all twin pairs born in the United States. We also examine the effect of maternal smoking during pregnancy—the leading risk factor for LBW in the United States—on health among singleton births after controlling for detailed background characteristics. Both analyses imply substantially smaller effects of LBW per se than previously thought, suggesting two possibilities: 1) existing estimates overstate the true costs and consequences of LBW by at least a factor of four and by as much as a factor of twenty; or 2) different LBW-preventing interventions have different health and cost consequences, implying that policy efforts that presume a single return to reducing LBW will be suboptimal.}
       \field{journaltitle}{The Quarterly Journal of Economics}
-      \field{note}{Publisher: Oxford University Press}
       \field{number}{3}
       \field{title}{The {Costs} of {Low} {Birth} {Weight}}
-      \field{urlday}{22}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{volume}{120}
       \field{year}{2005}
-      \field{urldateera}{ce}
-      \field{pages}{1031\bibrangedash 1083}
-      \range{pages}{53}
-      \verb{file}
-      \verb RePEc Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\GD5WS6P5\\v_3a120_3ay_3a2005_3ai_3a3_3ap_3a1031-1083..html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://econpapers.repec.org/article/oupqjecon/v_3a120_3ay_3a2005_3ai_3a3_3ap_3a1031-1083..htm
-      \endverb
-      \verb{url}
-      \verb https://econpapers.repec.org/article/oupqjecon/v_3a120_3ay_3a2005_3ai_3a3_3ap_3a1031-1083..htm
-      \endverb
     \endentry
     \entry{altman2009prognosis}{article}{}
       \name{author}{4}{}{%
@@ -225,32 +194,16 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We propose generalized random forests, a method for nonparametric statistical estimation based on random forests (Breiman [Mach. Learn. 45 (2001) 5–32]) that can be used to fit any quantity of interest identified as the solution to a set of local moment equations. Following the literature on local maximum likelihood estimation, our method considers a weighted set of nearby training examples; however, instead of using classical kernel weighting functions that are prone to a strong curse of dimensionality, we use an adaptive weighting function derived from a forest designed to express heterogeneity in the specified quantity of interest. We propose a flexible, computationally efficient algorithm for growing generalized random forests, develop a large sample theory for our method showing that our estimates are consistent and asymptotically Gaussian and provide an estimator for their asymptotic variance that enables valid confidence intervals. We use our approach to develop new methods for three statistical tasks: nonparametric quantile regression, conditional average partial effect estimation and heterogeneous treatment effect estimation via instrumental variables. A software implementation, grf for R and C++, is available from {CRAN}.}
-      \field{issn}{0090-5364, 2168-8966}
       \field{journaltitle}{Annals of Statistics}
       \field{month}{4}
-      \field{note}{Publisher: Institute of Mathematical Statistics}
       \field{number}{2}
       \field{shortjournal}{Ann. Statist.}
       \field{title}{Generalized random forests}
-      \field{urlday}{11}
-      \field{urlmonth}{1}
-      \field{urlyear}{2021}
       \field{volume}{47}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1148\bibrangedash 1178}
       \range{pages}{31}
-      \verb{doi}
-      \verb 10.1214/18-AOS1709
-      \endverb
-      \verb{urlraw}
-      \verb https://projecteuclid.org/euclid.aos/1547197251
-      \endverb
-      \verb{url}
-      \verb https://projecteuclid.org/euclid.aos/1547197251
-      \endverb
-      \keyw{causal inference,Asymptotic theory,instrumental variable}
     \endentry
     \entry{austin2017estimating}{article}{}
       \name{author}{2}{}{%
@@ -306,31 +259,13 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The propensity score is the probability of treatment assignment conditional on observed baseline characteristics. The propensity score allows one to design and analyze an observational (nonrandomized) study so that it mimics some of the particular characteristics of a randomized controlled trial. In particular, the propensity score is a balancing score: conditional on the propensity score, the distribution of observed baseline covariates will be similar between treated and untreated subjects. I describe 4 different propensity score methods: matching on the propensity score, stratification on the propensity score, inverse probability of treatment weighting using the propensity score, and covariate adjustment using the propensity score. I describe balance diagnostics for examining whether the propensity score model has been adequately specified. Furthermore, I discuss differences between regression-based methods and propensity score-based methods for the analysis of observational data. I describe different causal average treatment effects and their relationship with propensity score analyses.}
-      \field{issn}{0027-3171}
       \field{journaltitle}{Multivariate Behavioral Research}
       \field{month}{5}
       \field{number}{3}
       \field{title}{An {Introduction} to {Propensity} {Score} {Methods} for {Reducing} the {Effects} of {Confounding} in {Observational} {Studies}}
-      \field{urlday}{12}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
-      \field{volume}{46}
       \field{year}{2011}
-      \field{urldateera}{ce}
       \field{pages}{399\bibrangedash 424}
       \range{pages}{26}
-      \verb{doi}
-      \verb 10.1080/00273171.2011.568786
-      \endverb
-      \verb{file}
-      \verb Austin_2011_An Introduction to Propensity Score Methods for Reducing the Effects of.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\PAQK33UN\\Austin_2011_An Introduction to Propensity Score Methods for Reducing the Effects of.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144483/
-      \endverb
-      \verb{url}
-      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144483/
-      \endverb
     \endentry
     \entry{austin_moving_2015}{article}{}
       \name{author}{2}{}{%
@@ -358,33 +293,16 @@
       \field{labeltitlesource}{title}
       \field{abstract}{The propensity score is defined as a subject's probability of treatment selection, conditional on observed baseline covariates. Weighting subjects by the inverse probability of treatment received creates a synthetic sample in which treatment assignment is independent of measured baseline covariates. Inverse probability of treatment weighting ({IPTW}) using the propensity score allows one to obtain unbiased estimates of average treatment effects. However, these estimates are only valid if there are no residual systematic differences in observed baseline characteristics between treated and control subjects in the sample weighted by the estimated inverse probability of treatment. We report on a systematic literature review, in which we found that the use of {IPTW} has increased rapidly in recent years, but that in the most recent year, a majority of studies did not formally examine whether weighting balanced measured covariates between treatment groups. We then proceed to describe a suite of quantitative and qualitative methods that allow one to assess whether measured baseline covariates are balanced between treatment groups in the weighted sample. The quantitative methods use the weighted standardized difference to compare means, prevalences, higher‐order moments, and interactions. The qualitative methods employ graphical methods to compare the distribution of continuous baseline covariates between treated and control subjects in the weighted sample. Finally, we illustrate the application of these methods in an empirical case study. We propose a formal set of balance diagnostics that contribute towards an evolving concept of ‘best practice’ when using {IPTW} to estimate causal treatment effects using observational data. © 2015 The Authors. Statistics in Medicine Published by John Wiley \& Sons Ltd.}
       \field{day}{10}
-      \field{issn}{0277-6715}
       \field{journaltitle}{Statistics in Medicine}
       \field{month}{12}
       \field{number}{28}
       \field{shortjournal}{Stat Med}
       \field{title}{Moving towards best practice when using inverse probability of treatment weighting ({IPTW}) using the propensity score to estimate causal treatment effects in observational studies}
-      \field{urlday}{6}
-      \field{urlmonth}{9}
-      \field{urlyear}{2021}
       \field{volume}{34}
       \field{year}{2015}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{3661\bibrangedash 3679}
       \range{pages}{19}
-      \verb{doi}
-      \verb 10.1002/sim.6607
-      \endverb
-      \verb{file}
-      \verb Austin_Stuart_2015_Moving towards best practice when using inverse probability of treatment.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\DH6N949M\\Austin_Stuart_2015_Moving towards best practice when using inverse probability of treatment.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4626409/
-      \endverb
-      \verb{url}
-      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4626409/
-      \endverb
     \endentry
     \entry{econml}{misc}{}
       \name{author}{7}{}{%
@@ -435,9 +353,41 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{https://github.com/microsoft/EconML}
-      \field{note}{Version 0.14.0}
       \field{title}{{EconML}: {A Python Package for ML-Based Heterogeneous Treatment Effects Estimation}}
-      \field{year}{2019}
+    \endentry
+    \entry{beam2018big}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3333cfe95922b8f5d8bac7127e304455}{%
+           family={Beam},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima L},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=7d569ca862abfbea5bb908a4fd1990f5}{%
+           family={Kohane},
+           familyi={K\bibinitperiod},
+           given={Isaac\bibnamedelima S},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Medical Association}%
+      }
+      \strng{namehash}{9fc2d8c6d7e24e121c03920f8994f4bf}
+      \strng{fullhash}{9fc2d8c6d7e24e121c03920f8994f4bf}
+      \strng{bibnamehash}{9fc2d8c6d7e24e121c03920f8994f4bf}
+      \strng{authorbibnamehash}{9fc2d8c6d7e24e121c03920f8994f4bf}
+      \strng{authornamehash}{9fc2d8c6d7e24e121c03920f8994f4bf}
+      \strng{authorfullhash}{9fc2d8c6d7e24e121c03920f8994f4bf}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Jama}
+      \field{number}{13}
+      \field{title}{Big data and machine learning in health care}
+      \field{volume}{319}
+      \field{year}{2018}
+      \field{pages}{1317\bibrangedash 1318}
+      \range{pages}{2}
     \endentry
     \entry{black1996we}{article}{}
       \name{author}{1}{}{%
@@ -614,24 +564,11 @@
       \field{journaltitle}{Proceedings of Machine Learning and Systems}
       \field{month}{3}
       \field{title}{Accounting for Variance in Machine Learning Benchmarks}
-      \field{urlday}{25}
-      \field{urlmonth}{11}
-      \field{urlyear}{2022}
       \field{volume}{3}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{747\bibrangedash 769}
       \range{pages}{23}
-      \verb{file}
-      \verb Bouthillier et al_2021_Accounting for Variance in Machine Learning Benchmarks.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\DLFBQ624\\Bouthillier et al_2021_Accounting for Variance in Machine Learning Benchmarks.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\DSJHKE86\\cfecdb276f634854f3ef915e2e980c31-Abstract.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlsys.org/paper/2021/hash/cfecdb276f634854f3ef915e2e980c31-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlsys.org/paper/2021/hash/cfecdb276f634854f3ef915e2e980c31-Abstract.html
-      \endverb
     \endentry
     \entry{charlson_new_1987}{article}{}
       \name{author}{4}{}{%
@@ -666,36 +603,17 @@
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
-      \field{abstract}{The objective of this study was to develop a prospectively applicable method for classifying comorbid conditions which might alter the risk of mortality for use in longitudinal studies. A weighted index that takes into account the number and the seriousness of comorbid disease was developed in a cohort of 559 medical patients. The I-yr mortality rates for the different scores were : “O”, 12\% (181); “l-2”, 26\% (225); “3-4”, 52\% (71); and “ {>}5”, 85\% (82). The index was tested for its ability to predict risk of death from comorbid disease in the second cohort of 685 patients during a {IO}-yr follow-up. The percent of patients who died of comorbid disease for the different scores were: “O”, 8\% (588); “I”, 25\% (54); “2”, 48\% (25); “ {>} 3”, 59\% (18). With each increased level of the comorbidity index, there were stepwise increases in the cumulative mortality attributable to comorbid disease (log rank x’ = 165;p {<} 0.0001). In this longer follow-up, age was also a predictor of mortality (p {<} 0.001). The new index performed similarly to a previous system devised by Kaplan and Feinstein. The method of classifying comorbidity provides a simple, readily applicable and valid method of estimating risk of death from comorbid disease for use in longitudinal studies. Further work in larger populations is still required to refine the approach because the number of patients with any given condition in this study was relatively small.}
-      \field{issn}{00219681}
       \field{journaltitle}{Journal of Chronic Diseases}
-      \field{langid}{english}
       \field{month}{1}
       \field{number}{5}
       \field{shortjournal}{Journal of Chronic Diseases}
       \field{shorttitle}{A new method of classifying prognostic comorbidity in longitudinal studies}
       \field{title}{A new method of classifying prognostic comorbidity in longitudinal studies: Development and validation}
-      \field{urlday}{10}
-      \field{urlmonth}{11}
-      \field{urlyear}{2020}
       \field{volume}{40}
       \field{year}{1987}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{373\bibrangedash 383}
       \range{pages}{11}
-      \verb{doi}
-      \verb 10.1016/0021-9681(87)90171-8
-      \endverb
-      \verb{file}
-      \verb Charlson et al. - 1987 - A new method of classifying prognostic comorbidity.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\4KMIIBGU\\Charlson et al. - 1987 - A new method of classifying prognostic comorbidity.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/0021968187901718
-      \endverb
-      \verb{url}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/0021968187901718
-      \endverb
     \endentry
     \entry{chernozhukov_double_2018}{article}{}
       \name{author}{7}{}{%
@@ -746,15 +664,11 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Econometrics Journal}
-      \field{langid}{english}
       \field{title}{Double/Debiased Machine Learning for Treatment and Structural Parameters}
       \field{year}{2018}
       \field{dateera}{ce}
       \field{pages}{71}
       \range{pages}{1}
-      \verb{file}
-      \verb Chernozhukov et al. - DoubleDebiased Machine Learning for Treatment and.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\H4I8VCY8\\Chernozhukov et al. - DoubleDebiased Machine Learning for Treatment and.pdf:application/pdf
-      \endverb
     \endentry
     \entry{colnet2023risk}{article}{}
       \name{author}{4}{}{%
@@ -823,15 +737,11 @@
       \field{labeltitlesource}{title}
       \field{abstract}{The machine learning ({ML}) toolbox for estimation of heterogeneous treatment effects from observational data is expanding rapidly, yet many of its algorithms have been evaluated only on a very limited set of semi-synthetic benchmark datasets. In this paper, we investigate current benchmarking practices for {ML}-based conditional average treatment effect ({CATE}) estimators, with special focus on empirical evaluation based on the popular semi-synthetic {IHDP} benchmark. We identify problems with current practice and highlight that semi-synthetic benchmark datasets, which (unlike real-world benchmarks used elsewhere in {ML}) do not necessarily reﬂect properties of real data, can systematically favor some algorithms over others – a fact that is rarely acknowledged but of immense relevance for interpretation of empirical results. Further, we argue that current evaluation metrics evaluate performance only for a small subset of possible use cases of {CATE} estimators, and discuss alternative metrics relevant for applications in personalized medicine. Additionally, we discuss alternatives for current benchmark datasets, and implications of our ﬁndings for benchmarking in {CATE} estimation.}
       \field{journaltitle}{Neurips Process 2021}
-      \field{langid}{english}
       \field{title}{Really Doing Great at Estimating {CATE}? A Critical Look at {ML} Benchmarking Practices in Treatment Effect Estimation}
       \field{year}{2021}
       \field{dateera}{ce}
       \field{pages}{14}
       \range{pages}{1}
-      \verb{file}
-      \verb Curth et al. - Really Doing Great at Estimating CATE A Critical .pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\FH3A336C\\Curth et al. - Really Doing Great at Estimating CATE A Critical .pdf:application/pdf
-      \endverb
     \endentry
     \entry{damour_overlap_2020}{article}{}
       \name{author}{5}{}{%
@@ -904,14 +814,10 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Wiley StatsRef: Statistics Reference Online}
-      \field{isbn}{9781118445112}
       \field{title}{Double Robustness}
       \field{year}{2018}
       \field{pages}{1\bibrangedash 14}
       \range{pages}{14}
-      \verb{doi}
-      \verb https://doi.org/10.1002/9781118445112.stat08068
-      \endverb
       \keyw{causal inference,convergence,data-adaptive estimation,inverse probability weighting,local efficiency,missing data,nuisance functionals,outcome regression}
     \endentry
     \entry{desai2020comparison}{article}{}
@@ -1091,15 +997,10 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{We study the assessment of the accuracy of heterogeneous treatment effect (HTE) estimation, where the HTE is not directly observable so standard computation of prediction errors is not applicable. To tackle the difficulty, we propose an assessment approach by constructing pseudo-observations of the HTE based on matching. Our contributions are three-fold: first, we introduce a novel matching distance derived from proximity scores in random forests; second, we formulate the matching problem as an average minimum-cost flow problem and provide an efficient algorithm; third, we propose a match-then-split principle for the assessment with cross-validation. We demonstrate the efficacy of the assessment approach using simulations and a real dataset.}
-      \field{issn}{1097-0258}
       \field{journaltitle}{Statistics in Medicine}
       \field{number}{17}
       \field{title}{Assessment of heterogeneous treatment effect estimation accuracy via matching}
-      \field{volume}{40}
       \field{year}{2021}
-      \verb{doi}
-      \verb 10.1002/sim.9010
-      \endverb
     \endentry
     \entry{gretton2012kernel}{article}{}
       \name{author}{5}{}{%
@@ -1197,35 +1098,16 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{1}
-      \field{issn}{1072-7515, 1879-1190}
       \field{journaltitle}{Journal of the American College of Surgeons}
       \field{month}{1}
-      \field{note}{Publisher: Elsevier}
       \field{number}{1}
       \field{shortjournal}{Journal of the American College of Surgeons}
       \field{title}{Use of Propensity Score Methodology in Contemporary High-Impact Surgical Literature}
-      \field{urlday}{5}
-      \field{urlmonth}{11}
-      \field{urlyear}{2021}
       \field{volume}{230}
       \field{year}{2020}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{101\bibrangedash 112.e2}
       \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1016/j.jamcollsurg.2019.10.003
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:C\:\\Users\\m.doutreligne\\Zotero\\storage\\UCPXHH9R\\Grose et al. - 2020 - Use of Propensity Score Methodology in Contemporar.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.journalacs.org/article/S1072-7515(19)32123-4/fulltext
-      \endverb
-      \verb{url}
-      \verb https://www.journalacs.org/article/S1072-7515(19)32123-4/fulltext
-      \endverb
-      \keyw{propensity score,propensity score matching,odds ratio,{OR},{PS},{PSM},randomized controlled trial,{RCT}}
     \endentry
     \entry{tmle_package_2012}{article}{}
       \name{author}{2}{}{%
@@ -1251,19 +1133,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Statistical Software}
-      \field{note}{doi:10.18637/jss.v051.i13}
       \field{number}{13}
       \field{title}{{tmle}: An {R} Package for Targeted Maximum Likelihood Estimation}
       \field{volume}{51}
       \field{year}{2012}
       \field{pages}{1\bibrangedash 35}
       \range{pages}{35}
-      \verb{urlraw}
-      \verb https://www.jstatsoft.org/v51/i13/
-      \endverb
-      \verb{url}
-      \verb https://www.jstatsoft.org/v51/i13/
-      \endverb
     \endentry
     \entry{gutierrez_causal_2016}{article}{}
       \name{author}{2}{}{%
@@ -1290,7 +1165,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Uplift modeling refers to the set of techniques used to model the incremental impact of an action or treatment on a customer outcome. Uplift modeling is therefore both a Causal Inference problem and a Machine Learning one. The literature on uplift is split into 3 main approaches–the Two-Model approach, the Class Transformation approach and modeling uplift directly. Unfortunately, in the absence of a common framework of causal inference and notation, it can be quite di cult to assess those three methods. In this paper, we use the Rubin (1974) model of causal inference and its modern “econometrics” notation to provide a clear comparison of the three approaches and generalize one of them. To our knowledge, this is the ﬁrst paper that provides a uniﬁed review of the uplift literature. Moreover, our paper contributes to the literature by showing that, in the limit, minimizing the Mean Square Error ({MSE}) formula with respect to a causal e↵ect estimator is equivalent to minimizing the {MSE} in which the unobserved treatment e↵ect is replaced by a modiﬁed target variable. Finally, we hope that our paper will be of use to researchers interested in applying Machine Learning techniques to causal inference problems in a business context as well as in other ﬁelds: medicine, sociology or economics.}
       \field{journaltitle}{Proceedings of The 3rd International Conference on Predictive Applications and {APIs}}
-      \field{langid}{english}
       \field{number}{67}
       \field{series}{Proceedings of Machine Learning Research}
       \field{shortjournal}{{PMLR}}
@@ -1299,15 +1173,51 @@
       \field{dateera}{ce}
       \field{pages}{14}
       \range{pages}{1}
-      \verb{file}
-      \verb Gutierrez et Gerardy - Causal Inference and Uplift Modeling A review of t.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\XU8CE7IQ\\Gutierrez et Gerardy - Causal Inference and Uplift Modeling A review of t.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v67/gutierrez17a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v67/gutierrez17a.html
-      \endverb
+    \endentry
+    \entry{hendriksen2013diagnostic}{article}{}
+      \name{author}{4}{}{%
+        {{hash=351ec3c74b1bc6e0c08634d477bb1db2}{%
+           family={Hendriksen},
+           familyi={H\bibinitperiod},
+           given={Janneke\bibnamedelima MT},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=272220971a72eed78a5ec4eb9beabc29}{%
+           family={Geersing},
+           familyi={G\bibinitperiod},
+           given={Geert-Jan},
+           giveni={G\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=f5f6785ed8b1860e2369a064308079b1}{%
+           family={Moons},
+           familyi={M\bibinitperiod},
+           given={Karel\bibnamedelima GM},
+           giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=aead1a505be8cf0f4f71c69dfc02d91a}{%
+           family={Groot},
+           familyi={G\bibinitperiod},
+           given={Joris\bibnamedelima AH},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{19936480ce2450c6d9b2b2879cf955c3}
+      \strng{fullhash}{d945e4e0355edffeb7656fca5bdcd086}
+      \strng{bibnamehash}{d945e4e0355edffeb7656fca5bdcd086}
+      \strng{authorbibnamehash}{d945e4e0355edffeb7656fca5bdcd086}
+      \strng{authornamehash}{19936480ce2450c6d9b2b2879cf955c3}
+      \strng{authorfullhash}{d945e4e0355edffeb7656fca5bdcd086}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Thrombosis and Haemostasis}
+      \field{title}{Diagnostic and prognostic prediction models}
+      \field{volume}{11}
+      \field{year}{2013}
+      \field{pages}{129\bibrangedash 141}
+      \range{pages}{13}
     \endentry
     \entry{hernan_causal_2020}{book}{}
       \name{author}{2}{}{%
@@ -1322,6 +1232,9 @@
            given={{JM}},
            giveni={J\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {CRC Boca Raton, FL}%
+      }
       \strng{namehash}{794a0fb96ba0e5d7abf172ef01bfc5d0}
       \strng{fullhash}{794a0fb96ba0e5d7abf172ef01bfc5d0}
       \strng{bibnamehash}{794a0fb96ba0e5d7abf172ef01bfc5d0}
@@ -1333,23 +1246,9 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Jamie Robins and I have written a book that provides a cohesive presentation of concepts of, and methods for, causal inference. Much of this material is currently scattered across journals in sever…}
-      \field{langid}{english}
       \field{title}{Causal Inference: What If.}
-      \field{urlday}{24}
-      \field{urlmonth}{6}
-      \field{urlyear}{2021}
       \field{year}{2020}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\YPBVQ7X7\\causal-inference-book.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/
-      \endverb
-      \verb{url}
-      \verb https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/
-      \endverb
     \endentry
     \entry{hernan_methods_2021}{article}{}
       \name{author}{1}{}{%
@@ -1370,32 +1269,15 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{7}
-      \field{issn}{0028-4793}
       \field{journaltitle}{New England Journal of Medicine}
       \field{month}{10}
       \field{number}{15}
       \field{title}{Methods of Public Health Research — Strengthening Causal Inference from Observational Data}
-      \field{urlday}{7}
-      \field{urlmonth}{10}
-      \field{urlyear}{2021}
       \field{volume}{385}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1345\bibrangedash 1348}
       \range{pages}{4}
-      \verb{doi}
-      \verb 10.1056/NEJMp2113319
-      \endverb
-      \verb{file}
-      \verb Hernán_2021_Methods of Public Health Research — Strengthening Causal Inference from.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\VWE3QJ5U\\Hernán_2021_Methods of Public Health Research — Strengthening Causal Inference from.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\6QYV5IDC\\NEJMp2113319.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1056/NEJMp2113319
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1056/NEJMp2113319
-      \endverb
     \endentry
     \entry{hill_bayesian_2011}{article}{}
       \name{author}{1}{}{%
@@ -1417,32 +1299,14 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Researchers have long struggled to identify causal effects in nonexperimental settings. Many recently proposed strategies assume ignorability of the treatment assignment mechanism and require fitting two models—one for the assignment mechanism and one for the response surface. This article proposes a strategy that instead focuses on very flexibly modeling just the response surface using a Bayesian nonparametric modeling procedure, Bayesian Additive Regression Trees ({BART}). {BART} has several advantages: it is far simpler to use than many recent competitors, requires less guesswork in model fitting, handles a large number of predictors, yields coherent uncertainty intervals, and fluidly handles continuous treatment variables and missing data for the outcome variable. {BART} also naturally identifies heterogeneous treatment effects. {BART} produces more accurate estimates of average treatment effects compared to propensity score matching, propensity-weighted estimators, and regression adjustment in the nonlinear simulation situations examined. Further, it is highly competitive in linear settings with the “correct” model, linear regression. Supplemental materials including code and data to replicate simulations and examples from the article as well as methods for population inference are available online.}
       \field{day}{1}
-      \field{issn}{1061-8600}
       \field{journaltitle}{Journal of Computational and Graphical Statistics}
       \field{month}{1}
       \field{number}{1}
       \field{title}{Bayesian Nonparametric Modeling for Causal Inference}
-      \field{urlday}{11}
-      \field{urlmonth}{1}
-      \field{urlyear}{2021}
-      \field{volume}{20}
       \field{year}{2011}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{217\bibrangedash 240}
       \range{pages}{24}
-      \verb{doi}
-      \verb 10.1198/jcgs.2010.08162
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:C\:\\Users\\m.doutreligne\\Zotero\\storage\\A4RC69IB\\Hill - 2011 - Bayesian Nonparametric Modeling for Causal Inferen.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\T4ZT2UQP\\jcgs.2010.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1198/jcgs.2010.08162
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1198/jcgs.2010.08162
-      \endverb
       \keyw{Causal inference,Bayesian,Nonparametrics}
     \endentry
     \entry{hoogland2021tutorial}{article}{}
@@ -1651,9 +1515,6 @@
       \field{title}{Causal inference in statistics, social, and biomedical sciences}
       \field{year}{2015}
       \field{dateera}{ce}
-      \verb{file}
-      \verb Imbens_Rubin_2015_Causal inference in statistics, social, and biomedical sciences.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\HU8ZZ278\\Imbens_Rubin_2015_Causal inference in statistics, social, and biomedical sciences.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\FJ7BF3H2\\books.html:text/html
-      \endverb
     \endentry
     \entry{ionides_truncated_2008}{article}{}
       \name{author}{1}{}{%
@@ -1673,34 +1534,16 @@
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{1061-8600, 1537-2715}
       \field{journaltitle}{Journal of Computational and Graphical Statistics}
-      \field{langid}{english}
       \field{month}{6}
       \field{number}{2}
       \field{shortjournal}{Journal of Computational and Graphical Statistics}
       \field{title}{Truncated Importance Sampling}
-      \field{urlday}{16}
-      \field{urlmonth}{1}
-      \field{urlyear}{2022}
       \field{volume}{17}
       \field{year}{2008}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{295\bibrangedash 311}
       \range{pages}{17}
-      \verb{doi}
-      \verb 10.1198/106186008X320456
-      \endverb
-      \verb{file}
-      \verb Ionides - 2008 - Truncated Importance Sampling.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\VQM9BL4G\\Ionides - 2008 - Truncated Importance Sampling.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://www.tandfonline.com/doi/abs/10.1198/106186008X320456
-      \endverb
-      \verb{url}
-      \verb http://www.tandfonline.com/doi/abs/10.1198/106186008X320456
-      \endverb
     \endentry
     \entry{jesson_identifying_2020}{article}{}
       \name{author}{4}{}{%
@@ -1746,12 +1589,12 @@
       \field{pages}{11637\bibrangedash 11649}
       \range{pages}{13}
     \endentry
-    \entry{johansson_generalization_2021}{article}{}
+    \entry{johansson2022generalization}{@article}{}
       \name{author}{4}{}{%
         {{hash=477c381b77493d3455836688eb1f6f74}{%
            family={Johansson},
            familyi={J\bibinitperiod},
-           given={Fredrik\bibnamedelima D.},
+           given={Fredrik\bibnamedelima D},
            giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
         {{hash=c39ea9ea2b55e1753c555a453a610aec}{%
            family={Shalit},
@@ -1769,6 +1612,9 @@
            given={David},
            giveni={D\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {JMLRORG}%
+      }
       \strng{namehash}{9fc875d8e853105091d50f782a395a8d}
       \strng{fullhash}{6c0229c93639d1e3151f62d344adf1c6}
       \strng{bibnamehash}{6c0229c93639d1e3151f62d344adf1c6}
@@ -1779,31 +1625,13 @@
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Practitioners in diverse ﬁelds such as healthcare, economics and education are eager to apply machine learning to improve decision making. The cost and impracticality of performing experiments and a recent monumental increase in electronic record keeping has brought attention to the problem of evaluating decisions based on non-experimental observational data. This is the setting of this work. In particular, we study estimation of individual-level causal eﬀects, such as a single patient’s response to alternative medication, from recorded contexts, decisions and outcomes. We give generalization bounds on the error in estimated eﬀects based on distance measures between groups receiving diﬀerent treatments, allowing for sample re-weighting. We provide conditions under which our bound is tight and show how it relates to results for unsupervised domain adaptation. Led by our theoretical results, we devise representation learning algorithms that minimize our bound, by regularizing the representation’s induced treatment group distance, and encourage sharing of information between treatment groups. We extend these algorithms to simultaneously learn a weighted representation to further reduce treatment group distances. Finally, an experimental evaluation on real and synthetic data shows the value of our proposed representation architecture and regularization scheme.}
-      \field{day}{17}
-      \field{eprinttype}{arxiv}
-      \field{journaltitle}{{arXiv}:2001.07426 [cs, stat]}
-      \field{month}{3}
-      \field{title}{Generalization Bounds and Representation Learning for Estimation of Potential Outcomes and Causal Effects}
-      \field{urlday}{19}
-      \field{urlmonth}{11}
-      \field{urlyear}{2021}
-      \field{year}{2021}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{eprint}
-      \verb 2001.07426
-      \endverb
-      \verb{file}
-      \verb Johansson et al_2021_Generalization Bounds and Representation Learning for Estimation of Potential.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\8XG49XYK\\Johansson et al_2021_Generalization Bounds and Representation Learning for Estimation of Potential.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2001.07426
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2001.07426
-      \endverb
-      \keyw{Statistics - Machine Learning,Computer Science - Machine Learning}
+      \field{journaltitle}{The Journal of Machine Learning Research}
+      \field{number}{1}
+      \field{title}{Generalization bounds and representation learning for estimation of potential outcomes and causal effects}
+      \field{volume}{23}
+      \field{year}{2022}
+      \field{pages}{7489\bibrangedash 7538}
+      \range{pages}{50}
     \endentry
     \entry{kendall_new_1938}{article}{}
       \name{author}{1}{}{%
@@ -1823,31 +1651,14 @@
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{0006-3444}
       \field{journaltitle}{Biometrika}
       \field{month}{6}
       \field{number}{1-2}
       \field{title}{A new measure of rank correlation}
-      \field{urlday}{12}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
       \field{volume}{30}
       \field{year}{1938}
-      \field{urldateera}{ce}
       \field{pages}{81\bibrangedash 93}
       \range{pages}{13}
-      \verb{doi}
-      \verb 10.1093/biomet/30.1-2.81
-      \endverb
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\BFU5C8ZC\\176907.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1093/biomet/30.1-2.81
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1093/biomet/30.1-2.81
-      \endverb
     \endentry
     \entry{kennedy2020optimal}{article}{}
       \name{author}{1}{}{%
@@ -1870,6 +1681,48 @@
       \field{journaltitle}{arXiv preprint arXiv:2004.14497}
       \field{title}{Optimal doubly robust estimation of heterogeneous causal effects}
       \field{year}{2020}
+    \endentry
+    \entry{khojaste2022deep}{article}{}
+      \name{author}{4}{}{%
+        {{hash=1362e869481eb5509c583990c4e3df50}{%
+           family={Khojaste-Sarakhsi},
+           familyi={K\bibinithyphendelim S\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+        {{hash=529e9309de120453e779fe46dbf80ea1}{%
+           family={Haghighi},
+           familyi={H\bibinitperiod},
+           given={Seyedhamidreza\bibnamedelima Shahabi},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=ce041e5b123c21e3e6909d96d2c95ca6}{%
+           family={Ghomi},
+           familyi={G\bibinitperiod},
+           given={SMT\bibnamedelima Fatemi},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=9107ff75493a260ee3802555e2452827}{%
+           family={Marchiori},
+           familyi={M\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{19f7f362e0c38f93d0d2799888f087ae}
+      \strng{fullhash}{e098fdc262bb6e42399ed70f8d8046ce}
+      \strng{bibnamehash}{e098fdc262bb6e42399ed70f8d8046ce}
+      \strng{authorbibnamehash}{e098fdc262bb6e42399ed70f8d8046ce}
+      \strng{authornamehash}{19f7f362e0c38f93d0d2799888f087ae}
+      \strng{authorfullhash}{e098fdc262bb6e42399ed70f8d8046ce}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence in Medicine}
+      \field{title}{Deep learning for Alzheimer's disease diagnosis: A survey}
+      \field{year}{2022}
+      \field{pages}{102332}
+      \range{pages}{1}
     \endentry
     \entry{kunzel_metalearners_2019}{article}{}
       \name{author}{4}{}{%
@@ -1906,35 +1759,16 @@
       \field{labeltitlesource}{title}
       \field{abstract}{There is growing interest in estimating and analyzing heterogeneous treatment effects in experimental and observational studies. We describe a number of metaalgorithms that can take advantage of any supervised learning or regression method in machine learning and statistics to estimate the conditional average treatment effect ({CATE}) function. Metaalgorithms build on base algorithms—such as random forests ({RFs}), Bayesian additive regression trees ({BARTs}), or neural networks—to estimate the {CATE}, a function that the base algorithms are not designed to estimate directly. We introduce a metaalgorithm, the X-learner, that is provably efficient when the number of units in one treatment group is much larger than in the other and can exploit structural properties of the {CATE} function. For example, if the {CATE} function is linear and the response functions in treatment and control are Lipschitz-continuous, the X-learner can still achieve the parametric rate under regularity conditions. We then introduce versions of the X-learner that use {RF} and {BART} as base learners. In extensive simulation studies, the X-learner performs favorably, although none of the metalearners is uniformly the best. In two persuasion field experiments from political science, we demonstrate how our X-learner can be used to target treatment regimes and to shed light on underlying mechanisms. A software package is provided that implements our methods.}
       \field{day}{5}
-      \field{issn}{0027-8424, 1091-6490}
       \field{journaltitle}{Proceedings of the National Academy of Sciences}
-      \field{langid}{english}
       \field{month}{3}
-      \field{note}{Publisher: National Academy of Sciences Section: {PNAS} Plus}
       \field{number}{10}
       \field{shortjournal}{{PNAS}}
       \field{title}{Metalearners for estimating heterogeneous treatment effects using machine learning}
-      \field{urlday}{4}
-      \field{urlmonth}{10}
-      \field{urlyear}{2021}
       \field{volume}{116}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{4156\bibrangedash 4165}
       \range{pages}{10}
-      \verb{doi}
-      \verb 10.1073/pnas.1804597116
-      \endverb
-      \verb{file}
-      \verb Künzel et al_2019_Metalearners for estimating heterogeneous treatment effects using machine.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\VUETRBFE\\Künzel et al_2019_Metalearners for estimating heterogeneous treatment effects using machine.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\W4D3R8L5\\4156.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.pnas.org/content/116/10/4156
-      \endverb
-      \verb{url}
-      \verb https://www.pnas.org/content/116/10/4156
-      \endverb
       \keyw{observational studies,heterogeneous treatment effects,conditional average treatment effect,minimax optimality,randomized controlled trials}
     \endentry
     \entry{vanderlaan_unified_2003}{book}{}
@@ -2007,13 +1841,9 @@
       \field{journaltitle}{Statistical Applications in Genetics and Molecular Biology}
       \field{month}{9}
       \field{title}{Super Learner}
-      \field{urlday}{23}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{volume}{6}
       \field{year}{2007}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
     \endentry
     \entry{laan_targeted_2011}{book}{}
       \name{author}{2}{}{%
@@ -2039,24 +1869,10 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Establishes causal inference methodology that incorporates the benefits of machine learning with statistical inference Presentation combines accessibility with the method's rigorous grounding in statistical theory Demonstrates targeted learning in epidemiological, medical, and genomic experimental and observational studies that include informative dropout, missingness, time-dependent confounding, and case-control sampling}
-      \field{langid}{english}
       \field{series}{Springer Series in Statistics}
       \field{title}{Targeted Learning}
-      \field{urlday}{23}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{year}{2011}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\HK5HL2Y9\\978-1-4419-9782-1.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://link.springer.com/book/10.1007/978-1-4419-9782-1
-      \endverb
-      \verb{url}
-      \verb https://link.springer.com/book/10.1007/978-1-4419-9782-1
-      \endverb
     \endentry
     \entry{lamont2018identification}{article}{}
       \name{author}{10}{}{%
@@ -2181,21 +1997,11 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{An external control arm is a cohort of control patients that are collected from data external to a single-arm trial. To provide an unbiased estimation of efficacy, the clinical profiles of patients from single and external arms should be aligned, typically using propensity score approaches. There are alternative approaches to infer efficacy based on comparisons between outcomes of single-arm patients and machine-learning predictions of control patient outcomes. These methods include G-computation and Doubly Debiased Machine Learning (DDML) and their evaluation for External Control Arms (ECA) analysis is insufficient.}
-      \field{issn}{1471-2288}
       \field{journaltitle}{BMC Medical Research Methodology}
       \field{shorttitle}{External control arm analysis}
       \field{title}{External control arm analysis: an evaluation of propensity score approaches, {G}-computation, and doubly debiased machine learning}
       \field{volume}{22}
       \field{year}{2022}
-      \verb{doi}
-      \verb 10.1186/s12874-022-01799-z
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1186/s12874-022-01799-z
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1186/s12874-022-01799-z
-      \endverb
     \endentry
     \entry{louizos_causal_2017}{article}{}
       \name{author}{6}{}{%
@@ -2247,12 +2053,6 @@
       \field{title}{Causal Effect Inference with Deep Latent-Variable Models}
       \field{year}{2017}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1705.08821
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1705.08821
-      \endverb
       \keyw{Statistics - Machine Learning,Computer Science - Machine Learning}
     \endentry
     \entry{macdorman_infant_1998}{article}{}
@@ -2281,8 +2081,7 @@
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{OBJECTIVES: This report presents infant mortality statistics from the linked birth/infant death data set (linked file)-1995 period data by a variety of maternal and infant characteristics. Trends in birthweight-specific infant mortality rates from 1985-95 are also discussed. METHODS: Descriptive tabulations of data from the linked file are presented. The data include infant deaths in 1995, which are linked to their corresponding birth certificates, whether the birth occurred in 1995 or 1994. The denominator used to compute infant mortality rates is the National Center for Health Statistics (NCHS) natality file, which includes all births in 1995. Data are weighted to compensate for the 2.5 percent of infant death records that could not be linked to their corresponding birth certificates. RESULTS: In general, mortality rates were lowest for infants born to Asian and Pacific Islander mothers, followed by white, American Indian, and black mothers. Rates for infants of Hispanic origin mothers were slightly lower than or comparable to those for infants of white mothers, except for infants of Puerto Rican mothers who had higher infant mortality rates. Infant mortality rates were higher for those infants whose mothers began prenatal care after the first trimester of pregnancy, were teenagers or 40 years of age or older, did not complete high school, were unmarried, or smoked during pregnancy. Infant mortality was also higher for male infants, multiple births, and infants born preterm or at low birthweight. In 1995, 63 percent of all infant deaths occurred to the 7.3 percent of infants born at low birthweight. From 1985-95, birthweight-specific infant mortality rates declined most rapidly for infants weighing 750-1,499 grams at birth. The leading causes of infant death varied considerably by race and Hispanic origin. For infants of black mothers, Disorders related to short gestation and unspecified low birthweight was the leading cause of infant death, with an infant mortality rate 4.5 times higher than that for infants of white mothers. For infants of American Indian mothers, rates for Sudden infant death syndrome were 2.9 times and for Accidents and adverse effects 3.6 times higher than those for infants of white mothers. For infants of Hispanic mothers, mortality rates from Sudden infant death syndrome were one-third lower than those for infants of white mothers.}
-      \field{issn}{0364-0396}
+      \field{abstract}{OBJECTIVES: This report presents infant mortality statistics from the linked birth/infant death data set (linked file)-1995 period data by a variety of maternal and infant characteristics. Trends in birthweight-specific infant mortality rates from 1985-95 are also discussed. METHODS: Descriptive tabulations of data from the linked RESULTS: In general, mortality rates were lowest for infants born to Asian and Pacific Islander mothers, followed by white, American Indian, and black mothers. Rates for infants of Hispanic origin mothers were slightly lower than or comparable to those for infants of white mothers, except for infants of Puerto Rican mothers who had higher infant mortality rates. Infant mortality rates were higher for those infants whose mothers began prenatal care after the first trimester of pregnancy, were teenagers or 40 years of age or older, did not complete high school, were unmarried, or smoked during pregnancy. Infant mortality was also higher for male infants, multiple births, and infants born preterm or at low birthweight. In 1995, 63 percent of all infant deaths occurred to the 7.3 percent of infants born at low birthweight. From 1985-95, birthweight-specific infant mortality rates declined most rapidly for infants weighing 750-1,499 grams at birth. The leading causes of infant death varied considerably by race and Hispanic origin. For infants of black mothers, Disorders related to short gestation and unspecified low birthweight was the leading cause of infant death, with an infant mortality rate 4.5 times higher than that for infants of white mothers. For infants of American Indian mothers, rates for Sudden infant death syndrome were 2.9 times and for Accidents and adverse effects 3.6 times higher than those for infants of white mothers. For infants of Hispanic mothers, mortality rates from Sudden infant death syndrome were one-third lower than those for infants of white mothers.}
       \field{journaltitle}{Monthly Vital Statistics Report}
       \field{month}{2}
       \field{number}{6 Suppl 2}
@@ -2353,6 +2152,44 @@
       \field{year}{2021}
       \field{pages}{15682\bibrangedash 15694}
       \range{pages}{13}
+    \endentry
+    \entry{monshi2020deep}{article}{}
+      \name{author}{3}{}{%
+        {{hash=e13b29dee11c058c80065e2d17488706}{%
+           family={Monshi},
+           familyi={M\bibinitperiod},
+           given={Maram\bibnamedelimb Mahmoud\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=92c6ae04f0734a8bed7f035fb1a18bea}{%
+           family={Poon},
+           familyi={P\bibinitperiod},
+           given={Josiah},
+           giveni={J\bibinitperiod}}}%
+        {{hash=542888c7589f4a82279bbab208df282e}{%
+           family={Chung},
+           familyi={C\bibinitperiod},
+           given={Vera},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{237a17384684cbafe03319bff6ce3386}
+      \strng{fullhash}{603cc4307206e770f83997d99e39a986}
+      \strng{bibnamehash}{603cc4307206e770f83997d99e39a986}
+      \strng{authorbibnamehash}{603cc4307206e770f83997d99e39a986}
+      \strng{authornamehash}{237a17384684cbafe03319bff6ce3386}
+      \strng{authorfullhash}{603cc4307206e770f83997d99e39a986}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence in Medicine}
+      \field{title}{Deep learning in generating radiology reports: A survey}
+      \field{volume}{106}
+      \field{year}{2020}
+      \field{pages}{101878}
+      \range{pages}{1}
     \endentry
     \entry{mooney2018bigdata}{article}{}
       \name{author}{2}{}{%
@@ -2446,6 +2283,53 @@
       \field{title}{Defining and Identifying Average Treatment Effects}
       \field{year}{2023}
     \endentry
+    \entry{nassif2022breast}{article}{}
+      \name{author}{5}{}{%
+        {{hash=915767c19b555ab6694960d4a53e14a3}{%
+           family={Nassif},
+           familyi={N\bibinitperiod},
+           given={Ali\bibnamedelima Bou},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=645222f31aa3c674adb3522294cb94dd}{%
+           family={Talib},
+           familyi={T\bibinitperiod},
+           given={Manar\bibnamedelima Abu},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=525f3e44c3d170c9bf4ff892c8685d85}{%
+           family={Nasir},
+           familyi={N\bibinitperiod},
+           given={Qassim},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=fa9802eeacb46e8ef853c784f7187989}{%
+           family={Afadar},
+           familyi={A\bibinitperiod},
+           given={Yaman},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f36b38c20f677585636d5149dadeb24c}{%
+           family={Elgendy},
+           familyi={E\bibinitperiod},
+           given={Omar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{e3e865d4d48efaaf19930d5c88d3aa8e}
+      \strng{fullhash}{1024bbe959715b5332bc325c1cdcd105}
+      \strng{bibnamehash}{1024bbe959715b5332bc325c1cdcd105}
+      \strng{authorbibnamehash}{1024bbe959715b5332bc325c1cdcd105}
+      \strng{authornamehash}{e3e865d4d48efaaf19930d5c88d3aa8e}
+      \strng{authorfullhash}{1024bbe959715b5332bc325c1cdcd105}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence in Medicine}
+      \field{title}{Breast cancer detection using artificial intelligence techniques: A systematic literature review}
+      \field{year}{2022}
+      \field{pages}{102276}
+      \range{pages}{1}
+    \endentry
     \entry{niculescu-mizil_predicting_2005}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=b35fbebaaa62ff79aee38093ae22a581}{%
@@ -2477,24 +2361,10 @@
       \field{labeltitlesource}{title}
       \field{abstract}{We examine the relationship between the predictions made by different learning algorithms and true posterior probabilities. We show that maximum margin methods such as boosted trees and boosted stumps push probability mass away from 0 and 1 yielding a characteristic sigmoid shaped distortion in the predicted probabilities. Models such as Naive Bayes, which make unrealistic independence assumptions, push probabilities toward 0 and 1. Other models such as neural nets and bagged trees do not have these biases and predict well calibrated probabilities. We experiment with two ways of correcting the biased probabilities predicted by some learning methods: Platt Scaling and Isotonic Regression. We qualitatively examine what kinds of distortions these calibration methods are suitable for and quantitatively examine how much data they need to be effective. The empirical results show that after calibration boosted trees, random forests, and SVMs predict the best probabilities.}
       \field{booktitle}{Proceedings of the 22nd international conference on {Machine} learning - {ICML} '05}
-      \field{isbn}{978-1-59593-180-1}
       \field{title}{Predicting good probabilities with supervised learning}
-      \field{urlday}{12}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
       \field{year}{2005}
-      \field{urldateera}{ce}
       \field{pages}{625\bibrangedash 632}
       \range{pages}{8}
-      \verb{doi}
-      \verb 10.1145/1102351.1102430
-      \endverb
-      \verb{urlraw}
-      \verb http://portal.acm.org/citation.cfm?doid=1102351.1102430
-      \endverb
-      \verb{url}
-      \verb http://portal.acm.org/citation.cfm?doid=1102351.1102430
-      \endverb
     \endentry
     \entry{nie_quasioracle_2017}{article}{}
       \name{author}{2}{}{%
@@ -2530,12 +2400,6 @@
       \field{dateera}{ce}
       \field{pages}{299\bibrangedash 319}
       \range{pages}{21}
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1712.04912
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1712.04912
-      \endverb
       \keyw{Statistics - Machine Learning,Economics - Econometrics,Mathematics - Statistics Theory}
     \endentry
     \entry{niswander_women_1972}{book}{}
@@ -2564,7 +2428,6 @@
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
-      \field{langid}{english}
       \field{note}{Google-Books-{ID}: A0bdVhlhDQkC}
       \field{pagetotal}{562}
       \field{shorttitle}{The Women and Their Pregnancies}
@@ -2666,29 +2529,15 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Scikit-learn is a Python module integrating a wide range of state-of-the-art machine learning algorithms for medium-scale supervised and unsupervised problems. This package focuses on bringing machine learning to non-specialists using a general-purpose high-level language. Emphasis is put on ease of use, performance, documentation, and {API} consistency. It has minimal dependencies and is distributed under the simplified {BSD} license, encouraging its use in both academic and commercial settings. Source code, binaries, and documentation can be downloaded from http://scikit-learn.sourceforge.net.}
-      \field{issn}{1533-7928}
       \field{journaltitle}{Journal of Machine Learning Research}
       \field{number}{85}
       \field{shorttitle}{Scikit-learn}
       \field{title}{Scikit-learn: Machine Learning in Python}
-      \field{urlday}{30}
-      \field{urlmonth}{12}
-      \field{urlyear}{2021}
       \field{volume}{12}
       \field{year}{2011}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{2825\bibrangedash 2830}
       \range{pages}{6}
-      \verb{file}
-      \verb Pedregosa et al_2011_Scikit-learn.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\4XQN7QLS\\Pedregosa et al_2011_Scikit-learn.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://jmlr.org/papers/v12/pedregosa11a.html
-      \endverb
-      \verb{url}
-      \verb http://jmlr.org/papers/v12/pedregosa11a.html
-      \endverb
     \endentry
     \entry{perez2022beyond}{article}{}
       \name{author}{3}{}{%
@@ -2796,15 +2645,6 @@
       \field{year}{1999}
       \field{pages}{61\bibrangedash 74}
       \range{pages}{14}
-      \verb{file}
-      \verb CiteSeerX — Probabilistic Outputs for Support Vector Machines and Comparisons to Regularized Likelihood Methods:C\:\\Users\\m.doutreligne\\Zotero\\storage\\N9VMYFKA\\summary.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb http://130.203.136.60/viewdoc/summary?doi=10.1.1.41.1639
-      \endverb
-      \verb{url}
-      \verb http://130.203.136.60/viewdoc/summary?doi=10.1.1.41.1639
-      \endverb
     \endentry
     \entry{poldrack2020establishment}{article}{}
       \name{author}{3}{}{%
@@ -2894,32 +2734,14 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{When devising a course of treatment for a patient, doctors often have little quantitative evidence on which to base their decisions, beyond their medical education and published clinical trials. Stanford Health Care alone has millions of electronic medical records that are only just recently being leveraged to inform better treatment recommendations. These data present a unique challenge because they are high dimensional and observational. Our goal is to make personalized treatment recommendations based on the outcomes for past patients similar to a new patient. We propose and analyze 3 methods for estimating heterogeneous treatment effects using observational data. Our methods perform well in simulations using a wide variety of treatment effect functions, and we present results of applying the 2 most promising methods to data from The {SPRINT} Data Analysis Challenge, from a large randomized trial of a treatment for high blood pressure.}
-      \field{issn}{1097-0258}
       \field{journaltitle}{Statistics in Medicine}
-      \field{langid}{english}
       \field{number}{11}
       \field{title}{Some methods for heterogeneous treatment effect estimation in high dimensions}
-      \field{urlday}{8}
-      \field{urlmonth}{1}
-      \field{urlyear}{2021}
       \field{volume}{37}
       \field{year}{2018}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1767\bibrangedash 1787}
       \range{pages}{21}
-      \verb{doi}
-      \verb https://doi.org/10.1002/sim.7623
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:C\:\\Users\\m.doutreligne\\Zotero\\storage\\E55H9P4M\\Powers et al. - 2018 - Some methods for heterogeneous treatment effect es.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\2KN4JYFM\\sim.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.7623
-      \endverb
-      \verb{url}
-      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.7623
-      \endverb
       \keyw{machine learning,causal inference,personalized medicine}
     \endentry
     \entry{rahimi_random_2008}{inproceedings}{}
@@ -2947,19 +2769,48 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances in Neural Information Processing Systems}
       \field{title}{Random Features for Large-Scale Kernel Machines}
-      \field{urlday}{2}
-      \field{urlmonth}{12}
-      \field{urlyear}{2021}
       \field{volume}{20}
       \field{year}{2008}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://papers.nips.cc/paper/2007/hash/013a006f03dbc5392effeb8f18fda755-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://papers.nips.cc/paper/2007/hash/013a006f03dbc5392effeb8f18fda755-Abstract.html
-      \endverb
+    \endentry
+    \entry{rajkomar2019machine}{article}{}
+      \name{author}{3}{}{%
+        {{hash=53f3ccede49a29888d944670cc29c5a7}{%
+           family={Rajkomar},
+           familyi={R\bibinitperiod},
+           given={Alvin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4aecfb0cc2e1e3b7899129fa2a94e2b8}{%
+           family={Dean},
+           familyi={D\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fadd1dec0c0994685b67f97ed2493d0a}{%
+           family={Kohane},
+           familyi={K\bibinitperiod},
+           given={Isaac},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Mass Medical Soc}%
+      }
+      \strng{namehash}{36335a989757b5531ca2a899862ca948}
+      \strng{fullhash}{50c0ec5dfd067f3f6f77150e7200a71f}
+      \strng{bibnamehash}{50c0ec5dfd067f3f6f77150e7200a71f}
+      \strng{authorbibnamehash}{50c0ec5dfd067f3f6f77150e7200a71f}
+      \strng{authornamehash}{36335a989757b5531ca2a899862ca948}
+      \strng{authorfullhash}{50c0ec5dfd067f3f6f77150e7200a71f}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{New England Journal of Medicine}
+      \field{number}{14}
+      \field{title}{Machine learning in medicine}
+      \field{volume}{380}
+      \field{year}{2019}
+      \field{pages}{1347\bibrangedash 1358}
+      \range{pages}{12}
     \endentry
     \entry{robins_new_1986}{article}{}
       \name{author}{1}{}{%
@@ -2981,31 +2832,16 @@
       \field{labeltitlesource}{title}
       \field{abstract}{In observational cohort mortality studies with prolonged periods of exposure to the agent under study, it is not uncommon for risk factors for death to be determinants of subsequent exposure. For instance, in occupational mortality studies date of termination of employment is both a determinant of future exposure (since terminated individuals receive no further exposure) and an independent risk factor for death (since disabled individuals tend to leave employment). When current risk factor status determines subsequent exposure and is determined by previous exposure, standard analyses that estimate age-specific mortality rates as a function of cumulative exposure may underestimate the true effect of exposure on mortality whether or not one adjusts for the risk factor in the analysis. This observation raises the question, which if any population parameters can be given a causal interpretation in observational mortality studies? In answer, we offer a graphical approach to the identification and computation of causal parameters in mortality studies with sustained exposure periods. This approach is shown to be equivalent to an approach in which the observational study is identified with a hypothetical double-blind randomized trial in which data on each subject's assigned treatment protocol has been erased from the data file. Causal inferences can then be made by comparing mortality as a function of treatment protocol, since, in a double-blind randomized trial missing data on treatment protocol, the association of mortality with treatment protocol can still be estimated. We reanalyze the mortality experience of a cohort of arsenic-exposed copper smelter workers with our method and compare our results with those obtained using standard methods. We find an adverse effect of arsenic exposure on all-cause and lung cancer mortality which standard methods fail to detect.}
       \field{day}{1}
-      \field{issn}{0270-0255}
       \field{journaltitle}{Mathematical Modelling}
-      \field{langid}{english}
       \field{month}{1}
       \field{number}{9}
       \field{shortjournal}{Mathematical Modelling}
       \field{title}{A new approach to causal inference in mortality studies with a sustained exposure period—application to control of the healthy worker survivor effect}
-      \field{urlday}{19}
-      \field{urlmonth}{6}
-      \field{urlyear}{2021}
       \field{volume}{7}
       \field{year}{1986}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1393\bibrangedash 1512}
       \range{pages}{120}
-      \verb{doi}
-      \verb 10.1016/0270-0255(86)90088-6
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/0270025586900886
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/0270025586900886
-      \endverb
     \endentry
     \entry{robins_role_1986}{article}{}
       \name{author}{2}{}{%
@@ -3030,30 +2866,15 @@
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{1476-6256, 0002-9262}
       \field{journaltitle}{American Journal of Epidemiology}
-      \field{langid}{english}
       \field{month}{3}
       \field{number}{3}
       \field{title}{The role of model selection in causal inference from non experimental data}
-      \field{urlday}{12}
-      \field{urlmonth}{11}
-      \field{urlyear}{2021}
       \field{volume}{123}
       \field{year}{1986}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{392\bibrangedash 402}
       \range{pages}{11}
-      \verb{doi}
-      \verb 10.1093/oxfordjournals.aje.a114254
-      \endverb
-      \verb{urlraw}
-      \verb https://academic.oup.com/aje/article/93409/THE
-      \endverb
-      \verb{url}
-      \verb https://academic.oup.com/aje/article/93409/THE
-      \endverb
     \endentry
     \entry{robinson_rootnconsistent_1988}{article}{}
       \name{author}{1}{}{%
@@ -3074,32 +2895,13 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{One type of semiparametric regression on an {<}tex-math{>}\${\textbackslash}scr\{R\}{\textasciicircum}\{p\}{\textbackslash}times {\textbackslash}scr\{R\}{\textasciicircum}\{q\}{\textbackslash}text\{-valued\}\${<}/tex-math{>} random variable (X, Z) is β′X + θ(Z), where β and θ(Z) are an unknown slope coefficient vector and function, and X is neither wholly dependent on Z nor necessarily independent of it. Estimators of β based on incorrect parameterization of θ are generally inconsistent, whereas consistent nonparametric estimators deviate from β by a larger probability order than N$^{\textrm{-1/2}}$, where N is sample size. An estimator generalizing the ordinary least squares estimator of β is constructed by inserting nonparametric regression estimators in the nonlinear orthogonal projection on Z. Under regularity conditions β̂ is shown to be {<}tex-math{>}\$N{\textasciicircum}\{1/2\}{\textbackslash}text\{-consistent\}\${<}/tex-math{>} for β and asymptotically normal, and a consistent estimator of its limiting covariance matrix is given, affording statistical inference that is not only asymptotically valid but has nonzero asymptotic first-order efficiency relative to estimators based on a correctly parameterized θ. We discuss the identification problem and β̂'s efficiency, and report results of a Monte Carlo study of finite-sample performance. While the paper focuses on the simplest interesting setting of multiple regression with independent observations, extensions to other econometric models are described, in particular seemingly unrelated and nonlinear regressions, simultaneous equations, distributed lags, and sample selectivity models.}
-      \field{issn}{0012-9682}
       \field{journaltitle}{Econometrica}
-      \field{note}{Publisher: [Wiley, Econometric Society]}
       \field{number}{4}
       \field{title}{Root-N-Consistent Semiparametric Regression}
-      \field{urlday}{25}
-      \field{urlmonth}{3}
-      \field{urlyear}{2021}
-      \field{volume}{56}
       \field{year}{1988}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{931\bibrangedash 954}
       \range{pages}{24}
-      \verb{doi}
-      \verb 10.2307/1912705
-      \endverb
-      \verb{file}
-      \verb Root-N-Consistent Semiparametric Regression, Robinson, 1988.pdf:C\:\\Users\\m.doutreligne\\OneDrive - Haute Autorité de Santé\\PhD\\veille\\papers\\Root-N-Consistent Semiparametric Regression, Robinson, 1988.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.jstor.org/stable/1912705
-      \endverb
-      \verb{url}
-      \verb https://www.jstor.org/stable/1912705
-      \endverb
     \endentry
     \entry{rolling_model_2014}{article}{}
       \name{author}{2}{}{%
@@ -3125,34 +2927,16 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Researchers often believe that a treatment's effect on a response may be heteroge neous with respect to certain baseline covariates. This is an important premise of personalized medicine. Several methods for estimating heterogeneous treatment effects have been proposed. However, little attention has been given to the problem of choosing between estimators of treat ment effects. Models that best estimate the regression function may not be best for estimating the effect of a treatment; therefore, there is a need for model selection methods that are targeted to treatment effect estimation. We demonstrate an application of the focused information crite rion in this setting and develop a treatment effect cross-validation aimed at minimizing treatment effect estimation errors. Theoretically, treatment effect cross-validation has a model selection consistency property when the data splitting ratio is properly chosen. Practically, treatment effect cross-validation has the flexibility to compare different types of models. We illustrate the meth ods by using simulation studies and data from a clinical trial comparing treatments of patients with human immunodeficiency virus.}
-      \field{issn}{13697412}
       \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
-      \field{langid}{english}
       \field{month}{9}
       \field{number}{4}
       \field{shortjournal}{J. R. Stat. Soc. B}
       \field{title}{Model selection for estimating treatment effects}
-      \field{urlday}{12}
-      \field{urlmonth}{11}
-      \field{urlyear}{2021}
       \field{volume}{76}
       \field{year}{2014}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{749\bibrangedash 769}
       \range{pages}{21}
-      \verb{doi}
-      \verb 10.1111/rssb.12043
-      \endverb
-      \verb{file}
-      \verb Rolling et Yang - 2014 - Model selection for estimating treatment effects.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\LAL3YUY3\\Rolling et Yang - 2014 - Model selection for estimating treatment effects.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://onlinelibrary.wiley.com/doi/10.1111/rssb.12043
-      \endverb
-      \verb{url}
-      \verb https://onlinelibrary.wiley.com/doi/10.1111/rssb.12043
-      \endverb
     \endentry
     \entry{rosenbaum_central_1983}{article}{}
       \name{author}{2}{}{%
@@ -3179,7 +2963,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{The propensity score is the conditional probability of assignment to a particular treatment given a vector of observed covariates. Both large and small sample theory show that adjustment for the scalar propensity score is sufficient to remove bias due to all observed covariates. Applications include: (i) matched sampling on the univariate propensity score, which is a generalization of discriminant matching, (ii) multivariate adjustment by subclassification on the propensity score where the same subclasses are used to estimate treatment effects for all outcome variables and in all subpopulations, and (iii) visual representation of multivariate covariance adjustment by a twodimensional plot.}
       \field{journaltitle}{Biometrika}
-      \field{langid}{english}
       \field{title}{The central role of the propensity score in observational studies for causal effects}
       \field{volume}{70}
       \field{year}{1983}
@@ -3244,34 +3027,16 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Causal effects are defined as comparisons of potential outcomes under different treatments on a common set of units. Observed values of the potential outcomes are revealed by the assignment mechanism—a probabilistic model for the treatment each unit receives as a function of covariates and potential outcomes. Fisher made tremendous contributions to causal inference through his work on the design of randomized experiments, but the potential outcomes perspective applies to other complex experiments and nonrandomized studies as well. As noted by Kempthorne in his 1976 discussion of Savage's Fisher lecture, Fisher never bridged his work on experimental design and his work on parametric modeling, a bridge that appears nearly automatic with an appropriate view of the potential outcomes framework, where the potential outcomes and covariates are given a Bayesian distribution to complete the model specification. Also, this framework crisply separates scientific inference for causal effects and decisions based on such inference, a distinction evident in Fisher's discussion of tests of significance versus tests in an accept/reject framework. But Fisher never used the potential outcomes framework, originally proposed by Neyman in the context of randomized experiments, and as a result he provided generally flawed advice concerning the use of the analysis of covariance to adjust for posttreatment concomitants in randomized trials.}
       \field{day}{1}
-      \field{issn}{0162-1459}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{month}{3}
-      \field{note}{Publisher: Taylor \& Francis}
       \field{number}{469}
       \field{shortjournal}{null}
       \field{title}{Causal Inference Using Potential Outcomes}
-      \field{urlday}{12}
-      \field{urlmonth}{1}
-      \field{urlyear}{2021}
       \field{volume}{100}
       \field{year}{2005}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{322\bibrangedash 331}
       \range{pages}{10}
-      \verb{doi}
-      \verb 10.1198/016214504000001880
-      \endverb
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\KKFRA9KU\\016214504000001880.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://amstat.tandfonline.com/doi/abs/10.1198/016214504000001880
-      \endverb
-      \verb{url}
-      \verb https://amstat.tandfonline.com/doi/abs/10.1198/016214504000001880
-      \endverb
     \endentry
     \entry{saito_counterfactual_2020}{inproceedings}{}
       \name{author}{2}{}{%
@@ -3338,12 +3103,6 @@
       \field{volume}{30}
       \field{year}{2017}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1703.10651
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1703.10651
-      \endverb
       \keyw{Statistics - Machine Learning,Computer Science - Machine Learning,Computer Science - Artificial Intelligence}
     \endentry
     \entry{schuler_comparison_2018}{article}{}
@@ -3381,28 +3140,11 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Practitioners in medicine, business, political science, and other ﬁelds are increasingly aware that decisions should be personalized to each patient, customer, or voter. A given treatment (e.g. a drug or advertisement) should be administered only to those who will respond most positively, and certainly not to those who will be harmed by it. Individual-level treatment eﬀects can be estimated with tools adapted from machine learning, but diﬀerent models can yield contradictory estimates. Unlike risk prediction models, however, treatment eﬀect models cannot be easily evaluated against each other using a held-out test set because the true treatment eﬀect itself is never directly observed. Besides outcome prediction accuracy, several metrics that can leverage held-out data to evaluate treatment eﬀects models have been proposed, but they are not widely used. We provide a didactic framework that elucidates the relationships between the diﬀerent approaches and compare them all using a variety of simulations of both randomized and observational data. Our results show that researchers estimating heterogenous treatment eﬀects need not limit themselves to a single model-ﬁtting algorithm. Instead of relying on a single method, multiple models ﬁt by a diverse set of algorithms should be evaluated against each other using an objective function learned from the validation set. The model minimizing that objective should be used for estimating the individual treatment eﬀect for future individuals.}
       \field{day}{13}
-      \field{eprinttype}{arxiv}
       \field{journaltitle}{{arXiv}:1804.05146 [cs, stat]}
       \field{month}{6}
       \field{title}{A comparison of methods for model selection when estimating individual treatment effects}
-      \field{urlday}{12}
-      \field{urlmonth}{11}
-      \field{urlyear}{2021}
       \field{year}{2018}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{eprint}
-      \verb 1804.05146
-      \endverb
-      \verb{file}
-      \verb Schuler et al_2018_A comparison of methods for model selection when estimating individual.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\RHCPYGV4\\Schuler et al_2018_A comparison of methods for model selection when estimating individual.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1804.05146
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1804.05146
-      \endverb
       \keyw{Statistics - Machine Learning,Computer Science - Machine Learning}
     \endentry
     \entry{schuler_targeted_2017}{article}{}
@@ -3430,33 +3172,16 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Estimation of causal effects using observational data continues to grow in popularity in the epidemiologic literature. While many applications of causal effect estimation use propensity score methods or G-computation, targeted maximum likelihood estimation ({TMLE}) is a well-established alternative method with desirable statistical properties. {TMLE} is a doubly robust maximum-likelihood–based approach that includes a secondary “targeting” step that optimizes the bias-variance tradeoff for the target parameter. Under standard causal assumptions, estimates can be interpreted as causal effects. Because {TMLE} has not been as widely implemented in epidemiologic research, we aim to provide an accessible presentation of {TMLE} for applied researchers. We give step-by-step instructions for using {TMLE} to estimate the average treatment effect in the context of an observational study. We discuss conceptual similarities and differences between {TMLE} and 2 common estimation approaches (G-computation and inverse probability weighting) and present findings on their relative performance using simulated data. Our simulation study compares methods under parametric regression misspecification; our results highlight {TMLE}'s property of double robustness. Additionally, we discuss best practices for {TMLE} implementation, particularly the use of ensembled machine learning algorithms. Our simulation study demonstrates all methods using super learning, highlighting that incorporation of machine learning may outperform parametric regression in observational data settings.}
       \field{day}{1}
-      \field{issn}{0002-9262}
       \field{journaltitle}{American Journal of Epidemiology}
       \field{month}{1}
       \field{number}{1}
       \field{shortjournal}{American Journal of Epidemiology}
       \field{title}{Targeted Maximum Likelihood Estimation for Causal Inference in Observational Studies}
-      \field{urlday}{26}
-      \field{urlmonth}{1}
-      \field{urlyear}{2021}
       \field{volume}{185}
       \field{year}{2017}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{65\bibrangedash 73}
       \range{pages}{9}
-      \verb{doi}
-      \verb 10.1093/aje/kww165
-      \endverb
-      \verb{file}
-      \verb Schuler_Rose_2017_Targeted Maximum Likelihood Estimation for Causal Inference in Observational.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\HCXBAHSN\\Schuler_Rose_2017_Targeted Maximum Likelihood Estimation for Causal Inference in Observational.pdf:application/pdf;Snapshot:C\:\\Users\\m.doutreligne\\Zotero\\storage\\I9CWTE2L\\2662306.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1093/aje/kww165
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1093/aje/kww165
-      \endverb
     \endentry
     \entry{shalit_estimating_2017}{inproceedings}{}
       \name{author}{3}{}{%
@@ -3494,6 +3219,133 @@
       \field{year}{2017}
       \field{pages}{3076\bibrangedash 3085}
       \range{pages}{10}
+    \endentry
+    \entry{shen2017deep}{article}{}
+      \name{author}{3}{}{%
+        {{hash=4be3a7080769a01b5a9027ae92b8c440}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Dinggang},
+           giveni={D\bibinitperiod}}}%
+        {{hash=921a91f77439fcd1329accfc6042cd60}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Guorong},
+           giveni={G\bibinitperiod}}}%
+        {{hash=472ce3789ff39b89f6227355647332f3}{%
+           family={Suk},
+           familyi={S\bibinitperiod},
+           given={Heung-Il},
+           giveni={H\bibinithyphendelim I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{b85860514c80840f3f8b271de4f23b4e}
+      \strng{fullhash}{4dabcfbe1d0e5131f9ba3d21aa72f6e0}
+      \strng{bibnamehash}{4dabcfbe1d0e5131f9ba3d21aa72f6e0}
+      \strng{authorbibnamehash}{4dabcfbe1d0e5131f9ba3d21aa72f6e0}
+      \strng{authornamehash}{b85860514c80840f3f8b271de4f23b4e}
+      \strng{authorfullhash}{4dabcfbe1d0e5131f9ba3d21aa72f6e0}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual review of biomedical engineering}
+      \field{title}{Deep learning in medical image analysis}
+      \field{volume}{19}
+      \field{year}{2017}
+      \field{pages}{221\bibrangedash 248}
+      \range{pages}{28}
+    \endentry
+    \entry{shen2019deep}{article}{}
+      \name{author}{6}{}{%
+        {{hash=f1625e69dd01e4d86402e9815bebb102}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=986925fae43ee507828620dce1d259b4}{%
+           family={Margolies},
+           familyi={M\bibinitperiod},
+           given={Laurie\bibnamedelima R},
+           giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=a50f2efde8647a419bed72376d4f89e3}{%
+           family={Rothstein},
+           familyi={R\bibinitperiod},
+           given={Joseph\bibnamedelima H},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=3cc893dab64e14ba52a7eebbcc35ec27}{%
+           family={Fluder},
+           familyi={F\bibinitperiod},
+           given={Eugene},
+           giveni={E\bibinitperiod}}}%
+        {{hash=218631935e5c98a24bf0b1040c377036}{%
+           family={McBride},
+           familyi={M\bibinitperiod},
+           given={Russell},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f92bb111f27187699ead5937ca0debf9}{%
+           family={Sieh},
+           familyi={S\bibinitperiod},
+           given={Weiva},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{f89b537c1775c4be2635bf65172d52de}
+      \strng{fullhash}{f709762df866ba6047363261233b6c69}
+      \strng{bibnamehash}{f709762df866ba6047363261233b6c69}
+      \strng{authorbibnamehash}{f709762df866ba6047363261233b6c69}
+      \strng{authornamehash}{f89b537c1775c4be2635bf65172d52de}
+      \strng{authorfullhash}{f709762df866ba6047363261233b6c69}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific reports}
+      \field{number}{1}
+      \field{title}{Deep learning to improve breast cancer detection on screening mammography}
+      \field{volume}{9}
+      \field{year}{2019}
+      \field{pages}{12495}
+      \range{pages}{1}
+    \endentry
+    \entry{shen2023rctrep}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9aea5a9c420fda51f0b8da75d9152e65}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Lingjie},
+           giveni={L\bibinitperiod}}}%
+        {{hash=dfccb172c0907e7702b77949a789d2be}{%
+           family={Geleijnse},
+           familyi={G\bibinitperiod},
+           given={Gijs},
+           giveni={G\bibinitperiod}}}%
+        {{hash=09d185946a243bd996354a8aac71055a}{%
+           family={Kaptein},
+           familyi={K\bibinitperiod},
+           given={Maurits},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{08d4ad2aa60fca2902930dc01e874191}
+      \strng{fullhash}{1929ac067ad737c796c71e015e8e6799}
+      \strng{bibnamehash}{1929ac067ad737c796c71e015e8e6799}
+      \strng{authorbibnamehash}{1929ac067ad737c796c71e015e8e6799}
+      \strng{authornamehash}{08d4ad2aa60fca2902930dc01e874191}
+      \strng{authorfullhash}{1929ac067ad737c796c71e015e8e6799}
+      \field{extraname}{3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistical Software}
+      \field{title}{RCTrep: An R Package for the Validation of Estimates of Average Treatment Effects}
+      \field{year}{2023}
     \endentry
     \entry{causalevaluations}{article}{}
       \name{author}{8}{}{%
@@ -3589,29 +3441,11 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Causal inference analysis is the estimation of the effects of actions on outcomes. In the context of healthcare data this means estimating the outcome of counter-factual treatments (i.e. including treatments that were not observed) on a patient's outcome. Compared to classic machine learning methods, evaluation and validation of causal inference analysis is more challenging because ground truth data of counter-factual outcome can never be obtained in any real-world scenario. Here, we present a comprehensive framework for benchmarking algorithms that estimate causal effect. The framework includes unlabeled data for prediction, labeled data for validation, and code for automatic evaluation of algorithm predictions using both established and novel metrics. The data is based on real-world covariates, and the treatment assignments and outcomes are based on simulations, which provides the basis for validation. In this framework we address two questions: one of scaling, and the other of data-censoring. The framework is available as open source code at https://github.com/{IBM}-{HRL}-{MLHLS}/{IBM}-Causal-Inference-Benchmarking-Framework}
       \field{day}{20}
-      \field{eprinttype}{arxiv}
       \field{journaltitle}{{arXiv}:1802.05046 [cs, stat]}
-      \field{langid}{english}
       \field{month}{3}
       \field{title}{Benchmarking Framework for Performance-Evaluation of Causal Inference Analysis}
-      \field{urlday}{21}
-      \field{urlmonth}{10}
-      \field{urlyear}{2021}
       \field{year}{2018}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{eprint}
-      \verb 1802.05046
-      \endverb
-      \verb{file}
-      \verb Shimoni et al. - 2018 - Benchmarking Framework for Performance-Evaluation .pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\X5NIATPJ\\Shimoni et al. - 2018 - Benchmarking Framework for Performance-Evaluation .pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1802.05046
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1802.05046
-      \endverb
       \keyw{Statistics - Machine Learning,Statistics - Methodology,Computer Science - Machine Learning}
     \endentry
     \entry{simon2018predicting}{article}{}
@@ -3722,7 +3556,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{The growing body of work in the epidemiology literature focused on G-computation includes theoretical explanations of the method but very few simulations or examples of application. The small number of G-computation analyses in the epidemiology literature relative to other causal inference approaches may be partially due to a lack of didactic explanations of the method targeted toward an epidemiology audience. The authors provide a step-by-step demonstration of G-computation that is intended to familiarize the reader with this procedure. The authors simulate a data set and then demonstrate both G-computation and traditional regression to draw connections and illustrate contrasts between their implementation and interpretation relative to the truth of the simulation protocol. A marginal structural model is used for effect estimation in the G-computation example. The authors conclude by answering a series of questions to emphasize the key characteristics of causal inference techniques and the G-computation procedure in particular.}
-      \field{issn}{1476-6256}
       \field{journaltitle}{American Journal of Epidemiology}
       \field{month}{4}
       \field{number}{7}
@@ -3732,13 +3565,43 @@
       \field{year}{2011}
       \field{pages}{731\bibrangedash 738}
       \range{pages}{8}
-      \verb{doi}
-      \verb 10.1093/aje/kwq472
-      \endverb
-      \verb{file}
-      \verb Snowden et al_2011_Implementation of G-computation on a simulated data set.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\S3GZMMCM\\Snowden et al_2011_Implementation of G-computation on a simulated data set.pdf:application/pdf
-      \endverb
       \keyw{Causality,Computer Simulation,Confounding Factors,Epidemiologic,Epidemiologic Research Design,Humans,Models,Statistical,Regression Analysis}
+    \endentry
+    \entry{spasic2020clinical}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{hash=aec38a543be5a4c7b94ff8b94235aee4}{%
+           family={Spasic},
+           familyi={S\bibinitperiod},
+           given={Irena},
+           giveni={I\bibinitperiod}}}%
+        {{hash=7eb52cf7fdd8fd69f1fbce8f1c390582}{%
+           family={Nenadic},
+           familyi={N\bibinitperiod},
+           given={Goran},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {JMIR Publications Inc., Toronto, Canada}%
+      }
+      \strng{namehash}{182a13505109dcadb42d9b4197fc410d}
+      \strng{fullhash}{182a13505109dcadb42d9b4197fc410d}
+      \strng{bibnamehash}{182a13505109dcadb42d9b4197fc410d}
+      \strng{authorbibnamehash}{182a13505109dcadb42d9b4197fc410d}
+      \strng{authornamehash}{182a13505109dcadb42d9b4197fc410d}
+      \strng{authorfullhash}{182a13505109dcadb42d9b4197fc410d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{JMIR medical informatics}
+      \field{number}{3}
+      \field{title}{Clinical text data in machine learning: systematic review}
+      \field{volume}{8}
+      \field{year}{2020}
+      \field{pages}{e17984}
+      \range{pages}{-1}
     \endentry
     \entry{sriperumbudur_integral_2009}{article}{}
       \name{author}{5}{}{%
@@ -3780,29 +3643,11 @@
       \field{labeltitlesource}{title}
       \field{abstract}{A class of distance measures on probabilities —the integral probability metrics ({IPMs}) — is addressed: these include the Wasserstein distance, Dudley metric, and Maximum Mean Discrepancy. {IPMs} have thus far mostly been used in more abstract settings, for instance as theoretical tools in mass transportation problems, and in metrizing the weak topology on the set of all Borel probability measures deﬁned on a metric space. Practical applications of {IPMs} are less common, with some exceptions in the kernel machines literature. The present work contributes a number of novel properties of {IPMs}, which should contribute to making {IPMs} more widely used in practice, for instance in areas where φ-divergences are currently popular.}
       \field{day}{12}
-      \field{eprinttype}{arxiv}
       \field{journaltitle}{{arXiv}:0901.2698 [cs, math]}
-      \field{langid}{english}
       \field{month}{10}
       \field{title}{On integral probability metrics, {\textbackslash}phi-divergences and binary classification}
-      \field{urlday}{25}
-      \field{urlmonth}{3}
-      \field{urlyear}{2022}
       \field{year}{2009}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{eprint}
-      \verb 0901.2698
-      \endverb
-      \verb{file}
-      \verb 0901.2698.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\KV3Q7ME2\\0901.2698.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/0901.2698
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/0901.2698
-      \endverb
       \keyw{Computer Science - Information Theory}
     \endentry
     \entry{su2018random}{article}{}
@@ -3881,6 +3726,34 @@
       \field{pages}{814\bibrangedash 823}
       \range{pages}{10}
     \endentry
+    \entry{vanderweele2019principles}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ba96229639c6eae3740881fb282dd436}{%
+           family={VanderWeele},
+           familyi={V\bibinitperiod},
+           given={Tyler\bibnamedelima J},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{ba96229639c6eae3740881fb282dd436}
+      \strng{fullhash}{ba96229639c6eae3740881fb282dd436}
+      \strng{bibnamehash}{ba96229639c6eae3740881fb282dd436}
+      \strng{authorbibnamehash}{ba96229639c6eae3740881fb282dd436}
+      \strng{authornamehash}{ba96229639c6eae3740881fb282dd436}
+      \strng{authorfullhash}{ba96229639c6eae3740881fb282dd436}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European journal of epidemiology}
+      \field{title}{Principles of confounder selection}
+      \field{volume}{34}
+      \field{year}{2019}
+      \field{pages}{211\bibrangedash 219}
+      \range{pages}{9}
+    \endentry
     \entry{varoquaux2022evaluating}{misc}{}
       \name{author}{2}{}{%
         {{hash=cfa3239dded54488f9a82a5718d5b927}{%
@@ -3944,6 +3817,49 @@
       \range{pages}{15}
       \keyw{Adaptive nearest neighbors matching,Asymptotic normality,Potential outcomes,Unconfoundedness}
     \endentry
+    \entry{wang2020prediction}{article}{}
+      \name{author}{4}{}{%
+        {{hash=99d3a52ec023e3353df684e4149e93a3}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Hanyin},
+           giveni={H\bibinitperiod}}}%
+        {{hash=3f4eae7ad6500b8d967a873bc2a48816}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yikuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=3f5333d9644d9d08c8685c805144138b}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={Seema\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=72e578ff3bed4af8f3c82e781d9dcec5}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Yuan},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{e038adb846426d19aa93dcbd734f91f0}
+      \strng{fullhash}{4b9a07b2a9deaa342b9009ffe0f5a627}
+      \strng{bibnamehash}{4b9a07b2a9deaa342b9009ffe0f5a627}
+      \strng{authorbibnamehash}{4b9a07b2a9deaa342b9009ffe0f5a627}
+      \strng{authornamehash}{e038adb846426d19aa93dcbd734f91f0}
+      \strng{authorfullhash}{4b9a07b2a9deaa342b9009ffe0f5a627}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial intelligence in medicine}
+      \field{title}{Prediction of breast cancer distant recurrence using natural language processing and knowledge-guided convolutional neural network}
+      \field{volume}{110}
+      \field{year}{2020}
+      \field{pages}{101977}
+      \range{pages}{1}
+    \endentry
     \entry{wendling_comparing_2018}{article}{}
       \name{author}{6}{}{%
         {{hash=8ae12b9f4914c60d6f5b9d36654b09ab}{%
@@ -3988,30 +3904,63 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{There is growing interest in using routinely collected data from health care databases to study the safety and effectiveness of therapies in “real-world” conditions, as it can provide complementary evidence to that of randomized controlled trials. Causal inference from health care databases is challenging because the data are typically noisy, high dimensional, and most importantly, observational. It requires methods that can estimate heterogeneous treatment effects while controlling for confounding in high dimensions. Bayesian additive regression trees, causal forests, causal boosting, and causal multivariate adaptive regression splines are off-the-shelf methods that have shown good performance for estimation of heterogeneous treatment effects in observational studies of continuous outcomes. However, it is not clear how these methods would perform in health care database studies where outcomes are often binary and rare and data structures are complex. In this study, we evaluate these methods in simulation studies that recapitulate key characteristics of comparative effectiveness studies. We focus on the conditional average effect of a binary treatment on a binary outcome using the conditional risk difference as an estimand. To emulate health care database studies, we propose a simulation design where real covariate and treatment assignment data are used and only outcomes are simulated based on nonparametric models of the real outcomes. We apply this design to 4 published observational studies that used records from 2 major health care databases in the United States. Our results suggest that Bayesian additive regression trees and causal boosting consistently provide low bias in conditional risk difference estimates in the context of health care database studies.}
-      \field{issn}{1097-0258}
       \field{journaltitle}{Statistics in Medicine}
-      \field{langid}{english}
       \field{number}{23}
       \field{title}{Comparing methods for estimation of heterogeneous treatment effects using observational data from health care databases}
-      \field{urlday}{6}
-      \field{urlmonth}{4}
-      \field{urlyear}{2022}
-      \field{volume}{37}
       \field{year}{2018}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{3309\bibrangedash 3324}
       \range{pages}{16}
-      \verb{doi}
-      \verb 10.1002/sim.7820
-      \endverb
-      \verb{urlraw}
-      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.7820
-      \endverb
-      \verb{url}
-      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.7820
-      \endverb
       \keyw{machine learning,simulation,propensity score,health care databases,heterogeneous treatment effects}
+    \endentry
+    \entry{yala2019deep}{article}{}
+      \name{author}{5}{}{%
+        {{hash=2ec82778d7ccfeffb91e082e4f09ba07}{%
+           family={Yala},
+           familyi={Y\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=65a940e03a610085401f692f3ac9a47c}{%
+           family={Lehman},
+           familyi={L\bibinitperiod},
+           given={Constance},
+           giveni={C\bibinitperiod}}}%
+        {{hash=750bcf434e404221c5aa7075283b0f66}{%
+           family={Schuster},
+           familyi={S\bibinitperiod},
+           given={Tal},
+           giveni={T\bibinitperiod}}}%
+        {{hash=e67494d2dbe4fba883bec9cc59ef7afd}{%
+           family={Portnoi},
+           familyi={P\bibinitperiod},
+           given={Tally},
+           giveni={T\bibinitperiod}}}%
+        {{hash=de391703fb0c2fdf733b3a0095bc32ce}{%
+           family={Barzilay},
+           familyi={B\bibinitperiod},
+           given={Regina},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Radiological Society of North America}%
+      }
+      \strng{namehash}{cfc869cc703e6738bd2e36f92188a16f}
+      \strng{fullhash}{b89f0674acfef4c0f1866952ec50c22a}
+      \strng{bibnamehash}{b89f0674acfef4c0f1866952ec50c22a}
+      \strng{authorbibnamehash}{b89f0674acfef4c0f1866952ec50c22a}
+      \strng{authornamehash}{cfc869cc703e6738bd2e36f92188a16f}
+      \strng{authorfullhash}{b89f0674acfef4c0f1866952ec50c22a}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Radiology}
+      \field{number}{1}
+      \field{title}{A deep learning mammography-based model for improved breast cancer risk prediction}
+      \field{volume}{292}
+      \field{year}{2019}
+      \field{pages}{60\bibrangedash 66}
+      \range{pages}{7}
     \endentry
     \entry{zadrozny_obtaining_2001}{article}{}
       \name{author}{2}{}{%
@@ -4025,9 +3974,6 @@
            familyi={E\bibinitperiod},
            given={Charles},
            giveni={C\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
       }
       \strng{namehash}{07fb66843c938ca7f9b3d9aa8fa282cd}
       \strng{fullhash}{07fb66843c938ca7f9b3d9aa8fa282cd}
@@ -4045,23 +3991,76 @@
       \field{dateera}{ce}
       \field{pages}{8}
       \range{pages}{1}
-      \verb{file}
-      \verb Zadrozny et Elkan - Obtaining calibrated probability estimates from de.pdf:C\:\\Users\\m.doutreligne\\Zotero\\storage\\JQBCB52J\\Zadrozny et Elkan - Obtaining calibrated probability estimates from de.pdf:application/pdf
-      \endverb
+    \endentry
+    \entry{zhang2019radiological}{article}{}
+      \name{author}{2}{}{%
+        {{hash=34a6d8f84fc44dbdff97c3936eedd7fc}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhenwei},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=efd3d24217b68fc53a7e3af8332870c7}{%
+           family={Sejdić},
+           familyi={S\bibinitperiod},
+           given={Ervin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{7c22f59290467cb1688b2bc5f7eefa51}
+      \strng{fullhash}{7c22f59290467cb1688b2bc5f7eefa51}
+      \strng{bibnamehash}{7c22f59290467cb1688b2bc5f7eefa51}
+      \strng{authorbibnamehash}{7c22f59290467cb1688b2bc5f7eefa51}
+      \strng{authornamehash}{7c22f59290467cb1688b2bc5f7eefa51}
+      \strng{authorfullhash}{7c22f59290467cb1688b2bc5f7eefa51}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers in biology and medicine}
+      \field{title}{Radiological images and machine learning: trends, perspectives, and prospects}
+      \field{volume}{108}
+      \field{year}{2019}
+      \field{pages}{354\bibrangedash 370}
+      \range{pages}{17}
+    \endentry
+    \entry{zivich2021machine}{article}{}
+      \name{author}{2}{}{%
+        {{hash=785ff23123ac920aa4843e4dd882a9ac}{%
+           family={Zivich},
+           familyi={Z\bibinitperiod},
+           given={Paul\bibnamedelima N},
+           giveni={P\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=f35783c2401e7cacec2c30594c51866a}{%
+           family={Breskin},
+           familyi={B\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {NIH Public Access}%
+      }
+      \strng{namehash}{9870f51be56147fff5132a67698a1887}
+      \strng{fullhash}{9870f51be56147fff5132a67698a1887}
+      \strng{bibnamehash}{9870f51be56147fff5132a67698a1887}
+      \strng{authorbibnamehash}{9870f51be56147fff5132a67698a1887}
+      \strng{authornamehash}{9870f51be56147fff5132a67698a1887}
+      \strng{authorfullhash}{9870f51be56147fff5132a67698a1887}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Epidemiology (Cambridge, Mass.)}
+      \field{number}{3}
+      \field{title}{Machine learning for causal inference: on the use of cross-fit estimators}
+      \field{volume}{32}
+      \field{year}{2021}
+      \field{pages}{393}
+      \range{pages}{1}
     \endentry
   \enddatalist
-  \missing{beam2018big}
-  \missing{khojaste2022deep}
-  \missing{monshi2020deep}
-  \missing{nassif2022breast}
-  \missing{rajkomar2019machine}
-  \missing{shen2017deep}
-  \missing{shen2019deep}
-  \missing{spasic2020clinical}
-  \missing{vanderweele2019principles}
-  \missing{wang2020prediction}
-  \missing{yala2019deep}
-  \missing{zhang2019radiological}
+  \missing{johansson_generalization_2021}
 \endrefsection
 \endinput
 

@@ -81,22 +81,21 @@
 \onecolumn
 \maketitle
 \begin{abstract}
-    \textbf{Background:}
+    \textbf{Objective:}
     As predictive models --\emph{eg} from machine learning-- give likely
-    outcomes, they may be used to reason on the effect of an intervention,
-    a causal-inference task. The increasing complexity of
-    health data has opened the door to a plethora of models, but also the
-    Pandora box of model selection: which of these models yield the most
-    valid causal estimates? Causal model selection should control both outcome errors for each
-    individual, treated or not treated, whereas only one outcome is observed.
-    Theoretically, simple risks used in machine learning do not control causal
-    effects when treated and non-treated population differ too much. \\
+    outcomes, they may be used to reason on the effect of an intervention, a
+    causal-inference task. The increasing complexity of health data has opened
+    the door to a plethora of models, but also the Pandora box of model
+    selection: which of these models yield the most valid causal estimates?  In
+    this paper, we study model selection procedures in practical settings:
+    finite samples settings and without well-specification assumption.
     \textbf{Methods:}
-    More elaborate risks build proxies of the causal error using ``nuisance''
+    Elaborate risks build proxies of the causal error using ``nuisance''
     re-weighting to compute it on the observed data. But does computing these
     nuisance adds noise to model selection? Drawing from an extensive empirical
-    study based on a simulation and three semi-simulated datasets based on real
-    covariates, we compare different metrics for causal model selection.\\
+    study based on a simulation and three semi-simulated healthcare datasets
+    based on real covariates, we compare different metrics for causal model
+    selection.\\
     \textbf{Results:} Among all metrics the classical mean squared error (ie.
     factual $\mu\mathrm{-risk}$) is worse and re-weighting it with propensity score
     ($\mu\mathrm{-risk}_{IPW}$) does not bring much improvements. The
@@ -200,37 +199,8 @@ The wide variety of methods raises the problem
 of selecting between different estimators based on the data at hand.
 %
 Indeed, estimates of treatment effects can vary markedly across different
-predictive models. For instance, Figure \ref{fig:acic_2016_ate_heterogeneity} shows
-large variations obtained across different outcome estimators on
-semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models
-such as random forests are doing well in most settings except
-when treated and untreated populations differ noticeably, in
-which case a linear model (ridge) is to be preferred.
-However random forests with different hyper-parameters
-(max depth= 2) yield poor estimates.
-A simple rule of thumb such as preferring flexible models does not work in
-general; model selection is needed.
-
-%\idea{It is crucial to have tools for model selection.}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
-    \caption{\textbf{Different outcome models lead to different
-            estimation errors on the Average Treatment Effects},
-        on 77 classic simulations with known true causal effect
-        \cite{dorie_automated_2019}. The different models are ridge regression
-        and random forests with different hyper-parameters
-        (details
-        \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
-        plotted as a function of increasing difference between treated and
-        untreated population --see
-        \autoref{subsec:measuring_overlap}.
-        There is no systematic best performer; data-driven model
-        selection is important.
-        \label{fig:acic_2016_ate_heterogeneity}%
-    }
-\end{figure}
+predictive models (see example from \cite{dorie_automated_2019} developed in
+Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
 Standard practices to select models in predictive settings rely on
 the error on the outcome
@@ -317,19 +287,15 @@ treatment --as detailed in \autoref{sec:neyman_rubin}.
 %
 Given various predictors of the outcome, which one should we use?
 %
-Standard predictive modeling or machine-learning practice selects the
-predictor that minimizes the expected error.
-However, this predictor may not be the best model to reason about
-causal effects of an intervention, as we illustrate below.
-
-Figure \ref{fig:toy_example} gives a toy example: the probability $Y$ of
-an undesirable
-outcome (\emph{eg} death), a binary treatment $A \in \{0, 1\}$, and a covariate
-$X \in \mathbb R$ summarizing the patient health status (eg. the
-Charlson index \cite{charlson_new_1987}). We simulate a
-treatment beneficial (decreases $Y$) for patients with high Charlson scores (bad health
-status) but with little effect for patients in good
-condition (low Charlson scores).
+Standard predictive modeling or machine-learning practice selects the predictor
+that minimizes the expected error. However, this predictor may not be the best
+model to reason about causal effects of an intervention as Figure
+\ref{fig:toy_example} illustrates. Consider the probability $Y$ of an undesirable outcome
+(\emph{eg} death), a binary treatment $A \in \{0, 1\}$, and a covariate $X \in
+\mathbb R$ summarizing the patient health status (eg. the Charlson index
+\cite{charlson_new_1987}). We simulate a treatment beneficial (decreases $Y$)
+for patients with high Charlson scores (bad health status) but with little
+effect for patients in good condition (low Charlson scores).
 
 
 Figure \ref{fig:toy_example}a shows a random forest predictor with a
@@ -981,23 +947,15 @@ in \ref{apd:results:fig:seed_effect}).
 We generate the response functions using random bases. Basis extension methods
 are common in biostatistics, \emph{eg} functional regression with splines
 \cite{howe_splines_2011, perperoglou_review_2019}. By allowing the function to
-vary at specific knots, they give flexible non-linear models. We use random approximation of Radial Basis Function (RBF) kernels
-\cite{rahimi_random_2008} to generate the response functions. RBF use the same
-process as polynomial splines but replace polynomial by Gaussian kernels. Unlike
-polynomials, Gaussian kernels have decreasing influences in the input space.
-This avoids unrealistic divergences of the response surfaces at the
-ends of the feature space.
-
-The number of basis functions --\emph{ie. knots}--, controls the complexity of
-the ground-truth response surfaces and treatment. We first use this process to
-draw the non-treated response surface $\mu_0$ and the causal effect $\tau$. We
-then draw the observations from a mixture two Gaussians, for the treated and non
-treated. We vary the separation between the two Gaussians to control the
-overlap between treated and non-treated populations, an important parameter
-for causal inference (related to $\eta$ in Proposition
-\ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed outcomes
-adding Gaussian noise. We generate 1\,000 of such datasets, with
-uniformly random overlap parameters. Example shown in Figure \ref{fig:simulation_examples} and details in
+vary at specific knots, they give flexible non-linear models. The number of
+knots controls the complexity of the function. We use random approximation of
+Radial Basis Function (RBF) kernels \cite{rahimi_random_2008} to generate the
+outcome and treatment functions. RBF use the same process as polynomial splines
+but replace polynomial by Gaussian kernels. Unlike polynomials, Gaussian kernels
+have decreasing influences in the input space. This avoids unrealistic
+divergences of the response surfaces at the ends of the feature space. We
+generate 1\,000 datasets based on this functions, with random overlap
+parameters. Example shown in Figure \ref{fig:simulation_examples} and details in
 \ref{apd:experiments:generation}.
 
 \captionsetup[sub]{font=large,labelfont={bf,sf}}%
@@ -1017,22 +975,19 @@ uniformly random overlap parameters. Example shown in Figure \ref{fig:simulation
 
 \paragraph{Family of candidate estimators}
 
-We test model selection on a family of candidate estimators that
-approximate imperfectly the data-generating process. To build such an
-estimator, we first use a RBF expansion
-similar to the one used for data generation.
-We choose two random knots and apply a transformation of the raw data features
-with a Gaussian kernel. This step
-is referred as the featurization. Then, we fit a linear regression on
-these
-transformed features. We consider two ways of combining these steps for outcome
-mode; we use common nomenclature \cite{kunzel_metalearners_2019,shen2023rctrep} to refer
-to these different meta-learners that differ on how
-they model, jointly or not, the treated and the non treated:
+We compare different candidate estimators that approximate imperfectly the
+data-generating process. To build such estimators, we first use a RBF
+expansion similar to the one used for data generation. We choose two random
+knots and apply a transformation of the raw data features with a Gaussian
+kernel. This step is referred as the featurization. Then, we fit a linear
+regression on these transformed features. We consider two ways of combining
+these steps for outcome mode; we use common nomenclature
+\cite{kunzel_metalearners_2019,shen2023rctrep} to refer to these different
+meta-learners that differ on how they model, jointly or not, the treated and the
+non treated:
 \begin{itemize}
     \item SLearner: A single learner for both population, taking the treatment as
           a supplementary covariate.
-
     \item SftLearner: A single set of basis functions is sampled at random for both
           populations, leading to a given feature space used to model both the treat and
           the non treated, then two
@@ -1059,57 +1014,21 @@ featurization yielding a family $\mathcal F$ of 120 candidate estimators.
 
 \paragraph{Datasets}\label{semi_simulated:datasets}
 
-We also use classic benchmarks of the causal-inference
-literature, semi-simulated data adding a known synthetic causal effect to real --non synthetic-- covariate:
-\begin{description}
-    \item[ACIC 2016] \cite{dorie_automated_2019}: The dataset is based on the
-        Collaborative Perinatal Project \cite{niswander_women_1972}, a RCT
-        studying infants’
-        developmental disorders. The initial intervention was a child’s birth
-        weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
-        IQ after a follow-up period. The study contained $N=4\,802$ data
-        points with $D=55$ features (5 binary, 27 count data, and 23
-        continuous). They simulated 77 different setups varying parameters
-        for treatment and response models, overlap, and interactions between treatment and
-        covariates \footnote{Original R code available at
-            \url{https://github.com/vdorie/aciccomp/tree/master/2016}
-            to generate 77 simulations settings.}. We used 10 different seeds for
-        each setup, totaling 770 dataset instances.
+We also use three benchmarks of the causal-inference literature, semi-simulated
+data adding a known synthetic causal effect to real --non synthetic-- healthcare
+covariate. ACIC 2016 \cite{dorie_automated_2019} is based on the Collaborative
+Perinatal Project \cite{niswander_women_1972}, a RCT studying infants’
+developmental disorders containing 4,802 indivduals and 55 features. We used 770
+dataset instances: 10 random seeds for each of the 77 simulated settings for the
+treatment and outcomes.  ACIC 2018 \cite{shimoni_benchmarking_2018} simulated
+treatment and outcomes for the Linked Births and Infant Deaths Database (LBIDD)
+\cite{macdorman_infant_1998} with $D=177$ covariates. We used all 432 datasets
+of size $N=5\,000$.  Twins \cite{louizos_causal_2017} is an augmentation of real
+data on twin births and mortality rates \cite{almond_costs_2005}. There are
+$N=11\,984$ samples, and $D=50$ covariates for which we simulated 1,000
+different treatment allocations. Datasets details are given in Appendix
+\ref{apd:experiments:datasets}.
 
-    \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: Starting from data
-        from the Linked Births and Infant Deaths Database (LBIDD)
-        \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
-        outcome models are simulated with complex models to reflect
-        different scenarii. The data do not provide the true propensity
-        scores, so we evaluate only feasible metrics, which do not require this
-        nuisance parameter. We used all 432 datasets\footnote{Using the scaling part of the data, from
-            \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}} of size $N=5\,000$.
-
-
-    \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of
-        real data on twin births and mortality rates
-        \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
-        and $D=50$ covariates\footnote{We obtained the dataset from
-            \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
-        weight of the heavier twin at birth. This is a "true" counterfactual dataset
-        \cite{curth_really_2021} in the sense that we have
-        both potential outcomes with each twin. They simulate the treatment with a
-        sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
-        the 45 other covariates:
-        \begin{align}
-            \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
-            \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
-            \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
-            w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
-        \end{align}
-        We add a non-constant slope in the
-        sigmoid to control the overlap between
-        treated and control populations.
-        We sampled uniformly 1\,000 different overlap parameters between 0 and
-        2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
-        only the overlap varies for these instances. The response surfaces are
-        set by the original outcomes.
-\end{description}
 
 \paragraph{Family of candidate
     estimators}\label{semi_simulated:candidate_estimators}
@@ -1127,23 +1046,13 @@ in $\{0.01, 0.1, 1\}$, and maximum number of leaf nodes in $\{25, 27, 30, 32,
 \paragraph{Nuisance estimators}
 
 Drawing inspiration from the TMLE literature that uses combination of flexible
-machine learning methods \cite{schuler_targeted_2017}, we use as models
-for the nuisances $\check e$ (respectively $\check m$) a form of meta-learner: a
+machine learning methods \cite{schuler_targeted_2017}, we use a meta-learner as models
+for the nuisances $\check e$ (respectively $\check m$): a
 stacked estimator of ridge and boosting classifiers (respectively
 regressions). We select hyper-parameters with randomized search on a validation set
 $\mathcal{V}$ and keep them fix for model selection
-(\ref{apd:experiments:nuisances_hp} lists hyperparameters). As extreme inverse
-propensity weights induce high variance, we use clipping
-\cite{swaminathan_counterfactual_2015, ionides_truncated_2008} to bound
-$min(\check e, 1-\check e)$ away from 0 with a fixed $\eta=10^{-10}$, ensuring
-strict overlap for numerical stability.
+(\ref{apd:experiments:nuisances_hp} lists hyperparameters).
 
-
-%\paragraph{Model selection procedure}\label{semi_simulated:selection_procedure}
-
-%We used the same training procedure procedure as in
-%\ref{paragraph:selection_procedure} (Details in supp.~mat.
-%\ref{apd:selection_procedure_acic}).
 
 \subsection{Measuring overlap between treated and non treated}\label{subsec:measuring_overlap}
 
@@ -1225,13 +1134,11 @@ and 0.05\% compared to 1\% on Twins.
 \paragraph{Model selection is harder for low population
     overlap}
 
-Model selection for
-causal inference becomes more and more difficult with increasingly different
-treated and control populations
-(Figure \ref{fig:all_datasets_overlap_effect_r_risk}). The
-absolute Kendall's coefficient correlation with $\tau\text{-risk}$
-drops from values around 0.9 (excellent agreement with oracle selection) to 0.6 on
-both Caussim and ACIC 2018
+Model selection for causal inference becomes more and more difficult with
+increasingly different treated and control populations (Figure
+\ref{fig:all_datasets_overlap_effect_r_risk}). The absolute Kendall's
+coefficient correlation with $\tau\text{-risk}$ drops from values around 0.9
+(excellent agreement with oracle selection) to 0.6 on both Caussim and ACIC 2018
 (\ref{apd:experiments:additional_results}).
 
 \begin{figure}[!h]
@@ -1473,7 +1380,35 @@ the ACIC 2016 dataset. Outcome models are fitted on half of the data and
 inference is done on the other half --ie. train/test with a split ratio of 0.5.
 For each configuration, and each model, this train test split was repeated ten
 times, yielding non parametric variance estimates
-\cite{bouthillier_accounting_2021}.
+\cite{bouthillier_accounting_2021}. Figure \ref{fig:acic_2016_ate_heterogeneity}
+shows large variations obtained across different outcome estimators on
+semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models such as
+random forests are doing well in most settings except when treated and untreated
+populations differ noticeably, in which case a linear model (ridge) is to be
+preferred. However random forests with different hyper-parameters (max depth= 2)
+yield poor estimates. A simple rule of thumb such as preferring flexible models
+does not work in general; model selection is needed.
+
+%\idea{It is crucial to have tools for model selection.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
+    \caption{\textbf{Different outcome models lead to different
+            estimation errors on the Average Treatment Effects},
+        on 77 classic simulations with known true causal effect
+        \cite{dorie_automated_2019}. The different models are ridge regression
+        and random forests with different hyper-parameters
+        (details
+        \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
+        plotted as a function of increasing difference between treated and
+        untreated population --see
+        \autoref{subsec:measuring_overlap}.
+        There is no systematic best performer; data-driven model
+        selection is important.
+        \label{fig:acic_2016_ate_heterogeneity}%
+    }
+\end{figure}
 
 Outcome models are implemented with
 \href{https://scikit-learn.org/stable/}{scikit-learn}
@@ -1873,24 +1808,36 @@ a crucial assumption for causal inference.
           to  visualize response surfaces.
 
     \item A basis expansion of the raw features increases the problem dimension.
-          Using Radial Basis Function (RBF) Nystroem transformation \footnote{We use the
-              \href{https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html}{Sklearn
-                  implementation, \cite{pedregosa_scikitlearn_2011}}}, we expand the raw
-          features into a transformed space. The basis expansion samples randomly a
-          small number of representers in the raw data. Then,  it computes an
-          approximation of the full N-dimensional kernel with these basis components,
-          yielding the transformed features $z(x)$.
+          Using Radial Basis Function (RBF) Nystroem transformation \footnote{We
+          use the
+          \href{https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html}{Sklearn
+          implementation, \cite{pedregosa_scikitlearn_2011}}}, we expand the raw
+          features into a transformed space. The basis expansion samples
+          randomly a small number of representers in the raw data. Then,  it
+          computes an approximation of the full N-dimensional kernel with these
+          basis components, yielding the transformed features $z(x)$. The number
+          of basis functions --\emph{ie. knots}--, controls the complexity of
+          the ground-truth response surfaces and treatment. We first use this
+          process to draw the non-treated response surface $\mu_0$ and the
+          causal effect $\tau$. We then draw the observations from a mixture two
+          Gaussians, for the treated and non treated. We vary the separation
+          between the two Gaussians to control the overlap between treated and
+          non-treated populations, an important parameter for causal inference
+          (related to $\eta$ in Proposition
+          \ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed
+          outcomes adding Gaussian noise. 
 
-          We generate the basis following the original data distribution, $\left [
-                  b_1 .. b_D \right ] \sim \mathbb P(x)$, with D=2 in our simulations. Then, we
-          compute an approximation of the full kernel of the data generation
-          process $RBF(x, \cdot) \;  with \; x \sim \mathbb P(x)$ with these
-          representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D}
-              \cdot Z^T \in \mathbb{R}^D$
-          with $RBF_{\gamma}$ being the Gaussian kernel $K(x, y) = exp(-\gamma
-              ||x-y||^2)$ and Z the normalization constant of the kernel basis,
-          computed as the root inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j
-              \in {1..D}}^{-1/2}$
+          More formally, we generate the basis following the original data
+                  distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
+                  with D=2 in our simulations. Then, we compute an approximation
+                  of the full kernel of the data generation process $RBF(x,
+                  \cdot) \;  with \; x \sim \mathbb P(x)$ with these
+                  representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
+                  Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
+                  kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
+                  normalization constant of the kernel basis, computed as the
+                  root inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
+                  {1..D}}^{-1/2}$
 
 
     \item Functions $\mu_0$, $\tau$ are distinct linear functions of the
@@ -1908,6 +1855,58 @@ a crucial assumption for causal inference.
 We generated 1000 instances of this dataset with uniformly random overlap
 parameters $\theta \in \left[ 0, 2.5 \right]$.
 
+\subsection{ Details on the semi-simulated datasets}\label{apd:experiments:datasets}
+
+
+\begin{description}
+    \item[ACIC 2018] \cite{dorie_automated_2019}:  The initial intervention was a child’s birth
+        weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
+        IQ after a follow-up period. The study contained $N=4\,802$ data
+        points with $D=55$ features (5 binary, 27 count data, and 23
+        continuous). They simulated 77 different setups varying parameters
+        for treatment and response models, overlap, and interactions between treatment and
+        covariates \footnote{Original R code available at
+            \url{https://github.com/vdorie/aciccomp/tree/master/2016}
+            to generate 77 simulations settings.}. We used 10 different seeds
+        for each setup, totaling 770 dataset instances.
+
+    \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: Starting from data from
+        the Linked Births and Infant Deaths Database (LBIDD)
+        \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
+        outcome models are simulated with complex models to reflect different
+        scenarii. The data do not provide the true propensity scores, so we
+        evaluate only feasible metrics, which do not require this nuisance
+        parameter. We used all 432 datasets\footnote{Using the scaling part of
+            the data, from
+            \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}}
+        of size $N=5\,000$.
+
+
+    \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of
+        real data on twin births and mortality rates
+        \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
+        and $D=50$ covariates\footnote{We obtained the dataset from
+            \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
+        weight of the heavier twin at birth. This is a "true" counterfactual dataset
+        \cite{curth_really_2021} in the sense that we have
+        both potential outcomes with each twin. They simulate the treatment with a
+        sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
+        the 45 other covariates:
+        \begin{align}
+            \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
+            \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
+            \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
+            w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
+        \end{align}
+        We add a non-constant slope in the
+        sigmoid to control the overlap between
+        treated and control populations.
+        We sampled uniformly 1\,000 different overlap parameters between 0 and
+        2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
+        only the overlap varies for these instances. The response surfaces are
+        set by the original outcomes.
+\end{description}
+
 \subsection{Model selection procedures}
 
 \paragraph{Nuisances estimation}\label{apd:experiments:nuisances_hp}
@@ -1917,7 +1916,10 @@ Learner framework, \cite{laan_super_2007}). The hyper-parameters are
 optimized with a random search with following search grid detailed in Table
 \ref{apd:experiments:nuisances_hp_grid}. All implementations come from
 \href{https://scikit-learn.org/stable/}{scikit-learn}
-\cite{pedregosa_scikitlearn_2011}.
+\cite{pedregosa_scikitlearn_2011}.  As extreme inverse propensity weights induce
+high variance, we use clipping \cite{swaminathan_counterfactual_2015,
+ionides_truncated_2008} to bound $min(\check e, 1-\check e)$ away from 0 with a
+fixed $\eta=10^{-10}$, ensuring strict overlap for numerical stability.
 
 \begin{table}[h!]
     \begin{tabular}{llll}

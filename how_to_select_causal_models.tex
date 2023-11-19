@@ -115,29 +115,20 @@
 
 \subsection{Extending prediction to prescription needs causality}
 
-Progress in machine learning brings predictive models to new health
-data \cite{beam2018big,rajkomar2019machine}, with the promise of
-precision medicine.
-Automated analysis of
-medical images is increasingly accurate, \emph{eg} for brain images,
-\cite{khojaste2022deep,zhang2019radiological} or mammography
-\cite{yala2019deep,shen2019deep,nassif2022breast}.
-New prognostic models leverage routinely-collected
-patient records
-\cite{mooney2018bigdata}: predicting heart
-failure from claims \cite{desai2020comparison}, suicide attempts
-from questionnaires \cite{simon2018predicting}...
-Clinical notes contain much prognostic information
-but require text modeling  \cite{horng2017creating,wang2020prediction,spasic2020clinical}.
-Data may be difficult to
-control and model, but the accuracy of the prediction can be verified
-on left-out data
+Progress in machine learning brings predictive models to new health data
+\cite{beam2018big,rajkomar2019machine}, with the promise of precision medicine.
+Predictive models are increaslingly used for image analysis
+\cite{khojaste2022deep,zhang2019radiological,yala2019deep,shen2019deep,nassif2022breast},
+routinely-collected patient records
+\cite{mooney2018bigdata,desai2020comparison,simon2018predicting} or clinical
+notes \cite{horng2017creating,wang2020prediction,spasic2020clinical}. Data may
+be difficult to control and model, but the accuracy of the prediction can be
+verified on left-out data
 \cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
-Given a model predicting a health outcome, precision medicine
-would like it to guide decisions: will an individual benefit from an
-intervention such as surgery \cite{fontana2019can}?
-Contrasting predictions with and without the treatment gives an answer,
-but statistical validity requires causal inference
+Given a model predicting a health outcome, precision medicine would like it to
+guide decisions: will an individual benefit from an intervention such as surgery
+\cite{fontana2019can}? Contrasting predictions with and without the treatment
+gives an answer, but statistical validity requires causal inference
 \cite{snowden_implementation_2011,blakely2020reflection}.
 
 % - Causal inference is difficult
@@ -164,27 +155,28 @@ conditional mean regression \cite{wendling_comparing_2018}. A central challenge
 of inference of treatment effects is that of confounding: spurious associations
 between treatment allocation and baseline health, \emph{eg} only prescribing a
 drug to mild cases \citep{hernan_causal_2020,vanderweele2019principles}.
-Controlled allocation of treatment, as in randomized controlled trials (RCTs),
-alleviate this concern. Yet most machine-learning models are trained on
-\emph{observational} data, close to real-word practice
-\cite{black1996we,hernan_methods_2021} but challenging for causal inference.
+% Controlled allocation of treatment, as in randomized controlled trials (RCTs),
+% alleviate this concern. Yet most machine-learning models are trained on
+% \emph{observational} data, close to real-word practice
+% \cite{black1996we,hernan_methods_2021} but challenging for causal inference.
 Causal inference has been central to epidemiology, typically with methods that
 model treatment assignment \cite{austin_moving_2015,grose_use_2020}, based on
-propensity scores \cite{rosenbaum_central_1983}. Recent empirical results
-\cite{wendling_comparing_2018,dorie_automated_2019} show benefits of outcome
-modeling to estimate average treatment effects. Maybe a greater benefit is
-that these methods naturally go beyond average effects, estimating
-individualized or conditional average treatment effects (CATE), central to
-precision medicine.
+propensity scores \cite{rosenbaum_central_1983}.  However, outcome modeling go
+beyond average effects, estimating individualized or conditional average
+treatment effects (CATE), central to precision medicine.
 %
 For this purpose, such methods are also invaluable on randomized trials
 \cite{su2018random,lamont2018identification,hoogland2021tutorial}.
 
+% Recent empirical results \cite{wendling_comparing_2018,dorie_automated_2019}
+% show benefits of outcome modeling to estimate average treatment effects.
+
 %\idea{There is a variety of models for g-estimation}
-There is an explosion of outcome modeling or machine learning methods.
-For instance, many deep-learning methods have been developed for medical
-image analysis \cite{shen2017deep,monshi2020deep}.
-Even outcome-modeling methods specifically designed for causal
+% There is an explosion of outcome modeling or machine learning methods, either 
+% developed for
+% For instance, many deep-learning methods have been developed for medical
+% image analysis \cite{shen2017deep,monshi2020deep}.
+Outcome-modeling methods, even when specifically designed for causal
 inference are numerous: Bayesian Additive Regression Trees
 \cite{hill_bayesian_2011}, Targeted Maximum Likelihood Estimation
 \cite{laan_targeted_2011,schuler_targeted_2017}, causal boosting
@@ -199,9 +191,17 @@ The wide variety of methods raises the problem
 of selecting between different estimators based on the data at hand.
 %
 Indeed, estimates of treatment effects can vary markedly across different
-predictive models (see example from \cite{dorie_automated_2019} developed in
+predictive models (as shown by \cite{dorie_automated_2019} and developed in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
+Given complex,
+potentially noisy, data, which model is to be most trusted to yield valid causal
+estimates? As no single learner performs best on all data sets, there is a
+pressing need for clear guidelines to select outcome models for causal
+inference.
+
+
+% TODO:move below
 Standard practices to select models in predictive settings rely on
 the error on the outcome
 \cite{poldrack2020establishment,varoquaux2022evaluating}. However, as we
@@ -209,14 +209,10 @@ will see, these practices may not pick the best models
 for causal inference, as they can be misled by inhomogeneities due to
 treatment allocation.
 %
-Given complex, potentially noisy, data, which model is to be most trusted to
-yield valid causal estimates? As no single learner performs
-best on all data sets, there is a pressing need for clear guidelines to select
-outcome models for causal inference.
-
+ 
 \paragraph{Objectives and structure of the paper}
 
-In this paper, we study \textit{model selection procedures}
+We study \textit{model selection procedures}
 in practical settings: \textit{finite samples} settings and without
 \textit{well-specification} assumption. Asymptotic causal-inference
 theory calls for complex risks, but a practical question is
@@ -225,23 +221,24 @@ these risks reliably enough. Indeed, they
 come with more quantities to estimate, which may
 bring additional variance, leading to worse model selection.
 
-We first illustrate the problem of causal model
-selection and briefly review prior art. Then the methods
-\autoref{sec:framework} sets causal model selection in the
-\emph{potential outcome} framework and details the causal risks and
-model-selection procedure. The next \autoref{sec:theory} gives theoretical
-results. The results \autoref{sec:empirical_study} details a thorough empirical
-study, covering many different settings. Finally, we
-discuss the findings in the last \autoref{sec:discussion}.
-%
-Results outline how to best select outcome models for causal
-inference with an adapted
-cross-validation to estimate the so-called $R\text{-risk}$.
-This risk compensates for systematic
-differences between treated and non-treated individuals using
-two \emph{nuisance} models,
-themselves estimated from data and thus imperfect; yet these
-imperfections do not undermine the $R\text{-risk}$.
+We first illustrate the problem of causal model selection and briefly review
+prior art. Then we anchors causal model selection in the \emph{potential
+outcome} framework and details the causal risks and model-selection procedure.
+We then rewrite the so-called $R\text{-risk}$, as a reweighted version of mean
+squared difference between the true and estimated individualized treatment
+effect. Finally, we conduct a thorough empirical study comparing the different
+metrics on a wide variety of data-generative processes based on simulations and
+real data.
+
+% not the place for results
+% Results outline how to best select outcome models for causal
+% inference with an adapted
+% cross-validation to estimate the so-called $R\text{-risk}$.
+% This risk compensates for systematic
+% differences between treated and non-treated individuals using
+% two \emph{nuisance} models,
+% themselves estimated from data and thus imperfect; yet these
+% imperfections do not undermine the $R\text{-risk}$.
 
 
 
@@ -292,7 +289,7 @@ that minimizes the expected error. However, this predictor may not be the best
 model to reason about causal effects of an intervention as Figure
 \ref{fig:toy_example} illustrates. Consider the probability $Y$ of an undesirable outcome
 (\emph{eg} death), a binary treatment $A \in \{0, 1\}$, and a covariate $X \in
-\mathbb R$ summarizing the patient health status (eg. the Charlson index
+    \mathbb R$ summarizing the patient health status (eg. the Charlson index
 \cite{charlson_new_1987}). We simulate a treatment beneficial (decreases $Y$)
 for patients with high Charlson scores (bad health status) but with little
 effect for patients in good condition (low Charlson scores).
@@ -1809,9 +1806,9 @@ a crucial assumption for causal inference.
 
     \item A basis expansion of the raw features increases the problem dimension.
           Using Radial Basis Function (RBF) Nystroem transformation \footnote{We
-          use the
-          \href{https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html}{Sklearn
-          implementation, \cite{pedregosa_scikitlearn_2011}}}, we expand the raw
+              use the
+              \href{https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html}{Sklearn
+                  implementation, \cite{pedregosa_scikitlearn_2011}}}, we expand the raw
           features into a transformed space. The basis expansion samples
           randomly a small number of representers in the raw data. Then,  it
           computes an approximation of the full N-dimensional kernel with these
@@ -1825,19 +1822,19 @@ a crucial assumption for causal inference.
           non-treated populations, an important parameter for causal inference
           (related to $\eta$ in Proposition
           \ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed
-          outcomes adding Gaussian noise. 
+          outcomes adding Gaussian noise.
 
           More formally, we generate the basis following the original data
-                  distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
-                  with D=2 in our simulations. Then, we compute an approximation
-                  of the full kernel of the data generation process $RBF(x,
-                  \cdot) \;  with \; x \sim \mathbb P(x)$ with these
-                  representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
-                  Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
-                  kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
-                  normalization constant of the kernel basis, computed as the
-                  root inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
-                  {1..D}}^{-1/2}$
+          distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
+          with D=2 in our simulations. Then, we compute an approximation
+          of the full kernel of the data generation process $RBF(x,
+              \cdot) \;  with \; x \sim \mathbb P(x)$ with these
+          representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
+              Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
+          kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
+          normalization constant of the kernel basis, computed as the
+          root inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
+              {1..D}}^{-1/2}$
 
 
     \item Functions $\mu_0$, $\tau$ are distinct linear functions of the
@@ -1918,7 +1915,7 @@ optimized with a random search with following search grid detailed in Table
 \href{https://scikit-learn.org/stable/}{scikit-learn}
 \cite{pedregosa_scikitlearn_2011}.  As extreme inverse propensity weights induce
 high variance, we use clipping \cite{swaminathan_counterfactual_2015,
-ionides_truncated_2008} to bound $min(\check e, 1-\check e)$ away from 0 with a
+    ionides_truncated_2008} to bound $min(\check e, 1-\check e)$ away from 0 with a
 fixed $\eta=10^{-10}$, ensuring strict overlap for numerical stability.
 
 \begin{table}[h!]

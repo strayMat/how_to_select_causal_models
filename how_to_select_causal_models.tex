@@ -148,20 +148,20 @@ gives an answer, but statistical validity requires causal inference
 % The plethora of approaches approaches give different causal-inference
 % estimates => need for guideline on causal model selection.
 
-There is a rich causal-inference statistical literature, which bridges to
-predictive modeling via so-called \emph{outcome models}, or G-computation,
-G-formula \cite{robins_role_1986}, Q-model \cite{snowden_implementation_2011},
-conditional mean regression \cite{wendling_comparing_2018}. A central challenge
-of inference of treatment effects is that of confounding: spurious associations
-between treatment allocation and baseline health, \emph{eg} only prescribing a
-drug to mild cases \citep{hernan_causal_2020,vanderweele2019principles}.
+Predictive modeling bridges to causal-inference with the so-called \emph{outcome
+    models}, or G-computation, G-formula \cite{robins_role_1986}, Q-model
+\cite{snowden_implementation_2011}, conditional mean regression
+\cite{wendling_comparing_2018}. A central challenge of inference of treatment
+effects is that of confounding: spurious associations between treatment
+allocation and baseline health, \emph{eg} only prescribing a drug to mild cases
+\citep{hernan_causal_2020,vanderweele2019principles}.
 % Controlled allocation of treatment, as in randomized controlled trials (RCTs),
 % alleviate this concern. Yet most machine-learning models are trained on
 % \emph{observational} data, close to real-word practice
 % \cite{black1996we,hernan_methods_2021} but challenging for causal inference.
 Causal inference has been central to epidemiology, typically with methods that
 model treatment assignment \cite{austin_moving_2015,grose_use_2020}, based on
-propensity scores \cite{rosenbaum_central_1983}.  However, outcome modeling go
+propensity scores \cite{rosenbaum_central_1983}. But outcome modeling go
 beyond average effects, estimating individualized or conditional average
 treatment effects (CATE), central to precision medicine.
 %
@@ -188,7 +188,7 @@ Meta-learners \cite{kunzel_metalearners_2019}, R-learners
 \cite{chernozhukov_double_2018}...
 %\idea{The variety of estimators calls for model selection procedures}
 The wide variety of methods raises the problem
-of selecting between different estimators based on the data at hand.
+of selecting between different estimators based on the data at hand.%TODO: might be removed since repeated two sentences below
 %
 Indeed, estimates of treatment effects can vary markedly across different
 predictive models (as shown by \cite{dorie_automated_2019} and developed in
@@ -209,7 +209,7 @@ will see, these practices may not pick the best models
 for causal inference, as they can be misled by inhomogeneities due to
 treatment allocation.
 %
- 
+
 \paragraph{Objectives and structure of the paper}
 
 We study \textit{model selection procedures}
@@ -223,7 +223,7 @@ bring additional variance, leading to worse model selection.
 
 We first illustrate the problem of causal model selection and briefly review
 prior art. Then we anchors causal model selection in the \emph{potential
-outcome} framework and details the causal risks and model-selection procedure.
+    outcome} framework and details the causal risks and model-selection procedure.
 We then rewrite the so-called $R\text{-risk}$, as a reweighted version of mean
 squared difference between the true and estimated individualized treatment
 effect. Finally, we conduct a thorough empirical study comparing the different
@@ -279,8 +279,7 @@ real data.
 \end{figure}
 
 Using a predictor to reason on causal effects relies on contrasting the
-prediction of the outcome for a given individual with and without the
-treatment --as detailed in \autoref{sec:neyman_rubin}.
+prediction of the outcome for a given individual with and without the treatment.
 %
 Given various predictors of the outcome, which one should we use?
 %
@@ -290,7 +289,7 @@ model to reason about causal effects of an intervention as Figure
 \ref{fig:toy_example} illustrates. Consider the probability $Y$ of an undesirable outcome
 (\emph{eg} death), a binary treatment $A \in \{0, 1\}$, and a covariate $X \in
     \mathbb R$ summarizing the patient health status (eg. the Charlson index
-\cite{charlson_new_1987}). We simulate a treatment beneficial (decreases $Y$)
+\cite{charlson_new_1987}). We simulate a treatment beneficial (decreases mortality)
 for patients with high Charlson scores (bad health status) but with little
 effect for patients in good condition (low Charlson scores).
 
@@ -436,7 +435,7 @@ strictly positive probability to receive each treatment, \emph{3)}
 \emph{consistency}, and \emph{4)} \emph{generalization} (detailed in
 \ref{apd:causal_assumptions}).
 
-\paragraph{Estimating treatment effects with outcome models}\label{subsec:estimators}
+\paragraph{Estimating treatment effects with outcome models -- g-computation \cite{robins_new_1986}}\label{subsec:estimators}
 
 Should we know the two expected outcomes for a given $X$,
 we could compute the
@@ -451,12 +450,10 @@ expectations:
 \end{equation}
 On the left, the expectation is taken on the counterfactual unobserved
 distribution. On the right, the expectation is taken on the factual observed
-distribution conditionally on the treatment. This equality is referred as the
-g-formula identification \cite{robins_new_1986}. For the rest of the
+distribution conditionally on the treatment. For the rest of the
 paper, the expectations will always be taken on the factual observed
 distribution $\mathcal{D}$. This identification leads to outcome based estimators (ie.
-g-computation estimators \cite{snowden_implementation_2011}), targeting the
-ATE $\tau$ with outcome modeling:
+g-computation estimators \cite{snowden_implementation_2011}):
 \begin{eqnarray}
     \tau =& \mathbb E_{Y \sim \mathcal{D^{\star}}}[Y(1) - Y(0)|X=x]
     \notag
@@ -717,9 +714,9 @@ each candidate model on the test set. This procedure is described in Algorithm
 \ref{problem:estimation_procedure:algo} and Figure
 \ref{problem:estimation_procedure:figure}.
 
-As extreme inverse propensity weights induce high variance, clipping can be
-useful for numerical stability
-\cite{swaminathan_counterfactual_2015, ionides_truncated_2008}.
+% As extreme inverse propensity weights induce high variance, clipping can be
+% useful for numerical stability
+% \cite{swaminathan_counterfactual_2015, ionides_truncated_2008}.
 
 \begin{algorithm}[!htbp]
     \caption{Model selection procedure}\label{problem:estimation_procedure:algo} {%
@@ -750,14 +747,17 @@ useful for numerical stability
 
 
 
-\section{Theory: Links between feasible and oracle risks}\label{sec:theory}
+\section{A theoretical argument favoring the R-risk}\label{theory:r_risk_rewrite}
 
-We now relate two feasible risks, $\mu \text{-risk}_{IPW}$ and the
-$R\text{-risk}$ to the oracle $\tau\text{-risk}$. Both results make
-explicit the role of overlap for the performances of causal risks.
+We now derive a novel rewriting of the $R\text{-risk}$, making explicit its link
+with the oracle $\tau \text{-risk}$.
 
-These bounds depend on a specific form of residual that we now define: for each potential outcome, $a \in  \{0; 1\}$, the variance conditionally on $x$
-is \cite{shalit_estimating_2017}:
+% We now one feasible risks, $\mu \text{-risk}_{IPW}$ and the
+% $R\text{-risk}$ to the oracle $\tau\text{-risk}$. Both results make
+% explicit the role of overlap for the performances of causal risks.
+
+This rewriting involves reweighted residuals: for each potential outcome, $a \in
+    \{0; 1\}$, the variance conditionally on $x$ is \cite{shalit_estimating_2017}:
 \begin{equation*}\label{eq:residuals}
     \sigma_{y}^{2}(x ; a) \overset{\text{def}}{=}
     \int_{y}\left(y-\mu_{a}(x)\right)^{2} p(y \mid x=x ; A=a) \, d y
@@ -769,59 +769,11 @@ $\tilde{\sigma}^2_{B}(a) = \int_{\mathcal X}\sigma_y^2(x;a)\,  p(x;
     a)\,dx$. In case of a purely deterministic link between the
 covariates, the treatment, and the outcome, these residual terms are null.
 
-
-\subsection{Upper bound of $\tau\text{-risk}$ with
-    $\mu\text{-risk}_{IPW}$}\label{theory:mu_risk_ipw_bound}
-
-\begin{proposition}[Upper bound with $\mu \text{-risk}_{IPW}$
-    ]\label{theory:prop:mu_risk_ipw_bound}
-    \cite{johansson2022generalization} Given an outcome model $f$, let a
-    weighting function\\ $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$ as the
-    Inverse Propensity Weight. Then, under overlap (assumption
-    \ref{assumption:overlap}), we have:
-    \begin{equation*}
-        \tau\text{-risk}(f) \leq \; 2 \, \mu\text{-risk}_{IPW}(w, f)
-        - 2 \, \big(\sigma^2_{B}(1) +  \sigma^2_{B}(0)\big)
-    \end{equation*}
-\end{proposition}
-This result has been derived in previous work
-\cite{johansson2022generalization}. It links $\mu\text{-risk}_{IPW}$ to
-the squared residuals of each population. For completeness, we provide the proof in \ref{apd:proofs}.
-
-The upper-bound comes from the triangular inequality applied to the residuals of
-both populations. The two quantities are equal when the
-absolute residuals on treated and untreated populations are equal on the
-whole covariate space:
-$\forall x \in \mathcal X, |\mu_1(x) - f(x, 1)| = |\mu_0(x) - f(x, 0)|$.
-The main difference between the oracle $\tau \text{-risk}$ and the
-reweighted mean squared error, $\mu\text{-risk}_{IPW}$, comes from heterogeneous
-residuals between populations.
-% These quantities are difficult to characterize as
-%they are linked both to the estimator and to the data distribution.
-%
-This bound shows that minimizing the $\mu\text{-risk}_{IPW}$ helps to
-minimize the $\tau\text{-risk}$, which leads to
-interesting optimization procedures \cite{johansson2022generalization}. However, there is no
-guarantee that this bound is tight, which makes it fragile for model
-selection.
-
-Assuming strict overlap (probability of all individuals being treated or not
-bounded away from 0 and 1 by $\eta$, \ref{apd:causal_assumptions}), the
-above bound simplifies into a looser one involving the usual mean squared error:
-$\tau\text{-risk}(f)\leq \frac{2}{\eta}\, \mu\text{-risk}(f) -  2 \, \big(\sigma^2_{B}(1) +  \sigma^2_{B}(0)\big)$. For weak overlap (propensity scores not bounded far from 0
-or 1), this bound is very loose (as shown in Figure \ref{fig:toy_example})
-and is not appropriate to discriminate between models with close performances.
-
 %\md{Lower bound: I think that there is no lower bound of the tau-risk with the
 %mu-risk. That means that we can have a mu risk of 0 wheras the taurisk is
 %non-null. Todo for myself: develop an example with overfitted 1NN on the
 %observed data.}
 
-\subsection{Reformulation of the $R\text{-risk}$ as reweighted
-    $\tau\text{-risk}$}\label{theory:r_risk_rewrite}
-
-We now derive a novel rewriting of the $R\text{-risk}$, making explicit its link
-with the oracle $\tau \text{-risk}$.
 
 \begin{proposition}[$R \text{-risk}$ as reweighted
         $\tau\text{-risk}$]\label{theory:prop:r_risk_rewrite} Given an outcome model
@@ -837,74 +789,9 @@ The $R \text{-risk}$ targets the oracle at the cost of an overlap re-weighting
 and the addition of the reweighted Bayes residuals, which are independent of
 $f$. In good overlap regions the weights $e(x) \big(1-e(x) \big)$ are close to
 $\frac{1}{4}$, hence the $R \text{-risk}$ is close to the desired gold-standard
-$\tau \text{-risk}$. On the contrary, for units with extreme overlap violation,
-these weights go down to zero with the propensity score.
-
-% \begin{remark}[Trivial upper bound] Because $e(x)\leq1$ and $(1-e(x))\leq1$,
-%   we see immediately that \begin{equation} R \text{-risk}^* \leqslant
-%   \tau{\text{-risk}}+\tilde{\sigma_{B}}(1)^{2}+\tilde{\sigma_{B}}^{2}(0)
-%   \end{equation} \end{remark}
-
-% \begin{remark}[Lower bound] Due to strict overlap assumption, \begin{equation}
-%   R \text{-risk}^* \geqslant \eta (1 - \eta)
-%   \tau{\text{-risk}}-\tilde{\sigma_{B}}(1)^{2}-\tilde{\sigma_{B}}^{2}(0)
-%   \end{equation} \end{remark}
-
-% \begin{remark}[Cases of loose upper bounds] Giving a strict overlap assumption
-%   $\eta$, we can exhibit for all $C \; st. \; \eta^{-1}>C>1$, simple
-%   simulations where: \begin{equation} R \text{-risk}^* \leqslant C \; \eta \;
-%   \tau \text{-risk}(f) \quad \end{equation} \end{remark}
-
-\subsection{Interesting special cases}
-
-\paragraph{Randomization special case}\label{remark:rct} If the treatment is
-randomized as in RCTs, $p(A=1 \mid X=x) = p(A=1)=p_A$, thus
-$\mu\text{-risk}_{IPW}$ takes a simpler form:
-\begin{equation*}
-    \mu\text{-risk}_{IPW} = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{p_A} + \frac{1-A}{1-p_A} \Big) (Y-f(X ; A))^2 \right]
-\end{equation*}
-However, we still can have large differences
-between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
-errors between populations as noted by Proposition \ref{theory:prop:mu_risk_ipw_bound}
-and shown experimentally in \citet{schuler_comparison_2018} and our
-results below.
-
-Concerning the $R\text{-risk}$, replacing $e(x)$ by its randomized value $p_A$
-in Proposition \ref{theory:prop:r_risk_rewrite} yields the oracle
-$\tau\text{-risk}$ up to multiplicative and additive constants:
-\begin{equation*}
-    R\text{-risk} = p_A \, (1-p_A) \, \tau\text{-risk} \;+\; (1 - p_A) \,\sigma_B^2(0) \;+\; p_A \sigma_B^2(1)
-\end{equation*}
-Thus, selecting estimators with $R\text{-risk}^*$ in
-randomized setting controls the $\tau\text{-risk}$. This explains
-the strong performances of $R\text{-risk}$ in randomized setups
-\cite{schuler_comparison_2018} and is a strong argument to use it
-to estimate heterogeneity in RCTs.
-
-\paragraph{Oracle Bayes predictor}\label{remark:bayes_oracle} If we
-have access to the oracle Bayes predictor for the outcome ie.~$f(x,
-    a)=\mu(x, a)$, then all risks are equivalent up to the residual variance:
-\begin{equation}
-    \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
-\end{equation}
-\begin{align}
-    \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
-                         & = \int_{\mathcal X, \mathcal A}
-    \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
-\end{align}
-\begin{equation}
-    \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
-    %\notag
-\end{equation}
-\begin{multline}
-    R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
-    \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
-\end{multline}
-
-Thus, differences between causal risks only matter in finite sample regimes.
-Universally consistent learners converge to the Bayes risk in asymptotic
-regimes, making all model selection risks equivalent. In practice however,
-choices must be made in non-asymptotic regimes.
+$\tau \text{-risk}$. For randomized control trials, this weight is constant
+making the $R\text{-risk}$ particularly suited for exploring
+heterogeneity (Details in Appendix \ref{apd:theory:special_cases})
 
 
 \section{Empirical Study}\label{sec:empirical_study}
@@ -941,8 +828,8 @@ beyond prior empirical studies of causal model selection
 generative processes, to reach more general conclusions (as discussed
 in \ref{apd:results:fig:seed_effect}).
 
-We generate the response functions using random bases. Basis extension methods
-are common in biostatistics, \emph{eg} functional regression with splines
+We generate the response functions using random bases extension, a common method in
+biostatistics, \emph{eg} functional regression with splines
 \cite{howe_splines_2011, perperoglou_review_2019}. By allowing the function to
 vary at specific knots, they give flexible non-linear models. The number of
 knots controls the complexity of the function. We use random approximation of
@@ -951,7 +838,7 @@ outcome and treatment functions. RBF use the same process as polynomial splines
 but replace polynomial by Gaussian kernels. Unlike polynomials, Gaussian kernels
 have decreasing influences in the input space. This avoids unrealistic
 divergences of the response surfaces at the ends of the feature space. We
-generate 1\,000 datasets based on this functions, with random overlap
+generate 1\,000 datasets based on these functions, with random overlap
 parameters. Example shown in Figure \ref{fig:simulation_examples} and details in
 \ref{apd:experiments:generation}.
 
@@ -986,19 +873,19 @@ non treated:
     \item SLearner: A single learner for both population, taking the treatment as
           a supplementary covariate.
     \item SftLearner: A single set of basis functions is sampled at random for both
-          populations, leading to a given feature space used to model both the treat and
-          the non treated, then two
+          populations, leading to a given feature space used to model both the treated and
+          controls, then two
           separate different regressors are fitted on this shared representation.
     \item TLearner: Two completely different learners for each population, hence
           separate feature representations and regressors.
 \end{itemize}
 
-We do not include more elaborated meta-learners such as R-learner
-\cite{nie_quasioracle_2017} or X-learner
-\cite{kunzel_metalearners_2019}. Our goal is not to have the best possible
-learner but to have a variety of sub-optimal learners to compare the
-different causal metrics. For the same reason, we did not include more powerful
-outcome models such as random forests or boosting trees.
+% We do not include more elaborated meta-learners such as R-learner
+% \cite{nie_quasioracle_2017} or X-learner
+% \cite{kunzel_metalearners_2019}. Our goal is not to have the best possible
+% learner but to have a variety of sub-optimal learners to compare the
+% different causal metrics. For the same reason, we did not include more powerful
+% outcome models such as random forests or boosting trees.
 
 For the regression step, we fit a Ridge regression on the transformed features
 with 6 different choices of the regularization parameter $\lambda \in [10^{-3},
@@ -1088,21 +975,17 @@ score (see \ref{apd:motivation_ntv}).
 
 \paragraph{The $R\text{-risk}$ is the best metric}
 
-Each metric ranks differently the candidate models. Figure
-\ref{fig:relative_kendalls_all_datasets} shows the agreement between the
-ideal ranking of methods given the oracle $\tau\text{-risk}$ and
-the different feasible causal metrics. We measure this agreement
-with a relative\footnote{To remove the variance
-    across datasets (some datasets lead to easier model selection than
-    others), we report values for one metric relative to the mean of all
-    metrics for a given dataset instance: $\text{Relative} \, \kappa(\ell,\tau\mathrm{{-risk}})=
-        \kappa(\ell,\tau\mathrm{{-risk}}) -
-        mean_{\ell}\big(\kappa(\ell,\tau\mathrm{{-risk}})\big)$} Kendall tau $\kappa$ (eq.
-\ref{eq:kendall_tau}) \cite{kendall_new_1938}.
-Given the importance of overlap in
-how well metrics approximate the oracle $\tau\text{-risk}$
-(\ref{apd:proofs:mu_risk_ipw_bound}), we separate
-strong and weak overlap.
+Figure \ref{fig:relative_kendalls_all_datasets} shows the agreement between the
+ideal ranking of outcome models given the oracle $\tau\text{-risk}$ and the different
+feasible causal metrics. We measure this agreement with a relative\footnote{To
+    remove the variance across datasets (some datasets lead to easier model
+    selection than others), we report values for one metric relative to the mean of
+    all metrics for a given dataset instance: $\text{Relative} \,
+        \kappa(\ell,\tau\mathrm{{-risk}})= \kappa(\ell,\tau\mathrm{{-risk}}) -
+        mean_{\ell}\big(\kappa(\ell,\tau\mathrm{{-risk}})\big)$} Kendall tau $\kappa$
+(eq. \ref{eq:kendall_tau}) \cite{kendall_new_1938}. Given the importance of
+overlap in how well metrics approximate the oracle $\tau\text{-risk}$, we
+separate strong and weak overlap.
 
 Among all metrics, the classical mean squared error (ie. factual
 $\mu\text{-risk}$) is worse and reweighting it with propensity score
@@ -1486,77 +1369,77 @@ could lead to arbitrarily small propensity scores.
 
 \section{Proofs: Links between feasible and oracle risks}\label{apd:proofs}
 
-\subsection{Upper bound of $\tau\text{-risk}$ with
-    $\mu\text{-risk}_{IPW}$}\label{apd:proofs:mu_risk_ipw_bound}
+% \subsection{Upper bound of $\tau\text{-risk}$ with
+%     $\mu\text{-risk}_{IPW}$}\label{apd:proofs:mu_risk_ipw_bound}
 
-For the bound with the $\mu\text{-risk}_{IPW}$, we will decompose the CATE risk
-on each factual population risks:
+% For the bound with the $\mu\text{-risk}_{IPW}$, we will decompose the CATE risk
+% on each factual population risks:
 
-\begin{definition}[Population Factual $\mu\text{-risk}$]\label{mu_risk_a}
-    \cite{shalit_estimating_2017}
-    \begin{equation*}
-        \mu\text{-risk}_{a}(f)= \int_{\mathcal Y \times \mathcal X} (y-f(x ; A=a))^{2}  p(y ; x=x \mid A=a) \; dy dx
-    \end{equation*}
-\end{definition}
+% \begin{definition}[Population Factual $\mu\text{-risk}$]\label{mu_risk_a}
+%     \cite{shalit_estimating_2017}
+%     \begin{equation*}
+%         \mu\text{-risk}_{a}(f)= \int_{\mathcal Y \times \mathcal X} (y-f(x ; A=a))^{2}  p(y ; x=x \mid A=a) \; dy dx
+%     \end{equation*}
+% \end{definition}
 
-Applying Bayes rule, we can decompose the $\mu\text{-risk}$ on each
-intervention:
-\begin{equation*}
-    \mu\text{-risk}(f)
-    =p_{A} \,\mu\text{-risk}_{1}(f)+\left(1-p_{A}\right) \,\mu\text{-risk}_{0}(f)
-    \text{with } p_A=\mathbb P(A=1)
-\end{equation*}
+% Applying Bayes rule, we can decompose the $\mu\text{-risk}$ on each
+% intervention:
+% \begin{equation*}
+%     \mu\text{-risk}(f)
+%     =p_{A} \,\mu\text{-risk}_{1}(f)+\left(1-p_{A}\right) \,\mu\text{-risk}_{0}(f)
+%     \text{with } p_A=\mathbb P(A=1)
+% \end{equation*}
 
-These definitions allows to state a intermediary result on each population:
-\begin{lemma}[Mean-variance decomposition]\label{apd:proofs:mu_risk_ipw_link_mu}
-    We need a reweighted version of the classical mean-variance decomposition.
+% These definitions allows to state a intermediary result on each population:
+% \begin{lemma}[Mean-variance decomposition]\label{apd:proofs:mu_risk_ipw_link_mu}
+%     We need a reweighted version of the classical mean-variance decomposition.
 
-    For an outcome model $f: x \times A \rightarrow \mathcal X$. Let the inverse
-    propensity weighting function $w(a ; x)=a e(x)^{-1}+(1-a)(1-e(x))^{-1}$.
-    \begin{align*}
-         & \int_{\mathcal X}(\mu_{1}(x)-f(x ; 1))^{2} p(x) dx  = p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  -\sigma^{2}_{Bayes}(1)
-    \end{align*}
-    And
-    \begin{align*}
-         & \int_{\mathcal X}(\mu_{0}(x)-f(x; 0))^{2} p(x) dx   = (1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)  -\sigma^{2}_{Bayes}(0)
-    \end{align*}
+%     For an outcome model $f: x \times A \rightarrow \mathcal X$. Let the inverse
+%     propensity weighting function $w(a ; x)=a e(x)^{-1}+(1-a)(1-e(x))^{-1}$.
+%     \begin{align*}
+%          & \int_{\mathcal X}(\mu_{1}(x)-f(x ; 1))^{2} p(x) dx  = p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  -\sigma^{2}_{Bayes}(1)
+%     \end{align*}
+%     And
+%     \begin{align*}
+%          & \int_{\mathcal X}(\mu_{0}(x)-f(x; 0))^{2} p(x) dx   = (1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)  -\sigma^{2}_{Bayes}(0)
+%     \end{align*}
 
-    \begin{proof}
-        \begin{align*}
-             & p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  = \int_{\mathcal X \times \mathcal Y} \frac{1}{e(x)}(y-f(x ; 1))^{2} p(y \mid x ; A=1) p(x ; A=1) d y d x                                                      \\
-             & = \int_{\mathcal X \times \mathcal Y} (y-f(x ; 1))^{2} p(y \mid x ; A=1) \frac{p(x ; A=1)}{p(x ; A=1)}p(x)dy dx                                                                                      \\
-             & = \int_{\mathcal X \times \mathcal Y} \big[(y-\mu_1(x))^{2}+\left(\mu_{1}(x)-f(x ; 1)\right)^{2} + 2\left(y-\mu_{1}(x)\right)\left(\mu_{1}(x)-f(x, 1)\right) \big] p(y \mid x ; A=1) p(x) d y d x    \\
-             & =\int_{\mathcal X} \big [ \int_{\mathcal Y} (y-\mu_1(x))^{2} p(y \mid x ; A=1) dy\big ] p(x)dx + \int_{\mathcal X \times \mathcal Y} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x)p(y \mid x ; A=1)dx dy \\
-             & + \qquad 2 \int_{\mathcal X} \big [ \int_{\mathcal Y} \left(y-\mu_{1}(x)\right) p(y \mid x ; A=1) dy \big ] \left(\mu_{1}(x)-f(x, 1)\right)p(x)dx                                                    \\
-             & =\int_{\mathcal X} \sigma_{y}^{2}(x, 1) p(x) d x +\int_{\mathcal X} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x) d x+0
-        \end{align*}
-    \end{proof}
-\end{lemma}
+%     \begin{proof}
+%         \begin{align*}
+%              & p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  = \int_{\mathcal X \times \mathcal Y} \frac{1}{e(x)}(y-f(x ; 1))^{2} p(y \mid x ; A=1) p(x ; A=1) d y d x                                                      \\
+%              & = \int_{\mathcal X \times \mathcal Y} (y-f(x ; 1))^{2} p(y \mid x ; A=1) \frac{p(x ; A=1)}{p(x ; A=1)}p(x)dy dx                                                                                      \\
+%              & = \int_{\mathcal X \times \mathcal Y} \big[(y-\mu_1(x))^{2}+\left(\mu_{1}(x)-f(x ; 1)\right)^{2} + 2\left(y-\mu_{1}(x)\right)\left(\mu_{1}(x)-f(x, 1)\right) \big] p(y \mid x ; A=1) p(x) d y d x    \\
+%              & =\int_{\mathcal X} \big [ \int_{\mathcal Y} (y-\mu_1(x))^{2} p(y \mid x ; A=1) dy\big ] p(x)dx + \int_{\mathcal X \times \mathcal Y} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x)p(y \mid x ; A=1)dx dy \\
+%              & + \qquad 2 \int_{\mathcal X} \big [ \int_{\mathcal Y} \left(y-\mu_{1}(x)\right) p(y \mid x ; A=1) dy \big ] \left(\mu_{1}(x)-f(x, 1)\right)p(x)dx                                                    \\
+%              & =\int_{\mathcal X} \sigma_{y}^{2}(x, 1) p(x) d x +\int_{\mathcal X} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x) d x+0
+%         \end{align*}
+%     \end{proof}
+% \end{lemma}
 
-\begin{proposition*}[Upper bound with mu-IPW]\label{apd:proofs:prop:upper_bound}
-    Let f be a given outcome model, let the weighting function $w$ be the Inverse
-    Propensity Weight $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$. Then, under
-    overlap (assumption \ref{assumption:overlap}),
-    \begin{align*}
-        \tau\text{-risk}(f) \leq & \; 2 \, \mu\text{-risk}_{IPW}(w, f)  \; - 2 \, (\sigma^2_{Bayes}(1) +  \sigma^2_{Bayes}(0))
-    \end{align*}
+% \begin{proposition*}[Upper bound with mu-IPW]\label{apd:proofs:prop:upper_bound}
+%     Let f be a given outcome model, let the weighting function $w$ be the Inverse
+%     Propensity Weight $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$. Then, under
+%     overlap (assumption \ref{assumption:overlap}),
+%     \begin{align*}
+%         \tau\text{-risk}(f) \leq & \; 2 \, \mu\text{-risk}_{IPW}(w, f)  \; - 2 \, (\sigma^2_{Bayes}(1) +  \sigma^2_{Bayes}(0))
+%     \end{align*}
 
-    \begin{proof}
-        \begin{align*}
-             & \tau\text{-risk}(f) =\int_{\mathcal X}(\mu_{1}(x)-\mu_{0}(x)-(f(x ; 1)-f(x ; 0))^{2} p(x) d x
-        \end{align*}
-        By the triangle inequality $(u+v)^2 \leq 2(u^2 + v^2)$:
-        \begin{align*}
-             & \tau\text{-risk}(f) \leq
-            2 \int_{\mathcal X}\big[\left(\mu_{1}(x)-f(x ; 1)\right)^{2}+\left(\mu_{0}(x)-f(x ; 0)\right)^{2}\big] p(x) d x \\
-        \end{align*}
-        Applying Lemma \ref{apd:proofs:mu_risk_ipw_link_mu},
-        \begin{align*}
-             & \tau\text{-risk}(f) \leq 2\big[p_A \mu\text{-risk}_{IPW, 1}(w, f) +(1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)(w, f)\big] -2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1)) \\
-             & = 2 \mu\text{-risk}_{IPW}(w, f)-2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1))
-        \end{align*}
-    \end{proof}
-\end{proposition*}
+%     \begin{proof}
+%         \begin{align*}
+%              & \tau\text{-risk}(f) =\int_{\mathcal X}(\mu_{1}(x)-\mu_{0}(x)-(f(x ; 1)-f(x ; 0))^{2} p(x) d x
+%         \end{align*}
+%         By the triangle inequality $(u+v)^2 \leq 2(u^2 + v^2)$:
+%         \begin{align*}
+%              & \tau\text{-risk}(f) \leq
+%             2 \int_{\mathcal X}\big[\left(\mu_{1}(x)-f(x ; 1)\right)^{2}+\left(\mu_{0}(x)-f(x ; 0)\right)^{2}\big] p(x) d x \\
+%         \end{align*}
+%         Applying Lemma \ref{apd:proofs:mu_risk_ipw_link_mu},
+%         \begin{align*}
+%              & \tau\text{-risk}(f) \leq 2\big[p_A \mu\text{-risk}_{IPW, 1}(w, f) +(1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)(w, f)\big] -2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1)) \\
+%              & = 2 \mu\text{-risk}_{IPW}(w, f)-2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1))
+%         \end{align*}
+%     \end{proof}
+% \end{proposition*}
 
 
 
@@ -1598,6 +1481,57 @@ These definitions allows to state a intermediary result on each population:
 
     \end{proof}
 \end{proposition*}
+
+\subsection{Interesting special cases}\label{apd:theory:special_cases}
+
+\paragraph{Randomization special case}\label{remark:rct} If the treatment is
+randomized as in RCTs, $p(A=1 \mid X=x) = p(A=1)=p_A$, thus
+$\mu\text{-risk}_{IPW}$ takes a simpler form:
+\begin{equation*}
+    \mu\text{-risk}_{IPW} = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{p_A} + \frac{1-A}{1-p_A} \Big) (Y-f(X ; A))^2 \right]
+\end{equation*}
+However, we still can have large differences
+between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
+errors between populations as shown experimentally in \citet{schuler_comparison_2018} and our
+results below.
+
+Concerning the $R\text{-risk}$, replacing $e(x)$ by its randomized value $p_A$
+in Proposition \ref{theory:prop:r_risk_rewrite} yields the oracle
+$\tau\text{-risk}$ up to multiplicative and additive constants:
+\begin{equation*}
+    R\text{-risk} = p_A \, (1-p_A) \, \tau\text{-risk} \;+\; (1 - p_A) \,\sigma_B^2(0) \;+\; p_A \sigma_B^2(1)
+\end{equation*}
+Thus, selecting estimators with $R\text{-risk}^*$ in
+randomized setting controls the $\tau\text{-risk}$. This explains
+the strong performances of $R\text{-risk}$ in randomized setups
+\cite{schuler_comparison_2018} and is a strong argument to use it
+to estimate heterogeneity in RCTs.
+
+\paragraph{Oracle Bayes predictor}\label{remark:bayes_oracle} If we
+have access to the oracle Bayes predictor for the outcome ie.~$f(x,
+    a)=\mu(x, a)$, then all risks are equivalent up to the residual variance:
+\begin{equation}
+    \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
+\end{equation}
+\begin{align}
+    \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
+                         & = \int_{\mathcal X, \mathcal A}
+    \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
+\end{align}
+\begin{equation}
+    \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
+    %\notag
+\end{equation}
+\begin{multline}
+    R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
+    \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
+\end{multline}
+
+Thus, differences between causal risks only matter in finite sample regimes.
+Universally consistent learners converge to the Bayes risk in asymptotic
+regimes, making all model selection risks equivalent. In practice however,
+choices must be made in non-asymptotic regimes.
+
 
 \section{Measuring overlap}\label{apd:motivation_ntv}
 

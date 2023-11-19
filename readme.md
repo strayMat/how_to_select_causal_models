@@ -10,3 +10,9 @@
  - [Explicit causal reasoning is needed to prevent prognostic models being victims of their own success](https://academic.oup.com/jamia/article/26/12/1675/5625126?searchresult=1)
 
  
+
+ # condense:
+
+ 6000 avec les figures. donc environ 5200 sans. 
+
+ On peut gagner sur le prior work.

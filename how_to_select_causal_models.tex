@@ -188,7 +188,7 @@ Meta-learners \cite{kunzel_metalearners_2019}, R-learners
 \cite{chernozhukov_double_2018}...
 %\idea{The variety of estimators calls for model selection procedures}
 The wide variety of methods raises the problem
-of selecting between different estimators based on the data at hand.%TODO: might be removed since repeated two sentences below
+of selecting between different estimators based on the data at hand. %TODO: might be removed since repeated two sentences below
 %
 Indeed, estimates of treatment effects can vary markedly across different
 predictive models (as shown by \cite{dorie_automated_2019} and developed in
@@ -222,7 +222,7 @@ come with more quantities to estimate, which may
 bring additional variance, leading to worse model selection.
 
 We first illustrate the problem of causal model selection and briefly review
-prior art. Then we anchors causal model selection in the \emph{potential
+prior art. Then we anchor causal model selection in the \emph{potential
     outcome} framework and details the causal risks and model-selection procedure.
 We then rewrite the so-called $R\text{-risk}$, as a reweighted version of mean
 squared difference between the true and estimated individualized treatment
@@ -966,7 +966,6 @@ nuisance set and the simpler shared nuisance-candidate set procedure.
         \ref{apd:fig:procedures_comparison_all_metrics} details results for all metrics.}\label{fig:procedures_comparison}
 \end{figure}
 
-
 \paragraph{Stacked models are good overall estimators of nuisances}
 
 For every risk, the oracle version recovers better the best estimator.
@@ -997,7 +996,7 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
         model is linear, \textcolor{DarkOrchid}{stacked} and
         \textcolor{ForestGreen}{linear}
         estimations of the nuisances performs equivalently, even for a downsampled version
-        (N=4794). }\label{fig:all_datasets_nuisances_comparison}
+        (N=4,794). }\label{fig:all_datasets_nuisances_comparison}
 \end{figure}
 
 \paragraph{Use 90\% of the data to estimate outcome models, 10\% to
@@ -1053,45 +1052,41 @@ ATE.
 
 
 
-\section{Discussion and conclusion}\label{sec:discussion}
+\section{Discussion}\label{sec:discussion}
 
-Predictive models are increasingly used to reason about causal effects,
-for instance in precision medicine to drive individualized decision.
-Our results highlight that they should be selected, validated, and tuned
-using different procedures and error measures than those classically used
-to assess prediction (estimating the so-called $\mu\text{-risk}$).
-Rather, selecting the best outcome model according to the $R\text{-risk}$
-(eq.\, Definition \ref{def:r_risk}) leads to more valid causal estimates.
 
 \paragraph{Nuisance models: more gain than pain}
 %
-Estimating the $R\text{-risk}$ requires a more complex procedure than
-standard cross-validation used \emph{e.g.}~in machine learning: it involves
-fitting nuisance models necessary for model evaluation, though our
-results show that these can be learned on the same set of data
-as the outcome model evaluated.
-
-The nuisance models must be well estimated (Figure
-\ref{fig:all_datasets_nuisances_comparison}). However these models are
-easier to select and control than a causally-valid outcome model,
-as they are associated to errors on
-observed distributions. Our results show that using for nuisance models
-a flexible stacking-based family of estimator suffices for good model selection.
-%
-In fact, a feasible $R\text{-risk}$ --where the nuisances
-are estimated-- performs almost as well as an oracle $R\text{-risk}$ --where the
-nuisances are known. This may be explained by
-results that suggest that estimation errors on both
-nuisances partly compensate out in the
-$R\text{-risk}$ \cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018,zivich2021machine,naimi2021challenges}.
-
-Note that propensity score models must be selected to estimate
-the individual posterior probability. For this, we used the Brier score,
+Predictive models are increasingly used to reason about causal effects, for
+instance in precision medicine to drive individualized decision. Our results
+highlight that they should be selected, validated, and tuned using different
+procedures and error measures than those classically used to assess prediction
+(estimating the so-called $\mu\text{-risk}$). Rather, selecting the best outcome
+model according to the $R\text{-risk}$ (eq.\, Definition \ref{def:r_risk}) leads
+to more valid causal estimates. Estimating the $R\text{-risk}$ requires a more
+complex procedure than standard cross-validation used \emph{e.g.}~in machine
+learning: it involves fitting nuisance models necessary for model evaluation,
+though our results show that these can be learned on the same set of data as the
+outcome model evaluated. The nuisance models must be well estimated (Figure
+\ref{fig:all_datasets_nuisances_comparison}). Our results show that using for
+nuisance models a flexible stacking-based family of estimator suffices for good
+model selection. For propensity score, we used the Brier score,
 which is minimized by the true individual probability. An easy mistake is to
 use calibration errors popular in machine learning
 \cite{platt_probabilistic_1999,zadrozny_obtaining_2001,niculescu-mizil_predicting_2005,minderer_revisiting_2021}
 as these select not for the individual posterior probability but for an
 aggregate error rate \cite{perez2022beyond}.
+
+
+%
+% However these models are easier to select and control than a causally-valid
+% outcome model, as they are associated to errors on observed distributions. 
+% In fact, a feasible $R\text{-risk}$ --where the nuisances
+% are estimated-- performs almost as well as an oracle $R\text{-risk}$ --where the
+% nuisances are known. This may be explained by
+% results that suggest that estimation errors on both
+% nuisances partly compensate out in the
+% $R\text{-risk}$ \cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018,zivich2021machine,naimi2021challenges}.
 
 
 \paragraph{Extension to binary outcomes}
@@ -1110,6 +1105,7 @@ framework studied here can directly apply.
 In particular, the log odds ratio is estimated by the common
 cross-entropy loss (or log loss) as in logistic regression.
 
+\section{Conclusion}\label{sec:conclusion}
 \paragraph{More $R\text{-risk}$ to select models driving decisions}
 
 Prediction models have flourished because their predictions can be easily

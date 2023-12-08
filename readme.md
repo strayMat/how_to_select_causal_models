@@ -31,7 +31,7 @@ https://academic.oup.com/jamia/pages/General_Instructions
     References: unlimited.
 
 ## Actual:
-- 5300 avec les figures. donc environ ~4800 sans. 
+- 5300 avec les figures. donc environ ~4900 sans. 
 - 8 figures 
 
  

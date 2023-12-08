@@ -847,20 +847,11 @@ $\mathcal{V}$ and keep them fix for model selection
 \subsection{Measuring overlap between treated and non treated}\label{subsec:measuring_overlap}
 
 %\idea{Overlap is important but not easily measurable}
-Good overlap between treated and control population is
-crucial for causal inference (positivity assumption
-\ref{assumption:overlap}). It is often assessed by
-comparing visually population distributions as in Figure
-\ref{fig:toy_example} or computing standardized difference on each
-feature
-\cite{austin_introduction_2011,austin_moving_2015}. While these methods are
-useful to decide if positivity holds, they do not yield a
-single measure. Rather, we compute the divergence
-between the population covariate distributions $\mathbb P(X|A=0)$ and $\mathbb
-    P(X|A=1)$
-\cite{damour_overlap_2020,johansson2022generalization}. We introduce the
-Normalized Total Variation (NTV), a divergence based on the sole propensity
-score (Appendix \ref{apd:motivation_ntv}).
+Good overlap between treated and control population is crucial for causal
+inference (positivity assumption \ref{assumption:overlap}). We introduce the
+Normalized Total Variation (NTV), a divergence based on the propensity score
+summarizing the overlap between both populations (Appendix
+\ref{apd:motivation_ntv}).
 
 \begin{figure}[!b]
     \centering
@@ -1510,17 +1501,25 @@ choices must be made in non-asymptotic regimes.
 \section{Measuring overlap}\label{apd:motivation_ntv}
 
 \paragraph{Motivation of the Normalized Total Variation}
+
 %\idea{A simplier measure, NTV seems to capture what we want}
-Computing overlap when working only on samples of the observed distribution,
-outside of simulation, requires a sophisticated estimator of discrepancy
-between distributions, as two data points never have the same exact set of
-features. Maximum Mean Discrepancy \cite{gretton2012kernel} is typically
-used in the context of causal inference
-\cite{shalit_estimating_2017,johansson2022generalization}. However it
-needs a kernel, typically Gaussian, to extrapolate across neighboring
-observations. We prefer avoiding the need to specify such a kernel, as it must
-be adapted to the data which is tricky with categorical or non-Gaussian
-features, a common situation for medical data.
+
+Overlap is often assessed by comparing visually population distributions as in
+Figure \ref{fig:toy_example} or computing standardized difference on each
+feature \cite{austin_introduction_2011,austin_moving_2015}. While these methods
+are useful to decide if positivity holds, they do not yield a single measure.
+Rather, we compute the divergence between the population covariate distributions
+$\mathbb P(X|A=0)$ and $\mathbb P(X|A=1)$
+\cite{damour_overlap_2020,johansson2022generalization}. Computing overlap when
+working only on samples of the observed distribution, outside of simulation,
+requires a sophisticated estimator of discrepancy between distributions, as two
+data points never have the same exact set of features. Maximum Mean Discrepancy
+\cite{gretton2012kernel} is typically used in the context of causal inference
+\cite{shalit_estimating_2017,johansson2022generalization}. However it needs a
+kernel, typically Gaussian, to extrapolate across neighboring observations. We
+prefer avoiding the need to specify such a kernel, as it must be adapted to the
+data which is tricky with categorical or non-Gaussian features, a common
+situation for medical data.
 
 For simulated and some semi-simulated data, we have access to the probability of
 treatment for each data point, which sample both densities in the same data

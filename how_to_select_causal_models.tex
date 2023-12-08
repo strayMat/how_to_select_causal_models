@@ -711,7 +711,7 @@ $f$. In good overlap regions the weights $e(x) \big(1-e(x) \big)$ are close to
 $\frac{1}{4}$, hence the $R \text{-risk}$ is close to the desired gold-standard
 $\tau \text{-risk}$. For randomized control trials, this weight is constant
 making the $R\text{-risk}$ particularly suited for exploring
-heterogeneity (Details in Appendix \ref{apd:theory:special_cases})
+heterogeneity (Appendix \ref{apd:theory:special_cases})
 
 
 \section{Empirical Study}\label{sec:empirical_study}
@@ -748,34 +748,20 @@ beyond prior empirical studies of causal model selection
 generative processes, to reach more general conclusions (as discussed
 in \ref{apd:results:fig:seed_effect}).
 
-We generate the response functions using random bases extension, a common method in
-biostatistics, \emph{eg} functional regression with splines
+We generate the response functions using random bases extension, a common method
+in biostatistics, \emph{eg} functional regression with splines
 \cite{howe_splines_2011, perperoglou_review_2019}. By allowing the function to
-vary at specific knots, they give flexible non-linear models. The number of
-knots controls the complexity of the function. We use random approximation of
-Radial Basis Function (RBF) kernels \cite{rahimi_random_2008} to generate the
-outcome and treatment functions. RBF use the same process as polynomial splines
-but replace polynomial by Gaussian kernels. Unlike polynomials, Gaussian kernels
-have decreasing influences in the input space. This avoids unrealistic
-divergences of the response surfaces at the ends of the feature space. We
-generate 1\,000 datasets based on these functions, with random overlap
-parameters. Example shown in Figure \ref{fig:simulation_examples} and details in
-\ref{apd:experiments:generation}.
+vary at specific knots, we control the complexity of the non-linear outcome
+models. We use random approximation of Radial Basis Function (RBF) kernels
+\cite{rahimi_random_2008} to generate the outcome and treatment functions. RBF
+use the same process as polynomial splines but replace polynomial by Gaussian
+kernels. Unlike polynomial, Gaussian kernels have decreasing influences in the
+input space. This avoids unrealistic divergences of the response surfaces at the
+ends of the feature space. We generate 1\,000 datasets based on these functions,
+with random overlap parameters. Example shown in Figure
+\ref{fig:simulation_examples} and details in \ref{apd:experiments:generation}.
 
 \captionsetup[sub]{font=large,labelfont={bf,sf}}%
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
-
-    \caption{Example of the simulation setup in the input space with two
-        knots --\emph{ie.}basis functions. The top panel
-        shows the observations in feature space, while the bottom panel displays the
-        two response surfaces on a 1D cut along the black lines drawn on
-        the top panel.}
-    \label{fig:simulation_examples}
-\end{figure}
-
 
 \paragraph{Family of candidate estimators}
 
@@ -1710,9 +1696,10 @@ Radial Basis Function kernels. A random basis of RBF kernel enables modeling
 non-linear and complex relationships between covariates in a similar way to the
 well known spline expansion. The estimators of the response function are learned
 with a linear model on another random basis (which can be seen as a stochastic
-approximation of the full data kernel \cite{rahimi_random_2008}). We
-carefully control the amount of overlap between treated and control populations,
-a crucial assumption for causal inference.
+approximation of the full data kernel \cite{rahimi_random_2008}). We carefully
+control the amount of overlap between treated and control populations, a crucial
+assumption for causal inference. Figure \ref{fig:simulation_examples}
+illustrates 2D examples of the simulation.
 
 \begin{itemize}
     \item The raw features for both populations are drawn from a mixture of
@@ -1777,6 +1764,19 @@ a crucial assumption for causal inference.
 \end{itemize}
 We generated 1000 instances of this dataset with uniformly random overlap
 parameters $\theta \in \left[ 0, 2.5 \right]$.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
+
+    \caption{Example of the simulation setup in the input space with two
+        knots --\emph{ie.} basis functions. The top panel
+        shows the observations in feature space, while the bottom panel displays the
+        two response surfaces on a 1D cut along the black lines drawn on
+        the top panel.}
+    \label{fig:simulation_examples}
+\end{figure}
+
 
 \subsection{ Details on the semi-simulated datasets}\label{apd:experiments:datasets}
 

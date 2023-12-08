@@ -129,7 +129,7 @@ Given a model predicting a health outcome, precision medicine would like it to
 guide decisions: will an individual benefit from an intervention such as surgery
 \cite{fontana2019can}? Contrasting predictions with and without the treatment
 gives an answer, but statistical validity requires causal inference
-\cite{snowden_implementation_2011,blakely2020reflection}.
+\cite{snowden_implementation_2011,sperrin2019explicit,blakely2020reflection}.
 
 % - Causal inference is difficult
 % - Beyond the dream of assessing effectiveness and safety in real-word
@@ -160,7 +160,7 @@ allocation and baseline health, \emph{eg} only prescribing a drug to mild cases
 % \emph{observational} data, close to real-word practice
 % \cite{black1996we,hernan_methods_2021} but challenging for causal inference.
 Causal inference has been central to epidemiology, typically with methods that
-model treatment assignment \cite{austin_moving_2015,grose_use_2020}, based on
+model treatment assignment \cite{austin_moving_2015,casucci2018estimating,grose_use_2020}, based on
 propensity scores \cite{rosenbaum_central_1983}. But outcome modeling go
 beyond average effects, estimating individualized or conditional average
 treatment effects (CATE), central to precision medicine.
@@ -191,7 +191,7 @@ The wide variety of methods raises the problem
 of selecting between different estimators based on the data at hand. %TODO: might be removed since repeated two sentences below
 %
 Indeed, estimates of treatment effects can vary markedly across different
-predictive models (as shown by \cite{dorie_automated_2019} and developed in
+predictive models \cite{fang2019applying,dorie_automated_2019} (illustration in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
 Given complex,

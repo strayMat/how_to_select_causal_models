@@ -18,7 +18,7 @@ Bof car collider
 
  # Condense:
 
-- [ ] Condenser prior art
+- [ ] Bouger le prior art dans l'appendice: Dans les papiers de jamia que je cite, je n'en ai pas trouvé. 
 - [ ] Virer les deux derniers messages en appendice et ajouter un unique paragraphe comme résultat complémentaire. 
 
 https://academic.oup.com/jamia/pages/General_Instructions

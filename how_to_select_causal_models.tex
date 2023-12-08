@@ -111,7 +111,7 @@
 
 
 \twocolumn
-\section{Background}\label{sec:intro}
+\section{Introduction}\label{sec:intro}
 
 \subsection{Extending prediction to prescription needs causality}
 
@@ -210,25 +210,27 @@ for causal inference, as they can be misled by inhomogeneities due to
 treatment allocation.
 %
 
-\paragraph{Objectives and structure of the paper}
+\section{Objectives and structure of the paper}
 
-We study \textit{model selection procedures}
-in practical settings: \textit{finite samples} settings and without
-\textit{well-specification} assumption. Asymptotic causal-inference
-theory calls for complex risks, but a practical question is
-whether model-selection procedures, that rely on data split, can estimate
-these risks reliably enough. Indeed, they
-come with more quantities to estimate, which may
-bring additional variance, leading to worse model selection.
+We study \textit{model selection procedures} in practical settings:
+\textit{finite samples} without the \textit{well-specification}
+assumptions which are often made in the literature (Appendix
+\ref{apd:prior_work}). Asymptotic causal-inference theory calls for complex
+risks, but a practical question is whether model-selection procedures, that rely
+on data split, can estimate these risks reliably enough. Indeed, they come with
+more quantities to estimate, which may bring additional variance, leading to
+worse model selection.
 
 We first illustrate the problem of causal model selection and briefly review
-prior art. Then we anchor causal model selection in the \emph{potential
-    outcome} framework and details the causal risks and model-selection procedure.
-We then rewrite the so-called $R\text{-risk}$, as a reweighted version of mean
-squared difference between the true and estimated individualized treatment
-effect. Finally, we conduct a thorough empirical study comparing the different
-metrics on a wide variety of data-generative processes based on simulations and
-real data.
+prior art. Then we anchor causal model selection in the \emph{potential outcome}
+framework and details the causal risks and model-selection procedure. We then
+rewrite the so-called $R\text{-risk}$, as a reweighted version of mean squared
+difference between the true and estimated individualized treatment effect.
+Finally, we conduct a thorough empirical study comparing the different metrics
+on a wide variety of data-generative processes based on simulations and real
+data, going beyond prior work
+\citep{schuler_comparison_2018,alaa_validating_2019} (reviewed in Appendix
+\ref{apd:prior_work}).
 
 % not the place for results
 % Results outline how to best select outcome models for causal
@@ -319,77 +321,11 @@ This toy example illustrates that the classic minimum Mean Square Error
 criterion is not suited to choosing a model among candidate
 estimators for causal inference.
 
+% A natural way to select a predictive model for causal inference would be
+% an error measure between a causal quantity such as the CATE and models' estimate. But such error is
+% not a ``feasible'' risk: it cannot be computed solely from observed data
+% and requires oracle knowledge.
 
-
-\subsection{Prior work: model selection for outcome modeling (g-computation)}%
-
-
-A natural way to select a predictive model for causal inference would be
-an error measure between a causal quantity such as the CATE and models' estimate. But such error is
-not a ``feasible'' risk: it cannot be computed solely from observed data
-and requires oracle knowledge.
-
-% XXX: I think that I should make the following paragraph shorter
-
-\paragraph{Simulation studies of causal model selection}
-
-Using eight simulations setups from \cite{powers_methods_2018}, where
-the oracle CATE is known, \citet{schuler_comparison_2018} compare four
-causal risks, concluding that for CATE estimation the best
-model-selection risk is the so-called $R\text{-risk}$
-\cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
-empirical results are clear for randomized treatment allocation but less
-convincing for observational settings where both simple Mean Squared
-Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
-reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
-appear to perform better than $R\text{-risk}$ on half of the simulations.
-Another work \cite{alaa_validating_2019} studied empirically both MSE and
-reweighted MSE risks on the semi-synthetic ACIC 2016 datasets
-\cite{dorie_automated_2019}, but did not include the $R\text{-risk}$. We complete these
-prior empirical work by studying a wider variety of data generative
-processes and varying the influence of overlap, an important parameter of
-the data generation process which makes a given causal metric appropriate
-\cite{damour_overlap_2020}. We also study how to best adapt
-cross-validation procedures to causal metrics which themselves come with
-models to estimate.
-
-\paragraph{Theoretical studies of causal model selection}
-
-Several theoretical works have proposed causal model selection procedures
-that are \emph{consistent}: select the best model in a family given
-asymptotically large data. These work rely on introducing a
-CATE estimator in the testing procedure: matching
-\citep{rolling_model_2014}, an IPW estimate
-\citep{gutierrez_causal_2016}, a doubly robust estimator
-\citep{saito_counterfactual_2020}, or debiasing the error with influence
-functions \cite{alaa_validating_2019}. However, for theoretical
-guarantees to hold, the test-set correction needs to converge to the
-oracle: it needs to be flexible enough --well-posed-- and asymptotic
-data. From a practical perspective, meeting such requirements
-implies having a good CATE estimate, thus having solved
-the original problem of causal model selection.
-
-\paragraph{Statistical guarantees on causal estimation procedures}
-
-Much work in causal inference has focused on procedures that
-guarantee asymptotically consistent estimators, such as Targeted
-Machine Learning
-Estimation (TMLE) \cite{laan_targeted_2011,schuler_targeted_2017} or
-Double Machine Learning \cite{chernozhukov_double_2018}. Here also, theories require asymptotic regimes and
-models to be \textit{well-specified}.
-
-By contrast, \citet{johansson2022generalization} studies causal estimation
-without assuming that estimators are well specified. They derive an upper bound
-on the oracle error to the CATE ($\tau\text{-risk}$) that involves the error on
-the outcome and the similarity of the distributions of treated and control
-patients. However, they use this upper bound for model optimization,
-and do not give insights on model selection. In addition, for hyperparameter
-selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
-counterfactual nearest neighbors, which has been shown ineffective
-\cite{schuler_comparison_2018}.
-
-
-%\section{Formal setting of causal inference and model selection}\label{sec:framework}
 \section{Methods}\label{sec:framework}
 \subsection{Neyman-Rubin Potential Outcomes framework}%
 \label{sec:neyman_rubin}%
@@ -836,19 +772,16 @@ in $\{0.01, 0.1, 1\}$, and maximum number of leaf nodes in $\{25, 27, 30, 32,
 \paragraph{Nuisance estimators}
 
 Drawing inspiration from the TMLE literature that uses combination of flexible
-machine learning methods \cite{schuler_targeted_2017}, we use a meta-learner as models
-for the nuisances $\check e$ (respectively $\check m$): a
-stacked estimator of ridge and boosting classifiers (respectively
-regressions). We select hyper-parameters with randomized search on a validation set
-$\mathcal{V}$ and keep them fix for model selection
-(\ref{apd:experiments:nuisances_hp} lists hyperparameters).
+machine learning methods \cite{schuler_targeted_2017}, we model the nuisances
+$\check e$ (respectivley $\check m$) with a meta-learner: a stacked estimator of ridge
+and boosting classifiers (respectively regressions) (hyperparameter selection in Appendix \ref{apd:experiments:nuisances_hp}).
 
 
 \subsection{Measuring overlap between treated and non treated}\label{subsec:measuring_overlap}
 
 %\idea{Overlap is important but not easily measurable}
 Good overlap between treated and control population is crucial for causal
-inference (positivity assumption \ref{assumption:overlap}). We introduce the
+inference (Assumption \ref{assumption:overlap}). We introduce the
 Normalized Total Variation (NTV), a divergence based on the propensity score
 summarizing the overlap between both populations (Appendix
 \ref{apd:motivation_ntv}).
@@ -1207,6 +1140,72 @@ Outcome models are implemented with
     \caption{Hyper-parameters grid used for ACIC 2016 ATE variability}
     \label{apd:toy_example:acic_2016_ate_variability:table}
 \end{table}
+
+\section{Prior work : model selection for outcome modeling (g-computation)}\label{apd:prior_work}
+
+A natural way to select a predictive model for causal inference would be
+an error measure between a causal quantity such as the CATE and models' estimate. But such error is
+not a ``feasible'' risk: it cannot be computed solely from observed data
+and requires oracle knowledge.
+
+% XXX: I think that I should make the following paragraph shorter
+
+\paragraph{Simulation studies of causal model selection}
+
+Using eight simulations setups from \cite{powers_methods_2018}, where
+the oracle CATE is known, \citet{schuler_comparison_2018} compare four
+causal risks, concluding that for CATE estimation the best
+model-selection risk is the so-called $R\text{-risk}$
+\cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
+empirical results are clear for randomized treatment allocation but less
+convincing for observational settings where both simple Mean Squared
+Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
+reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
+appear to perform better than $R\text{-risk}$ on half of the simulations.
+Another work \cite{alaa_validating_2019} studied empirically both MSE and
+reweighted MSE risks on the semi-synthetic ACIC 2016 datasets
+\cite{dorie_automated_2019}, but did not include the $R\text{-risk}$. We complete these
+prior empirical work by studying a wider variety of data generative
+processes and varying the influence of overlap, an important parameter of
+the data generation process which makes a given causal metric appropriate
+\cite{damour_overlap_2020}. We also study how to best adapt
+cross-validation procedures to causal metrics which themselves come with
+models to estimate.
+
+\paragraph{Theoretical studies of causal model selection}
+
+Several theoretical works have proposed causal model selection procedures
+that are \emph{consistent}: select the best model in a family given
+asymptotically large data. These work rely on introducing a
+CATE estimator in the testing procedure: matching
+\citep{rolling_model_2014}, an IPW estimate
+\citep{gutierrez_causal_2016}, a doubly robust estimator
+\citep{saito_counterfactual_2020}, or debiasing the error with influence
+functions \cite{alaa_validating_2019}. However, for theoretical
+guarantees to hold, the test-set correction needs to converge to the
+oracle: it needs to be flexible enough --well-posed-- and asymptotic
+data. From a practical perspective, meeting such requirements
+implies having a good CATE estimate, thus having solved
+the original problem of causal model selection.
+
+\paragraph{Statistical guarantees on causal estimation procedures}
+
+Much work in causal inference has focused on procedures that
+guarantee asymptotically consistent estimators, such as Targeted
+Machine Learning
+Estimation (TMLE) \cite{laan_targeted_2011,schuler_targeted_2017} or
+Double Machine Learning \cite{chernozhukov_double_2018}. Here also, theories require asymptotic regimes and
+models to be \textit{well-specified}.
+
+By contrast, \citet{johansson2022generalization} studies causal estimation
+without assuming that estimators are well specified. They derive an upper bound
+on the oracle error to the CATE ($\tau\text{-risk}$) that involves the error on
+the outcome and the similarity of the distributions of treated and control
+patients. However, they use this upper bound for model optimization,
+and do not give insights on model selection. In addition, for hyperparameter
+selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
+counterfactual nearest neighbors, which has been shown ineffective
+\cite{schuler_comparison_2018}.
 
 
 \section{Causal assumptions}\label{apd:causal_assumptions}
@@ -1830,8 +1829,9 @@ parameters $\theta \in \left[ 0, 2.5 \right]$.
 \paragraph{Nuisances estimation}\label{apd:experiments:nuisances_hp}
 
 The nuisances are estimated with a stacked regressor inspired by the Super
-Learner framework, \cite{laan_super_2007}). The hyper-parameters are
-optimized with a random search with following search grid detailed in Table
+Learner framework, \cite{laan_super_2007}). We select hyper-parameters
+with randomized search on a validation set $\mathcal{V}$ and keep them fix for
+model selection  The searc grid is detailed in Table
 \ref{apd:experiments:nuisances_hp_grid}. All implementations come from
 \href{https://scikit-learn.org/stable/}{scikit-learn}
 \cite{pedregosa_scikitlearn_2011}.  As extreme inverse propensity weights induce

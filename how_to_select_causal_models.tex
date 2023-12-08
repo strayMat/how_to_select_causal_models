@@ -68,7 +68,7 @@
 
 \affil[1]{Inria, Soda, Saclay, France}
 \affil[2]{Mission Data, Haute Autorité de Santé, Saint-Denis, France}
-\affil[*]{Corresponding author: m.doutreligne@has-sante.fr}
+\affil[*]{Corresponding author: matt.dout@gmail.com}
 
 %\raggedbottom
 
@@ -266,7 +266,7 @@ real data.
         prediction performance leading to better causal estimation. \\[1ex]
         Selecting the estimator with the smallest error to the individual
         treatment effect $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$
-        --the $\tau\text{-risk}$, def.\,\ref{def:tau_risk} -- would lead to
+        --the $\tau\text{-risk}$, eq.\,\ref{eq:tau_risk} -- would lead to
         the best causal estimates; however computing this error is not
         feasible: it requires access to unknown quantities:
         $\tau(x)$. \\[1ex]
@@ -391,7 +391,7 @@ counterfactual nearest neighbors, which has been shown ineffective
 
 %\section{Formal setting of causal inference and model selection}\label{sec:framework}
 \section{Methods}\label{sec:framework}
-\subsection{The Neyman-Rubin Potential Outcomes framework}%
+\subsection{Neyman-Rubin Potential Outcomes framework}%
 \label{sec:neyman_rubin}%
 
 \paragraph{Settings}
@@ -400,7 +400,7 @@ The Neyman-Rubin Potential Outcomes framework
 \cite{naimi2023defining,imbens_causal_2015} enables statistical reasoning on
 causal treatment effects: Given an outcome $Y \in \mathbb R$ (eg. mortality risk
 or hospitalization length), function of a binary treatment $A \in \mathcal{A} =
-    \{0, 1\}$ (eg.~a medical procedure, a drug administration), and baseline
+    \{0, 1\}$ (eg.~a medical procedure), and baseline
 covariates $X \in \mathcal{X} \subset \mathbb{R}^d$, we observe the factual
 distribution, $O = (Y(A), X, A) \sim \mathcal D = \mathbb P(y, x, a)$. However,
 we want to model the existence of potential observations (unobserved ie.
@@ -441,10 +441,9 @@ Should we know the two expected outcomes for a given $X$,
 we could compute the
 difference between them, which gives the causal effect of the treatment.
 %
-These two expected outcomes can be computed from the observed data:
+These two expected outcomes can be estimated from observed data:
 the consistency \ref{assumption:consistency} and unconfoundedness
-\ref{assumption:ignorability} assumptions imply the equality of two different
-expectations:
+\ref{assumption:ignorability} assumptions imply the following equality:
 \begin{equation}\label{eq:mu_identification}
     \mathbb E_{Y(a) \sim \mathcal{D^{\star}}} [Y(a)|X=x] = \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
 \end{equation}
@@ -594,13 +593,10 @@ model selection, and how to compute them.
 \paragraph{The $\tau\text{-risk}$: an oracle error risk}\label{paragraph:oracle_metrics}
 %
 As we would like to target the CATE, the following
-evaluation risk is natural:
-\begin{definition}[$\tau\text{-risk}(f)$]\label{def:tau_risk} also called PEHE
-    \cite{schulam_reliable_2017, hill_bayesian_2011}:
-    \begin{equation*}\label{eq:tau_risk}
-        \tau\text{-risk}(f) = \mathbb E_{X\sim p(X)}[(\tau(X) - \hat \tau_f(X))^2]
-    \end{equation*}
-\end{definition}
+evaluation risk is natural (also called PEHE \cite{schulam_reliable_2017, hill_bayesian_2011}):
+\begin{flalign}\label{eq:tau_risk}
+    \tau\text{-risk}(f) \myeq \mathbb E_{X\sim p(X)}[(\tau(X) - \hat \tau_f(X))^2]
+\end{flalign}
 
 Given observed data from $p(X)$, the expectation is computed with a
 finite sum, as in eq.\,\ref{eq:ate_estimate}, to give an estimated
@@ -609,95 +605,20 @@ value $\widehat{\tau\text{-risk}}(f)$.
 However this risk is not feasible as the oracles $\tau(x)$ are
 not accessible with the observed data $(Y, X, A) \sim \mathcal D$.
 
-\paragraph{Feasible error risks}\label{paragraph:feasible_metrics}
-\emph{Feasible} risks are based on the prediction error of the outcome model
-and \emph{observable} quantities.
-
-All expectations below are on observed distribution:
-$(Y, X, A) \sim \mathcal D$.
-
-\begin{definition}[Factual $\mu\text{-risk}$]\label{def:mu_risk}
-    \cite{shalit_estimating_2017} This is the usual Mean Squared Error on
-    the target y. It is what is typically meant by ``generalization error'' in
-    supervised learning:
-    \begin{equation*}\label{eq:mu_risk}
-        \mu\text{-risk}(f)=\mathbb{E}\left[(Y-f(X ; A))^2 \right]
-    \end{equation*}
-\end{definition}
-
-We now detail risks that use the nuisances $e$
---propensity score, def \ref{def:propensity_score}-- and $m$ --conditional mean
-outcome, def \ref{def:m}. We give the definitions as \textit{semi-oracles},
-function of the true unknown nuisances, but later instantiate them with estimated
-nuisances, noted $\big(\check e, \check m \big)$. Semi-oracles risks are
-superscripted with the $^{\star}$ symbol.
-
-
-\begin{definition}[$\mu\text{-risk}_{IPW}^{\star}$]\label{def:mu_ipw_risk}
-    \cite{vanderlaan_unified_2003} Let the inverse propensity weighting
-    function $w(x, a) = \frac{a}{e(x)} + \frac{1 - a}{1 - e(x)}$, we define the
-    semi-oracle Inverse Propensity Weighting risk,
-    \begin{equation*}\label{eq:mu_ipw_risk}
-        \mu\text{-risk}_{IPW}^{\star}(f) = \mathbb{E}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big) (Y-f(X ; A))^2 \right]
-    \end{equation*}
-\end{definition}
-
-\smallskip
-
-
-\begin{definition}[$\tau\text{-risk}^{\star}_{IPW}$]\label{def:tau_ipw_risk}
-    \cite{wager_estimation_2018}
-    The CATE $\tau(x)$ can be estimated with a
-    regression against inverse propensity weighted outcomes \cite{
-        athey2016recursive,gutierrez_causal_2016,wager_estimation_2018},
-    the $\tau\text{-risk}_{IPW}$.
-    \begin{equation*}
-        \tau\text{-risk}^{\star}_{IPW}(f) =\mathbb{E}
-        \left[ \Big(Y \frac{A - e(X)}{e(X)
-                (1-e(X))}-\tau_f\left(X\right)\Big)^2 \right]
-        %  =\mathbb{E}_{(Y, X, A)
-        %            \sim \mathcal D} \left[ \left(Y \left( \frac{A}{e(X)} -
-        %            \frac{1-A}{1-e(X)}\right)-\tau_f\left(X\right)\right)^2 \right]
-    \end{equation*}
-\end{definition}
-
-\begin{definition}[$U\text{-risk}^{\star}$]\label{def:u_risk}
-    \cite{kunzel_metalearners_2019,nie_quasioracle_2017} Based on
-    the Robinson decomposition --eq. \ref{eq:r_decomposition}, the U-learner
-    uses the $A-e(X)$ term
-    in the denominator. The derived risk is:
-    \begin{equation*}
-        U\text{-risk}^{\star}(f) =\mathbb{E}
-        \left[
-            \left( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -
-            \tau_f\left(X\right)\right)^{2} \right]
-    \end{equation*}
-    Note that extreme propensity weights in the
-    denominator term might inflate errors in the numerator due to imperfect
-    estimation of the mean outcome $m$.
-\end{definition}
-
-\begin{definition}[$R\text{-risk}^{\star}$]\label{def:r_risk}
-    \cite{nie_quasioracle_2017,schuler_comparison_2018}
-    The $R\text{-risk}$ also uses two nuisance $m$ and $e$:
-    \begin{equation*}
-        R\text{-risk}^{\star}(f) =\mathbb{E} \big[
-            \big(\left(Y-m\left(X\right)\right) -\left(A-e\left(X\right)\right) \tau_f\left(X\right)\big)^{2} \big]
-    \end{equation*}
-\end{definition}
-
-It is also based on the Robinson decomposition --eq. \ref{eq:r_decomposition}. %It performs well in various
-%simulations, estimating the nuisances
-%$(\check e, \check m)$ with
-%lasso, boosting or kernel ridge regressions
-%\cite{nie_quasioracle_2017}.
-
-These risks are summarized in Table \ref{tab:evaluation_metrics}.
+\paragraph{Feasible error risks}\label{paragraph:feasible_metrics} Table
+\ref{tab:evaluation_metrics} lists \emph{feasible} risks (Detailed in Appendix
+\ref{def:feasible_risks}), based on the prediction error of the outcome model
+and \emph{observable} quantities. These observable, called nuisances are $e$
+--propensity score, eq \ref{def:propensity_score}-- and $m$ --conditional mean
+outcome, eq \ref{def:m}. We give the definitions as \textit{semi-oracles},
+function of the true unknown nuisances, but later instantiate them with
+estimated nuisances, noted $\big(\check e, \check m \big)$. Semi-oracles risks
+are superscripted with the $^{\star}$ symbol.
 
 \subsection{Estimation and model selection procedure}\label{problem:estimation_procedure}
 
-Causal model selection (as in
-\autoref{eq:causal_model_selection}) may involve estimating various quantities
+Causal model selection (eq
+\ref{eq:causal_model_selection}) may involve estimating various quantities
 from the observed data: the outcome model $f$, its induced risk as
 introduce in the previous section, and possibly nuisances required by the
 risk.
@@ -747,10 +668,9 @@ each candidate model on the test set. This procedure is described in Algorithm
 
 
 
-\section{A theoretical argument favoring the R-risk}\label{theory:r_risk_rewrite}
+\section{The R-risk, a reweighted oracle metric}\label{theory:r_risk_rewrite}
 
-We now derive a novel rewriting of the $R\text{-risk}$, making explicit its link
-with the oracle $\tau \text{-risk}$.
+The $R\text{-risk}$ can be rewritten as a rebalanced $\tau \text{-risk}$.
 
 % We now one feasible risks, $\mu \text{-risk}_{IPW}$ and the
 % $R\text{-risk}$ to the oracle $\tau\text{-risk}$. Both results make
@@ -942,10 +862,10 @@ $\mathcal{V}$ and keep them fix for model selection
 
 %\idea{Overlap is important but not easily measurable}
 Good overlap between treated and control population is
-crucial for causal inference as it is required by the positivity assumption
-\ref{assumption:overlap}. It is often assessed by
-comparing visually population distributions (as in Figure
-\ref{fig:toy_example}) or computing standardized difference on each
+crucial for causal inference (positivity assumption
+\ref{assumption:overlap}). It is often assessed by
+comparing visually population distributions as in Figure
+\ref{fig:toy_example} or computing standardized difference on each
 feature
 \cite{austin_introduction_2011,austin_moving_2015}. While these methods are
 useful to decide if positivity holds, they do not yield a
@@ -954,7 +874,7 @@ between the population covariate distributions $\mathbb P(X|A=0)$ and $\mathbb
     P(X|A=1)$
 \cite{damour_overlap_2020,johansson2022generalization}. We introduce the
 Normalized Total Variation (NTV), a divergence based on the sole propensity
-score (see \ref{apd:motivation_ntv}).
+score (Appendix \ref{apd:motivation_ntv}).
 
 \begin{figure}[!b]
     \centering
@@ -977,7 +897,7 @@ score (see \ref{apd:motivation_ntv}).
 
 Figure \ref{fig:relative_kendalls_all_datasets} shows the agreement between the
 ideal ranking of outcome models given the oracle $\tau\text{-risk}$ and the different
-feasible causal metrics. We measure this agreement with a relative\footnote{To
+feasible causal metrics. We measure this agreement with relative\footnote{To
     remove the variance across datasets (some datasets lead to easier model
     selection than others), we report values for one metric relative to the mean of
     all metrics for a given dataset instance: $\text{Relative} \,
@@ -1181,7 +1101,7 @@ $R\text{-risk}$ \cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,c
 
 Note that propensity score models must be selected to estimate
 the individual posterior probability. For this, we used the Brier score,
-is minimized by the true individual probability. An easy mistake is to
+which is minimized by the true individual probability. An easy mistake is to
 use calibration errors popular in machine learning
 \cite{platt_probabilistic_1999,zadrozny_obtaining_2001,niculescu-mizil_predicting_2005,minderer_revisiting_2021}
 as these select not for the individual posterior probability but for an
@@ -1200,7 +1120,7 @@ or the odd ratio, $\frac{\mathbb P(Y(1) = 1) / [1 - \mathbb P(Y(1)
 case-control studies \cite{rothman2008case}, other measures
 can reduce heterogeneity \cite{colnet2023risk}.
 In the log domain, the ratios are written as a difference, the
-framework studied here (\autoref{sec:neyman_rubin}) can directly apply.
+framework studied here can directly apply.
 In particular, the log odds ratio is estimated by the common
 cross-entropy loss (or log loss) as in logistic regression.
 
@@ -1366,6 +1286,78 @@ could lead to arbitrarily small propensity scores.
     estimation are drawn from the same distribution $\mathcal D^*$, also known as
     the ``no covariate shift'' assumption \cite{jesson_identifying_2020}.
 \end{assumption}
+
+\section{Definitions of feasible risks}\label{def:feasible_risks}
+
+
+\begin{definition}[Factual $\mu\text{-risk}$]\label{def:mu_risk}
+    \cite{shalit_estimating_2017} This is the usual Mean Squared Error on
+    the target y. It is what is typically meant by ``generalization error'' in
+    supervised learning:
+    \begin{equation*}\label{eq:mu_risk}
+        \mu\text{-risk}(f)=\mathbb{E}\left[(Y-f(X ; A))^2 \right]
+    \end{equation*}
+\end{definition}
+
+
+\begin{definition}[$\mu\text{-risk}_{IPW}^{\star}$]\label{def:mu_ipw_risk}
+    \cite{vanderlaan_unified_2003} Let the inverse propensity weighting
+    function $w(x, a) = \frac{a}{e(x)} + \frac{1 - a}{1 - e(x)}$, we define the
+    semi-oracle Inverse Propensity Weighting risk,
+    \begin{equation*}\label{eq:mu_ipw_risk}
+        \mu\text{-risk}_{IPW}^{\star}(f) = \mathbb{E}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big) (Y-f(X ; A))^2 \right]
+    \end{equation*}
+\end{definition}
+
+\smallskip
+
+
+\begin{definition}[$\tau\text{-risk}^{\star}_{IPW}$]\label{def:tau_ipw_risk}
+    \cite{wager_estimation_2018}
+    The CATE $\tau(x)$ can be estimated with a
+    regression against inverse propensity weighted outcomes \cite{
+        athey2016recursive,gutierrez_causal_2016,wager_estimation_2018},
+    the $\tau\text{-risk}_{IPW}$.
+    \begin{equation*}
+        \tau\text{-risk}^{\star}_{IPW}(f) =\mathbb{E}
+        \left[ \Big(Y \frac{A - e(X)}{e(X)
+                (1-e(X))}-\tau_f\left(X\right)\Big)^2 \right]
+        %  =\mathbb{E}_{(Y, X, A)
+        %            \sim \mathcal D} \left[ \left(Y \left( \frac{A}{e(X)} -
+        %            \frac{1-A}{1-e(X)}\right)-\tau_f\left(X\right)\right)^2 \right]
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[$U\text{-risk}^{\star}$]\label{def:u_risk}
+    \cite{kunzel_metalearners_2019,nie_quasioracle_2017} Based on
+    the Robinson decomposition --eq. \ref{eq:r_decomposition}, the U-learner
+    uses the $A-e(X)$ term
+    in the denominator. The derived risk is:
+    \begin{equation*}
+        U\text{-risk}^{\star}(f) =\mathbb{E}
+        \left[
+            \left( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -
+            \tau_f\left(X\right)\right)^{2} \right]
+    \end{equation*}
+    Note that extreme propensity weights in the
+    denominator term might inflate errors in the numerator due to imperfect
+    estimation of the mean outcome $m$.
+\end{definition}
+
+\begin{definition}[$R\text{-risk}^{\star}$]\label{def:r_risk}
+    \cite{nie_quasioracle_2017,schuler_comparison_2018}
+    The $R\text{-risk}$ also uses two nuisance $m$ and $e$:
+    \begin{equation*}
+        R\text{-risk}^{\star}(f) =\mathbb{E} \big[
+            \big(\left(Y-m\left(X\right)\right) -\left(A-e\left(X\right)\right) \tau_f\left(X\right)\big)^{2} \big]
+    \end{equation*}
+\end{definition}
+
+It is also based on the Robinson decomposition --eq. \ref{eq:r_decomposition}. %It performs well in various
+%simulations, estimating the nuisances
+%$(\check e, \check m)$ with
+%lasso, boosting or kernel ridge regressions
+%\cite{nie_quasioracle_2017}.
 
 \section{Proofs: Links between feasible and oracle risks}\label{apd:proofs}
 

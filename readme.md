@@ -11,8 +11,21 @@
 
  
 
- # condense:
+ # Condense:
 
- 6000 avec les figures. donc environ 5200 sans. 
+- [ ] Virer les deux derniers messages en appendice et ajouter un unique paragraphe comme résultat complémentaire. 
 
- On peut gagner sur le prior work.
+https://academic.oup.com/jamia/pages/General_Instructions
+
+## Expected :
+    Word count: up to 4000 words.
+    Structured abstract: up to 250 words.
+    Tables: up to 4.
+    Figures: up to 6.
+    References: unlimited.
+
+## Actual:
+- 5300 avec les figures. donc environ ~4500 sans. 
+- 8 figures 
+
+ 

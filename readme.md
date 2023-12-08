@@ -18,7 +18,7 @@ Bof car collider
 
  # Condense:
 
-- [ ] Bouger le prior art dans l'appendice: Dans les papiers de jamia que je cite, je n'en ai pas trouvé. 
+- [x] Bouger le prior art dans l'appendice: Dans les papiers de jamia que je cite, je n'en ai pas trouvé. 
 - [ ] Virer les deux derniers messages en appendice et ajouter un unique paragraphe comme résultat complémentaire. 
 
 https://academic.oup.com/jamia/pages/General_Instructions
@@ -31,7 +31,9 @@ https://academic.oup.com/jamia/pages/General_Instructions
     References: unlimited.
 
 ## Actual:
-- 5300 avec les figures. donc environ ~4900 sans. 
-- 8 figures 
+
+- ~4500 sans
+- 7 figures 
+- 1 table
 
  

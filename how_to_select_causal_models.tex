@@ -879,6 +879,11 @@ model estimation and selection. However, Figure
 \ref{fig:procedures_comparison} shows no substantial difference between a procedure with a separated
 nuisance set and the simpler shared nuisance-candidate set procedure.
 
+Practically, we recommand a train/test split of 90 \%/10\%. Use most of the data
+to estimate both the nuisances and outcome models, then compute the risks on the
+remaining test set for model selection (emprical argument in Appendix
+\ref{apd:results:data_split}).
+
 \begin{figure}[!tb]
     \includegraphics[width=\linewidth]{images/_3_procedure_r_risk_only_3datasets_twocols.pdf}
 
@@ -922,59 +927,6 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
         estimations of the nuisances performs equivalently, even for a downsampled version
         (N=4,794). }\label{fig:all_datasets_nuisances_comparison}
 \end{figure}
-
-\paragraph{Use 90\% of the data to estimate outcome models, 10\% to
-    select them}
-
-The analyst faces a compromise: given a finite
-data sample, should she allocate more data to estimate the outcome model,
-thus improving the quality of the outcome model but leaving
-little data for model selection. Or, she could choose a bigger test set for
-model selection and effect estimation. For causal model selection, there
-is no established practice (as reviewed in \ref{apd:results:k_fold_choices}).
-
-We investigate such tradeoff varying the ratio between train and test
-data size. For this, we first split out 30\% of the data as a holdout set
-$\mathcal{V}$ on which we use the oracle response functions to derive
-silver-standard estimates of causal quantities. We then
-use the standard estimation procedure on the remaining 70\% of the data,
-splitting it into train $\mathcal{T}$ and test $\mathcal{S}$ of varying
-sizes. We finally measure the error between this estimate and the
-silver standard.
-
-We consider two different analytic goals: estimating a average
-treatment effect --a single number used for policy making-- and a
-CATE --a full model of the treatment effect as a function of covariates
-$X$. Given that the latter is a much more complex object than the former,
-the optimal train/test ratio might vary. To measure errors, we use for
-the ATE the relative absolute ATE bias between the ATE computed with the
-selected outcome model on the test set, and the true ATE as evaluated on
-the holdout set $\mathcal{V}$. For the CATE, we compare the
-$\tau\text{-risk}$
-of the best selected model applied on the holdout set $\mathcal{V}$. We explore this trade-off for the ACIC 2016 dataset and the R-risk.
-
-\begin{figure}[!t]
-    \begin{minipage}{.5\textwidth}
-        \centerline{\textbf{a) CATE estimation error}}
-        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf}
-    \end{minipage}
-    %\hspace{0.3\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \centerline{\textbf{b) ATE estimation error}}
-        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf}
-    \end{minipage}%
-    \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears a good
-            trade-off.} b) For ATE, there is a small signal pointing also to
-        0.9/0.1 (K=10).
-        for ATE. Experiences on 10 replications of all 78 instances of the ACIC 2016
-        data.}\label{fig:train_test_ratio}
-\end{figure}
-
-Figure \ref{fig:train_test_ratio} shows that a train/test ratio of
-0.9/0.1 (K=10) or 0.8/0.2 (K=5) appears best to estimate CATE and
-ATE.
-
-
 
 \section{Discussion}\label{sec:discussion}
 
@@ -2139,7 +2091,7 @@ score.
 
 
 \paragraph{Selecting different seeds and parameters is crucial to draw
-    conclucions}\label{{apd:results:seed_effect}}
+    conclusions}\label{{apd:results:seed_effect}}
 
 One strength of our study is the various number of different simulated and
 semi-simulated datasets. We are convinced that the usual practice of using only
@@ -2163,7 +2115,60 @@ strongly for $\mu\text{-risk}$ and $\mu\text{-risk}_{IPW}$.
 
 \FloatBarrier
 
-\section{Heterogeneity in practices for data split}\label{apd:results:k_fold_choices}
+\section{Data split choices}\label{apd:results:data_split}
+
+\subsection{Use 90\% of the data to estimate outcome models, 10\% to
+    select them}
+
+The analyst faces a compromise: given a finite
+data sample, should she allocate more data to estimate the outcome model,
+thus improving the quality of the outcome model but leaving
+little data for model selection. Or, she could choose a bigger test set for
+model selection and effect estimation. For causal model selection, there
+is no established practice (as reviewed in \ref{apd:results:k_fold_choices}).
+
+We investigate such tradeoff varying the ratio between train and test
+data size. For this, we first split out 30\% of the data as a holdout set
+$\mathcal{V}$ on which we use the oracle response functions to derive
+silver-standard estimates of causal quantities. We then
+use the standard estimation procedure on the remaining 70\% of the data,
+splitting it into train $\mathcal{T}$ and test $\mathcal{S}$ of varying
+sizes. We finally measure the error between this estimate and the
+silver standard.
+
+We consider two different analytic goals: estimating a average
+treatment effect --a single number used for policy making-- and a
+CATE --a full model of the treatment effect as a function of covariates
+$X$. Given that the latter is a much more complex object than the former,
+the optimal train/test ratio might vary. To measure errors, we use for
+the ATE the relative absolute ATE bias between the ATE computed with the
+selected outcome model on the test set, and the true ATE as evaluated on
+the holdout set $\mathcal{V}$. For the CATE, we compare the
+$\tau\text{-risk}$
+of the best selected model applied on the holdout set $\mathcal{V}$. We explore this trade-off for the ACIC 2016 dataset and the R-risk.
+
+\begin{figure}[!t]
+    \begin{minipage}{.5\textwidth}
+        \centerline{\textbf{a) CATE estimation error}}
+        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf}
+    \end{minipage}
+    %\hspace{0.3\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \centerline{\textbf{b) ATE estimation error}}
+        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf}
+    \end{minipage}%
+    \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears a good
+            trade-off.} b) For ATE, there is a small signal pointing also to
+        0.9/0.1 (K=10).
+        for ATE. Experiences on 10 replications of all 78 instances of the ACIC 2016
+        data.}\label{fig:train_test_ratio}
+\end{figure}
+
+Figure \ref{fig:train_test_ratio} shows that a train/test ratio of
+0.9/0.1 (K=10) or 0.8/0.2 (K=5) appears best to estimate CATE and
+ATE.
+
+\subsection{Heterogeneity in practices for data split}\label{apd:results:k_fold_choices}
 
 Splitting the data is common when using machine learning for causal
 inference, but practices vary widely in terms of the fraction of data to

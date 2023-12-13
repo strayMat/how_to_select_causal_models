@@ -235,6 +235,39 @@ data, going beyond prior work based on specific simulation settings
 % imperfections do not undermine the $R\text{-risk}$.
 
 
+\begin{figure}[h!]
+    %\centering
+    {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
+            causal inference}}
+
+    \includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}%
+
+    {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
+            prediction but better causal inference}}
+
+    \hfill%
+    \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
+
+    \caption[The best predictor may not estimate best causal
+        effects]{\textbf{Illustration}: a) a random-forest estimator
+        with high performance for standard prediction (high $R^2$) but that
+        yields poor causal estimates (large error between true effect $\tau$ and
+        estimated $\hat{\tau}$), b) a linear estimator with smaller
+        prediction performance leading to better causal estimation. \\[1ex]
+        Selecting the estimator with the smallest error to the individual
+        treatment effect $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$
+        --the $\tau\text{-risk}$, eq.\,\ref{eq:tau_risk} -- would lead to
+        the best causal estimates; however computing this error is not
+        feasible: it requires access to unknown quantities:
+        $\tau(x)$. \\[1ex]
+        While the random forest fits the data better than the linear model, it
+        gives worse causal inference because its error is inhomogeneous between
+        treated and untreated. The $R^2$ score does not capture this
+        inhomogeneity.
+        \label{fig:toy_example}
+    }
+\end{figure}
+
 
 \subsection{Illustration: the best predictor may not estimate best causal
     effects}%
@@ -283,39 +316,6 @@ criterion is not suited to choosing a model among candidate
 estimators for causal inference.
 
 % A natural way to select a predictive model for causal inference would be
-
-\begin{figure}[h!]
-    %\centering
-    {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
-            causal inference}}
-
-    \includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}%
-
-    {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
-            prediction but better causal inference}}
-
-    \hfill%
-    \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
-
-    \caption[The best predictor may not estimate best causal
-        effects]{\textbf{Illustration}: a) a random-forest estimator
-        with high performance for standard prediction (high $R^2$) but that
-        yields poor causal estimates (large error between true effect $\tau$ and
-        estimated $\hat{\tau}$), b) a linear estimator with smaller
-        prediction performance leading to better causal estimation. \\[1ex]
-        Selecting the estimator with the smallest error to the individual
-        treatment effect $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$
-        --the $\tau\text{-risk}$, eq.\,\ref{eq:tau_risk} -- would lead to
-        the best causal estimates; however computing this error is not
-        feasible: it requires access to unknown quantities:
-        $\tau(x)$. \\[1ex]
-        While the random forest fits the data better than the linear model, it
-        gives worse causal inference because its error is inhomogeneous between
-        treated and untreated. The $R^2$ score does not capture this
-        inhomogeneity.
-        \label{fig:toy_example}
-    }
-\end{figure}
 
 % an error measure between a causal quantity such as the CATE and models' estimate. But such error is
 % not a ``feasible'' risk: it cannot be computed solely from observed data

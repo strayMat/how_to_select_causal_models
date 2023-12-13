@@ -39,6 +39,7 @@
 
 % maths commands
 \newcommand{\indep}{\perp \!\!\! \perp}
+\newcommand{\eg}{\emph{e.g.}}
 \DeclareMathOperator*{\argmin}{argmin} \def\mycitecolor{green!50!black}
 \usepackage{mathtools}
 \newcommand\myeq{\stackrel{\mathclap{\text{def}}}{=}}
@@ -82,7 +83,7 @@
 \maketitle
 \begin{abstract}
     \textbf{Objective:}
-    As predictive models --\emph{eg} from machine learning-- give likely
+    As predictive models --\eg from machine learning-- give likely
     outcomes, they may be used to reason on the effect of an intervention, a
     causal-inference task. The increasing complexity of health data has opened
     the door to a plethora of models, but also the Pandora box of model
@@ -153,7 +154,7 @@ Predictive modeling bridges to causal-inference with the so-called \emph{outcome
 \cite{snowden_implementation_2011}, conditional mean regression
 \cite{wendling_comparing_2018}. A central challenge of inference of treatment
 effects is that of confounding: spurious associations between treatment
-allocation and baseline health, \emph{eg} only prescribing a drug to mild cases
+allocation and baseline health, \eg only prescribing a drug to mild cases
 \citep{hernan_causal_2020,vanderweele2019principles}.
 % Controlled allocation of treatment, as in randomized controlled trials (RCTs),
 % alleviate this concern. Yet most machine-learning models are trained on
@@ -201,16 +202,7 @@ pressing need for clear guidelines to select outcome models for causal
 inference.
 
 
-% TODO:move below
-Standard practices to select models in predictive settings rely on
-the error on the outcome
-\cite{poldrack2020establishment,varoquaux2022evaluating}. However, as we
-will see, these practices may not pick the best models
-for causal inference, as they can be misled by inhomogeneities due to
-treatment allocation.
-%
-
-\section{Objectives and structure of the paper}
+\subsection{Objectives and structure of the paper}
 
 We study \textit{model selection procedures} in practical settings:
 \textit{finite samples} without the \textit{well-specification}
@@ -228,7 +220,7 @@ rewrite the so-called $R\text{-risk}$, as a reweighted version of mean squared
 difference between the true and estimated individualized treatment effect.
 Finally, we conduct a thorough empirical study comparing the different metrics
 on a wide variety of data-generative processes based on simulations and real
-data, going beyond prior work based on smaller simulation sets
+data, going beyond prior work based on specific simulation settings
 \citep{schuler_comparison_2018,alaa_validating_2019} (Appendix
 \ref{apd:prior_work}).
 
@@ -247,7 +239,52 @@ data, going beyond prior work based on smaller simulation sets
 \subsection{Illustration: the best predictor may not estimate best causal
     effects}%
 
-\begin{figure}[b!]
+Using a predictor to reason on causal effects relies on contrasting the
+prediction of the outcome for a given individual with and without the treatment.
+%
+Given various predictors of the outcome, which one should we use?
+%
+Standard predictive modeling or machine-learning practice selects the predictor
+that minimizes the expected error on the outcome
+\citep{poldrack2020establishment,varoquaux2022evaluating}. However, this
+predictor may not be the best model to reason about causal effects of an
+intervention as Figure \ref{fig:toy_example} illustrates. Consider the
+probability $Y$ of an undesirable outcome (\eg death), a binary treatment $A \in
+    \{0, 1\}$, and a covariate $X \in \mathbb R$ summarizing the patient health
+status (\eg the Charlson index \cite{charlson_new_1987}). We simulate a
+treatment beneficial (decreases mortality) for patients with high Charlson
+scores (bad health status) but with little effect for patients in good condition
+(low Charlson scores).
+
+
+Figure \ref{fig:toy_example}a shows a random forest predictor with a
+counter-intuitive behavior: it predicts well on average the outcome (as measured
+by a regression $R^2$ score) but perform poorly to estimate causal quantities:
+the average treatment effect $\tau$ (as visible via the error $|\tau -
+    \hat{\tau}|$) or the conditional average treatment effect (the error
+$\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$, called CATE).
+%
+On the contrary, Figure \ref{fig:toy_example}b shows a linear model with
+smaller $R^2$ score but better causal inference.%
+
+The problem is that causal estimation requires controlling
+an error on both treated and non-treated outcome for the same individual:
+the observed outcome, and the non-observed \emph{counterfactual} one.
+The linear model is misspecified --the outcome functions are not
+linear--, leading to poor $R^2$; but it interpolates better to regions
+where there are few untreated individuals --high Charlson score-- and
+thus gives better causal estimates. Conversely, the random forest puts
+weaker assumptions on the data, thus has higher $R^2$ score but is biased
+by the treated population in the poor-overlap region, leading
+to bad causal estimates.
+
+This toy example illustrates that the classic minimum Mean Square Error
+criterion is not suited to choosing a model among candidate
+estimators for causal inference.
+
+% A natural way to select a predictive model for causal inference would be
+
+\begin{figure}[h!]
     %\centering
     {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
             causal inference}}
@@ -280,48 +317,6 @@ data, going beyond prior work based on smaller simulation sets
     }
 \end{figure}
 
-Using a predictor to reason on causal effects relies on contrasting the
-prediction of the outcome for a given individual with and without the treatment.
-%
-Given various predictors of the outcome, which one should we use?
-%
-Standard predictive modeling or machine-learning practice selects the predictor
-that minimizes the expected error. However, this predictor may not be the best
-model to reason about causal effects of an intervention as Figure
-\ref{fig:toy_example} illustrates. Consider the probability $Y$ of an undesirable outcome
-(\emph{eg} death), a binary treatment $A \in \{0, 1\}$, and a covariate $X \in
-    \mathbb R$ summarizing the patient health status (eg. the Charlson index
-\cite{charlson_new_1987}). We simulate a treatment beneficial (decreases mortality)
-for patients with high Charlson scores (bad health status) but with little
-effect for patients in good condition (low Charlson scores).
-
-
-Figure \ref{fig:toy_example}a shows a random forest predictor with a
-counter-intuitive behavior: it predicts well on average the outcome (as measured
-by a regression $R^2$ score) but perform poorly to estimate causal quantities:
-the average treatment effect $\tau$ (as visible via the error $|\tau -
-    \hat{\tau}|$) or the conditional average treatment effect (the error
-$\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$, called CATE).
-%
-On the contrary, Figure \ref{fig:toy_example}b shows a linear model with
-smaller $R^2$ score but better causal inference.%
-
-The problem is that causal estimation requires controlling
-an error on both treated and non-treated outcome for the same individual:
-the observed outcome, and the non-observed \emph{counterfactual} one.
-The linear model is misspecified --the outcome functions are not
-linear--, leading to poor $R^2$; but it interpolates better to regions
-where there are few untreated individuals --high Charlson score-- and
-thus gives better causal estimates. Conversely, the random forest puts
-weaker assumptions on the data, thus has higher $R^2$ score but is biased
-by the treated population in the poor-overlap region, leading
-to bad causal estimates.
-
-This toy example illustrates that the classic minimum Mean Square Error
-criterion is not suited to choosing a model among candidate
-estimators for causal inference.
-
-% A natural way to select a predictive model for causal inference would be
 % an error measure between a causal quantity such as the CATE and models' estimate. But such error is
 % not a ``feasible'' risk: it cannot be computed solely from observed data
 % and requires oracle knowledge.
@@ -334,9 +329,9 @@ estimators for causal inference.
 
 The Neyman-Rubin Potential Outcomes framework
 \cite{naimi2023defining,imbens_causal_2015} enables statistical reasoning on
-causal treatment effects: Given an outcome $Y \in \mathbb R$ (eg. mortality risk
+causal treatment effects: Given an outcome $Y \in \mathbb R$ (\eg mortality risk
 or hospitalization length), function of a binary treatment $A \in \mathcal{A} =
-    \{0, 1\}$ (eg.~a medical procedure), and baseline
+    \{0, 1\}$ (\eg a medical procedure), and baseline
 covariates $X \in \mathcal{X} \subset \mathbb{R}^d$, we observe the factual
 distribution, $O = (Y(A), X, A) \sim \mathcal D = \mathbb P(y, x, a)$. However,
 we want to model the existence of potential observations (unobserved ie.
@@ -604,7 +599,7 @@ each candidate model on the test set. This procedure is described in Algorithm
 
 
 
-\section{The R-risk, a reweighted oracle metric}\label{theory:r_risk_rewrite}
+\subsection{R-risk as reweighted oracle metric}\label{theory:r_risk_rewrite}
 
 The $R\text{-risk}$ can be rewritten as a rebalanced $\tau \text{-risk}$.
 
@@ -685,7 +680,7 @@ generative processes, to reach more general conclusions (as discussed
 in \ref{apd:results:fig:seed_effect}).
 
 We generate the response functions using random bases extension, a common method
-in biostatistics, \emph{eg} functional regression with splines
+in biostatistics, \eg functional regression with splines
 \cite{howe_splines_2011, perperoglou_review_2019}. By allowing the function to
 vary at specific knots, we control the complexity of the non-linear outcome
 models. We use random approximation of Radial Basis Function (RBF) kernels
@@ -880,8 +875,8 @@ model estimation and selection. However, Figure
 nuisance set and the simpler shared nuisance-candidate set procedure.
 
 Practically, we recommand a train/test split of 90 \%/10\%. Use most of the data
-to estimate both the nuisances and outcome models, then compute the risks on the
-remaining test set for model selection (emprical argument in Appendix
+to estimate both the nuisances and candidates, then compute the risks on the
+remaining test set for model selection (empirical argument in Appendix
 \ref{apd:results:data_split}).
 
 \begin{figure}[!tb]
@@ -940,7 +935,7 @@ procedures and error measures than those classically used to assess prediction
 (estimating the so-called $\mu\text{-risk}$). Rather, selecting the best outcome
 model according to the $R\text{-risk}$ (eq.\, Definition \ref{def:r_risk}) leads
 to more valid causal estimates. Estimating the $R\text{-risk}$ requires a more
-complex procedure than standard cross-validation used \emph{e.g.}~in machine
+complex procedure than standard cross-validation used \eg in machine
 learning: it involves fitting nuisance models necessary for model evaluation,
 though our results show that these can be learned on the same set of data as the
 outcome model evaluated. The nuisance models must be well estimated (Figure
@@ -978,8 +973,8 @@ case-control studies \cite{rothman2008case}, other measures
 can reduce heterogeneity \cite{colnet2023risk}.
 In the log domain, the ratios are written as a difference, the
 framework studied here can directly apply.
-In particular, the log odds ratio is estimated by the common
-cross-entropy loss (or log loss) as in logistic regression.
+% In particular, the log odds ratio is estimated by the common
+% cross-entropy loss (or log loss) as in logistic regression.
 
 \section{Conclusion}\label{sec:conclusion}
 \paragraph{More $R\text{-risk}$ to select models driving decisions}
@@ -991,13 +986,13 @@ putative intervention, the $R\text{-risk}$. Even when treated and
 untreated population differ little, as in RCTs, the $R\text{-risk}$
 brings a sizeable benefit. To facilitate better model selection, we provide Python
 code\footnote{\url{https://github.com/soda-inria/causal_model_selection}}.
-Using the $R\text{-risk}$ does make evaluation more
-complicated not only because the procedure is more involved, but also
-because each intervention requires a dedicated evaluation. However, such
-off-policy evaluation remains much less costly than the recommended good
-practice of impact evaluation testing the ability of a prediction model
-to actually guide patient health \cite{hendriksen2013diagnostic}. Also,
-the model-selection procedure puts no constraints on the models used to
+% Using the $R\text{-risk}$ does make evaluation more
+% complicated not only because the procedure is more involved, but also
+% because each intervention requires a dedicated evaluation. However, such
+% off-policy evaluation remains much less costly than the recommended good
+% practice of impact evaluation testing the ability of a prediction model
+% to actually guide patient health \cite{hendriksen2013diagnostic}. Also,
+This model-selection procedure puts no constraints on the models used to
 build predictive models: it opens the door to evaluating a wide range of
 models, from gradient boosting to convolutional neutral, or language
 models.

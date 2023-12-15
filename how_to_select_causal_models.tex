@@ -92,8 +92,9 @@
     finite samples settings and without well-specification assumption.
     \textbf{Methods:}
     Elaborate risks build proxies of the causal error using ``nuisance''
-    re-weighting to compute it on the observed data. But does computing these
-    nuisance adds noise to model selection? Drawing from an extensive empirical
+    re-weighting to compute it on the observed data. We evaluate whether
+    empirically estimated nuisances, which are necessarily noisy,
+    add noise to model selection. Drawing from an extensive empirical
     study based on a simulation and three healthcare datasets
     based on real covariates, we compare different metrics for causal model
     selection.\\
@@ -102,10 +103,10 @@
     ($\mu\mathrm{-risk}_{IPW}$) does not bring much improvements. The
     $R\text{-risk}$, which includes a model of mean outcome and propensity
     scores, leads to the best performances.\\
-    \textbf{Conclusions:} We outline a good causal model-selection procedure
-    using the so-called $R\text{-risk}$; using flexible estimators to compute
-    the nuisance models on the train set; and splitting out 10\% of the data to
-    compute risks.
+    \textbf{Conclusions:} We outline that selecting model for causal
+    reasoning requires different procedures than standard predictive
+    settings: using the so-called $R\text{-risk}$ and computing nuisance
+    models with flexible estimators on the train set.
 \end{abstract}
 \keywords{Model Selection, Treatment Effect, G-formula, Observational Study, Machine Learning, }
 \clearpage

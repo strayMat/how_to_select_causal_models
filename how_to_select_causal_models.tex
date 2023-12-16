@@ -118,17 +118,21 @@
     causal model selection in an extensive empirical
     study based on a simulation and three healthcare datasets
     based on real covariates. \\
-    \textbf{Results:} Among all metrics the classical mean squared error (ie.
-    factual $\mu\mathrm{-risk}$) is worse and re-weighting it with propensity score
-    ($\mu\mathrm{-risk}_{IPW}$) does not bring much improvements. The
-    $R\text{-risk}$, which includes a model of mean outcome and propensity
-    scores, leads to the best performances.\\
-    \textbf{Conclusions:} We outline that evaluating models for causal
-    reasoning requires different procedures than standard predictive
-    settings: using the so-called $R\text{-risk}$ with nuisance
-    corrections computed with flexible estimators.
+    \textbf{Results:} Among all metrics, the mean squared error,
+    classically used to evaluate predictive modes,
+    is worse. Re-weighting it with propensity score
+    does not bring much improvements. The
+    $R\text{-risk}$, which uses as nuisances a model of
+    mean outcome and propensity scores, leads to the best performances.
+    Nuisance corrections are best estimated with flexible estimators such
+    as a super learner.
+    \\
+    \textbf{Conclusions:} When predictive models are used to 
+    reason on the effect of an intervention, they must be evaluated 
+    with different procedures than standard predictive
+    settings; using the $R\text{-risk}$ from causal inference.
 \end{abstract}
-\keywords{Model Selection, Treatment Effect, G-formula, Observational Study, Machine Learning, }
+\keywords{Model Selection, Predictive model, Treatment Effect, G-formula, Machine Learning, }
 \clearpage
 
 

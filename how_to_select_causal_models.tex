@@ -23,7 +23,9 @@
 \usepackage{siunitx}
 \usepackage{algorithm, algorithmicx, algpseudocode}
 \usepackage{multirow}
-\usepackage[sorting=nyt,style=numeric, natbib=true,doi=false,isbn=false,url=false,eprint=false, maxnames=999, maxcitenames=2]{biblatex} 
+\usepackage[sorting=nyt,style=numeric,natbib=true,doi=false,isbn=false,url=false,eprint=false, maxnames=999, maxcitenames=2]{biblatex} 
+% To cite with superscript
+\let\cite=\supercite
 \DeclareNameAlias{default}{last-first}
 \usepackage{placeins}
 % associated arxiv class
@@ -451,7 +453,7 @@ estimator of the ATE written:
     \hat \tau = \frac{1}{n} \biggl(\sum_{i=1}^n \mu_{1}(x_i) - \mu_{0}(x_i) \biggr)
     \label{eq:ate_estimate}
 \end{equation}
-This estimator is an oracle \textbf{finite sum estimator} by opposition to the
+This estimator is an oracle \emph{finite sum} estimator by opposition to the
 population expression of $\tau$, $\mathbb{E}[\mu_{1}(x_i) - \mu_{0}(x_i)]
 $,
 which involves an expectation taken on the full
@@ -467,8 +469,7 @@ Similarly to the ATE, at the individual level, the CATE:
 
 \paragraph{Robinson decomposition}
 The \emph{R-decomposition}
-of the outcome model plays an important role,
-\cite{robinson_rootnconsistent_1988}:
+of the outcome model\cite{robinson_rootnconsistent_1988} plays an important role:
 introducing two quantities, the conditional mean outcome
 and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}):
 \begin{flalign}

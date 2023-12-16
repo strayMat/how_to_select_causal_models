@@ -227,32 +227,33 @@ Indeed, estimates of treatment effects can vary markedly across different
 predictive models \cite{fang2019applying,dorie_automated_2019} (illustration in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
-Given complex,
-potentially noisy, data, which model is to be most trusted to yield valid causal
-estimates? As no single learner performs best on all data sets, there is a
+Given complex health data, which model is to be most trusted to yield 
+valid causal estimates needed to motivate individual treatment decisions?
+As no single learner performs best on all data sets, there is a
 pressing need for clear guidelines to select outcome models for causal
 inference.
 
 
 \subsection{Objectives and structure of the paper}
 
-We study \textit{model selection procedures} in practical settings:
-\textit{finite samples} without the \textit{well-specification}
-assumptions which are often made in the literature (Appendix
-\ref{apd:prior_work}). Asymptotic causal-inference theory calls for complex
+We study \textit{model selection procedures} in practical settings,
+without theoretical assumptions often made in statistical literature such
+as \textit{infinite} data or \textit{well-specified} models (Appendix
+\ref{apd:prior_work}). Asymptotic causal-inference theory recommends complex
 risks, but a practical question is whether model-selection procedures, that rely
-on data split, can estimate these risks reliably enough. Indeed, they come with
+on data split, can estimate these risks reliably enough. Indeed, these
+risks come with
 more quantities to estimate, which may bring additional variance, leading to
 worse model selection.
 
 We first illustrate the problem of causal model selection and briefly review
 prior art. Then we anchor causal model selection in the \emph{potential outcome}
 framework and details the causal risks and model-selection procedure. We then
-rewrite the so-called $R\text{-risk}$, as a reweighted version of mean squared
+rewrite the so-called $R\text{-risk}$ as a reweighted version of mean squared
 difference between the true and estimated individualized treatment effect.
 Finally, we conduct a thorough empirical study comparing the different metrics
-on a wide variety of data-generative processes based on simulations and real
-data, going beyond prior work based on specific simulation settings
+on diverse datasets, using a family of simulations and real health
+data, going beyond prior work limited to specific simulation settings
 \citep{schuler_comparison_2018,alaa_validating_2019} (Appendix
 \ref{apd:prior_work}).
 

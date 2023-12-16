@@ -723,8 +723,7 @@ processes and three semi-simulated datasets \footnote{Scripts for the simulation
 We use simulated data, on which the ground-truth causal effect is known. Going
 beyond prior empirical studies of causal model selection
 \cite{schuler_comparison_2018,alaa_validating_2019}, we use many
-generative processes, to reach more general conclusions (as discussed
-in \ref{apd:results:fig:seed_effect}).
+generative processes, which is needed to reach general conclusions (Appendix \ref{apd:results:seed_effect}).
 
 We generate the response functions using random bases extension, a common method
 in biostatistics, \eg functional regression with splines
@@ -734,7 +733,7 @@ models. We use random approximation of Radial Basis Function (RBF) kernels
 \cite{rahimi_random_2008} to generate the outcome and treatment functions. RBF
 use the same process as polynomial splines but replace polynomial by Gaussian
 kernels. Unlike polynomial, Gaussian kernels have decreasing influences in the
-input space. This avoids unrealistic divergences of the response surfaces at the
+input space. This avoids unrealistic divergences of the functions at the
 ends of the feature space. We generate 1\,000 datasets based on these functions,
 with random overlap parameters. Example shown in Figure
 \ref{fig:simulation_examples} and details in \ref{apd:experiments:generation}.
@@ -743,7 +742,8 @@ with random overlap parameters. Example shown in Figure
 
 \paragraph{Family of candidate estimators}
 
-We compare different candidate estimators that approximate imperfectly the
+We test model selection across different candidate estimators that
+approximate imperfectly the
 data-generating process. To build such estimators, we first use a RBF
 expansion similar to the one used for data generation. We choose two random
 knots and apply a transformation of the raw data features with a Gaussian
@@ -782,7 +782,7 @@ featurization yielding a family $\mathcal F$ of 120 candidate estimators.
 
 \paragraph{Datasets}\label{semi_simulated:datasets}
 
-We also use three benchmarks of the causal-inference literature, semi-simulated
+We also use three semi-simulated
 data adding a known synthetic causal effect to real --non synthetic-- healthcare
 covariate. ACIC 2016 \cite{dorie_automated_2019} is based on the Collaborative
 Perinatal Project \cite{niswander_women_1972}, a RCT studying infants’
@@ -843,7 +843,7 @@ summarizing the overlap between both populations (Appendix
         IQR of the relative Kendall.}\label{fig:relative_kendalls_all_datasets}
 \end{figure}
 
-\subsection{Results: factors driving good model selection}\label{empirical_study:results}
+\section{Results: factors driving good model selection}\label{empirical_study:results}
 
 
 \paragraph{The $R\text{-risk}$ is the best metric}
@@ -2141,7 +2141,7 @@ score.
 
 
 \paragraph{Selecting different seeds and parameters is crucial to draw
-    conclusions}\label{{apd:results:seed_effect}}
+    conclusions}\label{apd:results:seed_effect}
 
 One strength of our study is the various number of different simulated and
 semi-simulated datasets. We are convinced that the usual practice of using only

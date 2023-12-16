@@ -274,7 +274,17 @@ data, going beyond prior work limited to specific simulation settings
     {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
             causal inference}}
 
-    \includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}%
+    \setlength{\unitlength}{.1\linewidth}
+    \begin{picture}(10,5.2)(0,0)
+    \put(0, 0){\includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}}%
+    \put(7.05,4.4){\vector(0,1){.47}}
+    \put(7.05,4.4){\vector(0,-1){.55}}
+    \put(7.1,4.5){\scriptsize\sffamily treatment effect}
+    \put(7.1,4.15){\small $\tau(x)$}
+    \put(5.2,3.6){\small $\hat{\tau}(x)$}
+    \put(5.15,3.6){\vector(0,1){.29}}
+    \put(5.15,3.6){\vector(0,-1){.15}}
+    \end{picture}
 
     {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
             prediction but better causal inference}}

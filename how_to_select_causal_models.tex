@@ -177,20 +177,24 @@ gives an answer, but statistical validity requires causal inference
 % The plethora of approaches approaches give different causal-inference
 % estimates => need for guideline on causal model selection.
 
-Predictive modeling bridges to causal-inference with the so-called \emph{outcome
-    models}, or G-computation, G-formula \cite{robins_role_1986}, Q-model
-\cite{snowden_implementation_2011}, conditional mean regression
-\cite{wendling_comparing_2018}. A central challenge of inference of treatment
-effects is that of confounding: spurious associations between treatment
+Indeed, concluding on the effect of a treatment is a difficult
+causal-inference task, easily compromised by confounding:
+spurious associations between treatment
 allocation and baseline health, \eg only prescribing a drug to mild cases
 \citep{hernan_causal_2020,vanderweele2019principles}.
+Predictive modeling bridges to causal inference theory under the name of
+\emph{outcome models} (or G-computation, 
+G-formula \cite{robins_role_1986}, Q-model
+\cite{snowden_implementation_2011}, conditional mean regression
+\cite{wendling_comparing_2018}). 
 % Controlled allocation of treatment, as in randomized controlled trials (RCTs),
 % alleviate this concern. Yet most machine-learning models are trained on
 % \emph{observational} data, close to real-word practice
 % \cite{black1996we,hernan_methods_2021} but challenging for causal inference.
-Causal inference has been central to epidemiology, typically with methods that
-model treatment assignment \cite{austin_moving_2015,casucci2018estimating,grose_use_2020}, based on
-propensity scores \cite{rosenbaum_central_1983}. But outcome modeling go
+Medical statistics and epidemiology have mostly used other
+causal-inference methods, modeling treatment assignment
+with propensity scores \cite{rosenbaum_central_1983,austin_moving_2015,casucci2018estimating,grose_use_2020}. Outcome modeling brings
+the benefit of going
 beyond average effects, estimating individualized or conditional average
 treatment effects (CATE), central to precision medicine.
 %
@@ -206,7 +210,7 @@ For this purpose, such methods are also invaluable on randomized trials
 % For instance, many deep-learning methods have been developed for medical
 % image analysis \cite{shen2017deep,monshi2020deep}.
 Outcome-modeling methods, even when specifically designed for causal
-inference are numerous: Bayesian Additive Regression Trees
+inference, are numerous: Bayesian Additive Regression Trees
 \cite{hill_bayesian_2011}, Targeted Maximum Likelihood Estimation
 \cite{laan_targeted_2011,schuler_targeted_2017}, causal boosting
 \cite{powers_methods_2018}, causal multivariate adaptive regression

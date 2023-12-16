@@ -284,12 +284,12 @@ data, going beyond prior work limited to specific simulation settings
     \end{minipage}
 
     \caption[The best predictor may not estimate best causal
-        effects]{\textbf{Illustration}: a) a random-forest estimator
+        effects]{\textbf{Illustration}: a) a random-forest predictor
         with high performance for standard prediction (high $R^2$) but that
         yields poor causal estimates (large error between true effect $\tau$ and
-        estimated $\hat{\tau}$), b) a linear estimator with smaller
+        estimated $\hat{\tau}$), b) a linear predictor with smaller
         prediction performance leading to better causal estimation. \\[1ex]
-        Selecting the estimator with the smallest error to the individual
+        Selecting the predictor with the smallest error to the individual
         treatment effect $\mathbb{E}[(\tau(x) - \hat{\tau}(x))^2]$
         --the $\tau\text{-risk}$, eq.\,\ref{eq:tau_risk} -- would lead to
         the best causal estimates; however computing this error is not

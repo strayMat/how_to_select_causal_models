@@ -98,7 +98,7 @@
 \maketitle
 \begin{abstract}\noindent
     \textbf{Objective:}
-    To evaluate which procedure selects the predictive model most
+    We investigate which procedure selects the predictive model most
     trustworthy to reason on the effect of an intervention and support
     decision making.\\
     %As predictive models --\eg from machine learning-- give likely
@@ -108,14 +108,16 @@
     %selection: which of these models yield the most valid causal estimates? 
     \textbf{Methods:}
     We study such a variety of model selection procedures in practical settings:
-    finite samples settings and without well-specification assumption.
-    Elaborate risks build proxies of the causal error using ``nuisance''
+    finite samples settings and without theoretical assumption of 
+    \emph{well-specified} models. Beyond standard cross-validation or
+    internal validation procedures, we also study elaborate causal risks.
+    These build proxies of the causal error using ``nuisance''
     re-weighting to compute it on the observed data. We evaluate whether
     empirically estimated nuisances, which are necessarily noisy,
-    add noise to model selection. Drawing from an extensive empirical
+    add noise to model selection. We compare different metrics for
+    causal model selection in an extensive empirical
     study based on a simulation and three healthcare datasets
-    based on real covariates, we compare different metrics for causal model
-    selection.\\
+    based on real covariates. \\
     \textbf{Results:} Among all metrics the classical mean squared error (ie.
     factual $\mu\mathrm{-risk}$) is worse and re-weighting it with propensity score
     ($\mu\mathrm{-risk}_{IPW}$) does not bring much improvements. The

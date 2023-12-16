@@ -1,6 +1,10 @@
-\documentclass[10pt,twocolumn]{article}
+% XXX: for submission
+%\documentclass[10pt,twocolumn]{article}
+\documentclass[11pt]{article}
 
-\usepackage[a4paper, left=15mm, right=15mm, top=20mm,]{geometry}
+%\usepackage[a4paper, left=15mm, right=15mm, top=20mm,]{geometry}
+% XXX: for submission
+\usepackage[a4paper, left=25mm, right=25mm, top=20mm,]{geometry}
 % declared functions and additional packages
 \usepackage{caption}
 \usepackage{subcaption}
@@ -115,7 +119,8 @@
 \clearpage
 
 
-\twocolumn
+% XXX: for submission
+%\twocolumn
 \section{Introduction}\label{sec:intro}
 
 \subsection{Extending prediction to prescription needs causality}
@@ -240,7 +245,8 @@ data, going beyond prior work based on specific simulation settings
 
 
 \begin{figure}[h!]
-    %\centering
+    % XXX: for submission
+    \centering\begin{minipage}{.6\linewidth}
     {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
             causal inference}}
 
@@ -251,6 +257,7 @@ data, going beyond prior work based on specific simulation settings
 
     \hfill%
     \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
+    \end{minipage}
 
     \caption[The best predictor may not estimate best causal
         effects]{\textbf{Illustration}: a) a random-forest estimator
@@ -596,7 +603,10 @@ each candidate model on the test set. This procedure is described in Algorithm
 
 
 \begin{figure}[h!]
+    % XXX: for submission
+    \centering\begin{minipage}{.6\linewidth}
     \includegraphics[width=\linewidth]{images/estimation_procedure_causal_selection_procedure.png}
+    \end{minipage}
     \caption{Estimation procedure for causal model
         selection.}\label{problem:estimation_procedure:figure}
 \end{figure}
@@ -786,9 +796,10 @@ summarizing the overlap between both populations (Appendix
 \ref{apd:motivation_ntv}).
 
 \begin{figure}[!b]
-    \centering
+    % XXX: for submission
+    \centering\begin{minipage}{.75\linewidth}
     \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf}
-    %\hfill
+    \end{minipage}
     \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$ agreement with $\tau\text{-risk}$.
         Strong and Weak overlap correspond to the first and last tertiles of the overlap distribution measured with
         Normalized Total Variation eq. \ref{eq:ntv}. \ref{apd:experiments:additional_results} presents the same results
@@ -851,9 +862,10 @@ coefficient correlation with $\tau\text{-risk}$ drops from values around 0.9
 (\ref{apd:experiments:additional_results}).
 
 \begin{figure}[!h]
-    \centering
+    % XXX: for submission
+    \centering\begin{minipage}{.75\linewidth}
     \includegraphics[width=\linewidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf}
-    %\hfill
+    \end{minipage}
     \caption{\textbf{Model selection is harder for low population
             overlap}:
         Kendall's $\tau$ agreement with $\tau\text{-risk}$. Strong, medium and Weak overlap
@@ -884,7 +896,10 @@ remaining test set for model selection (empirical argument in Appendix
 \ref{apd:results:data_split}).
 
 \begin{figure}[!tb]
+    % XXX: for submission
+    \centering\begin{minipage}{.75\linewidth}
     \includegraphics[width=\linewidth]{images/_3_procedure_r_risk_only_3datasets_twocols.pdf}
+    \end{minipage}
 
     \caption{\textbf{Nuisances can be estimated on the same data as outcome
             models}: Results for the R-risk are similar between the
@@ -914,7 +929,10 @@ confirms that using adaptive models --as built by
 stacking linear models and gradient-boosted trees-- suffices to estimate nuisance.
 
 \begin{figure}[!tb]
+    % XXX: for submission
+    \centering\begin{minipage}{.75\linewidth}
     \includegraphics[width=\linewidth]{images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf}
+    \end{minipage}
 
     \caption{\textbf{\textcolor{DarkOrchid}{Stacked
                 models} are good overall estimators of the nuisances}:

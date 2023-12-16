@@ -81,16 +81,19 @@
 
 \onecolumn
 \maketitle
-\begin{abstract}
+\begin{abstract}\noindent
     \textbf{Objective:}
-    As predictive models --\eg from machine learning-- give likely
-    outcomes, they may be used to reason on the effect of an intervention, a
-    causal-inference task. The increasing complexity of health data has opened
-    the door to a plethora of models, but also the Pandora box of model
-    selection: which of these models yield the most valid causal estimates? 
-    We study such model selection procedures in practical settings:
-    finite samples settings and without well-specification assumption.
+    To evaluate which procedure selects the predictive model most
+    trustworthy to reason on the effect of an intervention and support
+    decision making.\\
+    %As predictive models --\eg from machine learning-- give likely
+    %outcomes, they may be used to, a
+    %causal-inference task. The increasing complexity of health data has opened
+    %the door to a plethora of models, but also the Pandora box of model
+    %selection: which of these models yield the most valid causal estimates? 
     \textbf{Methods:}
+    We study such a variety of model selection procedures in practical settings:
+    finite samples settings and without well-specification assumption.
     Elaborate risks build proxies of the causal error using ``nuisance''
     re-weighting to compute it on the observed data. We evaluate whether
     empirically estimated nuisances, which are necessarily noisy,
@@ -119,9 +122,9 @@
 
 Progress in machine learning brings predictive models to new health data
 \cite{beam2018big,rajkomar2019machine}, with the promise of precision medicine.
-Predictive models are increaslingly used for image analysis
+Predictive models are increasingly used for image analysis
 \cite{khojaste2022deep,zhang2019radiological,yala2019deep,shen2019deep,nassif2022breast},
-routinely-collected patient records
+patient records
 \cite{mooney2018bigdata,desai2020comparison,simon2018predicting} or clinical
 notes \cite{horng2017creating,wang2020prediction,spasic2020clinical}. Data may
 be difficult to control and model, but the accuracy of the prediction can be

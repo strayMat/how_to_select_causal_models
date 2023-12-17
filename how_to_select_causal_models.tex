@@ -1051,12 +1051,15 @@ aggregate error rate \cite{perez2022beyond}.
 \section{Conclusion}\label{sec:conclusion}
 \paragraph{More $R\text{-risk}$ to select models driving decisions}
 
-Prediction models have flourished because their predictions can be easily
-demonstrated and validated on left-out data. But they require more
-careful validation for decision making, using a metric accounting for the
-putative intervention, the $R\text{-risk}$. Even when treated and
-untreated population differ little, as in RCTs, the $R\text{-risk}$
-brings a sizeable benefit. To facilitate better model selection, we provide Python
+Increasingly complex prediction models integrating richer medical data
+have flourished because their predictions can be easily
+demonstrated and validated on left-out data. But using them to underpin a
+decision on whether to treat or not requires more careful validation,
+using a metric accounting for the
+putative intervention, the $R\text{-risk}$. The $R\text{-risk}$
+brings a sizeable benefit to select the most adequate model, even when
+model development is based on treated and
+untreated population with little differences, as in RCTs. To facilitate better model selection, we provide Python
 code\footnote{\url{https://github.com/soda-inria/causal_model_selection}}.
 % Using the $R\text{-risk}$ does make evaluation more
 % complicated not only because the procedure is more involved, but also

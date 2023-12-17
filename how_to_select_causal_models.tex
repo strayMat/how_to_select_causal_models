@@ -745,11 +745,11 @@ with random overlap parameters. Example shown in Figure
 We test model selection across different candidate estimators that
 approximate imperfectly the
 data-generating process. To build such estimators, we first use a RBF
-expansion similar to the one used for data generation. We choose two random
-knots and apply a transformation of the raw data features with a Gaussian
+expansion similar to that used for data generation. We choose two random
+knots and transform the raw data features with a Gaussian
 kernel. This step is referred as the featurization. Then, we fit a linear
 regression on these transformed features. We consider two ways of combining
-these steps for outcome mode; we use common nomenclature
+these steps for outcome model; we use common nomenclature
 \cite{kunzel_metalearners_2019,shen2023rctrep} to refer to these different
 meta-learners that differ on how they model, jointly or not, the treated and the
 non treated:

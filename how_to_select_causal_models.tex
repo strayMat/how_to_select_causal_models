@@ -45,13 +45,25 @@
     margin=0pt,
 ]{caption}
 
+% TODO commands
+\usepackage{snaptodo}
+\setlength{\marginparwidth}{2.3cm}
+\setlength{\marginparsep}{.1cm}
+\snaptodoset{block rise=2em}
+\snaptodoset{margin block/.style={font=\tiny}}
+
+\newcommand{\gv}[1]{\snaptodo[margin block/.append style=green!50!black]{\sloppy\textbf{GV}: #1}}
+
+% Uncomment below to erase all comments
+%\renewcommand{\snaptodo}[2][1]{\relax}
+
 % XXX: for submission
 \usepackage{setspace}
 
 \usepackage{comment}
 \setcounter{secnumdepth}{0}
 
-\setlength{\marginparwidth}{0.5cm}
+%\setlength{\marginparwidth}{0.5cm}
 %\setlength\textwidth{177.8mm}
 
 % maths commands
@@ -773,7 +785,9 @@ non treated:
 
 For the regression step, we fit a Ridge regression on the transformed features
 with 6 different choices of the regularization parameter $\lambda \in [10^{-3},
-        10^{-2}, 10^{-1}, 1, 10^{1}, 10^{2}]$, coupled with a TLearner or a SftLearner.
+        10^{-2}, 10^{-1}, 1, 10^{1}, 10^{2}]$, coupled with a TLearner or
+a SftLearner\gv{Si je lis bien, on n'utilise pas le SLearner. On pourrait
+le retirer de la liste au dessus}.
 We sample 10 different random basis for learning and
 featurization yielding a family $\mathcal F$ of 120 candidate estimators.
 %

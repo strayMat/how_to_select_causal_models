@@ -199,7 +199,7 @@ but statistical validity requires causal inference
 Indeed, concluding on the effect of a treatment is a difficult
 causal-inference task, as it can be easily compromised by confounding:
 spurious associations between treatment
-allocation and baseline health, \eg only prescribing a drug to mild cases
+allocation and baseline health, \eg~only prescribing a drug to mild cases
 \cite{hernan_causal_2020,vanderweele2019principles}.
 Predictive modeling bridges to causal inference theory under the name of
 \emph{outcome models} (or G-computation, 
@@ -246,14 +246,14 @@ Indeed, estimates of treatment effects can vary markedly across different
 predictive models \cite{fang2019applying,dorie_automated_2019} (illustration in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
-Given complex health data, which model is to be most trusted to yield 
+Given complex health data, which predictive model is to be most trusted to yield 
 valid causal estimates needed to motivate individual treatment decisions?
 As no single learner performs best on all data sets, there is a
 pressing need for clear guidelines to select outcome models for causal
 inference.
 
 
-\subsection{Objectives and structure of the paper}
+\paragraph{Objectives and structure of the paper}
 
 We study \textit{model selection procedures} in practical settings,
 without theoretical assumptions often made in statistical literature such

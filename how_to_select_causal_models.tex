@@ -892,9 +892,9 @@ practice-- leads to 10\% excess risk and using $\tau\text{-risk}_{IPW}$
 (Figure
 \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}). Across
 datasets, the $R\text{-risk}$ consistently decreases the
-risk compared to the $\mu\text{-risk}$:
-0.1\% compared to 1\% on ACIC2016,  1\% compared to 20\% on ACIC2018,
-and 0.05\% compared to 1\% on Twins.
+risk compared to the $\mu\text{-risk}$: from
+0.1\% to 1\% on ACIC2016,  1\% from to 20\% on ACIC2018,
+and 0.05\% from to 1\% on Twins.
 
 
 \paragraph{Model selection is harder for low population
@@ -903,7 +903,7 @@ and 0.05\% compared to 1\% on Twins.
 Model selection for causal inference becomes more and more difficult with
 increasingly different treated and control populations (Figure
 \ref{fig:all_datasets_overlap_effect_r_risk}). The absolute Kendall's
-coefficient correlation with $\tau\text{-risk}$ drops from values around 0.9
+coefficient correlation with $\tau\text{-risk}$ drops from 0.9
 (excellent agreement with oracle selection) to 0.6 on both Caussim and ACIC 2018
 (\ref{apd:experiments:additional_results}).
 
@@ -936,9 +936,10 @@ model estimation and selection. However, Figure
 \ref{fig:procedures_comparison} shows no substantial difference between a procedure with a separated
 nuisance set and the simpler shared nuisance-candidate set procedure.
 
-Practically, we recommand a train/test split of 90 \%/10\%. Use most of the data
-to estimate both the nuisances and candidates, then compute the risks on the
-remaining test set for model selection (empirical argument in Appendix
+Empirically, the best split is 90\,\%/10\,\%:
+using 90\,\% of the data
+to estimate both the nuisances and candidates, then computing the risks on the
+remaining test set for model selection (experiments in Appendix
 \ref{apd:results:data_split}).
 
 \begin{figure}[!tb]
@@ -957,9 +958,7 @@ remaining test set for model selection (empirical argument in Appendix
 
 \paragraph{Stacked models are good overall estimators of nuisances}
 
-For every risk, the oracle version recovers better the best estimator.
-However,
-stacked nuisances estimators (boosting and linear) lead to feasible
+Stacked nuisances estimators (boosting and linear) lead to feasible
 metrics with close performances to the oracles ones: the
 corresponding estimators recover well-enough the true nuisances.
 One may wonder if simpler models for the nuisance could be useful,

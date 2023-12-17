@@ -200,7 +200,7 @@ Indeed, concluding on the effect of a treatment is a difficult
 causal-inference task, as it can be easily compromised by confounding:
 spurious associations between treatment
 allocation and baseline health, \eg only prescribing a drug to mild cases
-\citep{hernan_causal_2020,vanderweele2019principles}.
+\cite{hernan_causal_2020,vanderweele2019principles}.
 Predictive modeling bridges to causal inference theory under the name of
 \emph{outcome models} (or G-computation, 
 G-formula \cite{robins_role_1986}, Q-model
@@ -273,7 +273,7 @@ difference between the true and estimated individualized treatment effect.
 Finally, we conduct a thorough empirical study comparing the different metrics
 on diverse datasets, using a family of simulations and real health
 data, going beyond prior work limited to specific simulation settings
-\citep{schuler_comparison_2018,alaa_validating_2019} (Appendix
+\cite{schuler_comparison_2018,alaa_validating_2019} (Appendix
 \ref{apd:prior_work}).
 
 % not the place for results
@@ -343,7 +343,7 @@ Given various predictors of the outcome, which one should we use?
 %
 Standard predictive modeling or machine-learning practice selects the predictor
 that minimizes the expected error on the outcome
-\citep{poldrack2020establishment,varoquaux2022evaluating}. However, this
+\cite{poldrack2020establishment,varoquaux2022evaluating}. However, this
 predictor may not be the best model to reason about causal effects of an
 intervention as Figure \ref{fig:toy_example} illustrates. Consider the
 probability $Y$ of an undesirable outcome (\eg death), a binary treatment $A \in
@@ -893,7 +893,7 @@ than the best
 possible candidate for strong overlap on Caussim, but selecting with
 the $\mu\text{-risk}$ or $\mu\text{-risk}_{IPW}$ --as per machine-learning
 practice-- leads to 10\% excess risk and using $\tau\text{-risk}_{IPW}$
---as in some causal-inference methods \citep{athey2016recursive,gutierrez_causal_2016}--leads to 100\% excess risk
+--as in some causal-inference methods \cite{athey2016recursive,gutierrez_causal_2016}--leads to 100\% excess risk
 (Figure
 \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}). Across
 datasets, the $R\text{-risk}$ consistently decreases the
@@ -1197,9 +1197,9 @@ Several theoretical works have proposed causal model selection procedures
 that are \emph{consistent}: select the best model in a family given
 asymptotically large data. These work rely on introducing a
 CATE estimator in the testing procedure: matching
-\citep{rolling_model_2014}, an IPW estimate
-\citep{gutierrez_causal_2016}, a doubly robust estimator
-\citep{saito_counterfactual_2020}, or debiasing the error with influence
+\cite{rolling_model_2014}, an IPW estimate
+\cite{gutierrez_causal_2016}, a doubly robust estimator
+\cite{saito_counterfactual_2020}, or debiasing the error with influence
 functions \cite{alaa_validating_2019}. However, for theoretical
 guarantees to hold, the test-set correction needs to converge to the
 oracle: it needs to be flexible enough --well-posed-- and asymptotic

@@ -786,8 +786,7 @@ non treated:
 For the regression step, we fit a Ridge regression on the transformed features
 with 6 different choices of the regularization parameter $\lambda \in [10^{-3},
         10^{-2}, 10^{-1}, 1, 10^{1}, 10^{2}]$, coupled with a TLearner or
-a SftLearner\gv{Si je lis bien, on n'utilise pas le SLearner. On pourrait
-le retirer de la liste au dessus}.
+a SftLearner.
 We sample 10 different random basis for learning and
 featurization yielding a family $\mathcal F$ of 120 candidate estimators.
 %

@@ -158,15 +158,17 @@
 
 \subsection{Extending prediction to prescription needs causality}
 
-Progress in machine learning promises to integrate new data for
-precision medicine \cite{beam2018big,rajkomar2019machine}:
-health predictions building on medical images
+Prediction models have long been used in medicine, as with risk
+score or prognostic models \cite{moons2009prognosis,steyerberg2019clinical}.
+While these have historically been simple models on simple data, this is
+changing with progress in machine learning and richer sources of medical data
+\cite{beam2018big,rajkomar2019machine}. Health predictions can now integrate medical images
 \cite{khojaste2022deep,zhang2019radiological,yala2019deep,shen2019deep,nassif2022breast},
 patient records
 \cite{mooney2018bigdata,desai2020comparison,simon2018predicting} or clinical
-notes \cite{horng2017creating,wang2020prediction,spasic2020clinical}. Data may
-be difficult to control and model, but the accuracy of the prediction can be
-verified on left-out data
+notes \cite{horng2017creating,wang2020prediction,spasic2020clinical}.
+Complex data is difficult to control and model, but these models are
+validated by verifying the accuracy of the prediction on left-out data
 \cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
 Given a model predicting a health outcome, precision medicine would like it to
 guide decisions: will an individual benefit from an intervention such as surgery

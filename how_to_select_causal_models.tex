@@ -172,8 +172,9 @@ validated by verifying the accuracy of the prediction on left-out data
 \cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
 Given a model predicting a health outcome, precision medicine would like it to
 guide decisions: will an individual benefit from an intervention such as surgery
-\cite{fontana2019can}? Contrasting predictions with and without the treatment
-gives an answer, but statistical validity requires causal inference
+\cite{fontana2019can}? An estimate of the effect of the treatment can be
+obtained by contrasting model predictions with and without the treatment,
+but statistical validity requires causal inference
 \cite{snowden_implementation_2011,sperrin2019explicit,blakely2020reflection}.
 
 % - Causal inference is difficult
@@ -194,7 +195,7 @@ gives an answer, but statistical validity requires causal inference
 % estimates => need for guideline on causal model selection.
 
 Indeed, concluding on the effect of a treatment is a difficult
-causal-inference task, easily compromised by confounding:
+causal-inference task, as it can be easily compromised by confounding:
 spurious associations between treatment
 allocation and baseline health, \eg only prescribing a drug to mild cases
 \citep{hernan_causal_2020,vanderweele2019principles}.

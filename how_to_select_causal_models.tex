@@ -995,21 +995,21 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 
 \paragraph{Nuisance models: more gain than pain}
 %
-Predictive models are increasingly used to reason about causal effects, for
+Predictive models are increasingly used to reason about treatment effects, for
 instance in precision medicine to drive individualized decision. Our results
 highlight that they should be selected, validated, and tuned using different
-procedures and error measures than those classically used to assess prediction
-(estimating the so-called $\mu\text{-risk}$). Rather, selecting the best outcome
+procedures and error measures than those classically used to assess prediction. Rather, selecting the best outcome
 model according to the $R\text{-risk}$ (eq.\, Definition \ref{def:r_risk}) leads
 to more valid causal estimates. Estimating the $R\text{-risk}$ requires a more
 complex procedure than standard cross-validation used \eg in machine
-learning: it involves fitting nuisance models necessary for model evaluation,
-though our results show that these can be learned on the same set of data as the
-outcome model evaluated. The nuisance models must be well estimated (Figure
+learning: it involves fitting nuisance models necessary for model
+evaluation.
+Our results show that these can be learned on the same set of data as the
+outcome models evaluated. The nuisance models must be well estimated (Figure
 \ref{fig:all_datasets_nuisances_comparison}). Our results show that using for
 nuisance models a flexible stacking-based family of estimator suffices for good
-model selection. For propensity score, we used the Brier score,
-which is minimized by the true individual probability. An easy mistake is to
+model selection. To select propensity score models, we used the Brier score,
+minimized by the true individual probability. An easy mistake is to
 use calibration errors popular in machine learning
 \cite{platt_probabilistic_1999,zadrozny_obtaining_2001,niculescu-mizil_predicting_2005,minderer_revisiting_2021}
 as these select not for the individual posterior probability but for an
@@ -1027,21 +1027,21 @@ aggregate error rate \cite{perez2022beyond}.
 % $R\text{-risk}$ \cite{daniel2018double,kennedy2020optimal,nie_quasioracle_2017,chernozhukov_double_2018,zivich2021machine,naimi2021challenges}.
 
 
-\paragraph{Extension to binary outcomes}
-While we focused on continuous outcomes, in medicine, the target outcome
-is often a categorical variable such as mortality status or diagnosis. In
-this case, it may be interesting to focus on other estimands than the
-Average Treatment Effect $\mathbb{E}[Y(1)] -\mathbb{E}[Y(0)] $, for instance the relative risk
-$\frac{\mathbb P(Y(1) = 1)}{\mathbb P(Y(0) = 1)}$
-or the odd ratio, $\frac{\mathbb P(Y(1) = 1) / [1 - \mathbb P(Y(1)
-    =1)]}{\mathbb P(Y(0) = 1) / [1 - \mathbb P(Y(0) = 1]}$ are often used
-\cite{austin2017estimating}. While the odds ratio is natural for
-case-control studies \cite{rothman2008case}, other measures
-can reduce heterogeneity \cite{colnet2023risk}.
-In the log domain, the ratios are written as a difference, the
-framework studied here can directly apply.
-% In particular, the log odds ratio is estimated by the common
-% cross-entropy loss (or log loss) as in logistic regression.
+%\paragraph{Extension to binary outcomes}
+%While we focused on continuous outcomes, in medicine, the target outcome
+%is often a categorical variable such as mortality status or diagnosis. In
+%this case, it may be interesting to focus on other estimands than the
+%Average Treatment Effect $\mathbb{E}[Y(1)] -\mathbb{E}[Y(0)] $, for instance the relative risk
+%$\frac{\mathbb P(Y(1) = 1)}{\mathbb P(Y(0) = 1)}$
+%or the odd ratio, $\frac{\mathbb P(Y(1) = 1) / [1 - \mathbb P(Y(1)
+%    =1)]}{\mathbb P(Y(0) = 1) / [1 - \mathbb P(Y(0) = 1]}$ are often used
+%\cite{austin2017estimating}. While the odds ratio is natural for
+%case-control studies \cite{rothman2008case}, other measures
+%can reduce heterogeneity \cite{colnet2023risk}.
+%In the log domain, the ratios are written as a difference, the
+%framework studied here can directly apply.
+%% In particular, the log odds ratio is estimated by the common
+%% cross-entropy loss (or log loss) as in logistic regression.
 
 \section{Conclusion}\label{sec:conclusion}
 \paragraph{More $R\text{-risk}$ to select models driving decisions}

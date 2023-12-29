@@ -122,7 +122,7 @@
     %selection: which of these models yield the most valid causal estimates? 
     \textbf{Methods:}
     We study such a variety of model selection procedures in practical settings:
-    finite samples settings and without theoretical assumption of 
+    finite samples settings and without theoretical assumption of
     \emph{well-specified} models. Beyond standard cross-validation or
     internal validation procedures, we also study elaborate causal risks.
     These build proxies of the causal error using ``nuisance''
@@ -141,8 +141,8 @@
     Nuisance corrections are best estimated with flexible estimators such
     as a super learner.
     \\
-    \textbf{Conclusions:} When predictive models are used to 
-    reason on the effect of an intervention, they must be evaluated 
+    \textbf{Conclusions:} When predictive models are used to
+    reason on the effect of an intervention, they must be evaluated
     with different procedures than standard predictive
     settings; using the $R\text{-risk}$ from causal inference.
 \end{abstract}
@@ -172,7 +172,7 @@ validated by verifying the accuracy of the prediction on left-out data
 \cite{altman2009prognosis,poldrack2020establishment,varoquaux2022evaluating}.
 Crucial to the clinical adoption of a model predicting a health outcome
 is that it ``can support decisions about patient care''
-\cite{wyatt1995commentary}. Precision medicine is about 
+\cite{wyatt1995commentary}. Precision medicine is about
 guiding decisions: \emph{eg} will an individual benefit from an intervention such as surgery
 \cite{fontana2019can}? An estimate of the effect of the treatment can be
 obtained by contrasting model predictions with and without the treatment,
@@ -202,10 +202,10 @@ spurious associations between treatment
 allocation and baseline health, \eg~only prescribing a drug to mild cases
 \cite{hernan_causal_2020,vanderweele2019principles}.
 Predictive modeling bridges to causal inference theory under the name of
-\emph{outcome models} (or G-computation, 
+\emph{outcome models} (or G-computation,
 G-formula \cite{robins_role_1986}, Q-model
 \cite{snowden_implementation_2011}, conditional mean regression
-\cite{wendling_comparing_2018}). 
+\cite{wendling_comparing_2018}).
 % Controlled allocation of treatment, as in randomized controlled trials (RCTs),
 % alleviate this concern. Yet most machine-learning models are trained on
 % \emph{observational} data, close to real-word practice
@@ -246,7 +246,7 @@ Indeed, estimates of treatment effects can vary markedly across different
 predictive models \cite{fang2019applying,dorie_automated_2019} (illustration in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
-Given complex health data, which predictive model is to be most trusted to yield 
+Given complex health data, which predictive model is to be most trusted to yield
 valid causal estimates needed to motivate individual treatment decisions?
 As no single machine-learning method performs best across all data sets, there is a
 pressing need for clear guidelines to select outcome models for causal
@@ -290,26 +290,26 @@ data, going beyond prior work limited to specific simulation settings
 \begin{figure}[h!]
     % XXX: for submission
     \centering\begin{minipage}{.6\linewidth}
-    {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
-            causal inference}}
+        {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
+                causal inference}}
 
-    \setlength{\unitlength}{.1\linewidth}
-    \begin{picture}(10,5.2)(0,0)
-    \put(0, 0){\includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}}%
-    \put(7.05,4.4){\vector(0,1){.47}}
-    \put(7.05,4.4){\vector(0,-1){.55}}
-    \put(7.1,4.5){\scriptsize\sffamily treatment effect}
-    \put(7.1,4.15){\small $\tau(x)$}
-    \put(5.2,3.6){\small $\hat{\tau}(x)$}
-    \put(5.15,3.6){\vector(0,1){.29}}
-    \put(5.15,3.6){\vector(0,-1){.15}}
-    \end{picture}
+        \setlength{\unitlength}{.1\linewidth}
+        \begin{picture}(10,5.2)(0,0)
+            \put(0, 0){\includegraphics[width=1\linewidth]{images/toy_random_forest_high_R2_high_tau_risk.pdf}}%
+            \put(7.05,4.4){\vector(0,1){.47}}
+            \put(7.05,4.4){\vector(0,-1){.55}}
+            \put(7.1,4.5){\scriptsize\sffamily treatment effect}
+            \put(7.1,4.15){\small $\tau(x)$}
+            \put(5.2,3.6){\small $\hat{\tau}(x)$}
+            \put(5.15,3.6){\vector(0,1){.29}}
+            \put(5.15,3.6){\vector(0,-1){.15}}
+        \end{picture}
 
-    {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
+        {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
             prediction but better causal inference}}
 
-    \hfill%
-    \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
+        \hfill%
+        \includegraphics[width=1\linewidth]{images/toy_tlinear_model_small_R2_small_tau_risk.pdf}%
     \end{minipage}
 
     \caption[The best predictor may not estimate best causal
@@ -529,10 +529,10 @@ $m$ and $e$ are often called
                 Risk                                                                                           & Equation
                                                                                                                & Reference                                                                                                                                           \\
                 \midrule
-                $\tau\text{-risk}=\text{MSE}(\tau(X), \tau_f(X))$                                                     & $\mathbb E_{X\sim
+                $\tau\text{-risk}=\text{MSE}(\tau(X), \tau_f(X))$                                              & $\mathbb E_{X\sim
                             p(X)}[(\tau(X) - \hat \tau_f(X))^2] $
                                                                                                                & Eq. \ref{eq:tau_risk} \cite{hill_bayesian_2011}                                                                                                     \\
-                $\mu\text{-risk} = \text{MSE}(Y, f(X))$                                                               & $\mathbb{E}_{(Y, X, A)
+                $\mu\text{-risk} = \text{MSE}(Y, f(X))$                                                        & $\mathbb{E}_{(Y, X, A)
                         \sim \mathcal D}\left[(Y-f(X ; A))^2 \right]$
                                                                                                                & Def. \ref{def:mu_risk} \cite{schuler_comparison_2018}                                                                                               \\
                 $\mu\text{-risk}_{IPW}^*$                                                                      & $\mathbb{E}_{(Y, X, A)
@@ -655,7 +655,7 @@ each candidate model on the test set. This procedure is described in Algorithm
 \begin{figure}[h!]
     % XXX: for submission
     \centering\begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{images/estimation_procedure_causal_selection_procedure.png}
+        \includegraphics[width=\linewidth]{images/estimation_procedure_causal_selection_procedure.png}
     \end{minipage}
     \caption{Estimation procedure for causal model
         selection.}\label{problem:estimation_procedure:figure}
@@ -849,7 +849,7 @@ summarizing the overlap between both populations (Appendix
 \begin{figure}[!b]
     % XXX: for submission
     \centering\begin{minipage}{.75\linewidth}
-    \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf}
+        \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf}
     \end{minipage}
     \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$ agreement with $\tau\text{-risk}$.
         Strong and Weak overlap correspond to the first and last tertiles of the overlap distribution measured with
@@ -915,7 +915,7 @@ coefficient correlation with $\tau\text{-risk}$ drops from 0.9
 \begin{figure}[!h]
     % XXX: for submission
     \centering\begin{minipage}{.75\linewidth}
-    \includegraphics[width=\linewidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf}
+        \includegraphics[width=\linewidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf}
     \end{minipage}
     \caption{\textbf{Model selection is harder for low population
             overlap}:
@@ -950,7 +950,7 @@ remaining test set for model selection (experiments in Appendix
 \begin{figure}[!tb]
     % XXX: for submission
     \centering\begin{minipage}{.75\linewidth}
-    \includegraphics[width=\linewidth]{images/_3_procedure_r_risk_only_3datasets_twocols.pdf}
+        \includegraphics[width=\linewidth]{images/_3_procedure_r_risk_only_3datasets_twocols.pdf}
     \end{minipage}
 
     \caption{\textbf{Nuisances can be estimated on the same data as outcome
@@ -981,7 +981,7 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 \begin{figure}[!tb]
     % XXX: for submission
     \centering\begin{minipage}{.75\linewidth}
-    \includegraphics[width=\linewidth]{images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf}
+        \includegraphics[width=\linewidth]{images/_4_nuisance_models_r_risk_only_3datasets_twocols.pdf}
     \end{minipage}
 
     \caption{\textbf{\textcolor{DarkOrchid}{Stacked

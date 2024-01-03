@@ -1,4 +1,6 @@
-Please find our submission on causal model selection for predictive models in medicine for consideration in "Journal of the American Medical Informatics Association", as a research article. This article addresses a crucial and often overlooked aspect of the application of machine learning models for medical decision-making: for a given potential intervention, the model should be evaluated in how well it captures the treatment effect. Contrasting with an evaluation solely focused on predictive accuracy, machine learning for decision making should use different selection metrics borrowing tools from causal inference. 
+Dear Editor,
+
+Please find our submission on causal model selection for predictive models in medicine for consideration in "Journal of the American Medical Informatics Association", as a research article. This article addresses a crucial and often overlooked aspect of the application of machine learning models for medical decision-making: for a given potential intervention, the model should be evaluated in how well it captures the treatment effect. As opposed to classic evaluation solely focused on predictive accuracy, machine learning for decision making should use different selection metrics borrowing tools from causal inference. 
 
 The manuscript is written in a didactic way, provides theoretical framing of the problem and a thorough empirical evaluation which leads to clear recommendations for causal evaluation of predictive models.
 

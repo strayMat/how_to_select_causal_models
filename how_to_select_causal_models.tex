@@ -23,6 +23,7 @@
 \usepackage{siunitx}
 \usepackage{algorithm, algorithmicx, algpseudocode}
 \usepackage{multirow}
+\usepackage{appendix}
 \usepackage[sorting=nyt,style=numeric,natbib=true,doi=false,isbn=false,url=false,eprint=false, maxnames=999, maxcitenames=2]{biblatex} 
 % To cite with superscript
 \let\cite=\supercite
@@ -36,6 +37,8 @@
 %\usepackage{wraptable}
 \usepackage{authblk}% for author affiliations
 \usepackage[dvipsnames]{xcolor}
+\usepackage{setspace} % double spaced required by journal
+\doublespacing
 
 \usepackage[%
     font={footnotesize,sf},
@@ -152,8 +155,9 @@
 
 % XXX: for submission
 %\twocolumn
-% XXX: for submission
-\setstretch{1.1}
+% XXX: for submission (double spaced required)
+%\setstretch{1.1}
+\doublespacing
 \section{Introduction}\label{sec:intro}
 
 \subsection{Extending prediction to prescription needs causality}
@@ -1096,1203 +1100,1209 @@ The authors declare no potential conflict of interests.
 \setcounter{figure}{0}
 \setcounter{table}{0}
 
-\appendix
-%\setcounter{secnumdepth}{0}
-\setcounter{secnumdepth}{3}
+\begin{appendices}
 
-%The following supporting information is available as part of the online article:
+    \part*{Supplementary materials:\\
+        How to select predictive models for decision-making or causal inference? }
 
-\section{Variability of ATE estimation on ACIC
-  2016}\label{apd:toy_example:acic_2016_ate_variability}
+    \setcounter{secnumdepth}{3}
 
-Figure \ref{fig:acic_2016_ate_heterogeneity} shows ATE estimations for six
-different models used in g-computation estimators on the 76 configurations of
-the ACIC 2016 dataset. Outcome models are fitted on half of the data and
-inference is done on the other half --ie. train/test with a split ratio of 0.5.
-For each configuration, and each model, this train test split was repeated ten
-times, yielding non parametric variance estimates
-\cite{bouthillier_accounting_2021}. Figure \ref{fig:acic_2016_ate_heterogeneity}
-shows large variations obtained across different outcome estimators on
-semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models such as
-random forests are doing well in most settings except when treated and untreated
-populations differ noticeably, in which case a linear model (ridge) is to be
-preferred. However random forests with different hyper-parameters (max depth= 2)
-yield poor estimates. A simple rule of thumb such as preferring flexible models
-does not work in general; model selection is needed.
+    %\part{Supplementary materials}
 
-%\idea{It is crucial to have tools for model selection.}
+    %The following supporting information is available as part of the online article:
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
-    \caption{\textbf{Different outcome models lead to different
-            estimation errors on the Average Treatment Effects},
-        on 77 classic simulations with known true causal effect
-        \cite{dorie_automated_2019}. The different models are ridge regression
-        and random forests with different hyper-parameters
-        (details
-        \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
-        plotted as a function of increasing difference between treated and
-        untreated population --see
-        \autoref{subsec:measuring_overlap}.
-        There is no systematic best performer; data-driven model
-        selection is important.
-        \label{fig:acic_2016_ate_heterogeneity}%
-    }
-\end{figure}
+    \section{Variability of ATE estimation on ACIC
+      2016}\label{apd:toy_example:acic_2016_ate_variability}
 
-Outcome models are implemented with
-\href{https://scikit-learn.org/stable/}{scikit-learn}
-\cite{pedregosa_scikitlearn_2011} and the following hyper-parameters:
+    Figure \ref{fig:acic_2016_ate_heterogeneity} shows ATE estimations for six
+    different models used in g-computation estimators on the 76 configurations of
+    the ACIC 2016 dataset. Outcome models are fitted on half of the data and
+    inference is done on the other half --ie. train/test with a split ratio of 0.5.
+    For each configuration, and each model, this train test split was repeated ten
+    times, yielding non parametric variance estimates
+    \cite{bouthillier_accounting_2021}. Figure \ref{fig:acic_2016_ate_heterogeneity}
+    shows large variations obtained across different outcome estimators on
+    semi-synthetic datasets \cite{dorie_automated_2019}. Flexible models such as
+    random forests are doing well in most settings except when treated and untreated
+    populations differ noticeably, in which case a linear model (ridge) is to be
+    preferred. However random forests with different hyper-parameters (max depth= 2)
+    yield poor estimates. A simple rule of thumb such as preferring flexible models
+    does not work in general; model selection is needed.
 
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{llll}
-        \toprule
-        Outcome Model                                  & Hyper-parameters grid
-        \\
-        \midrule
-        Random Forests                                 & Max depth: [2,
-        10]                                                                    \\
+    %\idea{It is crucial to have tools for model selection.}
 
-        Ridge regression without treatment interaction & Ridge regularization:
-        [0.1]                                                                  \\
+    \begin{figure}[!b]
+        \centering
+        \includegraphics[width=0.95\linewidth]{images/2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
+        \caption{\textbf{Different outcome models lead to different
+                estimation errors on the Average Treatment Effects},
+            on 77 classic simulations with known true causal effect
+            \cite{dorie_automated_2019}. The different models are ridge regression
+            and random forests with different hyper-parameters
+            (details
+            \ref{apd:toy_example:acic_2016_ate_variability}). The different configurations are
+            plotted as a function of increasing difference between treated and
+            untreated population --see
+            \autoref{subsec:measuring_overlap}.
+            There is no systematic best performer; data-driven model
+            selection is important.
+            \label{fig:acic_2016_ate_heterogeneity}%
+        }
+    \end{figure}
 
-        Ridge regression with treatment interaction    & Ridge regularization:
-        [0.1]                                                                  \\
-        \bottomrule
-    \end{tabular}
-    \caption{Hyper-parameters grid used for ACIC 2016 ATE variability}
-    \label{apd:toy_example:acic_2016_ate_variability:table}
-\end{table}
+    Outcome models are implemented with
+    \href{https://scikit-learn.org/stable/}{scikit-learn}
+    \cite{pedregosa_scikitlearn_2011} and the following hyper-parameters:
 
-\section{Prior work : model selection for outcome modeling (g-computation)}\label{apd:prior_work}
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{llll}
+            \toprule
+            Outcome Model                                  & Hyper-parameters grid
+            \\
+            \midrule
+            Random Forests                                 & Max depth: [2,
+            10]                                                                    \\
 
-A natural way to select a predictive model for causal inference would be
-an error measure between a causal quantity such as the CATE and models' estimate. But such error is
-not a ``feasible'' risk: it cannot be computed solely from observed data
-and requires oracle knowledge.
+            Ridge regression without treatment interaction & Ridge regularization:
+            [0.1]                                                                  \\
 
-% XXX: I think that I should make the following paragraph shorter
+            Ridge regression with treatment interaction    & Ridge regularization:
+            [0.1]                                                                  \\
+            \bottomrule
+        \end{tabular}
+        \caption{Hyper-parameters grid used for ACIC 2016 ATE variability}
+        \label{apd:toy_example:acic_2016_ate_variability:table}
+    \end{table}
 
-\paragraph{Simulation studies of causal model selection}
+    \section{Prior work : model selection for outcome modeling (g-computation)}\label{apd:prior_work}
 
-Using eight simulations setups from \cite{powers_methods_2018}, where
-the oracle CATE is known, \citet{schuler_comparison_2018} compare four
-causal risks, concluding that for CATE estimation the best
-model-selection risk is the so-called $R\text{-risk}$
-\cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
-empirical results are clear for randomized treatment allocation but less
-convincing for observational settings where both simple Mean Squared
-Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
-reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
-appear to perform better than $R\text{-risk}$ on half of the simulations.
-Another work \cite{alaa_validating_2019} studied empirically both MSE and
-reweighted MSE risks on the semi-synthetic ACIC 2016 datasets
-\cite{dorie_automated_2019}, but did not include the $R\text{-risk}$. We complete these
-prior empirical work by studying a wider variety of data generative
-processes and varying the influence of overlap, an important parameter of
-the data generation process which makes a given causal metric appropriate
-\cite{damour_overlap_2020}. We also study how to best adapt
-cross-validation procedures to causal metrics which themselves come with
-models to estimate.
+    A natural way to select a predictive model for causal inference would be
+    an error measure between a causal quantity such as the CATE and models' estimate. But such error is
+    not a ``feasible'' risk: it cannot be computed solely from observed data
+    and requires oracle knowledge.
 
-\paragraph{Theoretical studies of causal model selection}
+    % XXX: I think that I should make the following paragraph shorter
 
-Several theoretical works have proposed causal model selection procedures
-that are \emph{consistent}: select the best model in a family given
-asymptotically large data. These work rely on introducing a
-CATE estimator in the testing procedure: matching
-\cite{rolling_model_2014}, an IPW estimate
-\cite{gutierrez_causal_2016}, a doubly robust estimator
-\cite{saito_counterfactual_2020}, or debiasing the error with influence
-functions \cite{alaa_validating_2019}. However, for theoretical
-guarantees to hold, the test-set correction needs to converge to the
-oracle: it needs to be flexible enough --well-posed-- and asymptotic
-data. From a practical perspective, meeting such requirements
-implies having a good CATE estimate, thus having solved
-the original problem of causal model selection.
+    \paragraph{Simulation studies of causal model selection}
 
-\paragraph{Statistical guarantees on causal estimation procedures}
+    Using eight simulations setups from \cite{powers_methods_2018}, where
+    the oracle CATE is known, \citet{schuler_comparison_2018} compare four
+    causal risks, concluding that for CATE estimation the best
+    model-selection risk is the so-called $R\text{-risk}$
+    \cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
+    empirical results are clear for randomized treatment allocation but less
+    convincing for observational settings where both simple Mean Squared
+    Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
+    reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
+    appear to perform better than $R\text{-risk}$ on half of the simulations.
+    Another work \cite{alaa_validating_2019} studied empirically both MSE and
+    reweighted MSE risks on the semi-synthetic ACIC 2016 datasets
+    \cite{dorie_automated_2019}, but did not include the $R\text{-risk}$. We complete these
+    prior empirical work by studying a wider variety of data generative
+    processes and varying the influence of overlap, an important parameter of
+    the data generation process which makes a given causal metric appropriate
+    \cite{damour_overlap_2020}. We also study how to best adapt
+    cross-validation procedures to causal metrics which themselves come with
+    models to estimate.
 
-Much work in causal inference has focused on procedures that
-guarantee asymptotically consistent estimators, such as Targeted
-Machine Learning
-Estimation (TMLE) \cite{laan_targeted_2011,schuler_targeted_2017} or
-Double Machine Learning \cite{chernozhukov_double_2018}. Here also, theories require asymptotic regimes and
-models to be \textit{well-specified}.
+    \paragraph{Theoretical studies of causal model selection}
 
-By contrast, \citet{johansson2022generalization} studies causal estimation
-without assuming that estimators are well specified. They derive an upper bound
-on the oracle error to the CATE ($\tau\text{-risk}$) that involves the error on
-the outcome and the similarity of the distributions of treated and control
-patients. However, they use this upper bound for model optimization,
-and do not give insights on model selection. In addition, for hyperparameter
-selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
-counterfactual nearest neighbors, which has been shown ineffective
-\cite{schuler_comparison_2018}.
+    Several theoretical works have proposed causal model selection procedures
+    that are \emph{consistent}: select the best model in a family given
+    asymptotically large data. These work rely on introducing a
+    CATE estimator in the testing procedure: matching
+    \cite{rolling_model_2014}, an IPW estimate
+    \cite{gutierrez_causal_2016}, a doubly robust estimator
+    \cite{saito_counterfactual_2020}, or debiasing the error with influence
+    functions \cite{alaa_validating_2019}. However, for theoretical
+    guarantees to hold, the test-set correction needs to converge to the
+    oracle: it needs to be flexible enough --well-posed-- and asymptotic
+    data. From a practical perspective, meeting such requirements
+    implies having a good CATE estimate, thus having solved
+    the original problem of causal model selection.
 
+    \paragraph{Statistical guarantees on causal estimation procedures}
 
-\section{Causal assumptions}\label{apd:causal_assumptions}
+    Much work in causal inference has focused on procedures that
+    guarantee asymptotically consistent estimators, such as Targeted
+    Machine Learning
+    Estimation (TMLE) \cite{laan_targeted_2011,schuler_targeted_2017} or
+    Double Machine Learning \cite{chernozhukov_double_2018}. Here also, theories require asymptotic regimes and
+    models to be \textit{well-specified}.
 
-We assume the following four assumptions, referred as strong ignorability and
-necessary to assure identifiability of the causal estimands with observational
-data \cite{rubin_causal_2005}:
-\begin{assumption}[Unconfoundedness]\label{assumption:ignorability}
-    \begin{equation*}\label{eq:ignorability}
-        \{Y(0), Y(1) \} \indep A | X
-    \end{equation*}
-    This condition --also called ignorability-- is equivalent to the conditional
-    independence on $e(X)$ \cite{rosenbaum_central_1983}: $\{Y(0), Y(1) \}
-        \indep  A | e(X)$.
-\end{assumption}
+    By contrast, \citet{johansson2022generalization} studies causal estimation
+    without assuming that estimators are well specified. They derive an upper bound
+    on the oracle error to the CATE ($\tau\text{-risk}$) that involves the error on
+    the outcome and the similarity of the distributions of treated and control
+    patients. However, they use this upper bound for model optimization,
+    and do not give insights on model selection. In addition, for hyperparameter
+    selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
+    counterfactual nearest neighbors, which has been shown ineffective
+    \cite{schuler_comparison_2018}.
 
 
-\begin{assumption}[Overlap, also known as Positivity)]\label{assumption:overlap}
-    \begin{equation*}\label{eq:overlap}
-        \eta < e(x) < 1 - \eta \quad \forall x \in \mathcal X \text{ and some } \eta > 0
-    \end{equation*}
-    The treatment is not perfectly predictable. Or with different words, every
-    patient has a chance to be treated and not to be treated. For a given set of
-    covariates, we need examples of both to recover the ATE.
-\end{assumption}
+    \section{Causal assumptions}\label{apd:causal_assumptions}
 
-As noted by \cite{damour_overlap_2020}, the choice of covariates $X$ can
-be viewed as a trade-off between these two central assumptions. A bigger
-covariates set generally reinforces the ignorability assumption. In the
-contrary, overlap can be weakened by large $\mathcal{X}$ because of the
-potential inclusion of instruments: variables only linked to the treatment which
-could lead to arbitrarily small propensity scores.
-
-% remark: There is a major counter example to these colliders (variables which
-% are caused by both the outcome and the treatment),
-
-\begin{assumption}[Consistency]\label{assumption:consistency} The observed
-    outcome is the potential outcome of the assigned treatment:
-    \begin{equation*}\label{eq:consistancy}
-        Y = A \, Y(1) + (1-A) \, Y(0)
-    \end{equation*}
-    Here, we assume that the intervention $A$ has been well defined. This
-    assumption focuses on the design of the experiment. It clearly states the link
-    between the observed outcome and the potential outcomes through the
-    intervention \cite{hernan_causal_2020}.
-\end{assumption}
-
-\begin{assumption}[Generalization]\label{assumption:generalization} The training
-    data on which we build the estimator and the test data on which we make the
-    estimation are drawn from the same distribution $\mathcal D^*$, also known as
-    the ``no covariate shift'' assumption \cite{jesson_identifying_2020}.
-\end{assumption}
-
-\section{Definitions of feasible risks}\label{def:feasible_risks}
+    We assume the following four assumptions, referred as strong ignorability and
+    necessary to assure identifiability of the causal estimands with observational
+    data \cite{rubin_causal_2005}:
+    \begin{assumption}[Unconfoundedness]\label{assumption:ignorability}
+        \begin{equation*}\label{eq:ignorability}
+            \{Y(0), Y(1) \} \indep A | X
+        \end{equation*}
+        This condition --also called ignorability-- is equivalent to the conditional
+        independence on $e(X)$ \cite{rosenbaum_central_1983}: $\{Y(0), Y(1) \}
+            \indep  A | e(X)$.
+    \end{assumption}
 
 
-\begin{definition}[Factual $\mu\text{-risk}$]\label{def:mu_risk}
-    \cite{shalit_estimating_2017} This is the usual Mean Squared Error on
-    the target y. It is what is typically meant by ``generalization error'' in
-    supervised learning:
-    \begin{equation*}\label{eq:mu_risk}
-        \mu\text{-risk}(f)=\mathbb{E}\left[(Y-f(X ; A))^2 \right]
-    \end{equation*}
-\end{definition}
+    \begin{assumption}[Overlap, also known as Positivity)]\label{assumption:overlap}
+        \begin{equation*}\label{eq:overlap}
+            \eta < e(x) < 1 - \eta \quad \forall x \in \mathcal X \text{ and some } \eta > 0
+        \end{equation*}
+        The treatment is not perfectly predictable. Or with different words, every
+        patient has a chance to be treated and not to be treated. For a given set of
+        covariates, we need examples of both to recover the ATE.
+    \end{assumption}
+
+    As noted by \cite{damour_overlap_2020}, the choice of covariates $X$ can
+    be viewed as a trade-off between these two central assumptions. A bigger
+    covariates set generally reinforces the ignorability assumption. In the
+    contrary, overlap can be weakened by large $\mathcal{X}$ because of the
+    potential inclusion of instruments: variables only linked to the treatment which
+    could lead to arbitrarily small propensity scores.
+
+    % remark: There is a major counter example to these colliders (variables which
+    % are caused by both the outcome and the treatment),
+
+    \begin{assumption}[Consistency]\label{assumption:consistency} The observed
+        outcome is the potential outcome of the assigned treatment:
+        \begin{equation*}\label{eq:consistancy}
+            Y = A \, Y(1) + (1-A) \, Y(0)
+        \end{equation*}
+        Here, we assume that the intervention $A$ has been well defined. This
+        assumption focuses on the design of the experiment. It clearly states the link
+        between the observed outcome and the potential outcomes through the
+        intervention \cite{hernan_causal_2020}.
+    \end{assumption}
+
+    \begin{assumption}[Generalization]\label{assumption:generalization} The training
+        data on which we build the estimator and the test data on which we make the
+        estimation are drawn from the same distribution $\mathcal D^*$, also known as
+        the ``no covariate shift'' assumption \cite{jesson_identifying_2020}.
+    \end{assumption}
+
+    \section{Definitions of feasible risks}\label{def:feasible_risks}
 
 
-\begin{definition}[$\mu\text{-risk}_{IPW}^{\star}$]\label{def:mu_ipw_risk}
-    \cite{vanderlaan_unified_2003} Let the inverse propensity weighting
-    function $w(x, a) = \frac{a}{e(x)} + \frac{1 - a}{1 - e(x)}$, we define the
-    semi-oracle Inverse Propensity Weighting risk,
-    \begin{equation*}\label{eq:mu_ipw_risk}
-        \mu\text{-risk}_{IPW}^{\star}(f) = \mathbb{E}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big) (Y-f(X ; A))^2 \right]
-    \end{equation*}
-\end{definition}
-
-\smallskip
+    \begin{definition}[Factual $\mu\text{-risk}$]\label{def:mu_risk}
+        \cite{shalit_estimating_2017} This is the usual Mean Squared Error on
+        the target y. It is what is typically meant by ``generalization error'' in
+        supervised learning:
+        \begin{equation*}\label{eq:mu_risk}
+            \mu\text{-risk}(f)=\mathbb{E}\left[(Y-f(X ; A))^2 \right]
+        \end{equation*}
+    \end{definition}
 
 
-\begin{definition}[$\tau\text{-risk}^{\star}_{IPW}$]\label{def:tau_ipw_risk}
-    \cite{wager_estimation_2018}
-    The CATE $\tau(x)$ can be estimated with a
-    regression against inverse propensity weighted outcomes \cite{
-        athey2016recursive,gutierrez_causal_2016,wager_estimation_2018},
-    the $\tau\text{-risk}_{IPW}$.
+    \begin{definition}[$\mu\text{-risk}_{IPW}^{\star}$]\label{def:mu_ipw_risk}
+        \cite{vanderlaan_unified_2003} Let the inverse propensity weighting
+        function $w(x, a) = \frac{a}{e(x)} + \frac{1 - a}{1 - e(x)}$, we define the
+        semi-oracle Inverse Propensity Weighting risk,
+        \begin{equation*}\label{eq:mu_ipw_risk}
+            \mu\text{-risk}_{IPW}^{\star}(f) = \mathbb{E}\left[ \Big( \frac{A}{e(X)} + \frac{1-A}{1-e(X)} \Big) (Y-f(X ; A))^2 \right]
+        \end{equation*}
+    \end{definition}
+
+    \smallskip
+
+
+    \begin{definition}[$\tau\text{-risk}^{\star}_{IPW}$]\label{def:tau_ipw_risk}
+        \cite{wager_estimation_2018}
+        The CATE $\tau(x)$ can be estimated with a
+        regression against inverse propensity weighted outcomes \cite{
+            athey2016recursive,gutierrez_causal_2016,wager_estimation_2018},
+        the $\tau\text{-risk}_{IPW}$.
+        \begin{equation*}
+            \tau\text{-risk}^{\star}_{IPW}(f) =\mathbb{E}
+            \left[ \Big(Y \frac{A - e(X)}{e(X)
+                    (1-e(X))}-\tau_f\left(X\right)\Big)^2 \right]
+            %  =\mathbb{E}_{(Y, X, A)
+            %            \sim \mathcal D} \left[ \left(Y \left( \frac{A}{e(X)} -
+            %            \frac{1-A}{1-e(X)}\right)-\tau_f\left(X\right)\right)^2 \right]
+        \end{equation*}
+    \end{definition}
+
+    \begin{definition}[$U\text{-risk}^{\star}$]\label{def:u_risk}
+        \cite{kunzel_metalearners_2019,nie_quasioracle_2017} Based on
+        the Robinson decomposition --eq. \ref{eq:r_decomposition}, the U-learner
+        uses the $A-e(X)$ term
+        in the denominator. The derived risk is:
+        \begin{equation*}
+            U\text{-risk}^{\star}(f) =\mathbb{E}
+            \left[
+                \left( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -
+                \tau_f\left(X\right)\right)^{2} \right]
+        \end{equation*}
+        Note that extreme propensity weights in the
+        denominator term might inflate errors in the numerator due to imperfect
+        estimation of the mean outcome $m$.
+    \end{definition}
+
+    \begin{definition}[$R\text{-risk}^{\star}$]\label{def:r_risk}
+        \cite{nie_quasioracle_2017,schuler_comparison_2018}
+        The $R\text{-risk}$ also uses two nuisance $m$ and $e$:
+        \begin{equation*}
+            R\text{-risk}^{\star}(f) =\mathbb{E} \big[
+                \big(\left(Y-m\left(X\right)\right) -\left(A-e\left(X\right)\right) \tau_f\left(X\right)\big)^{2} \big]
+        \end{equation*}
+    \end{definition}
+
+    It is also based on the Robinson decomposition --eq. \ref{eq:r_decomposition}. %It performs well in various
+    %simulations, estimating the nuisances
+    %$(\check e, \check m)$ with
+    %lasso, boosting or kernel ridge regressions
+    %\cite{nie_quasioracle_2017}.
+
+    \section{Proofs: Links between feasible and oracle risks}\label{apd:proofs}
+
+    % \subsection{Upper bound of $\tau\text{-risk}$ with
+    %     $\mu\text{-risk}_{IPW}$}\label{apd:proofs:mu_risk_ipw_bound}
+
+    % For the bound with the $\mu\text{-risk}_{IPW}$, we will decompose the CATE risk
+    % on each factual population risks:
+
+    % \begin{definition}[Population Factual $\mu\text{-risk}$]\label{mu_risk_a}
+    %     \cite{shalit_estimating_2017}
+    %     \begin{equation*}
+    %         \mu\text{-risk}_{a}(f)= \int_{\mathcal Y \times \mathcal X} (y-f(x ; A=a))^{2}  p(y ; x=x \mid A=a) \; dy dx
+    %     \end{equation*}
+    % \end{definition}
+
+    % Applying Bayes rule, we can decompose the $\mu\text{-risk}$ on each
+    % intervention:
+    % \begin{equation*}
+    %     \mu\text{-risk}(f)
+    %     =p_{A} \,\mu\text{-risk}_{1}(f)+\left(1-p_{A}\right) \,\mu\text{-risk}_{0}(f)
+    %     \text{with } p_A=\mathbb P(A=1)
+    % \end{equation*}
+
+    % These definitions allows to state a intermediary result on each population:
+    % \begin{lemma}[Mean-variance decomposition]\label{apd:proofs:mu_risk_ipw_link_mu}
+    %     We need a reweighted version of the classical mean-variance decomposition.
+
+    %     For an outcome model $f: x \times A \rightarrow \mathcal X$. Let the inverse
+    %     propensity weighting function $w(a ; x)=a e(x)^{-1}+(1-a)(1-e(x))^{-1}$.
+    %     \begin{align*}
+    %          & \int_{\mathcal X}(\mu_{1}(x)-f(x ; 1))^{2} p(x) dx  = p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  -\sigma^{2}_{Bayes}(1)
+    %     \end{align*}
+    %     And
+    %     \begin{align*}
+    %          & \int_{\mathcal X}(\mu_{0}(x)-f(x; 0))^{2} p(x) dx   = (1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)  -\sigma^{2}_{Bayes}(0)
+    %     \end{align*}
+
+    %     \begin{proof}
+    %         \begin{align*}
+    %              & p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  = \int_{\mathcal X \times \mathcal Y} \frac{1}{e(x)}(y-f(x ; 1))^{2} p(y \mid x ; A=1) p(x ; A=1) d y d x                                                      \\
+    %              & = \int_{\mathcal X \times \mathcal Y} (y-f(x ; 1))^{2} p(y \mid x ; A=1) \frac{p(x ; A=1)}{p(x ; A=1)}p(x)dy dx                                                                                      \\
+    %              & = \int_{\mathcal X \times \mathcal Y} \big[(y-\mu_1(x))^{2}+\left(\mu_{1}(x)-f(x ; 1)\right)^{2} + 2\left(y-\mu_{1}(x)\right)\left(\mu_{1}(x)-f(x, 1)\right) \big] p(y \mid x ; A=1) p(x) d y d x    \\
+    %              & =\int_{\mathcal X} \big [ \int_{\mathcal Y} (y-\mu_1(x))^{2} p(y \mid x ; A=1) dy\big ] p(x)dx + \int_{\mathcal X \times \mathcal Y} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x)p(y \mid x ; A=1)dx dy \\
+    %              & + \qquad 2 \int_{\mathcal X} \big [ \int_{\mathcal Y} \left(y-\mu_{1}(x)\right) p(y \mid x ; A=1) dy \big ] \left(\mu_{1}(x)-f(x, 1)\right)p(x)dx                                                    \\
+    %              & =\int_{\mathcal X} \sigma_{y}^{2}(x, 1) p(x) d x +\int_{\mathcal X} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x) d x+0
+    %         \end{align*}
+    %     \end{proof}
+    % \end{lemma}
+
+    % \begin{proposition*}[Upper bound with mu-IPW]\label{apd:proofs:prop:upper_bound}
+    %     Let f be a given outcome model, let the weighting function $w$ be the Inverse
+    %     Propensity Weight $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$. Then, under
+    %     overlap (assumption \ref{assumption:overlap}),
+    %     \begin{align*}
+    %         \tau\text{-risk}(f) \leq & \; 2 \, \mu\text{-risk}_{IPW}(w, f)  \; - 2 \, (\sigma^2_{Bayes}(1) +  \sigma^2_{Bayes}(0))
+    %     \end{align*}
+
+    %     \begin{proof}
+    %         \begin{align*}
+    %              & \tau\text{-risk}(f) =\int_{\mathcal X}(\mu_{1}(x)-\mu_{0}(x)-(f(x ; 1)-f(x ; 0))^{2} p(x) d x
+    %         \end{align*}
+    %         By the triangle inequality $(u+v)^2 \leq 2(u^2 + v^2)$:
+    %         \begin{align*}
+    %              & \tau\text{-risk}(f) \leq
+    %             2 \int_{\mathcal X}\big[\left(\mu_{1}(x)-f(x ; 1)\right)^{2}+\left(\mu_{0}(x)-f(x ; 0)\right)^{2}\big] p(x) d x \\
+    %         \end{align*}
+    %         Applying Lemma \ref{apd:proofs:mu_risk_ipw_link_mu},
+    %         \begin{align*}
+    %              & \tau\text{-risk}(f) \leq 2\big[p_A \mu\text{-risk}_{IPW, 1}(w, f) +(1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)(w, f)\big] -2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1)) \\
+    %              & = 2 \mu\text{-risk}_{IPW}(w, f)-2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1))
+    %         \end{align*}
+    %     \end{proof}
+    % \end{proposition*}
+
+
+
+    \subsection{Reformulation of the $R\text{-risk}$ as reweighted
+        $\tau\text{-risk}$}\label{apd:proofs:r_risk_rewrite}
+
+    \begin{proposition*}[$R\text{-risk}$ as reweighted $\tau
+                \text{-risk}$]\label{apd:proofs:prop:r_risk_rewrite}
+
+        \begin{proof}
+
+            We consider the R-decomposition: \cite{robinson_rootnconsistent_1988},
+            \begin{equation}\label{apd:eq:r_decomposition}
+                y(a) = m(x) + \big( a - e(x) \big) \tau(x) + \varepsilon(x; a)
+            \end{equation}
+            Where $\mathbb E[\varepsilon(X; A)|X, A] = 0$ We can use it as plug in the
+            $R\text{-risk}$ formula:
+
+            \begin{align*}
+                 & R\text {-risk}(f) =\int_{\mathcal{Y} \times \mathcal{X} \times \mathcal{A}}[(y-m(x))-\big(a-e(x)\big) \tau_f(x)]^{2} p(y ; x ; a) d y d x d a                                     \\
+                 & =\int_{\mathcal{Y} \times \mathcal{X} \times \mathcal{A}} \left[\big(a-e(x)\big)\tau(x)+\varepsilon(x ; a)-\big(a-e(x)\big) \tau_f(x)\right]^{2} p(y ; x ; a) d y d x da          \\
+                 & =\int_{\mathcal{X} \times \mathcal{A}}\big(a-e(x)\big)^{2}\big(\tau(x)- \tau_f(x)\big)^{2} p(x ; a) d x d a                                                                       \\
+                 & + 2  \int_{\mathcal{Y} \times \mathcal{X} \times \mathcal{A}}\big(a-e(x)\big)\big(\tau(x)-\tau_f(x)\big)  \int_{\mathcal{Y}} \varepsilon(x ; a) p(y \mid x ; a) d y p(x ; a)dx da \\
+                 & +\int_{\mathcal{X} \times \mathcal{A}} \int_{\mathcal{Y}} \varepsilon^{2}(x ; a) p(y \mid x ; a) d y p(x ; a) d x d a
+            \end{align*}
+
+            The first term can be decomposed on control and treated populations to force
+            $e(x)$ to appear:
+            \begin{align*}
+                 & \int_{\mathcal{X}}\big(\tau(x)-\tau_f(x)\big)^{2}\left[e(x)^{2}p(x;0) + \big(1-e(x)\big)^{2} p(x;1)\right] d x                    \\
+                 & =\int_{\mathcal{X}}\big(\tau(x)-\tau_f(x)\big)^{2}  \left[e(x)^{2}\big(1-e(x)\big)p(x) + \big(1-e(x)\big)^{2}e(x) p(x)\right] d x \\
+                 & =\int_{\mathcal{X}}(\tau(x)-\tau_f(x))^{2}(1-e(x)) e(x)[1-e(x)+e(x)] p(x) d x                                                     \\ &=\int_{\mathcal{X}}(\tau(x)-\tau_f(x))^{2}(1-e(x)) e(x) p(x) d x.
+            \end{align*}
+
+            The second term is null since, $\mathbb E[\varepsilon(x, a) |X, A]=0$.
+
+            The third term corresponds to the modulated residuals \ref{eq:residuals} :
+            $\tilde{\sigma}_B^2(0) + \tilde{\sigma}_B^2(1)$
+
+        \end{proof}
+    \end{proposition*}
+
+    \subsection{Interesting special cases}\label{apd:theory:special_cases}
+
+    \paragraph{Randomization special case}\label{remark:rct} If the treatment is
+    randomized as in RCTs, $p(A=1 \mid X=x) = p(A=1)=p_A$, thus
+    $\mu\text{-risk}_{IPW}$ takes a simpler form:
     \begin{equation*}
-        \tau\text{-risk}^{\star}_{IPW}(f) =\mathbb{E}
-        \left[ \Big(Y \frac{A - e(X)}{e(X)
-                (1-e(X))}-\tau_f\left(X\right)\Big)^2 \right]
-        %  =\mathbb{E}_{(Y, X, A)
-        %            \sim \mathcal D} \left[ \left(Y \left( \frac{A}{e(X)} -
-        %            \frac{1-A}{1-e(X)}\right)-\tau_f\left(X\right)\right)^2 \right]
+        \mu\text{-risk}_{IPW} = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{p_A} + \frac{1-A}{1-p_A} \Big) (Y-f(X ; A))^2 \right]
     \end{equation*}
-\end{definition}
+    However, we still can have large differences
+    between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
+    errors between populations as shown experimentally in \citet{schuler_comparison_2018} and our
+    results below.
 
-\begin{definition}[$U\text{-risk}^{\star}$]\label{def:u_risk}
-    \cite{kunzel_metalearners_2019,nie_quasioracle_2017} Based on
-    the Robinson decomposition --eq. \ref{eq:r_decomposition}, the U-learner
-    uses the $A-e(X)$ term
-    in the denominator. The derived risk is:
+    Concerning the $R\text{-risk}$, replacing $e(x)$ by its randomized value $p_A$
+    in Proposition \ref{theory:prop:r_risk_rewrite} yields the oracle
+    $\tau\text{-risk}$ up to multiplicative and additive constants:
     \begin{equation*}
-        U\text{-risk}^{\star}(f) =\mathbb{E}
-        \left[
-            \left( \frac{Y-m\left(X\right)}{A-e\left(X\right)} -
-            \tau_f\left(X\right)\right)^{2} \right]
+        R\text{-risk} = p_A \, (1-p_A) \, \tau\text{-risk} \;+\; (1 - p_A) \,\sigma_B^2(0) \;+\; p_A \sigma_B^2(1)
     \end{equation*}
-    Note that extreme propensity weights in the
-    denominator term might inflate errors in the numerator due to imperfect
-    estimation of the mean outcome $m$.
-\end{definition}
+    Thus, selecting estimators with $R\text{-risk}^*$ in
+    randomized setting controls the $\tau\text{-risk}$. This explains
+    the strong performances of $R\text{-risk}$ in randomized setups
+    \cite{schuler_comparison_2018} and is a strong argument to use it
+    to estimate heterogeneity in RCTs.
 
-\begin{definition}[$R\text{-risk}^{\star}$]\label{def:r_risk}
-    \cite{nie_quasioracle_2017,schuler_comparison_2018}
-    The $R\text{-risk}$ also uses two nuisance $m$ and $e$:
-    \begin{equation*}
-        R\text{-risk}^{\star}(f) =\mathbb{E} \big[
-            \big(\left(Y-m\left(X\right)\right) -\left(A-e\left(X\right)\right) \tau_f\left(X\right)\big)^{2} \big]
-    \end{equation*}
-\end{definition}
+    \paragraph{Oracle Bayes predictor}\label{remark:bayes_oracle} If we
+    have access to the oracle Bayes predictor for the outcome ie.~$f(x,
+        a)=\mu(x, a)$, then all risks are equivalent up to the residual variance:
+    \begin{equation}
+        \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
+    \end{equation}
+    \begin{align}
+        \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
+                             & = \int_{\mathcal X, \mathcal A}
+        \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
+    \end{align}
+    \begin{equation}
+        \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
+        %\notag
+    \end{equation}
+    \begin{multline}
+        R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
+        \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
+    \end{multline}
 
-It is also based on the Robinson decomposition --eq. \ref{eq:r_decomposition}. %It performs well in various
-%simulations, estimating the nuisances
-%$(\check e, \check m)$ with
-%lasso, boosting or kernel ridge regressions
-%\cite{nie_quasioracle_2017}.
-
-\section{Proofs: Links between feasible and oracle risks}\label{apd:proofs}
-
-% \subsection{Upper bound of $\tau\text{-risk}$ with
-%     $\mu\text{-risk}_{IPW}$}\label{apd:proofs:mu_risk_ipw_bound}
-
-% For the bound with the $\mu\text{-risk}_{IPW}$, we will decompose the CATE risk
-% on each factual population risks:
-
-% \begin{definition}[Population Factual $\mu\text{-risk}$]\label{mu_risk_a}
-%     \cite{shalit_estimating_2017}
-%     \begin{equation*}
-%         \mu\text{-risk}_{a}(f)= \int_{\mathcal Y \times \mathcal X} (y-f(x ; A=a))^{2}  p(y ; x=x \mid A=a) \; dy dx
-%     \end{equation*}
-% \end{definition}
-
-% Applying Bayes rule, we can decompose the $\mu\text{-risk}$ on each
-% intervention:
-% \begin{equation*}
-%     \mu\text{-risk}(f)
-%     =p_{A} \,\mu\text{-risk}_{1}(f)+\left(1-p_{A}\right) \,\mu\text{-risk}_{0}(f)
-%     \text{with } p_A=\mathbb P(A=1)
-% \end{equation*}
-
-% These definitions allows to state a intermediary result on each population:
-% \begin{lemma}[Mean-variance decomposition]\label{apd:proofs:mu_risk_ipw_link_mu}
-%     We need a reweighted version of the classical mean-variance decomposition.
-
-%     For an outcome model $f: x \times A \rightarrow \mathcal X$. Let the inverse
-%     propensity weighting function $w(a ; x)=a e(x)^{-1}+(1-a)(1-e(x))^{-1}$.
-%     \begin{align*}
-%          & \int_{\mathcal X}(\mu_{1}(x)-f(x ; 1))^{2} p(x) dx  = p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  -\sigma^{2}_{Bayes}(1)
-%     \end{align*}
-%     And
-%     \begin{align*}
-%          & \int_{\mathcal X}(\mu_{0}(x)-f(x; 0))^{2} p(x) dx   = (1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)  -\sigma^{2}_{Bayes}(0)
-%     \end{align*}
-
-%     \begin{proof}
-%         \begin{align*}
-%              & p_{A} \mu\text{-risk}_{IPW, 1}(w, f)  = \int_{\mathcal X \times \mathcal Y} \frac{1}{e(x)}(y-f(x ; 1))^{2} p(y \mid x ; A=1) p(x ; A=1) d y d x                                                      \\
-%              & = \int_{\mathcal X \times \mathcal Y} (y-f(x ; 1))^{2} p(y \mid x ; A=1) \frac{p(x ; A=1)}{p(x ; A=1)}p(x)dy dx                                                                                      \\
-%              & = \int_{\mathcal X \times \mathcal Y} \big[(y-\mu_1(x))^{2}+\left(\mu_{1}(x)-f(x ; 1)\right)^{2} + 2\left(y-\mu_{1}(x)\right)\left(\mu_{1}(x)-f(x, 1)\right) \big] p(y \mid x ; A=1) p(x) d y d x    \\
-%              & =\int_{\mathcal X} \big [ \int_{\mathcal Y} (y-\mu_1(x))^{2} p(y \mid x ; A=1) dy\big ] p(x)dx + \int_{\mathcal X \times \mathcal Y} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x)p(y \mid x ; A=1)dx dy \\
-%              & + \qquad 2 \int_{\mathcal X} \big [ \int_{\mathcal Y} \left(y-\mu_{1}(x)\right) p(y \mid x ; A=1) dy \big ] \left(\mu_{1}(x)-f(x, 1)\right)p(x)dx                                                    \\
-%              & =\int_{\mathcal X} \sigma_{y}^{2}(x, 1) p(x) d x +\int_{\mathcal X} \left(\mu_{1}(x)-f(x ; 1)\right)^{2} p(x) d x+0
-%         \end{align*}
-%     \end{proof}
-% \end{lemma}
-
-% \begin{proposition*}[Upper bound with mu-IPW]\label{apd:proofs:prop:upper_bound}
-%     Let f be a given outcome model, let the weighting function $w$ be the Inverse
-%     Propensity Weight $w(x; a) = \frac{a}{e(x)} + \frac{1-a}{1-e(x)}$. Then, under
-%     overlap (assumption \ref{assumption:overlap}),
-%     \begin{align*}
-%         \tau\text{-risk}(f) \leq & \; 2 \, \mu\text{-risk}_{IPW}(w, f)  \; - 2 \, (\sigma^2_{Bayes}(1) +  \sigma^2_{Bayes}(0))
-%     \end{align*}
-
-%     \begin{proof}
-%         \begin{align*}
-%              & \tau\text{-risk}(f) =\int_{\mathcal X}(\mu_{1}(x)-\mu_{0}(x)-(f(x ; 1)-f(x ; 0))^{2} p(x) d x
-%         \end{align*}
-%         By the triangle inequality $(u+v)^2 \leq 2(u^2 + v^2)$:
-%         \begin{align*}
-%              & \tau\text{-risk}(f) \leq
-%             2 \int_{\mathcal X}\big[\left(\mu_{1}(x)-f(x ; 1)\right)^{2}+\left(\mu_{0}(x)-f(x ; 0)\right)^{2}\big] p(x) d x \\
-%         \end{align*}
-%         Applying Lemma \ref{apd:proofs:mu_risk_ipw_link_mu},
-%         \begin{align*}
-%              & \tau\text{-risk}(f) \leq 2\big[p_A \mu\text{-risk}_{IPW, 1}(w, f) +(1-p_A) \mu\text{-risk}_{IPW, 0}(w, f)(w, f)\big] -2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1)) \\
-%              & = 2 \mu\text{-risk}_{IPW}(w, f)-2(\sigma^{2}_{Bayes}(0) + \sigma^{2}_{Bayes}(1))
-%         \end{align*}
-%     \end{proof}
-% \end{proposition*}
+    Thus, differences between causal risks only matter in finite sample regimes.
+    Universally consistent learners converge to the Bayes risk in asymptotic
+    regimes, making all model selection risks equivalent. In practice however,
+    choices must be made in non-asymptotic regimes.
 
 
+    \section{Measuring overlap}\label{apd:motivation_ntv}
 
-\subsection{Reformulation of the $R\text{-risk}$ as reweighted
-    $\tau\text{-risk}$}\label{apd:proofs:r_risk_rewrite}
+    \paragraph{Motivation of the Normalized Total Variation}
 
-\begin{proposition*}[$R\text{-risk}$ as reweighted $\tau
-            \text{-risk}$]\label{apd:proofs:prop:r_risk_rewrite}
+    %\idea{A simplier measure, NTV seems to capture what we want}
 
-    \begin{proof}
+    Overlap is often assessed by comparing visually population distributions as in
+    Figure \ref{fig:toy_example} or computing standardized difference on each
+    feature \cite{austin_introduction_2011,austin_moving_2015}. While these methods
+    are useful to decide if positivity holds, they do not yield a single measure.
+    Rather, we compute the divergence between the population covariate distributions
+    $\mathbb P(X|A=0)$ and $\mathbb P(X|A=1)$
+    \cite{damour_overlap_2020,johansson2022generalization}. Computing overlap when
+    working only on samples of the observed distribution, outside of simulation,
+    requires a sophisticated estimator of discrepancy between distributions, as two
+    data points never have the same exact set of features. Maximum Mean Discrepancy
+    \cite{gretton2012kernel} is typically used in the context of causal inference
+    \cite{shalit_estimating_2017,johansson2022generalization}. However it needs a
+    kernel, typically Gaussian, to extrapolate across neighboring observations. We
+    prefer avoiding the need to specify such a kernel, as it must be adapted to the
+    data which is tricky with categorical or non-Gaussian features, a common
+    situation for medical data.
 
-        We consider the R-decomposition: \cite{robinson_rootnconsistent_1988},
-        \begin{equation}\label{apd:eq:r_decomposition}
-            y(a) = m(x) + \big( a - e(x) \big) \tau(x) + \varepsilon(x; a)
-        \end{equation}
-        Where $\mathbb E[\varepsilon(X; A)|X, A] = 0$ We can use it as plug in the
-        $R\text{-risk}$ formula:
+    For simulated and some semi-simulated data, we have access to the probability of
+    treatment for each data point, which sample both densities in the same data
+    point. Thus, we can directly use distribution discrepancy measures and rely on
+    the Normalized Total Variation (NTV) distance to measure the overlap between the
+    treated and control propensities. This is the empirical measure of the total
+    variation distance \cite{sriperumbudur_integral_2009} between the distributions,
+    $TV(\mathbb{P}(X|A=1), \mathbb{P}(X|A=0))$. As we have both distribution sampled
+    on the same points, we can rewrite it a sole function of the propensity score, a
+    low dimensional score more tractable than the full distribution $\mathbb
+        P(X|A)$:
 
-        \begin{align*}
-             & R\text {-risk}(f) =\int_{\mathcal{Y} \times \mathcal{X} \times \mathcal{A}}[(y-m(x))-\big(a-e(x)\big) \tau_f(x)]^{2} p(y ; x ; a) d y d x d a                                     \\
-             & =\int_{\mathcal{Y} \times \mathcal{X} \times \mathcal{A}} \left[\big(a-e(x)\big)\tau(x)+\varepsilon(x ; a)-\big(a-e(x)\big) \tau_f(x)\right]^{2} p(y ; x ; a) d y d x da          \\
-             & =\int_{\mathcal{X} \times \mathcal{A}}\big(a-e(x)\big)^{2}\big(\tau(x)- \tau_f(x)\big)^{2} p(x ; a) d x d a                                                                       \\
-             & + 2  \int_{\mathcal{Y} \times \mathcal{X} \times \mathcal{A}}\big(a-e(x)\big)\big(\tau(x)-\tau_f(x)\big)  \int_{\mathcal{Y}} \varepsilon(x ; a) p(y \mid x ; a) d y p(x ; a)dx da \\
-             & +\int_{\mathcal{X} \times \mathcal{A}} \int_{\mathcal{Y}} \varepsilon^{2}(x ; a) p(y \mid x ; a) d y p(x ; a) d x d a
-        \end{align*}
+    \begin{equation}\label{eq:ntv}
+        \widehat{NTV}(e, 1-e) = \frac{1}{2N} \sum_{i =1}^{N} \big |\frac{e(x_i)}{p_A}-\frac{1-e(x_i)}{1-{p_A}} \big |
+    \end{equation}
 
-        The first term can be decomposed on control and treated populations to force
-        $e(x)$ to appear:
-        \begin{align*}
-             & \int_{\mathcal{X}}\big(\tau(x)-\tau_f(x)\big)^{2}\left[e(x)^{2}p(x;0) + \big(1-e(x)\big)^{2} p(x;1)\right] d x                    \\
-             & =\int_{\mathcal{X}}\big(\tau(x)-\tau_f(x)\big)^{2}  \left[e(x)^{2}\big(1-e(x)\big)p(x) + \big(1-e(x)\big)^{2}e(x) p(x)\right] d x \\
-             & =\int_{\mathcal{X}}(\tau(x)-\tau_f(x))^{2}(1-e(x)) e(x)[1-e(x)+e(x)] p(x) d x                                                     \\ &=\int_{\mathcal{X}}(\tau(x)-\tau_f(x))^{2}(1-e(x)) e(x) p(x) d x.
-        \end{align*}
+    Formally, we can rewrite NTV as the Total Variation distance
+    between the two population distributions. For a population $O = (Y(A), X, A)
+        \sim \mathcal{D}$:
 
-        The second term is null since, $\mathbb E[\varepsilon(x, a) |X, A]=0$.
+    \begin{align*}
+        NTV(O) & = \frac{1}{2N} \sum_{i =1}^{N} \big | \frac{e(x_i)}{p_A}-\frac{1-e(x_i)}{1-{p_A}} \big|         \\
+               & = \frac{1}{2N} \sum_{i =1}^{N} \big|\frac{P(A=1|X=x_i)}{p_A}-\frac{P(A=0|X=x_i)}{1-{p_A}} \big|
+    \end{align*}
 
-        The third term corresponds to the modulated residuals \ref{eq:residuals} :
-        $\tilde{\sigma}_B^2(0) + \tilde{\sigma}_B^2(1)$
+    Thus NTV approximates the following quantity in expectation over the data
+    distribution $\mathcal{D}$:
 
-    \end{proof}
-\end{proposition*}
+    \begin{align*}
+        NTV(\mathcal{D}) & = \int_{\mathcal{X}} \big | \frac{p(A=1|X=x)}{p_A}-\frac{p(A=0|X=x)}{1-{p_A}} \big | p(x)dx \\
+                         & = \int_{\mathcal{X}} \big | \frac{p(A=1, X=x)}{p_A}-\frac{p(A=0, X=x)}{1-{p_A}} \big |dx    \\
+                         & = \int_{\mathcal{X}} \big | p(X=x|A=1)- p(X=x|A=0) \big |dx
+    \end{align*}
 
-\subsection{Interesting special cases}\label{apd:theory:special_cases}
+    For countable sets, this expression corresponds to the Total Variation distance
+    between treated and control populations covariate distributions : $TV(p_0(x),
+        p_1(x))$.
 
-\paragraph{Randomization special case}\label{remark:rct} If the treatment is
-randomized as in RCTs, $p(A=1 \mid X=x) = p(A=1)=p_A$, thus
-$\mu\text{-risk}_{IPW}$ takes a simpler form:
-\begin{equation*}
-    \mu\text{-risk}_{IPW} = \mathbb{E}_{(Y, X, A) \sim \mathcal D}\left[ \Big( \frac{A}{p_A} + \frac{1-A}{1-p_A} \Big) (Y-f(X ; A))^2 \right]
-\end{equation*}
-However, we still can have large differences
-between $\tau\text{-risk}$ and $\mu\text{-risk}_{IPW}$ coming from heterogeneous
-errors between populations as shown experimentally in \citet{schuler_comparison_2018} and our
-results below.
+    \paragraph{Measuring overlap without the oracle propensity scores:} For ACIC
+    2018, or for non-simulated data, the true propensity scores are not known. To
+    measure overlap, we rely on flexible estimations of the Normalized Total
+    Variation, using gradient boosting trees to approximate the propensity score.
+    Empirical arguments for this plug-in approach is given in Figure
+    \ref{apd:overlap:ntv_approximation}.
 
-Concerning the $R\text{-risk}$, replacing $e(x)$ by its randomized value $p_A$
-in Proposition \ref{theory:prop:r_risk_rewrite} yields the oracle
-$\tau\text{-risk}$ up to multiplicative and additive constants:
-\begin{equation*}
-    R\text{-risk} = p_A \, (1-p_A) \, \tau\text{-risk} \;+\; (1 - p_A) \,\sigma_B^2(0) \;+\; p_A \sigma_B^2(1)
-\end{equation*}
-Thus, selecting estimators with $R\text{-risk}^*$ in
-randomized setting controls the $\tau\text{-risk}$. This explains
-the strong performances of $R\text{-risk}$ in randomized setups
-\cite{schuler_comparison_2018} and is a strong argument to use it
-to estimate heterogeneity in RCTs.
+    \paragraph{Empirical arguments}
 
-\paragraph{Oracle Bayes predictor}\label{remark:bayes_oracle} If we
-have access to the oracle Bayes predictor for the outcome ie.~$f(x,
-    a)=\mu(x, a)$, then all risks are equivalent up to the residual variance:
-\begin{equation}
-    \tau\text{-risk}(\mu) = \mathbb E_{X\sim p(X)}[(\tau(X) - \tau_{\mu}(X))^2] = 0
-\end{equation}
-\begin{align}
-    \mu\text{-risk}(\mu) & = \mathbb E_{(Y, X, A) \sim p(Y;X;A)}[\big( Y - \mu_A(X)\big)^2] \\
-                         & = \int_{\mathcal X, \mathcal A}
-    \,\varepsilon(x,a)^2 p(a \mid x) \,p(x) \,dx\,da  \leq \sigma_B^{2}(0) + \sigma_B^{2}(1) \nonumber
-\end{align}
-\begin{equation}
-    \mu\text{-risk}_{IPW}(\mu) = \sigma_B^{2}(0) + \sigma_B^{2}(1)  \quad \text{from Lemma \ref{apd:proofs:mu_risk_ipw_link_mu}}
-    %\notag
-\end{equation}
-\begin{multline}
-    R\text{-risk}(\mu) = \tilde{\sigma}_B^{2}(0) + \tilde{\sigma}_B^{2}(1)
-    \leq \sigma_B^{2}(0) + \sigma_B^{2}(1)  \\  \text{from Proposition \ref{theory:prop:r_risk_rewrite}}%\notag
-\end{multline}
-
-Thus, differences between causal risks only matter in finite sample regimes.
-Universally consistent learners converge to the Bayes risk in asymptotic
-regimes, making all model selection risks equivalent. In practice however,
-choices must be made in non-asymptotic regimes.
+    We show empirically that NTV is an appropriate measure of overlap by :
+    \begin{itemize}
+        \item Comparing the NTV distance with the MMD for Caussim which is gaussian
+              distributed in Figure \ref{apd:overlap:caussim:mmd_vs_ntv},
+        \item Verifying that setups with penalized overlap from ACIC 2016 have a
+              higher total variation distance than unpenalized setups in Figure
+              \ref{apd:overlap:penalized_overlap}.
+        \item Verifying that the Inverse Propensity Weights extrema (the inverse of
+              the $\nu$ overlap constant appearing in the overlap Assumption
+              \ref{assumption:overlap}) positevely correlates with NTV for Caussim,
+              ACIC 2016 and Twins in Figure \ref{apd:ntv_vs_max_ipw}. Even if the same
+              value of the maximum IPW could lead to different values of NTV, we
+              expect both measures to be correlated : the higher the extrem propensity
+              weights, the higher the NTV.
+    \end{itemize}
 
 
-\section{Measuring overlap}\label{apd:motivation_ntv}
+    \paragraph{Estimating NTV in practice}
 
-\paragraph{Motivation of the Normalized Total Variation}
+    Finally, we verify that approximating the NTV distance with a learned plug-in
+    estimates of e(x) is reasonnable. We used either a logistic regression or a
+    gradient boosting classifier to learn the propensity models for the three
+    datasets where we have access to the ground truth propensity scores: Caussim,
+    Twins and ACIC 2016. We respectively sampled 1000, 1000 and 770 instances of
+    these datasets with different seeds and overlap settings. We first run a
+    hyperparameter search with cross-validation on the train set, then select the
+    best estimator. We refit on the train set this estimator with or without
+    calibration by cross validation and finally estimate the normalized TV with the
+    obtained model. This training procedure reflects the one described in Algorithm
+    \ref{problem:estimation_procedure:algo} where nuisance models are fitted only on
+    the train set.
 
-%\idea{A simplier measure, NTV seems to capture what we want}
+    The hyper parameters are : learning rate $ \in [1e-3, 1e-2, 1e-1, 1]$, minimum
+    samples leaf $\in [2, 10, 50, 100, 200]$ for boosting and L2 regularization $\in
+        [1e-3, 1e-2, 1e-1, 1]$ for logistic regression.
 
-Overlap is often assessed by comparing visually population distributions as in
-Figure \ref{fig:toy_example} or computing standardized difference on each
-feature \cite{austin_introduction_2011,austin_moving_2015}. While these methods
-are useful to decide if positivity holds, they do not yield a single measure.
-Rather, we compute the divergence between the population covariate distributions
-$\mathbb P(X|A=0)$ and $\mathbb P(X|A=1)$
-\cite{damour_overlap_2020,johansson2022generalization}. Computing overlap when
-working only on samples of the observed distribution, outside of simulation,
-requires a sophisticated estimator of discrepancy between distributions, as two
-data points never have the same exact set of features. Maximum Mean Discrepancy
-\cite{gretton2012kernel} is typically used in the context of causal inference
-\cite{shalit_estimating_2017,johansson2022generalization}. However it needs a
-kernel, typically Gaussian, to extrapolate across neighboring observations. We
-prefer avoiding the need to specify such a kernel, as it must be adapted to the
-data which is tricky with categorical or non-Gaussian features, a common
-situation for medical data.
-
-For simulated and some semi-simulated data, we have access to the probability of
-treatment for each data point, which sample both densities in the same data
-point. Thus, we can directly use distribution discrepancy measures and rely on
-the Normalized Total Variation (NTV) distance to measure the overlap between the
-treated and control propensities. This is the empirical measure of the total
-variation distance \cite{sriperumbudur_integral_2009} between the distributions,
-$TV(\mathbb{P}(X|A=1), \mathbb{P}(X|A=0))$. As we have both distribution sampled
-on the same points, we can rewrite it a sole function of the propensity score, a
-low dimensional score more tractable than the full distribution $\mathbb
-    P(X|A)$:
-
-\begin{equation}\label{eq:ntv}
-    \widehat{NTV}(e, 1-e) = \frac{1}{2N} \sum_{i =1}^{N} \big |\frac{e(x_i)}{p_A}-\frac{1-e(x_i)}{1-{p_A}} \big |
-\end{equation}
-
-Formally, we can rewrite NTV as the Total Variation distance
-between the two population distributions. For a population $O = (Y(A), X, A)
-    \sim \mathcal{D}$:
-
-\begin{align*}
-    NTV(O) & = \frac{1}{2N} \sum_{i =1}^{N} \big | \frac{e(x_i)}{p_A}-\frac{1-e(x_i)}{1-{p_A}} \big|         \\
-           & = \frac{1}{2N} \sum_{i =1}^{N} \big|\frac{P(A=1|X=x_i)}{p_A}-\frac{P(A=0|X=x_i)}{1-{p_A}} \big|
-\end{align*}
-
-Thus NTV approximates the following quantity in expectation over the data
-distribution $\mathcal{D}$:
-
-\begin{align*}
-    NTV(\mathcal{D}) & = \int_{\mathcal{X}} \big | \frac{p(A=1|X=x)}{p_A}-\frac{p(A=0|X=x)}{1-{p_A}} \big | p(x)dx \\
-                     & = \int_{\mathcal{X}} \big | \frac{p(A=1, X=x)}{p_A}-\frac{p(A=0, X=x)}{1-{p_A}} \big |dx    \\
-                     & = \int_{\mathcal{X}} \big | p(X=x|A=1)- p(X=x|A=0) \big |dx
-\end{align*}
-
-For countable sets, this expression corresponds to the Total Variation distance
-between treated and control populations covariate distributions : $TV(p_0(x),
-    p_1(x))$.
-
-\paragraph{Measuring overlap without the oracle propensity scores:} For ACIC
-2018, or for non-simulated data, the true propensity scores are not known. To
-measure overlap, we rely on flexible estimations of the Normalized Total
-Variation, using gradient boosting trees to approximate the propensity score.
-Empirical arguments for this plug-in approach is given in Figure
-\ref{apd:overlap:ntv_approximation}.
-
-\paragraph{Empirical arguments}
-
-We show empirically that NTV is an appropriate measure of overlap by :
-\begin{itemize}
-    \item Comparing the NTV distance with the MMD for Caussim which is gaussian
-          distributed in Figure \ref{apd:overlap:caussim:mmd_vs_ntv},
-    \item Verifying that setups with penalized overlap from ACIC 2016 have a
-          higher total variation distance than unpenalized setups in Figure
-          \ref{apd:overlap:penalized_overlap}.
-    \item Verifying that the Inverse Propensity Weights extrema (the inverse of
-          the $\nu$ overlap constant appearing in the overlap Assumption
-          \ref{assumption:overlap}) positevely correlates with NTV for Caussim,
-          ACIC 2016 and Twins in Figure \ref{apd:ntv_vs_max_ipw}. Even if the same
-          value of the maximum IPW could lead to different values of NTV, we
-          expect both measures to be correlated : the higher the extrem propensity
-          weights, the higher the NTV.
-\end{itemize}
-
-
-\paragraph{Estimating NTV in practice}
-
-Finally, we verify that approximating the NTV distance with a learned plug-in
-estimates of e(x) is reasonnable. We used either a logistic regression or a
-gradient boosting classifier to learn the propensity models for the three
-datasets where we have access to the ground truth propensity scores: Caussim,
-Twins and ACIC 2016. We respectively sampled 1000, 1000 and 770 instances of
-these datasets with different seeds and overlap settings. We first run a
-hyperparameter search with cross-validation on the train set, then select the
-best estimator. We refit on the train set this estimator with or without
-calibration by cross validation and finally estimate the normalized TV with the
-obtained model. This training procedure reflects the one described in Algorithm
-\ref{problem:estimation_procedure:algo} where nuisance models are fitted only on
-the train set.
-
-The hyper parameters are : learning rate $ \in [1e-3, 1e-2, 1e-1, 1]$, minimum
-samples leaf $\in [2, 10, 50, 100, 200]$ for boosting and L2 regularization $\in
-    [1e-3, 1e-2, 1e-1, 1]$ for logistic regression.
-
-Results in Figure \ref{apd:overlap:ntv_approximation} comparing bias to the true
-normalized Total Variation of each dataset instances versus growing true NTV
-indicate that calibration of the propensity model is crucial to recover a good
-approximation of the NTV.
+    Results in Figure \ref{apd:overlap:ntv_approximation} comparing bias to the true
+    normalized Total Variation of each dataset instances versus growing true NTV
+    indicate that calibration of the propensity model is crucial to recover a good
+    approximation of the NTV.
 
 
 
 
-\begin{figure}
-    \begin{subfigure}[b]{\textwidth}
+    \begin{figure}
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            \caption{\textbf{Uncalibrated classifiers}}
+            \includegraphics[width=\linewidth]{images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf}
+        \end{subfigure}
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            \caption{\textbf{Calibrated
+                    classifiers}}
+            \includegraphics[width=\linewidth]{images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf}
+        \end{subfigure}
+        \caption{a) Without calibration, estimation of NTV is not trivial even for
+            boosting models. b) Calibrated classifiers are able to recover the true
+            Normalized Total Variation for all datasets where it is
+            available.}\label{apd:overlap:ntv_approximation}
+    \end{figure}
+
+
+
+    \begin{figure}
         \centering
-        \caption{\textbf{Uncalibrated classifiers}}
-        \includegraphics[width=\linewidth]{images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf}
-    \end{subfigure}
-    \begin{subfigure}[b]{\textwidth}
+        \caption{NTV recovers well the overlap settings described in the ACIC paper
+            \cite{dorie_automated_2019}}\label{apd:overlap:penalized_overlap}
+        \includegraphics[width=0.7\linewidth]{images/overlap_measure_acic_2016_recovery_overlap_setup.pdf}
+    \end{figure}
+
+
+    \begin{figure}[htbp]
         \centering
-        \caption{\textbf{Calibrated
-                classifiers}}
-        \includegraphics[width=\linewidth]{images/overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf}
-    \end{subfigure}
-    \caption{a) Without calibration, estimation of NTV is not trivial even for
-        boosting models. b) Calibrated classifiers are able to recover the true
-        Normalized Total Variation for all datasets where it is
-        available.}\label{apd:overlap:ntv_approximation}
-\end{figure}
+        \caption{Good correlation between overlap measured as normalized Total
+            Variation and Maximum Mean Discrepancy (200 sampled Caussim
+            datasets)}\label{apd:overlap:caussim:mmd_vs_ntv}
+        \includegraphics[width=0.7\linewidth]{images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf}
+    \end{figure}
 
 
-
-\begin{figure}
-    \centering
-    \caption{NTV recovers well the overlap settings described in the ACIC paper
-        \cite{dorie_automated_2019}}\label{apd:overlap:penalized_overlap}
-    \includegraphics[width=0.7\linewidth]{images/overlap_measure_acic_2016_recovery_overlap_setup.pdf}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    \caption{Good correlation between overlap measured as normalized Total
-        Variation and Maximum Mean Discrepancy (200 sampled Caussim
-        datasets)}\label{apd:overlap:caussim:mmd_vs_ntv}
-    \includegraphics[width=0.7\linewidth]{images/overlap_measure_caussim_transformed_mmd_vs_ntv.pdf}
-\end{figure}
-
-
-\begin{figure}[ht]
-    \centering
-    \begin{subfigure}[b]{0.47\textwidth}
+    \begin{figure}[ht]
         \centering
-        \caption{\textbf{Caussim}}
-        \includegraphics[width=\textwidth]{images/overlap_measure_caussim_max_ipw_vs_ntv.pdf}
-        \label{apd:caussim:max_ipw_vs_ntv}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.47\textwidth}
+        \begin{subfigure}[b]{0.47\textwidth}
+            \centering
+            \caption{\textbf{Caussim}}
+            \includegraphics[width=\textwidth]{images/overlap_measure_caussim_max_ipw_vs_ntv.pdf}
+            \label{apd:caussim:max_ipw_vs_ntv}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.47\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2016}}
+            \includegraphics[width=\textwidth]{images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf}
+            \label{apd:acic_2016:ntv_vs_max_ipw}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.47\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2018}}
+            \includegraphics[width=\textwidth]{images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf}
+            \label{apd:acic_2018:ntv_vs_max_ipw}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \caption{\textbf{TWINS}}
+            \includegraphics[width=\textwidth]{images/overlap_measure_twins_max_ipw_vs_ntv.pdf}
+            \label{apd:twins:ntv_vs_max_ipw}
+        \end{subfigure}
+        \caption{Maximal value of Inverse Propensity Weights increases exponentially with the overlap as measure by Normalized Total Variation.}
+        \label{apd:ntv_vs_max_ipw}
+    \end{figure}
+
+
+    \section{Experiments}
+
+    \subsection{Details on the data generation process}
+    \label{apd:experiments:generation}
+
+    We use Gaussian-distributed covariates and random basis expansion based on
+    Radial Basis Function kernels. A random basis of RBF kernel enables modeling
+    non-linear and complex relationships between covariates in a similar way to the
+    well known spline expansion. The estimators of the response function are learned
+    with a linear model on another random basis (which can be seen as a stochastic
+    approximation of the full data kernel \cite{rahimi_random_2008}). We carefully
+    control the amount of overlap between treated and control populations, a crucial
+    assumption for causal inference. Figure \ref{fig:simulation_examples}
+    illustrates 2D examples of the simulation.
+
+    \begin{itemize}
+        \item The raw features for both populations are drawn from a mixture of
+              Gaussians:
+              $\mathbb P(X) = p_A \mathbb P(X|A=1) + (1- p_A) \mathbb P(X|A=0)$
+              where $\mathbb P(x|A=a)$ is a rotated Gaussian:
+              \begin{equation}
+                  \mathbb P(x|A=a) = W \cdot \mathcal N \Big( \begin{bmatrix} (1-2a) \theta \\ 0\end{bmatrix} ; \begin{bmatrix} \sigma_0 & 0 \\ 0 & \sigma_1\end{bmatrix} \Big)
+              \end{equation}
+              with $\theta$ a parameter controlling overlap (bigger yields poorer
+              overlap), $W$ a random rotation matrix and $\sigma_0^2=2;\sigma_1^2=5$.
+
+              This generation process allows to analytically compute the oracle
+              propensity scores $e(x)$, to simply control for overlap with the
+              parameter $\theta$, the distance between the two Gaussian main axes and
+              to  visualize response surfaces.
+
+        \item A basis expansion of the raw features increases the problem dimension.
+              Using Radial Basis Function (RBF) Nystroem transformation \footnote{We
+                  use the
+                  \href{https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html}{Sklearn
+                      implementation, \cite{pedregosa_scikitlearn_2011}}}, we expand the raw
+              features into a transformed space. The basis expansion samples
+              randomly a small number of representers in the raw data. Then,  it
+              computes an approximation of the full N-dimensional kernel with these
+              basis components, yielding the transformed features $z(x)$. The number
+              of basis functions --\emph{ie. knots}--, controls the complexity of
+              the ground-truth response surfaces and treatment. We first use this
+              process to draw the non-treated response surface $\mu_0$ and the
+              causal effect $\tau$. We then draw the observations from a mixture two
+              Gaussians, for the treated and non treated. We vary the separation
+              between the two Gaussians to control the overlap between treated and
+              non-treated populations, an important parameter for causal inference
+              (related to $\eta$ in Proposition
+              \ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed
+              outcomes adding Gaussian noise.
+
+              More formally, we generate the basis following the original data
+              distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
+              with D=2 in our simulations. Then, we compute an approximation
+              of the full kernel of the data generation process $RBF(x,
+                  \cdot) \;  with \; x \sim \mathbb P(x)$ with these
+              representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
+                  Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
+              kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
+              normalization constant of the kernel basis, computed as the
+              root inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
+                  {1..D}}^{-1/2}$
+
+
+        \item Functions $\mu_0$, $\tau$ are distinct linear functions of the
+              transformed features:
+              \begin{equation*}
+                  \mu_0(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\mu}^T
+              \end{equation*}
+              \begin{equation*}
+                  \tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T
+              \end{equation*}
+        \item Adding a Gaussian noise, $\varepsilon \sim \mathcal N(0, \sigma(x;a))$,
+              we construct the potential outcomes:
+              $y(a) = \mu_0(x) + a\,\tau(x) + \varepsilon(x, a)$
+    \end{itemize}
+    We generated 1000 instances of this dataset with uniformly random overlap
+    parameters $\theta \in \left[ 0, 2.5 \right]$.
+
+    \begin{figure}[!t]
         \centering
-        \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=\textwidth]{images/overlap_measure_acic_2016_max_ipw_vs_ntv.pdf}
-        \label{apd:acic_2016:ntv_vs_max_ipw}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.47\textwidth}
+        \includegraphics[width=\linewidth]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
+
+        \caption{Example of the simulation setup in the input space with two
+            knots --\emph{ie.} basis functions. The top panel
+            shows the observations in feature space, while the bottom panel displays the
+            two response surfaces on a 1D cut along the black lines drawn on
+            the top panel.}
+        \label{fig:simulation_examples}
+    \end{figure}
+
+
+    \subsection{ Details on the semi-simulated datasets}\label{apd:experiments:datasets}
+
+
+    \begin{description}
+        \item[ACIC 2018] \cite{dorie_automated_2019}:  The initial intervention was a child’s birth
+            weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
+            IQ after a follow-up period. The study contained $N=4\,802$ data
+            points with $D=55$ features (5 binary, 27 count data, and 23
+            continuous). They simulated 77 different setups varying parameters
+            for treatment and response models, overlap, and interactions between treatment and
+            covariates \footnote{Original R code available at
+                \url{https://github.com/vdorie/aciccomp/tree/master/2016}
+                to generate 77 simulations settings.}. We used 10 different seeds
+            for each setup, totaling 770 dataset instances.
+
+        \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: Starting from data from
+            the Linked Births and Infant Deaths Database (LBIDD)
+            \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
+            outcome models are simulated with complex models to reflect different
+            scenarii. The data do not provide the true propensity scores, so we
+            evaluate only feasible metrics, which do not require this nuisance
+            parameter. We used all 432 datasets\footnote{Using the scaling part of
+                the data, from
+                \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}}
+            of size $N=5\,000$.
+
+
+        \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of
+            real data on twin births and mortality rates
+            \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
+            and $D=50$ covariates\footnote{We obtained the dataset from
+                \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
+            weight of the heavier twin at birth. This is a "true" counterfactual dataset
+            \cite{curth_really_2021} in the sense that we have
+            both potential outcomes with each twin. They simulate the treatment with a
+            sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
+            the 45 other covariates:
+            \begin{align}
+                \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
+                \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
+                \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
+                w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
+            \end{align}
+            We add a non-constant slope in the
+            sigmoid to control the overlap between
+            treated and control populations.
+            We sampled uniformly 1\,000 different overlap parameters between 0 and
+            2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
+            only the overlap varies for these instances. The response surfaces are
+            set by the original outcomes.
+    \end{description}
+
+    \subsection{Model selection procedures}
+
+    \paragraph{Nuisances estimation}\label{apd:experiments:nuisances_hp}
+
+    The nuisances are estimated with a stacked regressor inspired by the Super
+    Learner framework, \cite{laan_super_2007}). We select hyper-parameters
+    with randomized search on a validation set $\mathcal{V}$ and keep them fix for
+    model selection  The searc grid is detailed in Table
+    \ref{apd:experiments:nuisances_hp_grid}. All implementations come from
+    \href{https://scikit-learn.org/stable/}{scikit-learn}
+    \cite{pedregosa_scikitlearn_2011}.  As extreme inverse propensity weights induce
+    high variance, we use clipping \cite{swaminathan_counterfactual_2015,
+        ionides_truncated_2008} to bound $min(\check e, 1-\check e)$ away from 0 with a
+    fixed $\eta=10^{-10}$, ensuring strict overlap for numerical stability.
+
+    \begin{table}[h!]
+        \begin{tabular}{llll}
+            \toprule
+            Model                & Estimator
+                                 & Hyper-parameters grid                                         \\
+            \midrule
+            Outcome, m           & StackedRegressor
+                                 & ridge regularization: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100]  \\
+            \multirow[c]{3}{*}{} & (HistGradientBoostingRegressor, ridge)
+                                 & HistGradientBoostingRegressor  learning rate: [0.01, 0.1, 1]  \\
+                                 &
+                                 & HistGradientBoostingRegressor  max leaf nodes: [10,
+            20, 30, 50]                                                                          \\
+            \midrule
+            Treatment, e         & StackedClassifier
+                                 & LogisticRegression  C: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100] \\
+            \multirow[c]{3}{*}{} & (HistgradientBoostingClassifier, LogisticRegression)
+                                 & HistGradientBoostingClassifier  learning rate: [0.01, 0.1, 1] \\
+                                 &
+                                 & HistGradientBoostingClassifier  max leaf nodes: [10,
+            20, 30, 50]                                                                          \\
+            \bottomrule
+        \end{tabular}
+        \caption{Hyper-parameters grid used for nuisance models}
+        \label{apd:experiments:nuisances_hp_grid}
+    \end{table}
+
+
+    \subsection{Additional Results}\label{apd:experiments:additional_results}
+
+    \paragraph{Definition of the Kendall's tau, $\kappa$}
+
+    The Kendall's tau  is a widely used statistics to measure the rank correlation
+    between two set of observations. It measures the number of concordant pairs
+    minus the discordant pairs normalized by the total number of pairs. It takes values in the
+    $[-1, 1]$ range.
+    \begin{equation}\label{eq:kendall_tau}
+        \kappa=\frac{\text { (number of concordant pairs })-\text { (number of discordant pairs) }}{\text { (number of pairs) }}
+    \end{equation}
+
+    \paragraph{Values of relative $\kappa(\ell,\tau\mathrm{{-risk}})$ compared to
+        the mean over all metrics Kendall's as shown in the boxplots of Figure \ref{fig:relative_kendalls_all_datasets}}
+
+    \begin{table}
         \centering
-        \caption{\textbf{ACIC 2018}}
-        \includegraphics[width=\textwidth]{images/overlap_measure_acic_2018_max_ipw_vs_ntv.pdf}
-        \label{apd:acic_2018:ntv_vs_max_ipw}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
+        \resizebox{0.7\textwidth}{!}{
+            \input{images/_1_r_risk_domination_boxplot_df.tex}
+        }
+        \caption{Values of relative $\kappa(\ell,\tau\mathrm{{-risk}})$ compared to
+            the mean over all metrics Kendall's as shown in the boxplots of Figure
+            \ref{fig:relative_kendalls_all_datasets}}\label{apd:table:relative_kendalls_all_datasets}
+    \end{table}
+
+
+    \paragraph{Figure \ref{apd:fig:relative_kendalls_all_datasets_all_metrics} -
+        Results measured in relative Kendall's for feasible and semi-oracle risks}
+
+    Because of extreme propensity scores in the denominator and bayes error residuals in the numerator, the semi-oracle
+    $U$-risk has poor performances at bad overlap. Estimating these propensity scores in the is feasible $U$-risk reduces
+    the variance since clipping is performed.
+
+    \begin{figure}[!b]
         \centering
-        \caption{\textbf{TWINS}}
-        \includegraphics[width=\textwidth]{images/overlap_measure_twins_max_ipw_vs_ntv.pdf}
-        \label{apd:twins:ntv_vs_max_ipw}
-    \end{subfigure}
-    \caption{Maximal value of Inverse Propensity Weights increases exponentially with the overlap as measure by Normalized Total Variation.}
-    \label{apd:ntv_vs_max_ipw}
-\end{figure}
+        \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf}
+        %\hfill
+        \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$
+            agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
+            the first and last tertiles of the overlap distribution measured with
+            Normalized Total Variation eq. \ref{eq:ntv}.
+        }\label{apd:fig:relative_kendalls_all_datasets_all_metrics}
+    \end{figure}
+
+    \paragraph{Figure \ref{apd:fig:all_datasets_tau_risk_ranking_agreement} -
+        Results measured in absolute Kendall's}
 
 
-\section{Experiments}
-
-\subsection{Details on the data generation process}
-\label{apd:experiments:generation}
-
-We use Gaussian-distributed covariates and random basis expansion based on
-Radial Basis Function kernels. A random basis of RBF kernel enables modeling
-non-linear and complex relationships between covariates in a similar way to the
-well known spline expansion. The estimators of the response function are learned
-with a linear model on another random basis (which can be seen as a stochastic
-approximation of the full data kernel \cite{rahimi_random_2008}). We carefully
-control the amount of overlap between treated and control populations, a crucial
-assumption for causal inference. Figure \ref{fig:simulation_examples}
-illustrates 2D examples of the simulation.
-
-\begin{itemize}
-    \item The raw features for both populations are drawn from a mixture of
-          Gaussians:
-          $\mathbb P(X) = p_A \mathbb P(X|A=1) + (1- p_A) \mathbb P(X|A=0)$
-          where $\mathbb P(x|A=a)$ is a rotated Gaussian:
-          \begin{equation}
-              \mathbb P(x|A=a) = W \cdot \mathcal N \Big( \begin{bmatrix} (1-2a) \theta \\ 0\end{bmatrix} ; \begin{bmatrix} \sigma_0 & 0 \\ 0 & \sigma_1\end{bmatrix} \Big)
-          \end{equation}
-          with $\theta$ a parameter controlling overlap (bigger yields poorer
-          overlap), $W$ a random rotation matrix and $\sigma_0^2=2;\sigma_1^2=5$.
-
-          This generation process allows to analytically compute the oracle
-          propensity scores $e(x)$, to simply control for overlap with the
-          parameter $\theta$, the distance between the two Gaussian main axes and
-          to  visualize response surfaces.
-
-    \item A basis expansion of the raw features increases the problem dimension.
-          Using Radial Basis Function (RBF) Nystroem transformation \footnote{We
-              use the
-              \href{https://scikit-learn.org/stable/modules/generated/sklearn.kernel_approximation.Nystroem.html}{Sklearn
-                  implementation, \cite{pedregosa_scikitlearn_2011}}}, we expand the raw
-          features into a transformed space. The basis expansion samples
-          randomly a small number of representers in the raw data. Then,  it
-          computes an approximation of the full N-dimensional kernel with these
-          basis components, yielding the transformed features $z(x)$. The number
-          of basis functions --\emph{ie. knots}--, controls the complexity of
-          the ground-truth response surfaces and treatment. We first use this
-          process to draw the non-treated response surface $\mu_0$ and the
-          causal effect $\tau$. We then draw the observations from a mixture two
-          Gaussians, for the treated and non treated. We vary the separation
-          between the two Gaussians to control the overlap between treated and
-          non-treated populations, an important parameter for causal inference
-          (related to $\eta$ in Proposition
-          \ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed
-          outcomes adding Gaussian noise.
-
-          More formally, we generate the basis following the original data
-          distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
-          with D=2 in our simulations. Then, we compute an approximation
-          of the full kernel of the data generation process $RBF(x,
-              \cdot) \;  with \; x \sim \mathbb P(x)$ with these
-          representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
-              Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
-          kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
-          normalization constant of the kernel basis, computed as the
-          root inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
-              {1..D}}^{-1/2}$
-
-
-    \item Functions $\mu_0$, $\tau$ are distinct linear functions of the
-          transformed features:
-          \begin{equation*}
-              \mu_0(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\mu}^T
-          \end{equation*}
-          \begin{equation*}
-              \tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T
-          \end{equation*}
-    \item Adding a Gaussian noise, $\varepsilon \sim \mathcal N(0, \sigma(x;a))$,
-          we construct the potential outcomes:
-          $y(a) = \mu_0(x) + a\,\tau(x) + \varepsilon(x, a)$
-\end{itemize}
-We generated 1000 instances of this dataset with uniformly random overlap
-parameters $\theta \in \left[ 0, 2.5 \right]$.
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{images/caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
-
-    \caption{Example of the simulation setup in the input space with two
-        knots --\emph{ie.} basis functions. The top panel
-        shows the observations in feature space, while the bottom panel displays the
-        two response surfaces on a 1D cut along the black lines drawn on
-        the top panel.}
-    \label{fig:simulation_examples}
-\end{figure}
-
-
-\subsection{ Details on the semi-simulated datasets}\label{apd:experiments:datasets}
-
-
-\begin{description}
-    \item[ACIC 2018] \cite{dorie_automated_2019}:  The initial intervention was a child’s birth
-        weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
-        IQ after a follow-up period. The study contained $N=4\,802$ data
-        points with $D=55$ features (5 binary, 27 count data, and 23
-        continuous). They simulated 77 different setups varying parameters
-        for treatment and response models, overlap, and interactions between treatment and
-        covariates \footnote{Original R code available at
-            \url{https://github.com/vdorie/aciccomp/tree/master/2016}
-            to generate 77 simulations settings.}. We used 10 different seeds
-        for each setup, totaling 770 dataset instances.
-
-    \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: Starting from data from
-        the Linked Births and Infant Deaths Database (LBIDD)
-        \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
-        outcome models are simulated with complex models to reflect different
-        scenarii. The data do not provide the true propensity scores, so we
-        evaluate only feasible metrics, which do not require this nuisance
-        parameter. We used all 432 datasets\footnote{Using the scaling part of
-            the data, from
-            \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}}
-        of size $N=5\,000$.
-
-
-    \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of
-        real data on twin births and mortality rates
-        \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
-        and $D=50$ covariates\footnote{We obtained the dataset from
-            \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
-        weight of the heavier twin at birth. This is a "true" counterfactual dataset
-        \cite{curth_really_2021} in the sense that we have
-        both potential outcomes with each twin. They simulate the treatment with a
-        sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
-        the 45 other covariates:
-        \begin{align}
-            \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
-            \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
-            \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
-            w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
-        \end{align}
-        We add a non-constant slope in the
-        sigmoid to control the overlap between
-        treated and control populations.
-        We sampled uniformly 1\,000 different overlap parameters between 0 and
-        2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
-        only the overlap varies for these instances. The response surfaces are
-        set by the original outcomes.
-\end{description}
-
-\subsection{Model selection procedures}
-
-\paragraph{Nuisances estimation}\label{apd:experiments:nuisances_hp}
-
-The nuisances are estimated with a stacked regressor inspired by the Super
-Learner framework, \cite{laan_super_2007}). We select hyper-parameters
-with randomized search on a validation set $\mathcal{V}$ and keep them fix for
-model selection  The searc grid is detailed in Table
-\ref{apd:experiments:nuisances_hp_grid}. All implementations come from
-\href{https://scikit-learn.org/stable/}{scikit-learn}
-\cite{pedregosa_scikitlearn_2011}.  As extreme inverse propensity weights induce
-high variance, we use clipping \cite{swaminathan_counterfactual_2015,
-    ionides_truncated_2008} to bound $min(\check e, 1-\check e)$ away from 0 with a
-fixed $\eta=10^{-10}$, ensuring strict overlap for numerical stability.
-
-\begin{table}[h!]
-    \begin{tabular}{llll}
-        \toprule
-        Model                & Estimator
-                             & Hyper-parameters grid                                         \\
-        \midrule
-        Outcome, m           & StackedRegressor
-                             & ridge regularization: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100]  \\
-        \multirow[c]{3}{*}{} & (HistGradientBoostingRegressor, ridge)
-                             & HistGradientBoostingRegressor  learning rate: [0.01, 0.1, 1]  \\
-                             &
-                             & HistGradientBoostingRegressor  max leaf nodes: [10,
-        20, 30, 50]                                                                          \\
-        \midrule
-        Treatment, e         & StackedClassifier
-                             & LogisticRegression  C: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100] \\
-        \multirow[c]{3}{*}{} & (HistgradientBoostingClassifier, LogisticRegression)
-                             & HistGradientBoostingClassifier  learning rate: [0.01, 0.1, 1] \\
-                             &
-                             & HistGradientBoostingClassifier  max leaf nodes: [10,
-        20, 30, 50]                                                                          \\
-        \bottomrule
-    \end{tabular}
-    \caption{Hyper-parameters grid used for nuisance models}
-    \label{apd:experiments:nuisances_hp_grid}
-\end{table}
-
-
-\subsection{Additional Results}\label{apd:experiments:additional_results}
-
-\paragraph{Definition of the Kendall's tau, $\kappa$}
-
-The Kendall's tau  is a widely used statistics to measure the rank correlation
-between two set of observations. It measures the number of concordant pairs
-minus the discordant pairs normalized by the total number of pairs. It takes values in the
-$[-1, 1]$ range.
-\begin{equation}\label{eq:kendall_tau}
-    \kappa=\frac{\text { (number of concordant pairs })-\text { (number of discordant pairs) }}{\text { (number of pairs) }}
-\end{equation}
-
-\paragraph{Values of relative $\kappa(\ell,\tau\mathrm{{-risk}})$ compared to
-    the mean over all metrics Kendall's as shown in the boxplots of Figure \ref{fig:relative_kendalls_all_datasets}}
-
-\begin{table}
-    \centering
-    \resizebox{0.7\textwidth}{!}{
-        \input{images/_1_r_risk_domination_boxplot_df.tex}
-    }
-    \caption{Values of relative $\kappa(\ell,\tau\mathrm{{-risk}})$ compared to
-        the mean over all metrics Kendall's as shown in the boxplots of Figure
-        \ref{fig:relative_kendalls_all_datasets}}\label{apd:table:relative_kendalls_all_datasets}
-\end{table}
-
-
-\paragraph{Figure \ref{apd:fig:relative_kendalls_all_datasets_all_metrics} -
-    Results measured in relative Kendall's for feasible and semi-oracle risks}
-
-Because of extreme propensity scores in the denominator and bayes error residuals in the numerator, the semi-oracle
-$U$-risk has poor performances at bad overlap. Estimating these propensity scores in the is feasible $U$-risk reduces
-the variance since clipping is performed.
-
-\begin{figure}[!b]
-    \centering
-    \includegraphics[width=\linewidth]{images/_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf}
-    %\hfill
-    \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$
-        agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
-        the first and last tertiles of the overlap distribution measured with
-        Normalized Total Variation eq. \ref{eq:ntv}.
-    }\label{apd:fig:relative_kendalls_all_datasets_all_metrics}
-\end{figure}
-
-\paragraph{Figure \ref{apd:fig:all_datasets_tau_risk_ranking_agreement} -
-    Results measured in absolute Kendall's}
-
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{figure}
         \centering
-        \caption{\textbf{Caussim}}
-        \includegraphics[width=\textwidth]{images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf}
-        \label{fig:ranking_agreement_w_tau_risk_caussim}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.44\textwidth}
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{Caussim}}
+            \includegraphics[width=\textwidth]{images/kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf}
+            \label{fig:ranking_agreement_w_tau_risk_caussim}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2016}}
+            \includegraphics[width=\textwidth]{images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf}
+            \label{fig:ranking_agreement_tau_risk_acic_2016}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.10\textwidth}
+            \centering
+            \includegraphics[width=1.5\textwidth]{images/legend_metrics.pdf}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2018}}
+            \includegraphics[width=\textwidth]{images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf}
+            \label{fig:ranking_agreement_w_tau_risk_acic_2018}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{TWINS}}
+            \includegraphics[width=\textwidth]{images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf}
+            \label{fig:ranking_agreement_tau_risk_twins}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.10\textwidth}
+            ~
+        \end{subfigure}
+        % \begin{subfigure}[b]{\textwidth}
+        %   \centering
+        %   \includegraphics[width=0.5\textwidth]{images/legend_metrics_horizontal.pdf}
+        % \end{subfigure}
+        \caption{Agreement with $\tau\text{-risk}$ ranking of methods function
+            of overlap violation. The lines represent medians, estimated with a
+            lowess. The transparent
+            bands denote the 5\% and 95\% confidence intervals.}\label{apd:fig:all_datasets_tau_risk_ranking_agreement}
+    \end{figure}
+
+
+
+    \paragraph{Figure \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}
+        - Results measured as distance to the oracle tau-risk}
+
+    To see practical gain in term of $\tau\text{-risk}$, we plot the results as the
+    normalized distance between the estimator selected by the oracle
+    $\tau\text{-risk}$ and the estimator selected by each causal metric.
+
+    Then, $\widehat{R\text{-risk}}^*$ is more efficient than all other metrics. The
+    gain are substantial for every datasets.
+
+    \begin{figure}
         \centering
-        \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=\textwidth]{images/kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf}
-        \label{fig:ranking_agreement_tau_risk_acic_2016}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.10\textwidth}
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{Caussim}}
+            \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf}
+            \label{fig:normalized_bias_tau_risk_to_best_method_caussim}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2016}}
+            \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf}
+            \label{fig:normalized_bias_tau_risk_to_best_method_acic_2016}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.10\textwidth}
+            \centering
+            \includegraphics[width=1.5\textwidth]{images/legend_metrics.pdf}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2018}}
+            \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf}
+            \label{fig:normalized_bias_tau_risk_to_best_method_acic_2018}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.44\textwidth}
+            \centering
+            \caption{\textbf{TWINS}}
+            \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf}
+            \label{fig:normalized_bias_tau_risk_to_best_method_twins}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.10\textwidth}
+            ~
+        \end{subfigure}
+        \caption{Metric performances by normalized tau-risk distance to the best
+            method selected with $\tau\text{-risk}$. All nuisances are learned with the
+            same estimator stacking gradient boosting and ridge regression. Doted and
+            plain lines corresponds to 60\% lowess quantile estimates. This choice of
+            quantile allows to see better the oracle metrics lines for which outliers with a value
+            of 0 distord the curves.}
+        \label
+        {apd:all_datasets_normalized_bias_tau_risk_to_best_method}
+    \end{figure}
+
+
+
+    \paragraph{Figure \ref{apd:fig:procedures_comparison_all_metrics} - Stacked models for the nuisances is more efficient}
+    For each metrics the benefit of
+    using a stacked model of linear and boosting estimators for nuisances compared
+    to a linear model. The evaluation measure is Kendall's tau relative to the
+    oracle $R\text{-risk}^{\star}$ to have a stable reference between exepriments.
+    Thus, we do not include in this analysis the ACIC 2018 dataset since
+    $R\text{-risk}^{\star}$ is not available due to the lack of the true propensity
+    score.
+
+    \begin{figure}
+        \begin{subfigure}[b]{0.9\textwidth}
+            %\centering
+            \caption{\textbf{Caussim}}
+            \includegraphics[width=1.15\textwidth]{images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf}
+            \label{fig:experiments:procedures_comparison:caussim}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.9\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2016}}
+            \includegraphics[width=1\textwidth]{images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf}
+            \label{fig:experiments:procedures_comparison:acic_2016}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.9\textwidth}
+            \centering
+            \caption{\textbf{Twins}}
+            \includegraphics[width=1\textwidth]{images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf}
+            \label{fig:experiments:procedures_comparison:twins}
+        \end{subfigure}
+        \hfill
+        \caption{Results are similar between the \textcolor{MidnightBlue}{Shared
+                nuisances/candidate set} and
+            the \textcolor{RedOrange}{Separated nuisances set} procedure. The
+            experience has not been run on the full metrics for Caussim due to computation costs.}\label
+        {apd:fig:procedures_comparison_all_metrics}
+    \end{figure}
+
+    \paragraph{Figure \ref{apd:fig:all_datasets_overlap_effect} Low population
+        overlap hinders model selection for all metrics}
+
+
+
+    \begin{figure}
         \centering
-        \includegraphics[width=1.5\textwidth]{images/legend_metrics.pdf}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf}
+        \hfill
+        \caption{\textbf{Low population overlap hinders causal model selection for all
+                metrics}:
+            Kendall's $\tau$ agreement with $\tau\text{-risk}$. Strong, medium and Weak overlap
+            correspond
+            to the tertiles of the overlap distribution measured with Normalized Total
+            Varation eq. \ref{eq:ntv}.}\label{apd:fig:all_datasets_overlap_effect}
+    \end{figure}
+
+
+    \paragraph{Figure \ref{apd:fig:nuisances_comparison} - Stacked models for the nuisances is more efficient}
+    For each metrics the benefit of
+    using a stacked model of linear and boosting estimators for nuisances compared
+    to a linear model. The evaluation measure is Kendall's tau relative to the
+    oracle $R\text{-risk}^{\star}$ to have a stable reference between exepriments.
+    Thus, we do not include in this analysis the ACIC 2018 dataset since
+    $R\text{-risk}^{\star}$ is not available due to the lack of the true propensity
+    score.
+
+    \begin{figure}
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \caption{\textbf{Twins}}
+            \includegraphics[width=1\textwidth]{images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf}
+            \label{fig:experiments:nuisance_comparison:twins}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \caption{\textbf{Twins downsampled}}
+            \includegraphics[width=1\textwidth]{images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf}
+            \label{fig:experiments:nuisance_comparison:twins_ds}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.49\textwidth}
+            %\centering
+            \caption{\textbf{Caussim}}
+            \includegraphics[width=1.15\textwidth]{images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf}
+            \label{fig:experiments:nuisance_comparison:caussim}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.49\textwidth}
+            \centering
+            \caption{\textbf{ACIC 2016}}
+            \includegraphics[width=1\textwidth]{images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf}
+            \label{fig:experiments:nuisance_comparison:acic_2016}
+        \end{subfigure}
+        \hfill
+        \caption{Learning the nuisances with \textcolor{DarkOrchid}{stacked models} (linear and
+            gradient boosting) is important for successful model selection with R-risk.
+            For Twins dataset, there is no improvement for \textcolor{DarkOrchid}{stacked models} compared to
+            \textcolor{ForestGreen}{linear models} because of the linearity of the propensity model.}\label
+        {apd:fig:nuisances_comparison}
+    \end{figure}
+
+    \paragraph{Figure \ref{apd:fig:nuisances_comparison_twins} - Flexible models are performant in recovering nuisances even
+        in linear setups}
+
+    \begin{figure}
         \centering
-        \caption{\textbf{ACIC 2018}}
-        \includegraphics[width=\textwidth]{images/kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf}
-        \label{fig:ranking_agreement_w_tau_risk_acic_2018}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf}
+        \hfill
+        \caption{\textbf{Flexible models are performant in recovering nuisances
+                in the downsampled Twins dataset.} The propensity score is linear in this
+            setup, making it particularly challenging for flexible models compared to
+            linear methods.}\label{apd:fig:nuisances_comparison_twins}
+    \end{figure}
+
+
+    \paragraph{Selecting different seeds and parameters is crucial to draw
+        conclusions}\label{apd:results:seed_effect}
+
+    One strength of our study is the various number of different simulated and
+    semi-simulated datasets. We are convinced that the usual practice of using only
+    a small number of generation processes does not allow to draw statistically
+    significant conclusions.
+
+    Figure \ref{apd:results:fig:seed_effect} illustrate the dependence of the
+    results on the generation process for caussim simulations. We highlighted the
+    different trajectories induced by three different seeds for data generation and
+    three different treatment ratio instead of 1000 different seeds. The result
+    curves are relatively stable from one setup to another for $R{-risk}$, but vary
+    strongly for $\mu\text{-risk}$ and $\mu\text{-risk}_{IPW}$.
+
+    \begin{figure}
         \centering
-        \caption{\textbf{TWINS}}
-        \includegraphics[width=\textwidth]{images/kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf}
-        \label{fig:ranking_agreement_tau_risk_twins}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.10\textwidth}
-        ~
-    \end{subfigure}
-    % \begin{subfigure}[b]{\textwidth}
+        \caption{Kendall correlation coefficients for each causal metric. Each (color,
+            shape) pair indicates a different (treatment ratio, seed) of the generation
+            process.}\label {apd:results:fig:seed_effect}
+        \includegraphics[width=\linewidth]{images/caussim_seed_effect.pdf}
+    \end{figure}
+
+    \FloatBarrier
+
+    \section{Data split choices}\label{apd:results:data_split}
+
+    \subsection{Use 90\% of the data to estimate outcome models, 10\% to
+        select them}
+
+    The analyst faces a compromise: given a finite
+    data sample, should she allocate more data to estimate the outcome model,
+    thus improving the quality of the outcome model but leaving
+    little data for model selection. Or, she could choose a bigger test set for
+    model selection and effect estimation. For causal model selection, there
+    is no established practice (as reviewed in \ref{apd:results:k_fold_choices}).
+
+    We investigate such tradeoff varying the ratio between train and test
+    data size. For this, we first split out 30\% of the data as a holdout set
+    $\mathcal{V}$ on which we use the oracle response functions to derive
+    silver-standard estimates of causal quantities. We then
+    use the standard estimation procedure on the remaining 70\% of the data,
+    splitting it into train $\mathcal{T}$ and test $\mathcal{S}$ of varying
+    sizes. We finally measure the error between this estimate and the
+    silver standard.
+
+    We consider two different analytic goals: estimating a average
+    treatment effect --a single number used for policy making-- and a
+    CATE --a full model of the treatment effect as a function of covariates
+    $X$. Given that the latter is a much more complex object than the former,
+    the optimal train/test ratio might vary. To measure errors, we use for
+    the ATE the relative absolute ATE bias between the ATE computed with the
+    selected outcome model on the test set, and the true ATE as evaluated on
+    the holdout set $\mathcal{V}$. For the CATE, we compare the
+    $\tau\text{-risk}$
+    of the best selected model applied on the holdout set $\mathcal{V}$. We explore this trade-off for the ACIC 2016 dataset and the R-risk.
+
+    \begin{figure}[!t]
+        \begin{minipage}{.5\textwidth}
+            \centerline{\textbf{a) CATE estimation error}}
+            \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf}
+        \end{minipage}
+        %\hspace{0.3\textwidth}
+        \begin{minipage}{.5\textwidth}
+            \centerline{\textbf{b) ATE estimation error}}
+            \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf}
+        \end{minipage}%
+        \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears a good
+                trade-off.} b) For ATE, there is a small signal pointing also to
+            0.9/0.1 (K=10).
+            for ATE. Experiences on 10 replications of all 78 instances of the ACIC 2016
+            data.}\label{fig:train_test_ratio}
+    \end{figure}
+
+    Figure \ref{fig:train_test_ratio} shows that a train/test ratio of
+    0.9/0.1 (K=10) or 0.8/0.2 (K=5) appears best to estimate CATE and
+    ATE.
+
+    \subsection{Heterogeneity in practices for data split}\label{apd:results:k_fold_choices}
+
+    Splitting the data is common when using machine learning for causal
+    inference, but practices vary widely in terms of the fraction of data to
+    allocate to train models, outcomes and nuisances, and to evaluate them.
+
+    Before even model selection, data splitting is often required for
+    estimation of the treatment effect, ATE or CATE, for instance to compute
+    the nuisances required to optimize the outcome model (as the
+    $R\text{-risk}$, Definition \ref{def:r_risk}).
+    %
+    The most frequent choice is use 80\% of the data to fit the models,
+    and 20\% to evaluate them.
+    %
+    For instance, for CATE estimation, the R-learner has been introduced using K-folds with K = 5
+    and K = 10: 80\% of the data (4 folds) to train the nuisances and the remaining
+    fold to minimize the corresponding R-loss \cite{nie_quasioracle_2017}.
+    Yet, it has been implemented with K=5 in causallib
+    \cite{causalevaluations} or K=3 in econML \cite{econml}.
+    Likewise, for ATE estimation, \citet{chernozhukov_double_2018}
+    introduce doubly-robust machine learning,
+    recommending K=5 based on an empirical comparison K=2. However,
+    subsequent works use doubly robust ML with varying choices
+    of K: \citet{loiseau_external_2022} use K=3, \citet{gao_assessment_2021} use
+    K=2. In the econML implementation, K is set to 3 \cite{econml}.
+    \citet{naimi2021challenges} evaluate various machine-learning approaches
+    --including R-learners-- using K=5 and 10, drawing inspiration from the
+    TMLE literature which sets
+    K=5 in the TMLE package \cite{tmle_package_2012}.
+
+    Causal model selection has been much less discussed. The only study that
+    we are aware of, \citet{schuler_comparison_2018}, use a different data
+    split: a 2-folds train/test procedure,
+    training the nuisances on the first half of the data, and using the
+    second half to estimate the $R\text{-risk}$ and select the best treatment
+    effect model.
+
+
+    % \paragraph{Simulations: naive reweighting of the $R \text{-risk}$}
+
+    % Applying a naive reweighting, $w(x, a)=\frac{1}{e(x)\big(1-e(x) \big )}$ to the
+    % $R \text{-risk}$ to recover the $\tau \text{-risk}$ in the first part of
+    % \ref{theory:prop:r_risk_rewrite} makes the residuals explode in case of noise as
+    % shown in Figure \ref{apd:simu_noised}.
+
+
+    % \begin{figure}[htbp]
     %   \centering
-    %   \includegraphics[width=0.5\textwidth]{images/legend_metrics_horizontal.pdf}
-    % \end{subfigure}
-    \caption{Agreement with $\tau\text{-risk}$ ranking of methods function
-        of overlap violation. The lines represent medians, estimated with a
-        lowess. The transparent
-        bands denote the 5\% and 95\% confidence intervals.}\label{apd:fig:all_datasets_tau_risk_ranking_agreement}
-\end{figure}
-
-
-
-\paragraph{Figure \ref{apd:all_datasets_normalized_bias_tau_risk_to_best_method}
-    - Results measured as distance to the oracle tau-risk}
-
-To see practical gain in term of $\tau\text{-risk}$, we plot the results as the
-normalized distance between the estimator selected by the oracle
-$\tau\text{-risk}$ and the estimator selected by each causal metric.
-
-Then, $\widehat{R\text{-risk}}^*$ is more efficient than all other metrics. The
-gain are substantial for every datasets.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.44\textwidth}
-        \centering
-        \caption{\textbf{Caussim}}
-        \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf}
-        \label{fig:normalized_bias_tau_risk_to_best_method_caussim}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.44\textwidth}
-        \centering
-        \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf}
-        \label{fig:normalized_bias_tau_risk_to_best_method_acic_2016}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.10\textwidth}
-        \centering
-        \includegraphics[width=1.5\textwidth]{images/legend_metrics.pdf}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.44\textwidth}
-        \centering
-        \caption{\textbf{ACIC 2018}}
-        \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf}
-        \label{fig:normalized_bias_tau_risk_to_best_method_acic_2018}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.44\textwidth}
-        \centering
-        \caption{\textbf{TWINS}}
-        \includegraphics[width=\textwidth]{images/normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf}
-        \label{fig:normalized_bias_tau_risk_to_best_method_twins}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.10\textwidth}
-        ~
-    \end{subfigure}
-    \caption{Metric performances by normalized tau-risk distance to the best
-        method selected with $\tau\text{-risk}$. All nuisances are learned with the
-        same estimator stacking gradient boosting and ridge regression. Doted and
-        plain lines corresponds to 60\% lowess quantile estimates. This choice of
-        quantile allows to see better the oracle metrics lines for which outliers with a value
-        of 0 distord the curves.}
-    \label
-    {apd:all_datasets_normalized_bias_tau_risk_to_best_method}
-\end{figure}
-
-
-
-\paragraph{Figure \ref{apd:fig:procedures_comparison_all_metrics} - Stacked models for the nuisances is more efficient}
-For each metrics the benefit of
-using a stacked model of linear and boosting estimators for nuisances compared
-to a linear model. The evaluation measure is Kendall's tau relative to the
-oracle $R\text{-risk}^{\star}$ to have a stable reference between exepriments.
-Thus, we do not include in this analysis the ACIC 2018 dataset since
-$R\text{-risk}^{\star}$ is not available due to the lack of the true propensity
-score.
-
-\begin{figure}
-    \begin{subfigure}[b]{0.9\textwidth}
-        %\centering
-        \caption{\textbf{Caussim}}
-        \includegraphics[width=1.15\textwidth]{images/_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf}
-        \label{fig:experiments:procedures_comparison:caussim}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.9\textwidth}
-        \centering
-        \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=1\textwidth]{images/_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf}
-        \label{fig:experiments:procedures_comparison:acic_2016}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.9\textwidth}
-        \centering
-        \caption{\textbf{Twins}}
-        \includegraphics[width=1\textwidth]{images/_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf}
-        \label{fig:experiments:procedures_comparison:twins}
-    \end{subfigure}
-    \hfill
-    \caption{Results are similar between the \textcolor{MidnightBlue}{Shared
-            nuisances/candidate set} and
-        the \textcolor{RedOrange}{Separated nuisances set} procedure. The
-        experience has not been run on the full metrics for Caussim due to computation costs.}\label
-    {apd:fig:procedures_comparison_all_metrics}
-\end{figure}
-
-\paragraph{Figure \ref{apd:fig:all_datasets_overlap_effect} Low population
-    overlap hinders model selection for all metrics}
-
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf}
-    \hfill
-    \caption{\textbf{Low population overlap hinders causal model selection for all
-            metrics}:
-        Kendall's $\tau$ agreement with $\tau\text{-risk}$. Strong, medium and Weak overlap
-        correspond
-        to the tertiles of the overlap distribution measured with Normalized Total
-        Varation eq. \ref{eq:ntv}.}\label{apd:fig:all_datasets_overlap_effect}
-\end{figure}
-
-
-\paragraph{Figure \ref{apd:fig:nuisances_comparison} - Stacked models for the nuisances is more efficient}
-For each metrics the benefit of
-using a stacked model of linear and boosting estimators for nuisances compared
-to a linear model. The evaluation measure is Kendall's tau relative to the
-oracle $R\text{-risk}^{\star}$ to have a stable reference between exepriments.
-Thus, we do not include in this analysis the ACIC 2018 dataset since
-$R\text{-risk}^{\star}$ is not available due to the lack of the true propensity
-score.
-
-\begin{figure}
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \caption{\textbf{Twins}}
-        \includegraphics[width=1\textwidth]{images/_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf}
-        \label{fig:experiments:nuisance_comparison:twins}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \caption{\textbf{Twins downsampled}}
-        \includegraphics[width=1\textwidth]{images/_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf}
-        \label{fig:experiments:nuisance_comparison:twins_ds}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        %\centering
-        \caption{\textbf{Caussim}}
-        \includegraphics[width=1.15\textwidth]{images/_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf}
-        \label{fig:experiments:nuisance_comparison:caussim}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=1\textwidth]{images/_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf}
-        \label{fig:experiments:nuisance_comparison:acic_2016}
-    \end{subfigure}
-    \hfill
-    \caption{Learning the nuisances with \textcolor{DarkOrchid}{stacked models} (linear and
-        gradient boosting) is important for successful model selection with R-risk.
-        For Twins dataset, there is no improvement for \textcolor{DarkOrchid}{stacked models} compared to
-        \textcolor{ForestGreen}{linear models} because of the linearity of the propensity model.}\label
-    {apd:fig:nuisances_comparison}
-\end{figure}
-
-\paragraph{Figure \ref{apd:fig:nuisances_comparison_twins} - Flexible models are performant in recovering nuisances even
-    in linear setups}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/_4_nuisance_models_r_risk_only_twins_nuisances.pdf}
-    \hfill
-    \caption{\textbf{Flexible models are performant in recovering nuisances
-            in the downsampled Twins dataset.} The propensity score is linear in this
-        setup, making it particularly challenging for flexible models compared to
-        linear methods.}\label{apd:fig:nuisances_comparison_twins}
-\end{figure}
-
-
-\paragraph{Selecting different seeds and parameters is crucial to draw
-    conclusions}\label{apd:results:seed_effect}
-
-One strength of our study is the various number of different simulated and
-semi-simulated datasets. We are convinced that the usual practice of using only
-a small number of generation processes does not allow to draw statistically
-significant conclusions.
-
-Figure \ref{apd:results:fig:seed_effect} illustrate the dependence of the
-results on the generation process for caussim simulations. We highlighted the
-different trajectories induced by three different seeds for data generation and
-three different treatment ratio instead of 1000 different seeds. The result
-curves are relatively stable from one setup to another for $R{-risk}$, but vary
-strongly for $\mu\text{-risk}$ and $\mu\text{-risk}_{IPW}$.
-
-\begin{figure}
-    \centering
-    \caption{Kendall correlation coefficients for each causal metric. Each (color,
-        shape) pair indicates a different (treatment ratio, seed) of the generation
-        process.}\label {apd:results:fig:seed_effect}
-    \includegraphics[width=\linewidth]{images/caussim_seed_effect.pdf}
-\end{figure}
-
-\FloatBarrier
-
-\section{Data split choices}\label{apd:results:data_split}
-
-\subsection{Use 90\% of the data to estimate outcome models, 10\% to
-    select them}
-
-The analyst faces a compromise: given a finite
-data sample, should she allocate more data to estimate the outcome model,
-thus improving the quality of the outcome model but leaving
-little data for model selection. Or, she could choose a bigger test set for
-model selection and effect estimation. For causal model selection, there
-is no established practice (as reviewed in \ref{apd:results:k_fold_choices}).
-
-We investigate such tradeoff varying the ratio between train and test
-data size. For this, we first split out 30\% of the data as a holdout set
-$\mathcal{V}$ on which we use the oracle response functions to derive
-silver-standard estimates of causal quantities. We then
-use the standard estimation procedure on the remaining 70\% of the data,
-splitting it into train $\mathcal{T}$ and test $\mathcal{S}$ of varying
-sizes. We finally measure the error between this estimate and the
-silver standard.
-
-We consider two different analytic goals: estimating a average
-treatment effect --a single number used for policy making-- and a
-CATE --a full model of the treatment effect as a function of covariates
-$X$. Given that the latter is a much more complex object than the former,
-the optimal train/test ratio might vary. To measure errors, we use for
-the ATE the relative absolute ATE bias between the ATE computed with the
-selected outcome model on the test set, and the true ATE as evaluated on
-the holdout set $\mathcal{V}$. For the CATE, we compare the
-$\tau\text{-risk}$
-of the best selected model applied on the holdout set $\mathcal{V}$. We explore this trade-off for the ACIC 2016 dataset and the R-risk.
-
-\begin{figure}[!t]
-    \begin{minipage}{.5\textwidth}
-        \centerline{\textbf{a) CATE estimation error}}
-        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf}
-    \end{minipage}
-    %\hspace{0.3\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \centerline{\textbf{b) ATE estimation error}}
-        \includegraphics[width=\linewidth]{images/_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf}
-    \end{minipage}%
-    \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears a good
-            trade-off.} b) For ATE, there is a small signal pointing also to
-        0.9/0.1 (K=10).
-        for ATE. Experiences on 10 replications of all 78 instances of the ACIC 2016
-        data.}\label{fig:train_test_ratio}
-\end{figure}
-
-Figure \ref{fig:train_test_ratio} shows that a train/test ratio of
-0.9/0.1 (K=10) or 0.8/0.2 (K=5) appears best to estimate CATE and
-ATE.
-
-\subsection{Heterogeneity in practices for data split}\label{apd:results:k_fold_choices}
-
-Splitting the data is common when using machine learning for causal
-inference, but practices vary widely in terms of the fraction of data to
-allocate to train models, outcomes and nuisances, and to evaluate them.
-
-Before even model selection, data splitting is often required for
-estimation of the treatment effect, ATE or CATE, for instance to compute
-the nuisances required to optimize the outcome model (as the
-$R\text{-risk}$, Definition \ref{def:r_risk}).
-%
-The most frequent choice is use 80\% of the data to fit the models,
-and 20\% to evaluate them.
-%
-For instance, for CATE estimation, the R-learner has been introduced using K-folds with K = 5
-and K = 10: 80\% of the data (4 folds) to train the nuisances and the remaining
-fold to minimize the corresponding R-loss \cite{nie_quasioracle_2017}.
-Yet, it has been implemented with K=5 in causallib
-\cite{causalevaluations} or K=3 in econML \cite{econml}.
-Likewise, for ATE estimation, \citet{chernozhukov_double_2018}
-introduce doubly-robust machine learning,
-recommending K=5 based on an empirical comparison K=2. However,
-subsequent works use doubly robust ML with varying choices
-of K: \citet{loiseau_external_2022} use K=3, \citet{gao_assessment_2021} use
-K=2. In the econML implementation, K is set to 3 \cite{econml}.
-\citet{naimi2021challenges} evaluate various machine-learning approaches
---including R-learners-- using K=5 and 10, drawing inspiration from the
-TMLE literature which sets
-K=5 in the TMLE package \cite{tmle_package_2012}.
-
-Causal model selection has been much less discussed. The only study that
-we are aware of, \citet{schuler_comparison_2018}, use a different data
-split: a 2-folds train/test procedure,
-training the nuisances on the first half of the data, and using the
-second half to estimate the $R\text{-risk}$ and select the best treatment
-effect model.
-
-
-% \paragraph{Simulations: naive reweighting of the $R \text{-risk}$}
-
-% Applying a naive reweighting, $w(x, a)=\frac{1}{e(x)\big(1-e(x) \big )}$ to the
-% $R \text{-risk}$ to recover the $\tau \text{-risk}$ in the first part of
-% \ref{theory:prop:r_risk_rewrite} makes the residuals explode in case of noise as
-% shown in Figure \ref{apd:simu_noised}.
-
-
-% \begin{figure}[htbp]
-%   \centering
-%   \caption{Caussim simulations (500 repetitions):
-%   $R\text{-risk}_{IPW^*_{naive}}$ (in green) is exploding}\label
-%   {apd:simu_noised}
-%   \includegraphics[width=0.7\linewidth]{images/noised_0.001_simu_best_normalized_abs_bias_ate_vs_mmd.pdf}
-% \end{figure}
+    %   \caption{Caussim simulations (500 repetitions):
+    %   $R\text{-risk}_{IPW^*_{naive}}$ (in green) is exploding}\label
+    %   {apd:simu_noised}
+    %   \includegraphics[width=0.7\linewidth]{images/noised_0.001_simu_best_normalized_abs_bias_ate_vs_mmd.pdf}
+    % \end{figure}
+\end{appendices}
 
 \end{document}

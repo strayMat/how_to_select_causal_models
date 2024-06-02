@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.18)  2 JUN 2024 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.18)  2 JUN 2024 15:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -697,10 +697,26 @@ Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
 \c@subtable=\count362
 ) (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
+) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box84
+\beforetitleunit=\skip80
+\aftertitleunit=\skip81
+\ttl@plus=\dimen328
+\ttl@minus=\dimen329
+\ttl@toksa=\toks49
+\titlewidth=\dimen330
+\titlewidthlast=\dimen331
+\titlewidthfirst=\dimen332
+
+
+Package titlesec Warning: Non standard sectioning command \subparagraph
+(titlesec)                detected. Using default spacing and no format.
+
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count363
-\l__pdf_internal_box=\box84
+\l__pdf_internal_box=\box85
 )
 
 LaTeX Warning: Unused global option(s):
@@ -709,46 +725,46 @@ LaTeX Warning: Unused global option(s):
 (./how_to_select.aux)
 \openout1 = `how_to_select.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count364
-\scratchdimen=\dimen328
-\scratchbox=\box85
+\scratchdimen=\dimen333
+\scratchbox=\box86
 \nofMPsegments=\count365
 \nofMParguments=\count366
-\everyMPshowfont=\toks49
+\everyMPshowfont=\toks50
 \MPscratchCnt=\count367
-\MPscratchDim=\dimen329
+\MPscratchDim=\dimen334
 \MPnumerator=\count368
 \makeMPintoPDFobject=\count369
-\everyMPtoPDFconversion=\toks50
+\everyMPtoPDFconversion=\toks51
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package crop Info: requested driver: `' on input line 82.
-Package crop Info: detected driver: `pdftex' on input line 82.
-Package crop Info: using `pdftex' graphics driver on input line 82.
+Package crop Info: requested driver: `' on input line 85.
+Package crop Info: detected driver: `pdftex' on input line 85.
+Package crop Info: using `pdftex' graphics driver on input line 85.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -757,13 +773,13 @@ Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 82.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 85.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 82.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 85.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 82.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 85.
 \c@lstlisting=\count370
-Package hyperref Info: Link coloring OFF on input line 82.
+Package hyperref Info: Link coloring OFF on input line 85.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -773,48 +789,48 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count371
 )
-LaTeX Info: Redefining \ref on input line 82.
-LaTeX Info: Redefining \pageref on input line 82.
-LaTeX Info: Redefining \nameref on input line 82.
+LaTeX Info: Redefining \ref on input line 85.
+LaTeX Info: Redefining \pageref on input line 85.
+LaTeX Info: Redefining \nameref on input line 85.
  (./how_to_select.out) (./how_to_select.out)
 \@outlinefile=\write4
 \openout4 = `how_to_select.out'.
 
-LaTeX Font Info:    Calculating math sizes for size <13.04874> on input line 165.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 165.
+LaTeX Font Info:    Calculating math sizes for size <13.04874> on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 169.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 165.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 169.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 165.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 169.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Calculating math sizes for size <9.13406> on input line 165.
-LaTeX Font Info:    Calculating math sizes for size <7.52812> on input line 165.
-LaTeX Font Info:    Calculating math sizes for size <6.52437> on input line 165.
-LaTeX Font Info:    Calculating math sizes for size <4.56703> on input line 165.
-LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 165.
+LaTeX Font Info:    Calculating math sizes for size <9.13406> on input line 169.
+LaTeX Font Info:    Calculating math sizes for size <7.52812> on input line 169.
+LaTeX Font Info:    Calculating math sizes for size <6.52437> on input line 169.
+LaTeX Font Info:    Calculating math sizes for size <4.56703> on input line 169.
+LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 169.
 
-Underfull \hbox (badness 1221) in paragraph at lines 209--232
+Underfull \hbox (badness 1221) in paragraph at lines 213--236
 []\OT1/cmr/m/n/7.52812 Indeed, concluding on the effect of a treatment is a
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 209--232
+Underfull \hbox (badness 2073) in paragraph at lines 213--236
 \OT1/cmr/m/n/7.52812 by confounding: spurious associations between treatment
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 209--232
+Underfull \hbox (badness 1132) in paragraph at lines 213--236
 \OT1/cmr/m/n/7.52812 inference theory under the name of \OT1/cmr/m/it/7.52812 outcome models \OT1/cmr/m/n/7.52812 (or
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 209--232
+Underfull \hbox (badness 1314) in paragraph at lines 213--236
 \OT1/cmr/m/n/7.52812 treatment assignment with propensity scores [[], [], [],
  []
 
@@ -822,27 +838,27 @@ Underfull \hbox (badness 1314) in paragraph at lines 209--232
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (0.712pt too wide) in paragraph at lines 241--258
+Overfull \hbox (0.712pt too wide) in paragraph at lines 245--262
 []\OT1/cmr/m/n/7.52812 Outcome-modeling methods, even when specifically designed
  []
 
 
-Underfull \hbox (badness 4181) in paragraph at lines 241--258
+Underfull \hbox (badness 4181) in paragraph at lines 245--262
 \OT1/cmr/m/n/7.52812 for causal inference, are numerous: Bayesian Additive
  []
 
 
-Overfull \hbox (3.65024pt too wide) in paragraph at lines 241--258
+Overfull \hbox (3.65024pt too wide) in paragraph at lines 245--262
 \OT1/cmr/m/n/7.52812 Regression Trees [[]], Targeted Maximum Likelihood Estimation
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 241--258
+Underfull \hbox (badness 1675) in paragraph at lines 245--262
 \OT1/cmr/m/n/7.52812 wide variety of methods raises the problem of selecting
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 241--258
+Underfull \hbox (badness 1077) in paragraph at lines 245--262
 \OT1/cmr/m/n/7.52812 between different estimators based on the data at hand.
  []
 
@@ -859,103 +875,70 @@ Non-PDF special ignored!
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 266.
+(hyperref)                than one, level fixed on input line 270.
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 268--277
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 270.
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 272--281
 \OT1/cmr/m/n/7.52812 without theoretical assumptions often made in statistical
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 268--277
+Underfull \hbox (badness 2050) in paragraph at lines 272--281
 \OT1/cmr/m/n/7.52812 literature such as \OT1/cmr/m/it/7.52812 infinite \OT1/cmr/m/n/7.52812 data or \OT1/cmr/m/it/7.52812 well-specified \OT1/cmr/m/n/7.52812 models
  []
 
 
-Overfull \hbox (107.22762pt too wide) in paragraph at lines 303--304
+Overfull \hbox (5.60022pt too wide) in paragraph at lines 307--308
 [][] 
  []
 
-<images//toy_random_forest_high_R2_high_tau_risk.pdf, id=426, 800.9006pt x 419.24709pt>
+<images//toy_random_forest_high_R2_high_tau_risk.pdf, id=417, 800.9006pt x 419.24709pt>
 File: images//toy_random_forest_high_R2_high_tau_risk.pdf Graphic file (type pdf)
 <use images//toy_random_forest_high_R2_high_tau_risk.pdf>
-Package pdftex.def Info: images//toy_random_forest_high_R2_high_tau_risk.pdf  used on input line 307.
-(pdftex.def)             Requested size: 141.15143pt x 73.8875pt.
+Package pdftex.def Info: images//toy_random_forest_high_R2_high_tau_risk.pdf  used on input line 311.
+(pdftex.def)             Requested size: 223.48677pt x 116.98535pt.
 
-Overfull \hbox (111.96281pt too wide) in paragraph at lines 318--319
+Overfull \hbox (9.96764pt too wide) in paragraph at lines 322--323
 [][] 
  []
 
-<images//toy_tlinear_model_small_R2_small_tau_risk.pdf, id=427, 780.85023pt x 419.24709pt>
+<images//toy_tlinear_model_small_R2_small_tau_risk.pdf, id=418, 780.85023pt x 419.24709pt>
 File: images//toy_tlinear_model_small_R2_small_tau_risk.pdf Graphic file (type pdf)
 <use images//toy_tlinear_model_small_R2_small_tau_risk.pdf>
-Package pdftex.def Info: images//toy_tlinear_model_small_R2_small_tau_risk.pdf  used on input line 321.
-(pdftex.def)             Requested size: 141.15143pt x 75.78107pt.
-LaTeX Font Info:    Calculating math sizes for size <6.02249> on input line 341.
+Package pdftex.def Info: images//toy_tlinear_model_small_R2_small_tau_risk.pdf  used on input line 325.
+(pdftex.def)             Requested size: 223.48677pt x 119.99203pt.
+LaTeX Font Info:    Calculating math sizes for size <6.02249> on input line 345.
 
-Underfull \hbox (badness 2088) in paragraph at lines 348--364
+Underfull \hbox (badness 2088) in paragraph at lines 352--368
 \OT1/cmr/m/n/7.52812 Using a predictor to reason on causal effects relies on
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 376--386
+Underfull \hbox (badness 1661) in paragraph at lines 380--390
 \OT1/cmr/m/n/7.52812 outcome functions are not linear--, leading to poor $\OML/cmm/m/it/7.52812 R[]$\OT1/cmr/m/n/7.52812 ;
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 401.
+(hyperref)                than one, level fixed on input line 405.
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 414--417
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 405.
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 418--421
 []\OT1/cmr/m/n/7.52812 Popular quantities of interest (estimands) are: at the
  []
 
 
-Underfull \hbox (badness 8000) in paragraph at lines 431--439
+Underfull \hbox (badness 8000) in paragraph at lines 435--443
 \OT1/cmr/m/n/7.52812 assumptions are (details in []C[]): \OT1/cmr/m/it/7.52812 1) unconfoundedness
  []
-
-
-Underfull \hbox (badness 2368) in paragraph at lines 440--440
-[][]\OT1/cmr/m/n/7.52812 Estimating treatment effects with outcome models -- g-
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\NAT@ctype' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\let' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\let' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 440.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 440.
 
 
 Overfull \hbox (253.25pt too wide) has occurred while \output is active
@@ -969,42 +952,83 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
  <./images//toy_random_forest_high_R2_high_tau_risk.pdf> <./images//toy_tlinear_model_small_R2_small_tau_risk.pdf>]
-Underfull \hbox (badness 1997) in paragraph at lines 464--468
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 444.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 444.
+
+
+Underfull \hbox (badness 1997) in paragraph at lines 468--472
 \OT1/cmr/m/n/7.52812 This equation builds on two quantities: the conditional
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 497--501
+Underfull \hbox (badness 1077) in paragraph at lines 501--505
 \OT1/cmr/m/n/7.52812 The \OT1/cmr/m/it/7.52812 R-decomposition \OT1/cmr/m/n/7.52812 of the outcome model[[]] plays an
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 573.
+(hyperref)                than one, level fixed on input line 577.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 577.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 594.
+(hyperref)                removing `math shift' on input line 598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 594.
+(hyperref)                removing `\tau' on input line 598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 594.
+(hyperref)                removing `math shift' on input line 598.
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 602--608
+Underfull \hbox (badness 2894) in paragraph at lines 606--612
 []\OT1/cmr/m/n/7.52812 Given observed data from $\OML/cmm/m/it/7.52812 p\OT1/cmr/m/n/7.52812 (\OML/cmm/m/it/7.52812 X\OT1/cmr/m/n/7.52812 )$, the expectation is
  []
 
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 644.
-<images//estimation_procedure_causal_selection_procedure.png, id=563, 461.35605pt x 185.5581pt>
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 648.
+<images//estimation_procedure_causal_selection_procedure.png, id=552, 461.35605pt x 185.5581pt>
 File: images//estimation_procedure_causal_selection_procedure.png Graphic file (type png)
 <use images//estimation_procedure_causal_selection_procedure.png>
-Package pdftex.def Info: images//estimation_procedure_causal_selection_procedure.png  used on input line 667.
-(pdftex.def)             Requested size: 141.15143pt x 56.7721pt.
+Package pdftex.def Info: images//estimation_procedure_causal_selection_procedure.png  used on input line 671.
+(pdftex.def)             Requested size: 223.48677pt x 89.88797pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1020,40 +1044,32 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
 ]
-Underfull \hbox (badness 1817) in paragraph at lines 683--685
+Underfull \hbox (badness 1817) in paragraph at lines 687--689
 []\OT1/cmr/m/n/7.52812 This rewriting involves reweighted residuals: for each
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 703--706
+Underfull \hbox (badness 2837) in paragraph at lines 707--710
 [][]\OT1/cmr/bx/n/7.52812 Proposition 1 \OT1/cmr/m/n/7.52812 ($\OML/cmm/m/it/7.52812 R[]$ \OT1/cmr/m/n/7.52812 as reweighted $\OML/cmm/m/it/7.52812 ^^\[]$\OT1/cmr/m/n/7.52812 ) []\OT1/cmr/m/it/7.52812 Given an
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 748.
+(hyperref)                than one, level fixed on input line 752.
 
 
-Underfull \hbox (badness 1824) in paragraph at lines 790--792
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 752.
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 794--796
 []\OT1/cmr/m/n/7.52812 TLearner: Two completely different learners for each
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 801--808
+Underfull \hbox (badness 1661) in paragraph at lines 805--812
 \OT1/cmr/m/n/7.52812 the transformed features with 6 different choices of the
  []
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 811.
-
-
-Underfull \hbox (badness 1502) in paragraph at lines 813--827
-\OT1/cmr/m/n/7.52812 ACIC 2016 [[]] is based on the Collaborative Perinatal
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (253.25pt too wide) has occurred while \output is active
@@ -1067,56 +1083,97 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
  <./images//estimation_procedure_causal_selection_procedure.png>]
-Underfull \hbox (badness 1383) in paragraph at lines 844--848
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 815.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 815.
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 817--831
+\OT1/cmr/m/n/7.52812 ACIC 2016 [[]] is based on the Collaborative Perinatal
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 848--852
 \OT1/cmr/m/n/7.52812 of ridge and boosting classifiers (respectively regressions)
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 853--858
+Underfull \hbox (badness 1596) in paragraph at lines 857--862
 \OT1/cmr/m/n/7.52812 Good overlap between treated and control population is
  []
 
-<images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf, id=643, 1223.45999pt x 926.42113pt>
+<images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf, id=630, 1223.45999pt x 926.42113pt>
 File: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf Graphic file (type pdf)
 <use images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf>
-Package pdftex.def Info: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf  used on input line 862.
-(pdftex.def)             Requested size: 176.4375pt x 133.59961pt.
+Package pdftex.def Info: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf  used on input line 866.
+(pdftex.def)             Requested size: 235.25pt x 178.12811pt.
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 879.
+(hyperref)                than one, level fixed on input line 883.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 883.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 879.
+(hyperref)                removing `math shift' on input line 883.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 879.
+(hyperref)                removing `math shift' on input line 883.
 
 
-Underfull \hbox (badness 1436) in paragraph at lines 888--888
+Underfull \hbox (badness 1436) in paragraph at lines 892--892
 $[]$ [][]\OT1/cmr/m/n/8 To remove the variance across datasets (some datasets
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 888--888
+Underfull \hbox (badness 1014) in paragraph at lines 892--892
 \OT1/cmr/m/n/8 for one metric relative to the mean of all metrics for a
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 918.
+(hyperref)                than one, level fixed on input line 922.
 
 
-Underfull \hbox (badness 2772) in paragraph at lines 920--926
+Underfull \hbox (badness 2772) in paragraph at lines 924--930
 \OT1/cmr/m/n/7.52812 Model selection for causal inference becomes more and
  []
 
-<images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf, id=659, 1350.3535pt x 907.44092pt>
+<images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf, id=646, 1350.3535pt x 907.44092pt>
 File: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf Graphic file (type pdf)
 <use images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf>
-Package pdftex.def Info: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf  used on input line 930.
-(pdftex.def)             Requested size: 176.4375pt x 118.56685pt.
+Package pdftex.def Info: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf  used on input line 934.
+(pdftex.def)             Requested size: 235.25pt x 158.08452pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 947--947
+|\OT1/cmr/bx/n/7.52812 Nuisances can be estimated on the same data as
+ []
+
+<images//_3_procedure_r_risk_only_3datasets_twocols.pdf, id=654, 1333.17789pt x 490.10541pt>
+File: images//_3_procedure_r_risk_only_3datasets_twocols.pdf Graphic file (type pdf)
+<use images//_3_procedure_r_risk_only_3datasets_twocols.pdf>
+Package pdftex.def Info: images//_3_procedure_r_risk_only_3datasets_twocols.pdf  used on input line 969.
+(pdftex.def)             Requested size: 235.25pt x 86.48018pt.
+
+Underfull \hbox (badness 1184) in paragraph at lines 977--977
+\OT1/cmr/bx/n/6.02249 Fig. 5. Nuisances can be estimated on the same data as
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 982--996
+\OT1/cmr/m/n/7.52812 settings, stacked and linear estimations of the nuisances
+ []
+
 
 Overfull \hbox (253.25pt too wide) has occurred while \output is active
 [][][] 
@@ -1128,50 +1185,40 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
  [5
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
- <./images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf> <./images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf>]
-<images//_3_procedure_r_risk_only_3datasets_twocols.pdf, id=869, 1333.17789pt x 490.10541pt>
-File: images//_3_procedure_r_risk_only_3datasets_twocols.pdf Graphic file (type pdf)
-<use images//_3_procedure_r_risk_only_3datasets_twocols.pdf>
-Package pdftex.def Info: images//_3_procedure_r_risk_only_3datasets_twocols.pdf  used on input line 965.
-(pdftex.def)             Requested size: 176.4375pt x 64.86012pt.
-
-Underfull \hbox (badness 1184) in paragraph at lines 973--973
-\OT1/cmr/bx/n/6.02249 Fig. 5. Nuisances can be estimated on the same data as
- []
-
-
-Underfull \hbox (badness 1314) in paragraph at lines 978--992
-\OT1/cmr/m/n/7.52812 settings, stacked and linear estimations of the nuisances
- []
-
-<images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf, id=873, 1296.11914pt x 475.0021pt>
+ <./images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf>]
+<images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf, id=771, 1296.11914pt x 475.0021pt>
 File: images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf Graphic file (type pdf)
 <use images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf>
-Package pdftex.def Info: images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf  used on input line 996.
-(pdftex.def)             Requested size: 176.4375pt x 64.65886pt.
+Package pdftex.def Info: images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf  used on input line 1000.
+(pdftex.def)             Requested size: 235.25pt x 86.21423pt.
+
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1016.
+(hyperref)                than one, level fixed on input line 1020.
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 1018--1037
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1020.
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 1022--1041
 \OT1/cmr/m/n/7.52812 Predictive models are increasingly used to reason about
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1066.
+(hyperref)                than one, level fixed on input line 1070.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1066.
+(hyperref)                removing `math shift' on input line 1070.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1066.
+(hyperref)                removing `math shift' on input line 1070.
 
 
-Underfull \hbox (badness 2065) in paragraph at lines 1068--1088
+Underfull \hbox (badness 2065) in paragraph at lines 1072--1092
 \OT1/cmr/m/n/7.52812 Increasingly complex prediction models integrating richer
  []
 
@@ -1186,16 +1233,20 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
  [6
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
- <./images//_3_procedure_r_risk_only_3datasets_twocols.pdf> <./images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf>]
-<images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf, id=1050, 946.34492pt x 597.16pt>
+ <./images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf> <./images//_3_procedure_r_risk_only_3datasets_twocols.pdf> <./images//_4_nuisance_models_r_risk_only_3datasets_twocols.pdf>]
+<images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf, id=1025, 946.34492pt x 597.16pt>
 File: images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf Graphic file (type pdf)
 <use images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf>
-Package pdftex.def Info: images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf  used on input line 1133.
+Package pdftex.def Info: images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf  used on input line 1137.
 (pdftex.def)             Requested size: 464.0735pt x 292.83876pt.
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1184.
+(hyperref)                than one, level fixed on input line 1188.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1188.
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1208,7 +1259,11 @@ Non-PDF special ignored!
  <./images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1206.
+(hyperref)                than one, level fixed on input line 1210.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1226.
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1217,31 +1272,33 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
 ]
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 1441.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1441.
+(hyperref)                removing `math shift' on input line 1445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1441.
+(hyperref)                removing `math shift' on input line 1445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1441.
+(hyperref)                removing `\tau' on input line 1445.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 1441.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1441.
+(hyperref)                removing `math shift' on input line 1445.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1481.
+(hyperref)                than one, level fixed on input line 1485.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1485.
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1251,11 +1308,15 @@ Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
 ]
 
-LaTeX Warning: Reference `apd:proofs:mu_risk_ipw_link_mu' on page 10 undefined on input line 1516.
+LaTeX Warning: Reference `apd:proofs:mu_risk_ipw_link_mu' on page 10 undefined on input line 1520.
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1532.
+(hyperref)                than one, level fixed on input line 1536.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1536.
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1266,50 +1327,54 @@ Non-PDF special ignored!
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1590.
+(hyperref)                than one, level fixed on input line 1594.
 
-<images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf, id=1219, 917.00967pt x 386.60341pt>
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1601.
+
+<images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf, id=1192, 917.00967pt x 386.60341pt>
 File: images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf Graphic file (type pdf)
 <use images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf>
-Package pdftex.def Info: images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf  used on input line 1647.
+Package pdftex.def Info: images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf  used on input line 1651.
 (pdftex.def)             Requested size: 488.5pt x 205.94887pt.
-<images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf, id=1220, 925.6984pt x 386.60341pt>
+<images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf, id=1193, 925.6984pt x 386.60341pt>
 File: images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf Graphic file (type pdf)
 <use images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf>
-Package pdftex.def Info: images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf  used on input line 1653.
+Package pdftex.def Info: images//overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf  used on input line 1657.
 (pdftex.def)             Requested size: 488.5pt x 204.01396pt.
-<images//overlap_measure_acic_2016_recovery_overlap_setup.pdf, id=1222, 881.01645pt x 674.27654pt>
+<images//overlap_measure_acic_2016_recovery_overlap_setup.pdf, id=1195, 881.01645pt x 674.27654pt>
 File: images//overlap_measure_acic_2016_recovery_overlap_setup.pdf Graphic file (type pdf)
 <use images//overlap_measure_acic_2016_recovery_overlap_setup.pdf>
-Package pdftex.def Info: images//overlap_measure_acic_2016_recovery_overlap_setup.pdf  used on input line 1667.
+Package pdftex.def Info: images//overlap_measure_acic_2016_recovery_overlap_setup.pdf  used on input line 1671.
 (pdftex.def)             Requested size: 341.9485pt x 261.7013pt.
-<images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf, id=1223, 924.79567pt x 668.81741pt>
+<images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf, id=1196, 924.79567pt x 668.81741pt>
 File: images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf Graphic file (type pdf)
 <use images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf>
-Package pdftex.def Info: images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf  used on input line 1676.
+Package pdftex.def Info: images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf  used on input line 1680.
 (pdftex.def)             Requested size: 341.9485pt x 247.29527pt.
-<images//overlap_measure_caussim_max_ipw_vs_ntv.pdf, id=1224, 908.4941pt x 668.81741pt>
+<images//overlap_measure_caussim_max_ipw_vs_ntv.pdf, id=1197, 908.4941pt x 668.81741pt>
 File: images//overlap_measure_caussim_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images//overlap_measure_caussim_max_ipw_vs_ntv.pdf>
-Package pdftex.def Info: images//overlap_measure_caussim_max_ipw_vs_ntv.pdf  used on input line 1685.
+Package pdftex.def Info: images//overlap_measure_caussim_max_ipw_vs_ntv.pdf  used on input line 1689.
 (pdftex.def)             Requested size: 229.5956pt x 169.02048pt.
-<images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf, id=1225, 908.4941pt x 668.81741pt>
+<images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf, id=1198, 908.4941pt x 668.81741pt>
 File: images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf>
-Package pdftex.def Info: images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf  used on input line 1692.
+Package pdftex.def Info: images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf  used on input line 1696.
 (pdftex.def)             Requested size: 229.5956pt x 169.02048pt.
-<images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf, id=1226, 908.73781pt x 703.657pt>
+<images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf, id=1199, 908.73781pt x 703.657pt>
 File: images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf>
-Package pdftex.def Info: images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf  used on input line 1698.
+Package pdftex.def Info: images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf  used on input line 1702.
 (pdftex.def)             Requested size: 229.5956pt x 177.7713pt.
-<images//overlap_measure_twins_max_ipw_vs_ntv.pdf, id=1227, 908.4941pt x 668.81741pt>
+<images//overlap_measure_twins_max_ipw_vs_ntv.pdf, id=1200, 908.4941pt x 668.81741pt>
 File: images//overlap_measure_twins_max_ipw_vs_ntv.pdf Graphic file (type pdf)
 <use images//overlap_measure_twins_max_ipw_vs_ntv.pdf>
-Package pdftex.def Info: images//overlap_measure_twins_max_ipw_vs_ntv.pdf  used on input line 1705.
+Package pdftex.def Info: images//overlap_measure_twins_max_ipw_vs_ntv.pdf  used on input line 1709.
 (pdftex.def)             Requested size: 239.36768pt x 176.21524pt.
 
-LaTeX Warning: Reference `theory:prop:mu_risk_ipw_bound' on page 11 undefined on input line 1761.
+LaTeX Warning: Reference `theory:prop:mu_risk_ipw_bound' on page 11 undefined on input line 1765.
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1318,11 +1383,11 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
 ]
-<images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf, id=1243, 1125.98634pt x 875.67104pt>
+<images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf, id=1217, 1125.98634pt x 875.67104pt>
 File: images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf Graphic file (type pdf)
 <use images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>
-Package pdftex.def Info: images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf  used on input line 1794.
-(pdftex.def)             Requested size: 488.5pt x 379.89835pt.
+Package pdftex.def Info: images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf  used on input line 1798.
+(pdftex.def)             Requested size: 390.80148pt x 303.92401pt.
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
@@ -1338,7 +1403,11 @@ Non-PDF special ignored!
  <./images//overlap_measure_acic_2016_recovery_overlap_setup.pdf> <./images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1859.
+(hyperref)                than one, level fixed on input line 1863.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1863.
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1347,29 +1416,56 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
  <./images//overlap_measure_caussim_max_ipw_vs_ntv.pdf> <./images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf> <./images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf> <./images//overlap_measure_twins_max_ipw_vs_ntv.pdf>]
-Overfull \hbox (17.56194pt too wide) in paragraph at lines 1873--1895
+Overfull \hbox (17.56194pt too wide) in paragraph at lines 1877--1899
 [][] 
  []
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1902.
+(hyperref)                than one, level fixed on input line 1906.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 1906.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1902.
+(hyperref)                removing `math shift' on input line 1906.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\kappa' on input line 1902.
+(hyperref)                removing `\kappa' on input line 1906.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1902.
+(hyperref)                removing `math shift' on input line 1906.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1917.
 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\kappa' on input line 1917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\ell' on input line 1917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\tau' on input line 1917.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1917.
+
+(./images/_1_r_risk_domination_boxplot_df.tex)
+<images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf, id=1666, 1917.26003pt x 989.51567pt>
+File: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf Graphic file (type pdf)
+<use images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf>
+Package pdftex.def Info: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf  used on input line 1939.
+(pdftex.def)             Requested size: 488.5pt x 252.11932pt.
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
@@ -1377,62 +1473,100 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
  <./images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1913.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\kappa' on input line 1913.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\ell' on input line 1913.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 1913.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1913.
-
-(./images/_1_r_risk_domination_boxplot_df.tex)
-<images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf, id=1743, 1917.26003pt x 989.51567pt>
-File: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf Graphic file (type pdf)
-<use images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf>
-Package pdftex.def Info: images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf  used on input line 1935.
-(pdftex.def)             Requested size: 488.5pt x 252.11932pt.
-<images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1746, 959.443pt x 669.71304pt>
+<images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1720, 959.443pt x 669.71304pt>
 File: images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf Graphic file (type pdf)
 <use images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf>
-Package pdftex.def Info: images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 1953.
+Package pdftex.def Info: images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 1957.
 (pdftex.def)             Requested size: 214.9412pt x 150.02492pt.
-<images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1747, 959.443pt x 669.71304pt>
+<images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1721, 959.443pt x 669.71304pt>
 File: images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf Graphic file (type pdf)
 <use images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf>
-Package pdftex.def Info: images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 1960.
+Package pdftex.def Info: images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 1964.
 (pdftex.def)             Requested size: 214.9412pt x 150.02492pt.
-<images//legend_metrics.pdf, id=1748, 350.5095pt x 793.5246pt>
+<images//legend_metrics.pdf, id=1722, 350.5095pt x 793.5246pt>
 File: images//legend_metrics.pdf Graphic file (type pdf)
 <use images//legend_metrics.pdf>
-Package pdftex.def Info: images//legend_metrics.pdf  used on input line 1966.
+Package pdftex.def Info: images//legend_metrics.pdf  used on input line 1970.
 (pdftex.def)             Requested size: 73.27946pt x 165.89436pt.
 
-Overfull \hbox (24.42648pt too wide) in paragraph at lines 1966--1967
+Overfull \hbox (24.42648pt too wide) in paragraph at lines 1970--1971
  [][] 
  []
 
-<images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1749, 959.443pt x 669.58145pt>
+<images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1723, 959.443pt x 669.58145pt>
 File: images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf Graphic file (type pdf)
 <use images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf>
-Package pdftex.def Info: images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 1971.
+Package pdftex.def Info: images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 1975.
 (pdftex.def)             Requested size: 214.9412pt x 149.99544pt.
-<images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1750, 959.443pt x 669.71304pt>
+<images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1724, 959.443pt x 669.71304pt>
 File: images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf Graphic file (type pdf)
 <use images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>
-Package pdftex.def Info: images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 1978.
+Package pdftex.def Info: images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 1982.
 (pdftex.def)             Requested size: 214.9412pt x 150.02492pt.
+<images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1726, 959.00894pt x 669.71304pt>
+File: images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf Graphic file (type pdf)
+<use images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf>
+Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 2016.
+(pdftex.def)             Requested size: 214.9412pt x 150.09645pt.
+<images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1727, 958.67021pt x 669.02835pt>
+File: images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf Graphic file (type pdf)
+<use images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf>
+Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 2023.
+(pdftex.def)             Requested size: 214.9412pt x 149.99403pt.
+File: images//legend_metrics.pdf Graphic file (type pdf)
+<use images//legend_metrics.pdf>
+Package pdftex.def Info: images//legend_metrics.pdf  used on input line 2029.
+(pdftex.def)             Requested size: 73.27946pt x 165.89436pt.
+
+Overfull \hbox (24.42648pt too wide) in paragraph at lines 2029--2030
+ [][] 
+ []
+
+<images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1728, 958.67021pt x 668.89676pt>
+File: images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf Graphic file (type pdf)
+<use images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf>
+Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2034.
+(pdftex.def)             Requested size: 214.9412pt x 149.96454pt.
+<images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1729, 958.67021pt x 669.71304pt>
+File: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf Graphic file (type pdf)
+<use images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>
+Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2041.
+(pdftex.def)             Requested size: 214.9412pt x 150.14754pt.
+<images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf, id=1731, 1941.02742pt x 635.25356pt>
+File: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
+<use images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf>
+Package pdftex.def Info: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2073.
+(pdftex.def)             Requested size: 505.59138pt x 165.46251pt.
+
+Overfull \hbox (65.94437pt too wide) in paragraph at lines 2073--2075
+[][]
+ []
+
+<images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf, id=1732, 1621.24556pt x 635.25356pt>
+File: images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
+<use images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf>
+Package pdftex.def Info: images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2080.
+(pdftex.def)             Requested size: 439.64702pt x 172.26712pt.
+<images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf, id=1733, 1621.24556pt x 730.06639pt>
+File: images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
+<use images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>
+Package pdftex.def Info: images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2087.
+(pdftex.def)             Requested size: 439.64702pt x 197.97833pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2070--2094
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2070--2094
+[]
+ []
+
+<images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf, id=1735, 1946.56091pt x 1426.60995pt>
+File: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf Graphic file (type pdf)
+<use images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf>
+Package pdftex.def Info: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf  used on input line 2105.
+(pdftex.def)             Requested size: 488.5pt x 358.00125pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1443,104 +1577,40 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
 ]
-<images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf, id=1756, 959.00894pt x 669.71304pt>
-File: images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf Graphic file (type pdf)
-<use images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf>
-Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf  used on input line 2012.
-(pdftex.def)             Requested size: 214.9412pt x 150.09645pt.
-<images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf, id=1757, 958.67021pt x 669.02835pt>
-File: images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf Graphic file (type pdf)
-<use images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf>
-Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf  used on input line 2019.
-(pdftex.def)             Requested size: 214.9412pt x 149.99403pt.
-File: images//legend_metrics.pdf Graphic file (type pdf)
-<use images//legend_metrics.pdf>
-Package pdftex.def Info: images//legend_metrics.pdf  used on input line 2025.
-(pdftex.def)             Requested size: 73.27946pt x 165.89436pt.
-
-Overfull \hbox (24.42648pt too wide) in paragraph at lines 2025--2026
- [][] 
- []
-
-<images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf, id=1758, 958.67021pt x 668.89676pt>
-File: images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf Graphic file (type pdf)
-<use images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf>
-Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2030.
-(pdftex.def)             Requested size: 214.9412pt x 149.96454pt.
-<images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1759, 958.67021pt x 669.71304pt>
-File: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf Graphic file (type pdf)
-<use images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>
-Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2037.
-(pdftex.def)             Requested size: 214.9412pt x 150.14754pt.
-<images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf, id=1761, 1941.02742pt x 635.25356pt>
-File: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
-<use images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf>
-Package pdftex.def Info: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2069.
-(pdftex.def)             Requested size: 505.59138pt x 165.46251pt.
-
-Overfull \hbox (65.94437pt too wide) in paragraph at lines 2069--2071
-[][]
- []
-
-<images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf, id=1762, 1621.24556pt x 635.25356pt>
-File: images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
-<use images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf>
-Package pdftex.def Info: images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2076.
-(pdftex.def)             Requested size: 439.64702pt x 172.26712pt.
-<images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf, id=1763, 1621.24556pt x 730.06639pt>
-File: images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
-<use images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>
-Package pdftex.def Info: images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf  used on input line 2083.
-(pdftex.def)             Requested size: 439.64702pt x 197.97833pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2066--2090
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2066--2090
-[]
- []
-
-<images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf, id=1765, 1946.56091pt x 1426.60995pt>
-File: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf Graphic file (type pdf)
-<use images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf>
-Package pdftex.def Info: images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf  used on input line 2101.
-(pdftex.def)             Requested size: 488.5pt x 358.00125pt.
-<images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1768, 1624.96759pt x 730.06639pt>
+<images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1742, 1624.96759pt x 730.06639pt>
 File: images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2125.
+Package pdftex.def Info: images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2129.
 (pdftex.def)             Requested size: 239.36768pt x 107.53346pt.
-<images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1769, 1624.96759pt x 730.06639pt>
+<images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1743, 1624.96759pt x 730.06639pt>
 File: images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2132.
+Package pdftex.def Info: images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2136.
 (pdftex.def)             Requested size: 239.36768pt x 107.53346pt.
-<images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1770, 1916.31265pt x 635.25356pt>
+<images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1744, 1916.31265pt x 635.25356pt>
 File: images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2139.
+Package pdftex.def Info: images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2143.
 (pdftex.def)             Requested size: 275.27136pt x 91.25156pt.
 
-Overfull \hbox (35.90369pt too wide) in paragraph at lines 2139--2141
+Overfull \hbox (35.90369pt too wide) in paragraph at lines 2143--2145
 [][]
  []
 
-<images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1771, 1624.96759pt x 635.25356pt>
+<images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf, id=1745, 1624.96759pt x 635.25356pt>
 File: images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf Graphic file (type pdf)
 <use images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf>
-Package pdftex.def Info: images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2146.
+Package pdftex.def Info: images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf  used on input line 2150.
 (pdftex.def)             Requested size: 239.36768pt x 93.56822pt.
-<images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf, id=1773, 1667.57231pt x 487.44922pt>
+<images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf, id=1747, 1667.57231pt x 487.44922pt>
 File: images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf Graphic file (type pdf)
 <use images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf>
-Package pdftex.def Info: images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf  used on input line 2162.
+Package pdftex.def Info: images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf  used on input line 2166.
 (pdftex.def)             Requested size: 488.5pt x 142.79214pt.
-<images//caussim_seed_effect.pdf, id=1775, 1257.56961pt x 460.43643pt>
+<images//caussim_seed_effect.pdf, id=1749, 1257.56961pt x 460.43643pt>
 File: images//caussim_seed_effect.pdf Graphic file (type pdf)
 <use images//caussim_seed_effect.pdf>
-Package pdftex.def Info: images//caussim_seed_effect.pdf  used on input line 2191.
+Package pdftex.def Info: images//caussim_seed_effect.pdf  used on input line 2195.
 (pdftex.def)             Requested size: 488.5pt x 178.85286pt.
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
@@ -1600,18 +1670,18 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 <special> ps: [{ThisPage} << /CropBox [0 0 595.26013 782.33696] >> /PUT pdf...
  <./images//caussim_seed_effect.pdf>]
-<images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf, id=3094, 1204.63858pt x 453.3211pt>
+<images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf, id=3068, 1204.63858pt x 453.3211pt>
 File: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf Graphic file (type pdf)
 <use images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf>
-Package pdftex.def Info: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf  used on input line 2231.
+Package pdftex.def Info: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf  used on input line 2235.
 (pdftex.def)             Requested size: 244.25pt x 91.91461pt.
-<images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf, id=3095, 1324.84854pt x 379.35614pt>
+<images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf, id=3069, 1324.84854pt x 379.35614pt>
 File: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf Graphic file (type pdf)
 <use images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf>
-Package pdftex.def Info: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf  used on input line 2236.
+Package pdftex.def Info: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf  used on input line 2240.
 (pdftex.def)             Requested size: 244.25pt x 69.93666pt.
 
-Overfull \hbox (1.97166pt too wide) in paragraph at lines 2229--2242
+Overfull \hbox (1.97166pt too wide) in paragraph at lines 2233--2246
 []$[]$ $[]$ 
  []
 
@@ -1671,21 +1741,21 @@ Non-PDF special ignored!
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `how_to_select.out' has not changed.
-(rerunfilecheck)             Checksum: 3F2194C963F571589431555A27467C3F;18875.
+(rerunfilecheck)             Checksum: A91CB0A6A4C6AFBF50EF0A692E99F72E;19026.
  ) 
 Here is how much of TeX's memory you used:
- 27451 strings out of 480171
- 534705 string characters out of 5894489
- 808455 words of memory out of 5000000
- 44593 multiletter control sequences out of 15000+600000
- 521128 words of font info for 229 fonts, out of 8000000 for 9000
+ 27680 strings out of 480171
+ 537861 string characters out of 5894489
+ 820613 words of memory out of 5000000
+ 44844 multiletter control sequences out of 15000+600000
+ 515059 words of font info for 205 fonts, out of 8000000 for 9000
  63 hyphenation exceptions out of 8191
- 99i,18n,94p,17409b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/mdoutreligne/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.650pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on how_to_select.pdf (28 pages, 12511654 bytes).
+ 99i,18n,94p,17409b,730s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/mdoutreligne/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0600.650pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on how_to_select.pdf (28 pages, 12507239 bytes).
 PDF statistics:
- 3478 PDF objects out of 3580 (max. 8388607)
- 1455 compressed objects within 15 object streams
- 269 named destinations out of 1000 (max. 500000)
+ 3442 PDF objects out of 3580 (max. 8388607)
+ 1421 compressed objects within 15 object streams
+ 243 named destinations out of 1000 (max. 500000)
  784 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -71,6 +71,9 @@
 \usepackage{caption} % for subfigures
 \usepackage{subcaption}
 \usepackage{placeins} % for FloatBarrier command to prevent a figure to pass some point.
+\usepackage{titlesec} % for title formatting
+\titleformat*{\subsection}{\color{jnlclr}\bfseries} % force colored subsection font for paragraphs
+\titleformat*{\paragraph}{\bfseries} % force bold font for paragraphs
 
 \bibliographystyle{unsrtnat}
 % add external bibliography
@@ -80,6 +83,7 @@
 %\addbibresource{biblio.bib}
 
 \begin{document}
+
 
 \journaltitle{GigaScience}
 \DOI{DOI HERE}
@@ -127,7 +131,7 @@
     %causal-inference task. The increasing complexity of health data has opened
     %the door to a plethora of models, but also the Pandora box of model
     %selection: which of these models yield the most valid causal estimates? 
-    %\textbf{Methods:}
+    \textbf{Methods:}
     We study such a variety of model selection procedures in practical settings:
     finite samples settings and without theoretical assumption of
     \emph{well-specified} models. Beyond standard cross-validation or
@@ -298,8 +302,8 @@ data, going beyond prior work limited to specific simulation settings
 
 \begin{figure}[h!]
     % XXX: for submission
-    \centering\begin{minipage}{.6\linewidth}
-        {\sffamily\footnotesize\scalebox{1.03}{a) Random forest, good average prediction but bad
+    \centering\begin{minipage}{.95\linewidth}
+        {\sffamily\footnotesize\scalebox{0.95}{a) Random forest, good average prediction but bad
                 causal inference}}
 
         \setlength{\unitlength}{.1\linewidth}
@@ -314,7 +318,7 @@ data, going beyond prior work limited to specific simulation settings
             \put(5.15,3.6){\vector(0,-1){.15}}
         \end{picture}
 
-        {\sffamily\footnotesize\scalebox{1.03}{b) Linear model, worse average
+        {\sffamily\footnotesize\scalebox{0.95}{b) Linear model, worse average
             prediction but better causal inference}}
 
         \hfill%
@@ -663,7 +667,7 @@ each candidate model on the test set. This procedure is described in Algorithm
 
 \begin{figure}[h!]
 
-    \centering\begin{minipage}{.6\linewidth}
+    \centering\begin{minipage}{.95\linewidth}
         \includegraphics[width=\linewidth]{estimation_procedure_causal_selection_procedure.png}
     \end{minipage}
     \caption{Estimation procedure for causal model
@@ -858,7 +862,7 @@ summarizing the overlap between both populations (Appendix
 
 \begin{figure}[!b]
     % XXX: for submission
-    \centering\begin{minipage}{.75\linewidth}
+    \centering\begin{minipage}{\linewidth}
         \includegraphics[width=\linewidth]{_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf}
     \end{minipage}
     \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$ agreement with $\tau\text{-risk}$.
@@ -926,7 +930,7 @@ coefficient correlation with $\tau\text{-risk}$ drops from 0.9
 
 \begin{figure}[!h]
     % XXX: for submission
-    \centering\begin{minipage}{.75\linewidth}
+    \centering\begin{minipage}{\linewidth}
         \includegraphics[width=\linewidth]{_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf}
     \end{minipage}
     \caption{\textbf{Model selection is harder for low population
@@ -961,7 +965,7 @@ remaining test set for model selection (experiments in Appendix
 
 \begin{figure}[!tb]
     % XXX: for submission
-    \centering\begin{minipage}{.75\linewidth}
+    \centering\begin{minipage}{\linewidth}
         \includegraphics[width=\linewidth]{_3_procedure_r_risk_only_3datasets_twocols.pdf}
     \end{minipage}
 
@@ -992,7 +996,7 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 
 \begin{figure}[!tb]
     % XXX: for submission
-    \centering\begin{minipage}{.75\linewidth}
+    \centering\begin{minipage}{\linewidth}
         \includegraphics[width=\linewidth]{_4_nuisance_models_r_risk_only_3datasets_twocols.pdf}
     \end{minipage}
 
@@ -1791,7 +1795,7 @@ models.
 
     \begin{figure}[!t]
         \centering
-        \includegraphics[width=\linewidth]{caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
+        \includegraphics[width=0.8\linewidth]{caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf}
 
         \caption{Example of the simulation setup in the input space with two
             knots --\emph{ie.} basis functions. The top panel

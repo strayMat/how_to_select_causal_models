@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex how_to_select"] 1717338165 "how_to_select.aux" "how_to_select.bbl" "how_to_select" 1717338167
+["bibtex how_to_select"] 1717338165 "how_to_select.aux" "how_to_select.bbl" "how_to_select" 1717338487
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "biblio.bib" 1717328356 90431 8f011a81971b2f8f2792685e0441b456 ""
-  "how_to_select.aux" 1717338167 52859 75c1f8977ccb6bc74f9b826e0b875baa "pdflatex"
+  "how_to_select.aux" 1717338487 52859 75c1f8977ccb6bc74f9b826e0b875baa "pdflatex"
   (generated)
   "how_to_select.bbl"
   "how_to_select.blg"
-["pdflatex"] 1717338165 "/home/mdoutreligne/inria/how_to_select_causal_models/how_to_select.tex" "how_to_select.pdf" "how_to_select" 1717338167
+["pdflatex"] 1717338486 "/home/mdoutreligne/inria/how_to_select_causal_models/how_to_select.tex" "how_to_select.pdf" "how_to_select" 1717338487
   "/etc/texmf/web2c/texmf.cnf" 1701340122 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/mdoutreligne/inria/how_to_select_causal_models/how_to_select.tex" 1717338165 115314 4637546ef84f64ef92466b0b67c3df03 ""
+  "/home/mdoutreligne/inria/how_to_select_causal_models/how_to_select.tex" 1717338486 115193 a2afb4d14057b66ad92bb85c17609235 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_ags7qn.enc" 1598908638 3044 b0c65da7c9528299e61a76b0fbb779de ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_owzwzj.enc" 1598908638 3232 ef51d03b653093676eb36fc969d4ae7e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_posqbl.enc" 1598908638 3040 77bed73251d3e4e602c256d699396a7f ""
@@ -248,10 +248,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1706806734 4073795 a82a847ac97773bf4a607ab050efa3a1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710752357 1435897 5f0a9b21935c063d9e1ebfff597a9b87 ""
   "gigascience-logo.pdf" 1717335702 26675 f4ea200f02bb24fe6ae82ed73605e2b2 ""
-  "how_to_select.aux" 1717338167 52859 75c1f8977ccb6bc74f9b826e0b875baa "pdflatex"
+  "how_to_select.aux" 1717338487 52859 75c1f8977ccb6bc74f9b826e0b875baa "pdflatex"
   "how_to_select.bbl" 1717338165 29628 b41c9922740ba343bb59166a918da326 "bibtex how_to_select"
-  "how_to_select.out" 1717338167 8280 d0c9a577ebd85eccebf8e138ba347eb7 "pdflatex"
-  "how_to_select.tex" 1717338165 115314 4637546ef84f64ef92466b0b67c3df03 ""
+  "how_to_select.out" 1717338487 8280 d0c9a577ebd85eccebf8e138ba347eb7 "pdflatex"
+  "how_to_select.tex" 1717338486 115193 a2afb4d14057b66ad92bb85c17609235 ""
   "images//2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf" 1717328356 32750 a31afaab1b47753ea1c09a224245e5c1 ""
   "images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf" 1717328356 58847 8a0a03b0f3deeffaa06896f086bcfbea ""
   "images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf" 1717328356 43739 0a902a585fd56a96e636473cb25916e5 ""
@@ -269,7 +269,7 @@
   "images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf" 1717328356 23667 9b1515f12027341ff7bca5e9581a9594 ""
   "images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf" 1717328356 24675 c7a9b1f16d2f4d2519c69db167b7843b ""
   "images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf" 1717328356 26379 0c26723faaf36dbeec9c825cee6d57d4 ""
-  "images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf" 1717328356 46928 13257dcf4dc4ea04d67cf33942746275 ""
+  "images//caussim_example.pdf" 1717328356 46928 13257dcf4dc4ea04d67cf33942746275 ""
   "images//caussim_seed_effect.pdf" 1717328356 265517 edc54b928d463481f0eaa6e522abe8dd ""
   "images//estimation_procedure_causal_selection_procedure.png" 1717328356 200153 5844fd00b270eb693576a441cca0b9f4 ""
   "images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf" 1717328356 1154967 865528493e395016b9e7bd832f249dd7 ""
@@ -280,7 +280,7 @@
   "images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf" 1717328356 1061825 a137a254ffec8f3b983a23c9e03f7e58 ""
   "images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf" 1717328356 1012991 3118268c61ac3cb30e2d5ea4b4e84b29 ""
   "images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf" 1717328356 1419908 3e3b6cccb5197a00349cd748ce432433 ""
-  "images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf" 1717328356 1424943 ccdc0a9653e6e1bc26ce1d11506ac1e9 ""
+  "images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf" 1717328356 1424943 ccdc0a9653e6e1bc26ce1d11506ac1e9 ""
   "images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf" 1717328356 46121 5664463be4c9409656888fa423e25739 ""
   "images//overlap_measure_acic_2016_recovery_overlap_setup.pdf" 1717328356 18919 63b71ceb88d504f3ad0baaf6fe513193 ""
   "images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf" 1717328356 36492 29d27e2d3caa52522fb1e1d6462179fd ""

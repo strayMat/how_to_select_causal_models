@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.18)  2 JUN 2024 16:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.18)  2 JUN 2024 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1592,12 +1592,12 @@ Package pdftex.def Info: images//overlap_measure_twins_max_ipw_vs_ntv.pdf  used 
 LaTeX Warning: Reference `theory:prop:mu_risk_ipw_bound' on page 13 undefined on input line 1761.
 
 [13 <./images//overlap_measure_caussim_max_ipw_vs_ntv.pdf> <./images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf> <./images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf> <./images//overlap_measure_twins_max_ipw_vs_ntv.pdf>]
-<images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf, id=1534, 1125.98634pt x 875.67104pt>
-File: images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf Graphic file (type pdf)
-<use images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>
-Package pdftex.def Info: images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf  used on input line 1794.
+<images//caussim_example.pdf, id=1534, 1125.98634pt x 875.67104pt>
+File: images//caussim_example.pdf Graphic file (type pdf)
+<use images//caussim_example.pdf>
+Package pdftex.def Info: images//caussim_example.pdf  used on input line 1794.
 (pdftex.def)             Requested size: 390.58379pt x 303.75032pt.
- [14 <./images//caussim_example_rs_gaussian=8_rs_rotation=8_ntv=0.37_D=2_overlap=0.7_p_A=0.1.pdf>]
+ [14 <./images//caussim_example.pdf>]
 LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
 (Font)              scaled to size 5.0pt on input line 1873.
  (./images/_1_r_risk_domination_boxplot_df.tex)
@@ -1660,10 +1660,10 @@ File: images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacki
 <use images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf>
 Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf  used on input line 2030.
 (pdftex.def)             Requested size: 214.82144pt x 149.88287pt.
-<images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf, id=1619, 958.67021pt x 669.71304pt>
-File: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf Graphic file (type pdf)
-<use images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>
-Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf  used on input line 2037.
+<images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf, id=1619, 958.67021pt x 669.71304pt>
+File: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf Graphic file (type pdf)
+<use images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf>
+Package pdftex.def Info: images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf  used on input line 2037.
 (pdftex.def)             Requested size: 214.82144pt x 150.0658pt.
 <images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf, id=1621, 1941.02742pt x 635.25356pt>
 File: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf Graphic file (type pdf)
@@ -1735,7 +1735,7 @@ File: images//caussim_seed_effect.pdf Graphic file (type pdf)
 <use images//caussim_seed_effect.pdf>
 Package pdftex.def Info: images//caussim_seed_effect.pdf  used on input line 2191.
 (pdftex.def)             Requested size: 488.22787pt x 178.7545pt.
-[15] [16] [17 <./images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf>] [18 <./images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images//legend_metrics.pdf> <./images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [19 <./images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [20 <./images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf> <./images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf> <./images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>] [21 <./images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf> <./images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf>] [22 <./images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf> <./images//caussim_seed_effect.pdf>]
+[15] [16] [17 <./images//_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf>] [18 <./images//kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images//kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images//legend_metrics.pdf> <./images//kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images//kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf>] [19 <./images//normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf> <./images//normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf> <./images//normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf> <./images//normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf>] [20 <./images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf> <./images//_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf> <./images//_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf>] [21 <./images//_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf> <./images//_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images//_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images//_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf> <./images//_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf>] [22 <./images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf> <./images//caussim_seed_effect.pdf>]
 <images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf, id=2971, 1204.63858pt x 453.3211pt>
 File: images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf Graphic file (type pdf)
 <use images//_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf>
@@ -1775,14 +1775,14 @@ Package rerunfilecheck Info: File `how_to_select.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  27494 strings out of 480171
- 553404 string characters out of 5894489
+ 552436 string characters out of 5894489
  857623 words of memory out of 5000000
  43834 multiletter control sequences out of 15000+600000
  2299724 words of font info for 802 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  123i,19n,131p,1063b,1053s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_ags7qn.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_posqbl.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_owzwzj.enc}</usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/MerriwthrSans-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/MerriwthrSans-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/euex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on how_to_select.pdf (26 pages, 12519594 bytes).
+Output written on how_to_select.pdf (26 pages, 12519466 bytes).
 PDF statistics:
  3301 PDF objects out of 3580 (max. 8388607)
  1304 compressed objects within 14 object streams

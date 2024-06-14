@@ -154,7 +154,7 @@
 
 \subsection{Extending prediction to prescription needs causality}
 
-Prediction models have long been used in medicine, as with risk
+Prediction models have long been used in biomedical settings, as with risk
 score or prognostic models \cite{moons2009prognosis,steyerberg2019clinical}.
 While these have historically been simple models on simple data, this is
 changing with progress in machine learning and richer medical data
@@ -213,7 +213,7 @@ the benefit of going
 beyond average effects, estimating individualized or conditional average
 treatment effects (CATE), central to precision medicine.
 %
-For this purpose, such methods are also invaluable on randomized trials
+For this purpose, such methods are also invaluable for randomized trials
 \cite{su2018random,lamont2018identification,hoogland2021tutorial}.
 
 % Recent empirical results \cite{wendling_comparing_2018,dorie_automated_2019}
@@ -845,7 +845,7 @@ summarizing the overlap between both populations (Appendix
 \begin{figure}[!b]
     % XXX: for submission
     \centering\begin{minipage}{\linewidth}
-        \includegraphics[width=\linewidth]{_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset_feasible_only.pdf}
+        \includegraphics[width=\linewidth]{_1_r_risk_domination_mrisks_by_ds_feasible.pdf}
     \end{minipage}
     \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$ agreement with $\tau\text{-risk}$.
         Strong and Weak overlap correspond to the first and last tertiles of the overlap distribution measured with
@@ -913,7 +913,7 @@ coefficient correlation with $\tau\text{-risk}$ drops from 0.9
 \begin{figure}[!h]
     % XXX: for submission
     \centering\begin{minipage}{\linewidth}
-        \includegraphics[width=\linewidth]{_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset_r_risk_only_twocols.pdf}
+        \includegraphics[width=\linewidth]{_2_overlap_influence_by_bin_k_by_ds_r_risk_2cols.pdf}
     \end{minipage}
     \caption{\textbf{Model selection is harder for low population
             overlap}:
@@ -979,7 +979,7 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 \begin{figure}[!tb]
     % XXX: for submission
     \centering\begin{minipage}{\linewidth}
-        \includegraphics[width=\linewidth]{_4_nuisance_models_r_risk_only_3datasets_twocols.pdf}
+        \includegraphics[width=\linewidth]{_4_nuisance_models_r_risk_3ds_2cols.pdf}
     \end{minipage}
 
     \caption{\textbf{\textcolor{DarkOrchid}{Stacked
@@ -1090,10 +1090,24 @@ Lists the following:
     \item License: BSD 3-Clause License
 \end{itemize}
 
+
+\section{Declaration}
+\subsection{Competing interests}
+No competing interest is declared.
+
+\section{Author contributions statement}
+
+M.D. conceived and conducted the experiments, M.D. and G.V. analyzed the results. M.D. and G.V. wrote and reviewed the manuscript.
+
+\section{Acknowledgments}
+
+We acknowledge fruitful discussions with Bénédicte Colnet.
+
 \clearpage
 
 \onecolumn
 \setcounter{secnumdepth}{2}
+
 
 \appendix
 \section{Additional files}
@@ -1130,7 +1144,7 @@ does not work in general; model selection is needed.
 
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=0.95\linewidth]{2023-03-08-11-10-28_acic_2016_ate_heterogeneity.parquet_abs_bias_ylog_scale=True.pdf}%
+    \includegraphics[width=0.95\linewidth]{acic_2016_ate_hte.pdf}%
     \caption{\textbf{Different outcome models lead to different
             estimation errors on the Average Treatment Effects},
         on 77 classic simulations with known true causal effect
@@ -1638,19 +1652,17 @@ indicate that calibration of the propensity model is crucial to recover a good
 approximation of the NTV.
 
 
-
-
 \begin{figure}
     \begin{subfigure}[b]{\textwidth}
         \centering
         \caption{\textbf{Uncalibrated classifiers}}
-        \includegraphics[width=\linewidth]{overlap_measure_diff_oracle_ntv_to_n_tv_calibration=False_vs_oracle_n_tv.pdf}
+        \includegraphics[width=\linewidth]{overlap_measure_diff_oracle_ntv_to_pred_ntv.pdf}
     \end{subfigure}
     \begin{subfigure}[b]{\textwidth}
         \centering
         \caption{\textbf{Calibrated
                 classifiers}}
-        \includegraphics[width=\linewidth]{overlap_measure_diff_oracle_ntv_to_n_tv_calibration=True_vs_oracle_n_tv.pdf}
+        \includegraphics[width=\linewidth]{overlap_measure_diff_oracle_ntv_to_ntv_wcalibration.pdf}
     \end{subfigure}
     \caption{a) Without calibration, estimation of NTV is not trivial even for
         boosting models. b) Calibrated classifiers are able to recover the true
@@ -1932,7 +1944,7 @@ the variance since clipping is performed.
 
 \begin{figure}[!b]
     \centering
-    \includegraphics[width=\linewidth]{_1_r_risk_domination_r_risk_domination__ref_metric_mean_risks_by_Dataset.pdf}
+    \includegraphics[width=\linewidth]{_1_r_risk_domination_mrisks_by_ds.pdf}
     %\hfill
     \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$
         agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
@@ -1950,14 +1962,14 @@ the variance since clipping is performed.
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{Caussim}}
-        \includegraphics[width=\textwidth]{kendalls_tau_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf}
+        \includegraphics[width=\textwidth]{ktau_caussim_nuisance_nlin_models_ridge_ov1-247.pdf}
         \label{fig:ranking_agreement_w_tau_risk_caussim}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=\textwidth]{kendalls_tau_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf}
+        \includegraphics[width=\textwidth]{ktau_acic2016_nuisance_nlin_models_hgb_dgp1-77_rs1-10.pdf}
         \label{fig:ranking_agreement_tau_risk_acic_2016}
     \end{subfigure}
     \hfill
@@ -1968,14 +1980,14 @@ the variance since clipping is performed.
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{ACIC 2018}}
-        \includegraphics[width=\textwidth]{kendalls_tau_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf}
+        \includegraphics[width=\textwidth]{ktau_acic2018_nuisance_stacking_models_hgb_tset_50.pdf}
         \label{fig:ranking_agreement_w_tau_risk_acic_2018}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{TWINS}}
-        \includegraphics[width=\textwidth]{kendalls_tau_twins__nuisance_stacking__candidates_hist_gradient_boosting__tset_50__overlap_11-296__rs_0-9_noise10.pdf}
+        \includegraphics[width=\textwidth]{ktau_twins_nuisance_stacking__models_hgb.pdf}
         \label{fig:ranking_agreement_tau_risk_twins}
     \end{subfigure}
     \hfill
@@ -2009,14 +2021,14 @@ gain are substantial for every datasets.
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{Caussim}}
-        \includegraphics[width=\textwidth]{normalized_bias_tau_risk_to_best_method_caussim__nuisance_non_linear__candidates_ridge__overlap_01-247.pdf}
+        \includegraphics[width=\textwidth]{norm_bias_trisk_tobest_caussim_nuis_nlin_models_ridge.pdf}
         \label{fig:normalized_bias_tau_risk_to_best_method_caussim}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=\textwidth]{normalized_bias_tau_risk_to_best_method_acic_2016__nuisance_non_linear__candidates_hist_gradient_boosting__dgp_1-77__rs_1-10.pdf}
+        \includegraphics[width=\textwidth]{norm_bias_trisk_tobest_acic2016_nuis_nlin_models_hgb.pdf}
         \label{fig:normalized_bias_tau_risk_to_best_method_acic_2016}
     \end{subfigure}
     \hfill
@@ -2027,14 +2039,14 @@ gain are substantial for every datasets.
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{ACIC 2018}}
-        \includegraphics[width=\textwidth]{normalized_bias_tau_risk_to_best_method_acic_2018__nuisance_stacking__candidates_hist_gradient_boosting__tset_50.pdf}
+        \includegraphics[width=\textwidth]{norm_bias_trisk_tobest_acic2018_nuis_nlin_models_hgb.pdf}
         \label{fig:normalized_bias_tau_risk_to_best_method_acic_2018}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.44\textwidth}
         \centering
         \caption{\textbf{TWINS}}
-        \includegraphics[width=\textwidth]{normalized_bias_tau_risk_to_best_method_twins__nuisance_stacking__candidates_hgb.pdf}
+        \includegraphics[width=\textwidth]{norm_bias_trisk_tobest_twins_nuis_stack_models_hgb.pdf}
         \label{fig:normalized_bias_tau_risk_to_best_method_twins}
     \end{subfigure}
     \hfill
@@ -2066,21 +2078,21 @@ score.
     \begin{subfigure}[b]{0.9\textwidth}
         %\centering
         \caption{\textbf{Caussim}}
-        \includegraphics[width=1.15\textwidth]{_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk_training_procedure.pdf}
+        \includegraphics[width=1.15\textwidth]{_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk.pdf}
         \label{fig:experiments:procedures_comparison:caussim}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.9\textwidth}
         \centering
         \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=1\textwidth]{_3_procedure_ACIC2016_N4802__ref_metric_oracle_r_risk_training_procedure.pdf}
+        \includegraphics[width=1\textwidth]{_3_procedure_ACIC2016_N4802__ref_oracle_r_risk.pdf}
         \label{fig:experiments:procedures_comparison:acic_2016}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.9\textwidth}
         \centering
         \caption{\textbf{Twins}}
-        \includegraphics[width=1\textwidth]{_3_procedure_Twins_N11984__ref_metric_oracle_r_risk_training_procedure.pdf}
+        \includegraphics[width=1\textwidth]{_3_procedure_Twins_N11984__ref_oracle_r_risk.pdf}
         \label{fig:experiments:procedures_comparison:twins}
     \end{subfigure}
     \hfill
@@ -2098,7 +2110,7 @@ score.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{_2_overlap_influence_overlap_by_bin_comparaison_kendall_by_Dataset.pdf}
+    \includegraphics[width=\textwidth]{_2_overlap_influence_by_bin_k_by_ds.pdf}
     \hfill
     \caption{\textbf{Low population overlap hinders causal model selection for all
             metrics}:
@@ -2122,28 +2134,28 @@ score.
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \caption{\textbf{Twins}}
-        \includegraphics[width=1\textwidth]{_4_nuisance_models_Twins_N11984__ref_metric_oracle_r_risk_nuisance_models.pdf}
+        \includegraphics[width=1\textwidth]{_4_nuisance_models_Twins_N11984__ref_oracle_r_risk.pdf}
         \label{fig:experiments:nuisance_comparison:twins}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \caption{\textbf{Twins downsampled}}
-        \includegraphics[width=1\textwidth]{_4_nuisance_models_Twinsdownsampled_N4794__ref_metric_oracle_r_risk_nuisance_models.pdf}
+        \includegraphics[width=1\textwidth]{_4_nuisance_models_Twinssmall_N4794__ref_oracle_r_risk.pdf}
         \label{fig:experiments:nuisance_comparison:twins_ds}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\textwidth}
         %\centering
         \caption{\textbf{Caussim}}
-        \includegraphics[width=1.15\textwidth]{_4_nuisance_models_Caussim_N5000__ref_metric_oracle_r_risk_nuisance_models.pdf}
+        \includegraphics[width=1.15\textwidth]{_4_nuisance_models_Caussim_N5000__ref_oracle_r_risk.pdf}
         \label{fig:experiments:nuisance_comparison:caussim}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \caption{\textbf{ACIC 2016}}
-        \includegraphics[width=1\textwidth]{_4_nuisance_models_ACIC2016_N4802__ref_metric_oracle_r_risk_nuisance_models.pdf}
+        \includegraphics[width=1\textwidth]{_4_nuisance_models_ACIC2016_N4802__ref_oracle_r_risk.pdf}
         \label{fig:experiments:nuisance_comparison:acic_2016}
     \end{subfigure}
     \hfill
@@ -2228,12 +2240,12 @@ of the best selected model applied on the holdout set $\mathcal{V}$. We explore 
 \begin{figure}[!t]
     \begin{minipage}{.5\textwidth}
         \centerline{\textbf{a) CATE estimation error}}
-        \includegraphics[width=\linewidth]{_5_train_size_evaluated_metric_r_risk__evaluation_validation_tau_risk__best_tau_norm__False_norm_False__acic16_twocols.pdf}
+        \includegraphics[width=\linewidth]{_5_train_size_r_risk__cate__acic16_2cols.pdf}
     \end{minipage}
     %\hspace{0.3\textwidth}
     \begin{minipage}{.5\textwidth}
         \centerline{\textbf{b) ATE estimation error}}
-        \includegraphics[width=\linewidth]{_5_train_size_evaluated_metric_r_risk__evaluation_validation_test_abs_bias_ate__best_tau_norm__False_norm_True__acic16_twocols.pdf}
+        \includegraphics[width=\linewidth]{_5_train_size_r_risk__ate__acic16_2cols.pdf}
     \end{minipage}%
     \caption{\textbf{a) For CATE, a train/test ratio of 0.9/0.1 appears a good
             trade-off.} b) For ATE, there is a small signal pointing also to
@@ -2282,19 +2294,6 @@ split: a 2-folds train/test procedure,
 training the nuisances on the first half of the data, and using the
 second half to estimate the $R\text{-risk}$ and select the best treatment
 effect model.
-
-
-\section{Declaration}
-\subsection{Competing interests}
-No competing interest is declared.
-
-\section{Author contributions statement}
-
-M.D. conceived and conducted the experiments, M.D. and G.V. analysed the results. M.D. and G.V. wrote and reviewed the manuscript.
-
-\section{Acknowledgments}
-
-We acknowledge fruitful discussions with Bénédicte Colnet.
 
 
 \bibliography{biblio}

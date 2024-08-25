@@ -442,15 +442,13 @@ paper, the expectations will always be taken on the factual observed
 distribution $\mathcal{D}$. This identification leads to outcome based estimators (ie.
 g-computation estimators \cite{snowden_implementation_2011}):
 \begin{eqnarray}
-    \tau =& \mathbb E_{Y \sim \mathcal{D^{\star}}}[Y(1) - Y(0)|X=x]
+    \tau =& \mathbb E_{Y \sim \mathcal{D^{\star}}}[Y(1) - Y(0)]
     \notag
     \\
     = &\mathbb E_{Y \sim \mathcal{D}}[Y|A=1] - \mathbb E_{Y \sim \mathcal{D}}[Y| A=0]
     \label{eq:tau_population}
 \end{eqnarray}
-This equation builds on two quantities: the conditional expectancy
-of the outcome given the covariates and either
-treatment or no no treatment, called \emph{response function}:
+This equation builds on the conditional expectation of the outcome given the treatment $\mathbb E_{\sim \mathcal{D}}[Y|A]$. Outcome based methods target this quantity conditionally on the covariates, called \emph{response function}:
 \begin{flalign*}
     \text{Response function}
      &  &
@@ -459,7 +457,7 @@ treatment or no no treatment, called \emph{response function}:
 \end{flalign*}
 
 Given a sample of data and the oracle response functions $\mu_0, \mu_1$, the
-finite sum version of \autoref{eq:tau_population} leads to an
+finite sum version of \autoref{eq:tau_population} leads to an unbiased
 estimator of the ATE written:
 \begin{equation}
     \hat \tau = \frac{1}{n} \biggl(\sum_{i=1}^n \mu_{1}(x_i) - \mu_{0}(x_i) \biggr)
@@ -471,7 +469,7 @@ $,
 which involves an expectation taken on the full
 distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
-$\hat \ell$ to note its finite sum version.
+$\hat \ell$ to note its finite sum version. In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
 
 Similarly to the ATE, at the individual level, the CATE:
 \begin{equation}
@@ -479,11 +477,11 @@ Similarly to the ATE, at the individual level, the CATE:
     \label{eq:cate_estimate}
 \end{equation}
 
+%TODO: not well located here. The reader does not know why we introduce this decomoositon her.
 \paragraph{Robinson decomposition}
 The \emph{R-decomposition}
-of the outcome model\cite{robinson_rootnconsistent_1988} plays an important role:
-introducing two quantities, the conditional mean outcome
-and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}):
+of the outcome model\cite{robinson_rootnconsistent_1988} links the counterfactual outcomes $y(a)$ to the CATE by introducing two quantities, the conditional mean outcome
+and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}).:
 \begin{flalign}
     \text{Conditional mean outcome} &                    & m(x) \myeq \; & \mathbb E_{Y \sim
     \mathcal{D}} [Y|X=x]            &                    &
@@ -500,7 +498,7 @@ the outcome can be written
     \\\ &&\text{with}\quad \mathbb E[\varepsilon(X; A)|X, A] = 0&&
 \end{flalign}
 $m$ and $e$ are often called
-\emph{nuisances} \cite{chernozhukov_double_2018}; they are unknown.
+\emph{nuisances} \cite{chernozhukov_double_2018}; they are unknown and are estimated in practice thanks to statistical models.
 
 %As noted by \cite{johansson2022generalization}, the machine learning
 %community often referred to the CATE by ITE, the Individual Treatment Effect.

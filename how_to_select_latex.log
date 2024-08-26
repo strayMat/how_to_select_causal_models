@@ -284,4 +284,1507 @@ Package xcolor Info: Driver file: pdftex.def on input line 227.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 )
-Package xcolor 
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)) (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen140
+\ar@mcellbox=\box51
+\extrarowheight=\dimen141
+\NC@list=\toks26
+\extratabsurround=\skip64
+\backup@length=\skip65
+\ar@cellbox=\box52
+)
+\everycr=\toks27
+\minrowclearance=\skip66
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+) (/usr/share/texlive/texmf-dist/tex/latex/xpatch/xpatch.sty (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-01-21 L3 programming layer (loader) 
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count197
+\l__pdf_internal_box=\box53
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+ (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2022-01-12 L3 Experimental document command parser
+)) (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks28
+) (/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
+Package: lastpage 2021/09/03 v1.2n Refers to last page's name (HMM; JPG)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count198
+\rotFPtop=\skip67
+\rotFPbot=\skip68
+\rot@float@box=\box54
+\rot@mess@toks=\toks29
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/afterpage.sty
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks30
+\AP@partial=\box55
+\AP@footins=\box56
+) (/usr/share/texlive/texmf-dist/tex/latex/textpos/textpos.sty
+Package: textpos 2020/09/26 v1.10
+
+Package: textpos 2020/09/26 1.10, absolute positioning of text on the page
+Package textpos Info: choosing support for LaTeX3 on input line 61.
+\TP@textbox=\box57
+\TP@holdbox=\box58
+\TPHorizModule=\dimen144
+\TPVertModule=\dimen145
+\TP@margin=\dimen146
+\TP@absmargin=\dimen147
+Grid set 16 x 16 = 37.34424pt x 52.81541pt
+\TPboxrulesize=\dimen148
+\TP@ox=\dimen149
+\TP@oy=\dimen150
+\TP@tbargs=\toks31
+TextBlockOrigin set to 0pt x 0pt
+) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip19
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (/usr/share/texlive/texmf-dist/tex/latex/newfloat/newfloat.sty
+Package: newfloat 2019/09/02 v1.1l Defining new floating environments (AR)
+Package newfloat Info: `rotating' package detected.
+) (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
+Package: mdframed 2013/07/01 1.9b: mdframed
+ (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
+Package: zref-abspage 2020-07-03 v2.32 Module abspage for zref (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-base.sty
+Package: zref-base 2020-07-03 v2.32 Module base for zref (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 764.
+Package zref Info: New property: default on input line 765.
+Package zref Info: New property: page on input line 766.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\c@abspage=\count199
+Package zref Info: New property: abspage on input line 66.
+) (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
+Package: needspace 2010/09/12 v1.3d reserve vertical space
+)
+\mdf@templength=\skip69
+\c@mdf@globalstyle@cnt=\count266
+\mdf@skipabove@length=\skip70
+\mdf@skipbelow@length=\skip71
+\mdf@leftmargin@length=\skip72
+\mdf@rightmargin@length=\skip73
+\mdf@innerleftmargin@length=\skip74
+\mdf@innerrightmargin@length=\skip75
+\mdf@innertopmargin@length=\skip76
+\mdf@innerbottommargin@length=\skip77
+\mdf@splittopskip@length=\skip78
+\mdf@splitbottomskip@length=\skip79
+\mdf@outermargin@length=\skip80
+\mdf@innermargin@length=\skip81
+\mdf@linewidth@length=\skip82
+\mdf@innerlinewidth@length=\skip83
+\mdf@middlelinewidth@length=\skip84
+\mdf@outerlinewidth@length=\skip85
+\mdf@roundcorner@length=\skip86
+\mdf@footenotedistance@length=\skip87
+\mdf@userdefinedwidth@length=\skip88
+\mdf@needspace@length=\skip89
+\mdf@frametitleaboveskip@length=\skip90
+\mdf@frametitlebelowskip@length=\skip91
+\mdf@frametitlerulewidth@length=\skip92
+\mdf@frametitleleftmargin@length=\skip93
+\mdf@frametitlerightmargin@length=\skip94
+\mdf@shadowsize@length=\skip95
+\mdf@extratopheight@length=\skip96
+\mdf@subtitleabovelinewidth@length=\skip97
+\mdf@subtitlebelowlinewidth@length=\skip98
+\mdf@subtitleaboveskip@length=\skip99
+\mdf@subtitlebelowskip@length=\skip100
+\mdf@subtitleinneraboveskip@length=\skip101
+\mdf@subtitleinnerbelowskip@length=\skip102
+\mdf@subsubtitleabovelinewidth@length=\skip103
+\mdf@subsubtitlebelowlinewidth@length=\skip104
+\mdf@subsubtitleaboveskip@length=\skip105
+\mdf@subsubtitlebelowskip@length=\skip106
+\mdf@subsubtitleinneraboveskip@length=\skip107
+\mdf@subsubtitleinnerbelowskip@length=\skip108
+ (/usr/share/texlive/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
+File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
+)
+\mdf@frametitlebox=\box59
+\mdf@footnotebox=\box60
+\mdf@splitbox@one=\box61
+\mdf@splitbox@two=\box62
+\mdf@splitbox@save=\box63
+\mdfsplitboxwidth=\skip109
+\mdfsplitboxtotalwidth=\skip110
+\mdfsplitboxheight=\skip111
+\mdfsplitboxdepth=\skip112
+\mdfsplitboxtotalheight=\skip113
+\mdfframetitleboxwidth=\skip114
+\mdfframetitleboxtotalwidth=\skip115
+\mdfframetitleboxheight=\skip116
+\mdfframetitleboxdepth=\skip117
+\mdfframetitleboxtotalheight=\skip118
+\mdffootnoteboxwidth=\skip119
+\mdffootnoteboxtotalwidth=\skip120
+\mdffootnoteboxheight=\skip121
+\mdffootnoteboxdepth=\skip122
+\mdffootnoteboxtotalheight=\skip123
+\mdftotallinewidth=\skip124
+\mdfboundingboxwidth=\skip125
+\mdfboundingboxtotalwidth=\skip126
+\mdfboundingboxheight=\skip127
+\mdfboundingboxdepth=\skip128
+\mdfboundingboxtotalheight=\skip129
+\mdf@freevspace@length=\skip130
+\mdf@horizontalwidthofbox@length=\skip131
+\mdf@verticalmarginwhole@length=\skip132
+\mdf@horizontalspaceofbox=\skip133
+\mdfsubtitleheight=\skip134
+\mdfsubsubtitleheight=\skip135
+\c@mdfcountframes=\count267
+
+****** mdframed patching \endmdf@trivlist
+
+****** -- success******
+
+\mdf@envdepth=\count268
+\c@mdf@env@i=\count269
+\c@mdf@env@ii=\count270
+\c@mdf@zref@counter=\count271
+Package zref Info: New property: mdf@pagevalue on input line 895.
+) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box64
+\beforetitleunit=\skip136
+\aftertitleunit=\skip137
+\ttl@plus=\dimen151
+\ttl@minus=\dimen152
+\ttl@toksa=\toks32
+\titlewidth=\dimen153
+\titlewidthlast=\dimen154
+\titlewidthfirst=\dimen155
+) (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrextend.sty
+Package: scrextend 2021/11/13 v3.35 KOMA-Script package (extend other classes with features of KOMA-Script classes)
+ (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2021/11/13 v3.35 KOMA-Script package (KOMA-Script-dependent basics and keyval usage)
+ (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2021/11/13 v3.35 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
+ (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2021/11/13 v3.35 KOMA-Script package (file load hooks)
+ (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2021/11/13 v3.35 KOMA-Script package (using LaTeX hooks)
+ (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2021/11/13 v3.35 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line 368.
+))
+Package scrextend Info: unexpected definition of `\@makefnmark'.
+(scrextend)             Trying to patch it on input line 1595.
+Package scrextend Info: patch seems to be successfull on input line 1595.
+)
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <7.5> not available
+(Font)              size <7> substituted on input line 69.
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count272
+\calc@Bcount=\count273
+\calc@Adimen=\dimen156
+\calc@Bdimen=\dimen157
+\calc@Askip=\skip138
+\calc@Bskip=\skip139
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count274
+\calc@Cskip=\skip140
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count275
+\Gm@cntv=\count276
+\c@Gm@tempcnt=\count277
+\Gm@bindingoffset=\dimen158
+\Gm@wd@mp=\dimen159
+\Gm@odd@mp=\dimen160
+\Gm@even@mp=\dimen161
+\Gm@layoutwidth=\dimen162
+\Gm@layoutheight=\dimen163
+\Gm@layouthoffset=\dimen164
+\Gm@layoutvoffset=\dimen165
+\Gm@dimlist=\toks33
+) (/usr/share/texlive/texmf-dist/tex/latex/preprint/authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip141
+\@affilsep=\skip142
+\c@Maxaffil=\count278
+\c@authors=\count279
+\c@affil=\count280
+) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks34
+\footnotemargin=\dimen166
+\c@pp@next@reset=\count281
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924.
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip143
+\f@nch@O@elh=\skip144
+\f@nch@O@erh=\skip145
+\f@nch@O@olh=\skip146
+\f@nch@O@orh=\skip147
+\f@nch@O@elf=\skip148
+\f@nch@O@erf=\skip149
+\f@nch@O@olf=\skip150
+\f@nch@O@orf=\skip151
+) (/usr/share/texlive/texmf-dist/tex/generic/alphalph/alphalph.sty
+Package: alphalph 2019/12/09 v2.6 Convert numbers to letters (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+))
+\c@authorfn=\count282
+ (/usr/share/texlive/texmf-dist/tex/latex/abstract/abstract.sty
+Package: abstract 2009/06/08 v1.2a configurable abstracts
+\abstitleskip=\skip152
+\absleftindent=\skip153
+\absrightindent=\skip154
+\absparindent=\skip155
+\absparsep=\skip156
+)
+Package newfloat Info: New float `keypoints' with options `placement=t!,name=kpt' on input line 291.
+\c@keypoints=\count283
+\newfloat@ftype=\count284
+Package newfloat Info: float type `keypoints'=8 on input line 291.
+ (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip157
+\enit@outerparindent=\dimen167
+\enit@toks=\toks35
+\enit@inbox=\box65
+\enit@count@id=\count285
+\enitdp@description=\count286
+) (/usr/share/texlive/texmf-dist/tex/latex/quoting/quoting.sty
+Package: quoting 2014/01/28 v0.1c Consolidated environment for displayed text
+\quo@toppartop=\skip158
+) (/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip settings
+\@dblbotnum=\count287
+\c@dblbotnumber=\count288
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen168
+\lightrulewidth=\dimen169
+\cmidrulewidth=\dimen170
+\belowrulesep=\dimen171
+\belowbottomsep=\dimen172
+\aboverulesep=\dimen173
+\abovetopsep=\dimen174
+\cmidrulesep=\dimen175
+\cmidrulekern=\dimen176
+\defaultaddspace=\dimen177
+\@cmidla=\count289
+\@cmidlb=\count290
+\@aboverulesep=\dimen178
+\@belowrulesep=\dimen179
+\@thisruleclass=\count291
+\@lastruleclass=\count292
+\@thisrulewidth=\dimen180
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen181
+\TX@old@table=\dimen182
+\TX@old@col=\dimen183
+\TX@target=\dimen184
+\TX@delta=\dimen185
+\TX@cols=\count293
+\TX@ftn=\toks36
+)
+\enitdp@tablenotes=\count294
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen186
+\captionmargin@=\dimen187
+\captionwidth=\dimen188
+\caption@tempdima=\dimen189
+\caption@indent=\dimen190
+\caption@parindent=\dimen191
+\caption@hangindent=\dimen192
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count295
+\c@continuedfloat=\count296
+Package caption Info: rotating package is loaded.
+) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip159
+\bibsep=\skip160
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count297
+)) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2022-02-02 v3.0.46 A comprehensive (SI) units package
+\l__siunitx_angle_tmp_dim=\dimen193
+\l__siunitx_angle_marker_box=\box66
+\l__siunitx_angle_unit_box=\box67
+\l__siunitx_compound_count_int=\count298
+ (/usr/share/texlive/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/01/04 v1.11 internationalization of LaTeX2e packages (CN)
+)
+\l__siunitx_number_exponent_fixed_int=\count299
+\l__siunitx_number_min_decimal_int=\count300
+\l__siunitx_number_min_integer_int=\count301
+\l__siunitx_number_round_precision_int=\count302
+\l__siunitx_number_group_minimum_int=\count303
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks37
+\ex@=\dimen194
+))
+\l__siunitx_table_tmp_box=\box68
+\l__siunitx_table_tmp_dim=\dimen195
+\l__siunitx_table_column_width_dim=\dimen196
+\l__siunitx_table_integer_box=\box69
+\l__siunitx_table_decimal_box=\box70
+\l__siunitx_table_before_box=\box71
+\l__siunitx_table_after_box=\box72
+\l__siunitx_table_before_dim=\dimen197
+\l__siunitx_table_carry_dim=\dimen198
+\l__siunitx_unit_tmp_int=\count304
+\l__siunitx_unit_position_int=\count305
+\l__siunitx_unit_total_int=\count306
+ (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+))
+\c@proof=\count307
+\c@theorem=\count308
+\c@example=\count309
+\c@remark=\count310
+\c@definition=\count311
+\c@assumption=\count312
+\c@proposition*=\count313
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip161
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen199
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
+)
+\inf@bad=\count314
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count315
+\leftroot@=\count316
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count317
+\DOTSCASE@=\count318
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box73
+\strutbox@=\box74
+\big@size=\dimen256
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count319
+\c@MaxMatrixCols=\count320
+\dotsspace@=\muskip20
+\c@parentequation=\count321
+\dspbrk@lvl=\count322
+\tag@help=\toks38
+\row@=\count323
+\column@=\count324
+\maxfields@=\count325
+\andhelp@=\toks39
+\eqnshift@=\dimen257
+\alignsep@=\dimen258
+\tagshift@=\dimen259
+\tagwidth@=\dimen260
+\totwidth@=\dimen261
+\lineht@=\dimen262
+\@envbody=\toks40
+\multlinegap=\skip162
+\multlinetaggap=\skip163
+\mathdisplay@stack=\toks41
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup10
+\symAMSb=\mathgroup11
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Info: Redefining \frak on input line 111.
+)) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count326
+\float@exts=\toks42
+\float@box=\box75
+\@float@everytoks=\toks43
+\@floatcapt=\box76
+)
+\@float@every@algorithm=\toks44
+\c@algorithm=\count327
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count328
+\c@ALG@rem=\count329
+\c@ALG@nested=\count330
+\ALG@tlm=\skip164
+\ALG@thistlm=\skip165
+\c@ALG@Lnr=\count331
+\c@ALG@blocknr=\count332
+\c@ALG@storecount=\count333
+\c@ALG@tmpcounter=\count334
+\ALG@tmplength=\skip166
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2021/02/02 v1.28 mathematical typesetting tools
+ (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count335
+\l_MT_multwidth_dim=\dimen263
+\origjot=\skip167
+\l_MT_shortvdotswithinadjustabove_dim=\dimen264
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen265
+\l_MT_above_intertext_sep=\dimen266
+\l_MT_below_intertext_sep=\dimen267
+\l_MT_above_shortintertext_sep=\dimen268
+\l_MT_below_shortintertext_sep=\dimen269
+\xmathstrut@box=\box77
+\xmathstrut@dim=\dimen270
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip168
+\multirow@cntb=\count336
+\multirow@dima=\skip169
+\bigstrutjot=\dimen271
+) (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box78
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+\c@subfigure=\count337
+\c@subtable=\count338
+\c@subkeypoints=\count339
+) (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+\@linkdim=\dimen272
+\Hy@linkcounter=\count340
+\Hy@pagecounter=\count341
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel languages
+)
+\Hy@SavedSpaceFactor=\count342
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count343
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen273
+ (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count344
+\Field@Width=\dimen274
+\Fld@charsize=\dimen275
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring ON on input line 6094.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+\Hy@abspage=\count345
+\c@Item=\count346
+\c@Hfootnote=\count347
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\HyAnn@Count=\count348
+\Fld@listcount=\count349
+\c@bookmark@seq@number=\count350
+ (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
+)
+\Hy@SectionHShift=\skip170
+)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 97.
+LaTeX Font Info:    Trying to load font information for T1+Merriwthr-OsF on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/latex/merriweather/T1Merriwthr-OsF.fd
+File: T1Merriwthr-OsF.fd 2020/08/30 (autoinst) Font definitions for T1/Merriwthr-OsF.
+)
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 7.5pt on input line 97.
+ (./how_to_select_latex.aux)
+\openout1 = `how_to_select_latex.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Info: Redefining \microtypecontext on input line 97.
+Package microtype Info: Applying patch `item' on input line 97.
+Package microtype Info: Applying patch `toc' on input line 97.
+Package microtype Info: Applying patch `eqnum' on input line 97.
+Package microtype Info: Applying patch `footnote' on input line 97.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 97.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `Merriwthr-OsF' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 97.
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 97.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> T1/Merriwthr-OsF/m/up on input line 97.
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 97.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> T1/Merriwthr-OsF/m/up on input line 97.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  T1/Merriwthr-OsF/m/up --> T1/Merriwthr-OsF/b/up on input line 97.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> T1/Merriwthr-OsF/b/up on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> T1/Merriwthr-OsF/b/up on input line 97.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> T1/MerriwthrSans-OsF/m/up on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> T1/MerriwthrSans-OsF/m/up on input line 97.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> T1/Merriwthr-OsF/m/it on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> T1/Merriwthr-OsF/m/it on input line 97.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> T1/lmtt/m/up on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> T1/lmtt/m/up on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  T1/MerriwthrSans-OsF/m/up --> T1/MerriwthrSans-OsF/b/up on input line 97.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  T1/Merriwthr-OsF/m/it --> T1/Merriwthr-OsF/b/it on input line 97.
+\c@mv@tabular=\count351
+\c@mv@boldtabular=\count352
+Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count353
+\scratchdimen=\dimen276
+\scratchbox=\box79
+\nofMPsegments=\count354
+\nofMParguments=\count355
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count356
+\MPscratchDim=\dimen277
+\MPnumerator=\count357
+\makeMPintoPDFobject=\count358
+\everyMPtoPDFconversion=\toks46
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             ! on input line 97.
+Package newfloat Info: `float' package detected.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includefoot twoside 
+* h-part:(L,W,R)=(54.64pt, 488.22787pt, 54.64pt)
+* v-part:(T,H,B)=(66.0pt, 745.04684pt, 34.0pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=488.22787pt
+* \textheight=715.04684pt
+* \oddsidemargin=-17.62999pt
+* \evensidemargin=-17.62999pt
+* \topmargin=-47.76999pt
+* \headheight=17.5pt
+* \headsep=24.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=48.0pt
+* \marginparsep=10.0pt
+* \columnsep=18.0pt
+* \skip\footins=22.0pt plus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: End \AtBeginDocument code.
+(/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 97.
+Package hyperref Info: Link coloring ON on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count359
+)
+LaTeX Info: Redefining \ref on input line 97.
+LaTeX Info: Redefining \pageref on input line 97.
+LaTeX Info: Redefining \nameref on input line 97.
+ (./how_to_select_latex.out) (./how_to_select_latex.out)
+\@outlinefile=\write3
+\openout3 = `how_to_select_latex.out'.
+
+\@gscitedetails=\box80
+\@gscitedetailsheight=\skip171
+\@gsheadbox=\box81
+\@gsheadboxheight=\skip172
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 6.5pt on input line 97.
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 97.
+
+
+LaTeX Font Warning: Font shape `T1/Merriwthr-OsF/m/up' undefined
+(Font)              using `T1/Merriwthr-OsF/m/n' instead on input line 97.
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 6.24973pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 5.24997pt on input line 97.
+LaTeX Font Info:    Trying to load font information for U+eur on input line 97.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueur.fd
+File: ueur.fd 2013/01/14 v3.01 Euler Roman
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-eur.cfg
+File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
+)
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
+(Font)              size <7> substituted on input line 97.
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 97.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-euf.cfg
+File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+eus on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2013/01/14 v3.01 Euler Script
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-eus.cfg
+File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+euex on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuex.fd
+File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
+)
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
+(Font)              size <7> substituted on input line 97.
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 6.24973pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.24997pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 7.5pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 6.24973pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 5.24997pt on input line 97.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 97.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 97.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 8.0pt on input line 97.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/it' will be
+(Font)              scaled to size 8.0pt on input line 97.
+
+TextBlockOrigin set to 4pc+6.64pt x 4pc+6pt
+<gigascience-logo.pdf, id=149, 99.37125pt x 33.12375pt>
+File: gigascience-logo.pdf Graphic file (type pdf)
+<use gigascience-logo.pdf>
+Package pdftex.def Info: gigascience-logo.pdf  used on input line 142.
+(pdftex.def)             Requested size: 126.00902pt x 42.0pt.
+
+Overfull \hbox (54.64pt too wide) in paragraph at lines 142--142
+[][] 
+ []
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 14.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 8.99997pt on input line 142.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 14.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 11.66617pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 9.79996pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 11.66617pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 9.79996pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 14.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 11.66617pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 9.79996pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 18.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 13.0pt on input line 142.
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 13.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 10.83287pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 9.09996pt on input line 142.
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13> not available
+(Font)              size <12> substituted on input line 142.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13> not available
+(Font)              size <12> substituted on input line 142.
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 10.83287pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 9.09996pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 13.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 10.83287pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 9.09996pt on input line 142.
+LaTeX Font Info:    Trying to load font information for TS1+Merriwthr-OsF on input line 142.
+(/usr/share/texlive/texmf-dist/tex/latex/merriweather/TS1Merriwthr-OsF.fd
+File: TS1Merriwthr-OsF.fd 2020/08/30 (autoinst) Font definitions for TS1/Merriwthr-OsF.
+)
+LaTeX Font Info:    Font shape `TS1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 10.83287pt on input line 142.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `Merriwthr-OsF' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 9.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 7.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 5.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 9.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 7.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 5.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 6.5pt on input line 142.
+LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 6.5pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 5.41643pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 4.54997pt on input line 142.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 142.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.41643> not available
+(Font)              size <5> substituted on input line 142.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.54997> not available
+(Font)              size <5> substituted on input line 142.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
+(Font)              size <6> substituted on input line 142.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.41643> not available
+(Font)              size <5> substituted on input line 142.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.54997> not available
+(Font)              size <5> substituted on input line 142.
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.41643pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 4.54997pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 6.5pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 5.41643pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 4.54997pt on input line 142.
+LaTeX Font Info:    Font shape `TS1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.41643pt on input line 142.
+
+Overfull \hbox (54.64pt too wide) in paragraph at lines 142--142
+[][][] 
+ []
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 10.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 8.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 8.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 6.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 142.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 6.0pt on input line 142.
+
+Overfull \hbox (54.64pt too wide) in paragraph at lines 142--142
+[][][] 
+ []
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 8.5pt on input line 155.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 7.8pt on input line 244.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 7.8pt on input line 244.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./gigascience-logo.pdf>]
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 7.5pt on input line 266.
+LaTeX Font Info:    Trying to load font information for T1+MerriwthrSans-OsF on input line 288.
+ (/usr/share/texlive/texmf-dist/tex/latex/merriweather/T1MerriwthrSans-OsF.fd
+File: T1MerriwthrSans-OsF.fd 2020/08/30 (autoinst) Font definitions for T1/MerriwthrSans-OsF.
+)
+LaTeX Font Info:    Font shape `T1/MerriwthrSans-OsF/m/n' will be
+(Font)              scaled to size 7.5pt on input line 288.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `MerriwthrSans-OsF' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/MerriwthrSans-OsF/m/n' will be
+(Font)              scaled to size 6.25008pt on input line 288.
+<images//toy_random_forest_high_R2_high_tau_risk.pdf, id=253, 800.9006pt x 419.24709pt>
+File: images//toy_random_forest_high_R2_high_tau_risk.pdf Graphic file (type pdf)
+<use images//toy_random_forest_high_R2_high_tau_risk.pdf>
+Package pdftex.def Info: images//toy_random_forest_high_R2_high_tau_risk.pdf  used on input line 293.
+(pdftex.def)             Requested size: 223.35751pt x 116.92139pt.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.00003pt on input line 296.
+LaTeX Font Info:    Font shape `T1/MerriwthrSans-OsF/m/n' will be
+(Font)              scaled to size 5.00003pt on input line 296.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 6.8438pt on input line 297.
+LaTeX Font Info:    Calculating math sizes for size <6.8438> on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 6.8438pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 5.70291pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 4.79063pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.70291pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 4.79063pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 6.8438pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 5.70291pt on input line 297.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 4.79063pt on input line 297.
+<images//toy_tlinear_model_small_R2_small_tau_risk.pdf, id=254, 780.85023pt x 419.24709pt>
+File: images//toy_tlinear_model_small_R2_small_tau_risk.pdf Graphic file (type pdf)
+<use images//toy_tlinear_model_small_R2_small_tau_risk.pdf>
+Package pdftex.def Info: images//toy_tlinear_model_small_R2_small_tau_risk.pdf  used on input line 307.
+(pdftex.def)             Requested size: 223.35751pt x 119.92166pt.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 6.0pt on input line 327.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 7.8pt on input line 425.
+[2 <./images//toy_random_forest_high_R2_high_tau_risk.pdf> <./images//toy_tlinear_model_small_R2_small_tau_risk.pdf>]
+Underfull \hbox (badness 1946) in paragraph at lines 482--485
+[] []\T1/Merriwthr-OsF/m/it/7.5 (+20) Robin-son de-com-po-si-tion.[]\T1/Merriwthr-OsF/m/up/7.5 (+20) The \T1/Merriwthr-OsF/m/it/7.5 (+20) R-decomposition \T1/Merriwthr-OsF/m/up/7.5 (+20) of the out-come
+ []
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 7.0pt on input line 550.
+
+Underfull \vbox (badness 7704) has occurred while \output is active []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 628.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 7.5pt on input line 628.
+<images//estimation_procedure_causal_selection_procedure.png, id=406, 461.35605pt x 185.5581pt>
+File: images//estimation_procedure_causal_selection_procedure.png Graphic file (type png)
+<use images//estimation_procedure_causal_selection_procedure.png>
+Package pdftex.def Info: images//estimation_procedure_causal_selection_procedure.png  used on input line 651.
+(pdftex.def)             Requested size: 223.35751pt x 89.83418pt.
+
+Underfull \vbox (badness 1033) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 6.24973pt on input line 687.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 5.24997pt on input line 687.
+
+Underfull \hbox (badness 10000) in paragraph at lines 687--690
+[]\T1/Merriwthr-OsF/m/it/7.5 (+20) Given an out-come
+ []
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 6.25008pt on input line 728.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 728.
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Calculating math sizes for size <6.25008> on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 6.25008pt on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 5.20816pt on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/up' will be
+(Font)              scaled to size 4.37503pt on input line 728.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.37503> not available
+(Font)              size <5> substituted on input line 728.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.37503> not available
+(Font)              size <5> substituted on input line 728.
+
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 5.20816pt on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 4.37503pt on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 6.25008pt on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 5.20816pt on input line 728.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/m/it' will be
+(Font)              scaled to size 4.37503pt on input line 728.
+
+Underfull \hbox (badness 3536) in paragraph at lines 712--729
+[][]$\T1/Merriwthr-OsF/m/up/7.5 (+20) , $[][]$, $[][]$, $[][]$, $[]$, $[][]$,
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `TS1/Merriwthr-OsF/m/n' will be
+(Font)              scaled to size 7.5pt on input line 768.
+ [4 <./images//estimation_procedure_causal_selection_procedure.png>]
+<images//_1_r_risk_domination_mrisks_by_ds_feasible.pdf, id=499, 1223.45999pt x 926.42113pt>
+File: images//_1_r_risk_domination_mrisks_by_ds_feasible.pdf Graphic file (type pdf)
+<use images//_1_r_risk_domination_mrisks_by_ds_feasible.pdf>
+Package pdftex.def Info: images//_1_r_risk_domination_mrisks_by_ds_feasible.pdf  used on input line 846.
+(pdftex.def)             Requested size: 235.11394pt x 178.02916pt.
+<images//_2_overlap_influence_by_bin_k_by_ds_r_risk_2cols.pdf, id=515, 1350.3535pt x 907.44092pt>
+File: images//_2_overlap_influence_by_bin_k_by_ds_r_risk_2cols.pdf Graphic file (type pdf)
+<use images//_2_overlap_influence_by_bin_k_by_ds_r_risk_2cols.pdf>
+Package pdftex.def Info: images//_2_overlap_influence_by_bin_k_by_ds_r_risk_2cols.pdf  used on input line 914.
+(pdftex.def)             Requested size: 235.11394pt x 157.9876pt.
+ [5 <./images//_1_r_risk_domination_mrisks_by_ds_feasible.pdf> <./images//_2_overlap_influence_by_bin_k_by_ds_r_risk_2cols.pdf>]
+<images//_3_procedure_r_risk_only_3datasets_twocols.pdf, id=732, 1333.17789pt x 490.10541pt>
+File: images//_3_procedure_r_risk_only_3datasets_twocols.pdf Graphic file (type pdf)
+<use images//_3_procedure_r_risk_only_3datasets_twocols.pdf>
+Package pdftex.def Info: images//_3_procedure_r_risk_only_3datasets_twocols.pdf  used on input line 949.
+(pdftex.def)             Requested size: 235.11394pt x 86.42783pt.
+<images//_4_nuisance_models_r_risk_3ds_2cols.pdf, id=736, 1296.11914pt x 475.0021pt>
+File: images//_4_nuisance_models_r_risk_3ds_2cols.pdf Graphic file (type pdf)
+<use images//_4_nuisance_models_r_risk_3ds_2cols.pdf>
+Package pdftex.def Info: images//_4_nuisance_models_r_risk_3ds_2cols.pdf  used on input line 980.
+(pdftex.def)             Requested size: 235.11394pt x 86.1635pt.
+ [6 <./images//_3_procedure_r_risk_only_3datasets_twocols.pdf> <./images//_4_nuisance_models_r_risk_3ds_2cols.pdf>]
+<images//acic_2016_ate_hte.pdf, id=918, 946.34492pt x 597.16pt>
+File: images//acic_2016_ate_hte.pdf Graphic file (type pdf)
+<use images//acic_2016_ate_hte.pdf>
+Package pdftex.def Info: images//acic_2016_ate_hte.pdf  used on input line 1145.
+(pdftex.def)             Requested size: 463.81499pt x 292.68385pt.
+ [7
+
+
+ <./images//acic_2016_ate_hte.pdf>] [8]
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/sl' in size <7.5> not available
+(Font)              Font shape `T1/Merriwthr-OsF/b/it' tried instead on input line 1453.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/it' will be
+(Font)              scaled to size 7.5pt on input line 1453.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/sl' in size <6.24973> not available
+(Font)              Font shape `T1/Merriwthr-OsF/b/it' tried instead on input line 1453.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/it' will be
+(Font)              scaled to size 6.24973pt on input line 1453.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/sl' in size <5.24997> not available
+(Font)              Font shape `T1/Merriwthr-OsF/b/it' tried instead on input line 1453.
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/it' will be
+(Font)              scaled to size 5.24997pt on input line 1453.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1453.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1453.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1453.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\tau' on input line 1453.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1453.
+
+
+Package hyperref Warning: Suppressing empty link on input line 1485.
+
+[9]
+
+LaTeX Warning: Reference `apd:proofs:mu_risk_ipw_link_mu' on page 10 undefined on input line 1528.
+
+[10]
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 8.99997pt on input line 1656.
+LaTeX Font Info:    Font shape `T1/MerriwthrSans-OsF/b/n' will be
+(Font)              scaled to size 8.99997pt on input line 1656.
+<images//overlap_measure_diff_oracle_ntv_to_pred_ntv.pdf, id=1093, 917.00967pt x 386.60341pt>
+File: images//overlap_measure_diff_oracle_ntv_to_pred_ntv.pdf Graphic file (type pdf)
+<use images//overlap_measure_diff_oracle_ntv_to_pred_ntv.pdf>
+Package pdftex.def Info: images//overlap_measure_diff_oracle_ntv_to_pred_ntv.pdf  used on input line 1657.
+(pdftex.def)             Requested size: 488.22787pt x 205.83089pt.
+<images//overlap_measure_diff_oracle_ntv_to_ntv_wcalibration.pdf, id=1094, 925.6984pt x 386.60341pt>
+File: images//overlap_measure_diff_oracle_ntv_to_ntv_wcalibration.pdf Graphic file (type pdf)
+<use images//overlap_measure_diff_oracle_ntv_to_ntv_wcalibration.pdf>
+Package pdftex.def Info: images//overlap_measure_diff_oracle_ntv_to_ntv_wcalibration.pdf  used on input line 1663.
+(pdftex.def)             Requested size: 488.22787pt x 203.90189pt.
+<images//overlap_measure_acic_2016_recovery_overlap_setup.pdf, id=1096, 881.01645pt x 674.27654pt>
+File: images//overlap_measure_acic_2016_recovery_overlap_setup.pdf Graphic file (type pdf)
+<use images//overlap_measure_acic_2016_recovery_overlap_setup.pdf>
+Package pdftex.def Info: images//overlap_measure_acic_2016_recovery_overlap_setup.pdf  used on input line 1677.
+(pdftex.def)             Requested size: 341.75801pt x 261.55725pt.
+<images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf, id=1097, 924.79567pt x 668.81741pt>
+File: images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf Graphic file (type pdf)
+<use images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf>
+Package pdftex.def Info: images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf  used on input line 1686.
+(pdftex.def)             Requested size: 341.75801pt x 247.16261pt.
+<images//overlap_measure_caussim_max_ipw_vs_ntv.pdf, id=1098, 908.4941pt x 668.81741pt>
+File: images//overlap_measure_caussim_max_ipw_vs_ntv.pdf Graphic file (type pdf)
+<use images//overlap_measure_caussim_max_ipw_vs_ntv.pdf>
+Package pdftex.def Info: images//overlap_measure_caussim_max_ipw_vs_ntv.pdf  used on input line 1695.
+(pdftex.def)             Requested size: 229.46768pt x 168.92863pt.
+<images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf, id=1099, 908.4941pt x 668.81741pt>
+File: images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf Graphic file (type pdf)
+<use images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf>
+Package pdftex.def Info: images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf  used on input line 1702.
+(pdftex.def)             Requested size: 229.46768pt x 168.92863pt.
+<images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf, id=1100, 908.73781pt x 703.657pt>
+File: images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf Graphic file (type pdf)
+<use images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf>
+Package pdftex.def Info: images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf  used on input line 1708.
+(pdftex.def)             Requested size: 229.46768pt x 177.67467pt.
+<images//overlap_measure_twins_max_ipw_vs_ntv.pdf, id=1101, 908.4941pt x 668.81741pt>
+File: images//overlap_measure_twins_max_ipw_vs_ntv.pdf Graphic file (type pdf)
+<use images//overlap_measure_twins_max_ipw_vs_ntv.pdf>
+Package pdftex.def Info: images//overlap_measure_twins_max_ipw_vs_ntv.pdf  used on input line 1715.
+(pdftex.def)             Requested size: 239.23433pt x 176.11317pt.
+ [11 <./images//overlap_measure_diff_oracle_ntv_to_pred_ntv.pdf> <./images//overlap_measure_diff_oracle_ntv_to_ntv_wcalibration.pdf>] [12 <./images//overlap_measure_acic_2016_recovery_overlap_setup.pdf> <./images//overlap_measure_caussim_transformed_mmd_vs_ntv.pdf>]
+
+LaTeX Warning: Reference `theory:prop:mu_risk_ipw_bound' on page 13 undefined on input line 1771.
+
+[13 <./images//overlap_measure_caussim_max_ipw_vs_ntv.pdf> <./images//overlap_measure_acic_2016_max_ipw_vs_ntv.pdf> <./images//overlap_measure_acic_2018_max_ipw_vs_ntv.pdf> <./images//overlap_measure_twins_max_ipw_vs_ntv.pdf>]
+<images//caussim_example.pdf, id=1535, 1125.98634pt x 875.67104pt>
+File: images//caussim_example.pdf Graphic file (type pdf)
+<use images//caussim_example.pdf>
+Package pdftex.def Info: images//caussim_example.pdf  used on input line 1804.
+(pdftex.def)             Requested size: 390.58379pt x 303.75032pt.
+ [14 <./images//caussim_example.pdf>]
+LaTeX Font Info:    Font shape `T1/Merriwthr-OsF/b/n' will be
+(Font)              scaled to size 5.0pt on input line 1883.
+ (./images/_1_r_risk_domination_boxplot_df.tex)
+<images//_1_r_risk_domination_mrisks_by_ds.pdf, id=1608, 1917.26003pt x 989.51567pt>
+File: images//_1_r_risk_domination_mrisks_by_ds.pdf Graphic file (type pdf)
+<use images//_1_r_risk_domination_mrisks_by_ds.pdf>
+Package pdftex.def Info: images//_1_r_risk_domination_mrisks_by_ds.pdf  used on input line 1945.
+(pdftex.def)             Requested size: 488.22787pt x 251.96834pt.
+<images//ktau_caussim_nuisance_nlin_models_ridge_ov1-247.pdf, id=1611, 959.443pt x 669.71304pt>
+File: images//ktau_caussim_nuisance_nlin_models_ridge_ov1-247.pdf Graphic file (type pdf)
+<use images//ktau_caussim_nuisance_nlin_models_ridge_ov1-247.pdf>
+Package pdftex.def Info: images//ktau_caussim_nuisance_nlin_models_ridge_ov1-247.pdf  used on input line 1963.
+(pdftex.def)             Requested size: 214.82144pt x 149.94316pt.
+<images//ktau_acic2016_nuisance_nlin_models_hgb_dgp1-77_rs1-10.pdf, id=1612, 959.443pt x 669.71304pt>
+File: images//ktau_acic2016_nuisance_nlin_models_hgb_dgp1-77_rs1-10.pdf Graphic file (type pdf)
+<use images//ktau_acic2016_nuisance_nlin_models_hgb_dgp1-77_rs1-10.pdf>
+Package pdftex.def Info: images//ktau_acic2016_nuisance_nlin_models_hgb_dgp1-77_rs1-10.pdf  used on input line 1970.
+(pdftex.def)             Requested size: 214.82144pt x 149.94316pt.
+<images//legend_metrics.pdf, id=1613, 350.5095pt x 793.5246pt>
+File: images//legend_metrics.pdf Graphic file (type pdf)
+<use images//legend_metrics.pdf>
+Package pdftex.def Info: images//legend_metrics.pdf  used on input line 1976.
+(pdftex.def)             Requested size: 73.23863pt x 165.7975pt.
+
+Overfull \hbox (24.41287pt too wide) in paragraph at lines 1976--1977
+ [][] 
+ []
+
+<images//ktau_acic2018_nuisance_stacking_models_hgb_tset_50.pdf, id=1614, 959.443pt x 669.58145pt>
+File: images//ktau_acic2018_nuisance_stacking_models_hgb_tset_50.pdf Graphic file (type pdf)
+<use images//ktau_acic2018_nuisance_stacking_models_hgb_tset_50.pdf>
+Package pdftex.def Info: images//ktau_acic2018_nuisance_stacking_models_hgb_tset_50.pdf  used on input line 1981.
+(pdftex.def)             Requested size: 214.82144pt x 149.9137pt.
+<images//ktau_twins_nuisance_stacking__models_hgb.pdf, id=1615, 959.443pt x 669.71304pt>
+File: images//ktau_twins_nuisance_stacking__models_hgb.pdf Graphic file (type pdf)
+<use images//ktau_twins_nuisance_stacking__models_hgb.pdf>
+Package pdftex.def Info: images//ktau_twins_nuisance_stacking__models_hgb.pdf  used on input line 1988.
+(pdftex.def)             Requested size: 214.82144pt x 149.94316pt.
+<images//norm_bias_trisk_tobest_caussim_nuis_nlin_models_ridge.pdf, id=1617, 959.00894pt x 669.71304pt>
+File: images//norm_bias_trisk_tobest_caussim_nuis_nlin_models_ridge.pdf Graphic file (type pdf)
+<use images//norm_bias_trisk_tobest_caussim_nuis_nlin_models_ridge.pdf>
+Package pdftex.def Info: images//norm_bias_trisk_tobest_caussim_nuis_nlin_models_ridge.pdf  used on input line 2022.
+(pdftex.def)             Requested size: 214.82144pt x 150.0147pt.
+<images//norm_bias_trisk_tobest_acic2016_nuis_nlin_models_hgb.pdf, id=1618, 958.67021pt x 669.02835pt>
+File: images//norm_bias_trisk_tobest_acic2016_nuis_nlin_models_hgb.pdf Graphic file (type pdf)
+<use images//norm_bias_trisk_tobest_acic2016_nuis_nlin_models_hgb.pdf>
+Package pdftex.def Info: images//norm_bias_trisk_tobest_acic2016_nuis_nlin_models_hgb.pdf  used on input line 2029.
+(pdftex.def)             Requested size: 214.82144pt x 149.91237pt.
+File: images//legend_metrics.pdf Graphic file (type pdf)
+<use images//legend_metrics.pdf>
+Package pdftex.def Info: images//legend_metrics.pdf  used on input line 2035.
+(pdftex.def)             Requested size: 73.23863pt x 165.7975pt.
+
+Overfull \hbox (24.41287pt too wide) in paragraph at lines 2035--2036
+ [][] 
+ []
+
+<images//norm_bias_trisk_tobest_acic2018_nuis_nlin_models_hgb.pdf, id=1619, 958.67021pt x 668.89676pt>
+File: images//norm_bias_trisk_tobest_acic2018_nuis_nlin_models_hgb.pdf Graphic file (type pdf)
+<use images//norm_bias_trisk_tobest_acic2018_nuis_nlin_models_hgb.pdf>
+Package pdftex.def Info: images//norm_bias_trisk_tobest_acic2018_nuis_nlin_models_hgb.pdf  used on input line 2040.
+(pdftex.def)             Requested size: 214.82144pt x 149.88287pt.
+<images//norm_bias_trisk_tobest_twins_nuis_stack_models_hgb.pdf, id=1620, 958.67021pt x 669.71304pt>
+File: images//norm_bias_trisk_tobest_twins_nuis_stack_models_hgb.pdf Graphic file (type pdf)
+<use images//norm_bias_trisk_tobest_twins_nuis_stack_models_hgb.pdf>
+Package pdftex.def Info: images//norm_bias_trisk_tobest_twins_nuis_stack_models_hgb.pdf  used on input line 2047.
+(pdftex.def)             Requested size: 214.82144pt x 150.0658pt.
+<images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk.pdf, id=1622, 1941.02742pt x 635.25356pt>
+File: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk.pdf  used on input line 2079.
+(pdftex.def)             Requested size: 505.30972pt x 165.37527pt.
+
+Overfull \hbox (65.90762pt too wide) in paragraph at lines 2079--2081
+[][]
+ []
+
+<images//_3_procedure_ACIC2016_N4802__ref_oracle_r_risk.pdf, id=1623, 1621.24556pt x 635.25356pt>
+File: images//_3_procedure_ACIC2016_N4802__ref_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_3_procedure_ACIC2016_N4802__ref_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_3_procedure_ACIC2016_N4802__ref_oracle_r_risk.pdf  used on input line 2086.
+(pdftex.def)             Requested size: 439.4021pt x 172.1702pt.
+<images//_3_procedure_Twins_N11984__ref_oracle_r_risk.pdf, id=1624, 1621.24556pt x 730.06639pt>
+File: images//_3_procedure_Twins_N11984__ref_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_3_procedure_Twins_N11984__ref_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_3_procedure_Twins_N11984__ref_oracle_r_risk.pdf  used on input line 2093.
+(pdftex.def)             Requested size: 439.4021pt x 197.86693pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2076--2100
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2076--2100
+[]
+ []
+
+<images//_2_overlap_influence_by_bin_k_by_ds.pdf, id=1626, 1946.56091pt x 1426.60995pt>
+File: images//_2_overlap_influence_by_bin_k_by_ds.pdf Graphic file (type pdf)
+<use images//_2_overlap_influence_by_bin_k_by_ds.pdf>
+Package pdftex.def Info: images//_2_overlap_influence_by_bin_k_by_ds.pdf  used on input line 2111.
+(pdftex.def)             Requested size: 488.22787pt x 357.80533pt.
+<images//_4_nuisance_models_Twins_N11984__ref_oracle_r_risk.pdf, id=1629, 1624.96759pt x 730.06639pt>
+File: images//_4_nuisance_models_Twins_N11984__ref_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_4_nuisance_models_Twins_N11984__ref_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_4_nuisance_models_Twins_N11984__ref_oracle_r_risk.pdf  used on input line 2135.
+(pdftex.def)             Requested size: 239.23433pt x 107.47777pt.
+<images//_4_nuisance_models_Twinssmall_N4794__ref_oracle_r_risk.pdf, id=1630, 1624.96759pt x 730.06639pt>
+File: images//_4_nuisance_models_Twinssmall_N4794__ref_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_4_nuisance_models_Twinssmall_N4794__ref_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_4_nuisance_models_Twinssmall_N4794__ref_oracle_r_risk.pdf  used on input line 2142.
+(pdftex.def)             Requested size: 239.23433pt x 107.47777pt.
+<images//_4_nuisance_models_Caussim_N5000__ref_oracle_r_risk.pdf, id=1631, 1916.31265pt x 635.25356pt>
+File: images//_4_nuisance_models_Caussim_N5000__ref_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_4_nuisance_models_Caussim_N5000__ref_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_4_nuisance_models_Caussim_N5000__ref_oracle_r_risk.pdf  used on input line 2149.
+(pdftex.def)             Requested size: 275.11801pt x 91.19339pt.
+
+Overfull \hbox (35.88368pt too wide) in paragraph at lines 2149--2151
+[][]
+ []
+
+<images//_4_nuisance_models_ACIC2016_N4802__ref_oracle_r_risk.pdf, id=1632, 1624.96759pt x 635.25356pt>
+File: images//_4_nuisance_models_ACIC2016_N4802__ref_oracle_r_risk.pdf Graphic file (type pdf)
+<use images//_4_nuisance_models_ACIC2016_N4802__ref_oracle_r_risk.pdf>
+Package pdftex.def Info: images//_4_nuisance_models_ACIC2016_N4802__ref_oracle_r_risk.pdf  used on input line 2156.
+(pdftex.def)             Requested size: 239.23433pt x 93.51976pt.
+<images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf, id=1634, 1667.57231pt x 487.44922pt>
+File: images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf Graphic file (type pdf)
+<use images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf>
+Package pdftex.def Info: images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf  used on input line 2172.
+(pdftex.def)             Requested size: 488.22787pt x 142.71034pt.
+<images//caussim_seed_effect.pdf, id=1636, 1257.56961pt x 460.43643pt>
+File: images//caussim_seed_effect.pdf Graphic file (type pdf)
+<use images//caussim_seed_effect.pdf>
+Package pdftex.def Info: images//caussim_seed_effect.pdf  used on input line 2201.
+(pdftex.def)             Requested size: 488.22787pt x 178.7545pt.
+[15] [16] [17 <./images//_1_r_risk_domination_mrisks_by_ds.pdf>] [18 <./images//ktau_caussim_nuisance_nlin_models_ridge_ov1-247.pdf> <./images//ktau_acic2016_nuisance_nlin_models_hgb_dgp1-77_rs1-10.pdf> <./images//legend_metrics.pdf> <./images//ktau_acic2018_nuisance_stacking_models_hgb_tset_50.pdf> <./images//ktau_twins_nuisance_stacking__models_hgb.pdf>] [19 <./images//norm_bias_trisk_tobest_caussim_nuis_nlin_models_ridge.pdf> <./images//norm_bias_trisk_tobest_acic2016_nuis_nlin_models_hgb.pdf> <./images//norm_bias_trisk_tobest_acic2018_nuis_nlin_models_hgb.pdf> <./images//norm_bias_trisk_tobest_twins_nuis_stack_models_hgb.pdf>] [20 <./images//_3_procedure_Caussim_N5000__ref_metric_oracle_r_risk.pdf> <./images//_3_procedure_ACIC2016_N4802__ref_oracle_r_risk.pdf> <./images//_3_procedure_Twins_N11984__ref_oracle_r_risk.pdf>] [21 <./images//_2_overlap_influence_by_bin_k_by_ds.pdf> <./images//_4_nuisance_models_Twins_N11984__ref_oracle_r_risk.pdf> <./images//_4_nuisance_models_Twinssmall_N4794__ref_oracle_r_risk.pdf> <./images//_4_nuisance_models_Caussim_N5000__ref_oracle_r_risk.pdf> <./images//_4_nuisance_models_ACIC2016_N4802__ref_oracle_r_risk.pdf>] [22 <./images//_4_nuisance_models_r_risk_only_twins_nuisances.pdf> <./images//caussim_seed_effect.pdf>]
+<images//_5_train_size_r_risk__cate__acic16_2cols.pdf, id=2972, 1204.63858pt x 453.3211pt>
+File: images//_5_train_size_r_risk__cate__acic16_2cols.pdf Graphic file (type pdf)
+<use images//_5_train_size_r_risk__cate__acic16_2cols.pdf>
+Package pdftex.def Info: images//_5_train_size_r_risk__cate__acic16_2cols.pdf  used on input line 2241.
+(pdftex.def)             Requested size: 244.11394pt x 91.85927pt.
+<images//_5_train_size_r_risk__ate__acic16_2cols.pdf, id=2973, 1324.84854pt x 379.35614pt>
+File: images//_5_train_size_r_risk__ate__acic16_2cols.pdf Graphic file (type pdf)
+<use images//_5_train_size_r_risk__ate__acic16_2cols.pdf>
+Package pdftex.def Info: images//_5_train_size_r_risk__ate__acic16_2cols.pdf  used on input line 2246.
+(pdftex.def)             Requested size: 244.11394pt x 69.89615pt.
+
+Overfull \hbox (1.17525pt too wide) in paragraph at lines 2239--2252
+[]$[]$ $[]$ 
+ []
+
+(./how_to_select_latex.bbl [23 <./images//_5_train_size_r_risk__cate__acic16_2cols.pdf> <./images//_5_train_size_r_risk__ate__acic16_2cols.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]) 
+AED: lastpage setting LastPage
+[26] (./how_to_select_latex.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `how_to_select_latex.out' has not changed.
+(rerunfilecheck)             Checksum: F4D0C0139117814E80D885F98346E1EE;8284.
+ ) 
+Here is how much of TeX's memory you used:
+ 27494 strings out of 480171
+ 544594 string characters out of 5894489
+ 857640 words of memory out of 5000000
+ 43834 multiletter control sequences out of 15000+600000
+ 2299724 words of font info for 802 fonts, out of 8000000 for 9000
+ 59 hyphenation exceptions out of 8191
+ 123i,19n,131p,1083b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_ags7qn.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_posqbl.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_owzwzj.enc}</usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/Merriwthr-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/MerriwthrSans-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/sorkin/merriweather/MerriwthrSans-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/euex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on how_to_select_latex.pdf (26 pages, 12519115 bytes).
+PDF statistics:
+ 3302 PDF objects out of 3580 (max. 8388607)
+ 1305 compressed objects within 14 object streams
+ 265 named destinations out of 1000 (max. 500000)
+ 288233 words of extra memory for PDF output out of 319454 (max. 10000000)
+

@@ -27,7 +27,7 @@ R-decomposition introduces two quantities, the conditional mean outcome and the 
 > The R-decomposition inspires two different risks, this is why we are introducing it here. I developped a little bit on the role of this decomposition and why we are introducing it. 
 
 > The propensity score is a nuisance quantity that is necessary to estimate . 
-
+**TODO: unfinished**
 
 Finally, I note that the paper mentions inference methods specific to machine learning (random forest, etc.). In this regard, there is a great deal of study in the literature as to their actual usefulness in this field. I suggest the authors consider/review some of the following literature in the paper (those that the authors consider most appropriate to be included in their manuscript):
 
@@ -43,7 +43,7 @@ https://aisel.aisnet.org/pacis2022/181/
 
 or some other that can be easily found in literature.
 
-
+> Thanks for the references. I am in favor of adding some of them to the manuscript such as [Chernozhukov et al., 2024](https://causalml-book.org/) or [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475) which clearly distangle the different subfields at the intersection of causal inference and machine learning. I have added them at the beginning of the manuscript before focusing on the model selection problem for cate. 
 
 # Reviewer 2
 
@@ -56,16 +56,21 @@ I am however not sure about the overall conclusions, which are that R-risk is al
 
 Overall: I am no fully convinced that R-risk is always the best.  The answer could be dependent on other factors and I hope the authors would explore more scenarios.
 
+**TODO**
+
+
 Another question: do the differences between risks in experiments follow known theoretical results?  For example, it is well known (e.g. https://www.semanticscholar.org/reader/112aba9c62f98b9684693f4c20c30274bc9eb1dc or [Rudas ans jaroszewisz, 2017](https://link.springer.com/content/pdf/10.1007/s10618-018-0576-8.pdf)) that the tau risk performs poorly.
 
-> The differences between risks have been explored *theoretically* by XX for the lose performance of the U-risk. For the other risk, we are not aware of any theoretical results. 
-> The differences between risks have been highlighted *experimentally* in other papers such as [Schuler, et al., 2018](https://arxiv.org/pdf/1804.05146) for quadratic and stepwise data generation processes or [Curt et Van der Schaar, 2023](https://proceedings.mlr.press/v202/curth23b/curth23b.pdf) exploring more diverse outcome generation processes such as CATE complexity. They both underline good performances for the R risk. 
+> The high variability of the U-learner has already been noted by [Nie and Wager, 2017](https://arxiv.org/pdf/1712.04912). This instability is naturally found in the U-risk. For the other risk, we are not aware of any theoretical results justifying differences between risks. 
+> Empirically, the differences between risks have been highlighted in other papers such as [Schuler, et al., 2018](https://arxiv.org/pdf/1804.05146) for quadratic and stepwise data generation processes or [Curth et Van der Schaar, 2023](https://proceedings.mlr.press/v202/curth23b/curth23b.pdf) exploring more diverse outcome generation processes focusing on CATE sparsity (as a proxy of its complexity) based on a semi-simulated dataset for the covariate (ACIC2016). They both underline good performances for the R-risk (see Table.1 for Schuler and Fig. 3 for Curth). A remark that we made in our manuscript is that the results of Schuler are convincing for randomization setups but not for observational (non-randomized) setups. Curth's results are more convincing for observational setups but did not explore the overlap assumption.
 
 > The second paper is from the uplift regression literature. It focus on full randomization problems and a linear specification with gaussian predictors. It shows theoretically that a linear T-learner (called double model approach in their approach) has smaller asymptotical variance than a treatment ratio reweighted outcome S learner. However, they note that in non normal cases the  T-learner can be ill-defined or with high variance. They propose a corrected reweighted S-learner approach to reduce this  variance. They show empirically that it behaves better than the non corrected version on a simulation and two real world problems. 
 > I am not sure to see the link with the tau-risk. The paper does not compare risks but corrected or uncorrected vs T-learners. In addition, they only consider full randomization and linear problems. In our case, we consider a more general setting with a variety of data generation procedures and we focus on non-randomized situations where the distribution of the treatment is conditioned by the predictors.
 
 
 Another problem is that the paper is hard to follow. The authors rapidly switch between topics: risk, selection, nuisance parameter estimation so the reader quickly gets lost.  The sections in supplementary materials contain important information but not all are referenced in main text.  The paper gives an impression of several experiments put together in some order without guiding the reader through the maze.  I think organization should be improved before publication.
+
+**TODO**
 
 Other comments:
 ---------------
@@ -83,6 +88,8 @@ page 17: proposition number is missing
 > Thanks for this remark. We fixed it.
 
 A.7: the data generation procedure needs better explanations.  Why not call (7) P(d|A) since that's how its used later?  On page 17 you say '[b1,bD]~P(x)' and later 'x~P(x)' which causes confusion.  Also, how are beta vectors generated?
+
+**TODO**
 
 page 4: TLearner uses different feature representation for each treatment arm.  Does this really happen in practice?  Usually all subgroups are described with the same set of features.
 

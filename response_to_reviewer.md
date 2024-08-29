@@ -69,7 +69,7 @@ Other comments:
 
 In the Methods section g-computation is described.  It seems indeed the first name under which the technique appeared in literature, but other names, most importantly S-learner are being used frequently nowadays.  Interestingly those names are mentioned in Empirical study on page 4, however, the close relationship (equivalence?) between S-learner and g-computation is not mentioned.
 
-> G-computation is larger than S-learner. The first mention of S-learner that we are aware of is [Künzel, 2019](https://arxiv.org/pdf/1706.03461). In this paper, they distinguish T-learners from S-learners (or more elaborated ones). T-learners model $\mu(0)$ and $\mu(1)$ separately and train separately on each population. On the contrary S learner use only one model for both population and add the treatment as a covariate. A good example to understand the difference is to note that a linear T-learner is the same thing as a linear S-learner where we add an interaction term between the treatment and the covariates. Ultimately, both methods are G-computation in the sense that they rely on the identification of eq. (1) making the link between potential outcomes and observed quantities. To improve the manuscript, we added just after the eq. (3) that one can choose between T-learner and S-learner.
+> G-computation is larger than S-learner. The first mention of S-learner that we are aware of is [Künzel, 2019](https://arxiv.org/pdf/1706.03461). In this paper, they distinguish T-learners from S-learners (or more elaborated ones). T-learners model $\mu(0)$ and $\mu(1)$ separately and train separately on each population. On the contrary S learner use only one model for both population and add the treatment as a covariate. A good example to understand the difference is to note that a linear T-learner is the same thing as a linear S-learner where we add an interaction term between the treatment and the covariates. Ultimately, both methods are G-computation in the sense that they rely on the identification of eq. (1) making the link between potential outcomes and observed quantities. To improve the manuscript, we added just after the eq. (3) that one can choose to model the response function with either a T-learner or a S-learner.
 
 Equation 2: should the expectation be over X not Y?
 
@@ -83,7 +83,13 @@ A.7: the data generation procedure needs better explanations.  Why not call (7) 
 
 page 4: TLearner uses different feature representation for each treatment arm.  Does this really happen in practice?  Usually all subgroups are described with the same set of features.
 
+> It is indeed true that all subgroups are described with the same set of features. However, 
+
 page 4/5: Family of candidate estimators: why are only linear models used in some dataset and forests for other?  The leaf sizes of forests are chosen from a rather small range, why not use some percentage of the size of the training set?
+
+> The choice of the candidate family of estimators was guided by the idea to compare estimators that are not too different from each other, making the model selection task more challenging. The important point is that we are not focusing on the best possible estimator but on the best possible model selection procedure. To identify the optimal procedure, it is more convincing to compare close candidate estimators than a wide variety of candidate estimators. In the later case, one estimator could dominate all other estimators for every selection procedure. This explains why we are choosing a narrow range of leaf sizes for the forests.
+
+> For the simulations we chose estimators that are out of the functional class of the  true data generation process but are quite similar to it. They are out of the funtional class because the representers are different from the one of the true data. They are close because they have the same functional form : a linear model on top of representers. We used the simulation to explore the wider range of data generation processes, focusing on a gradient of overlap. Because of the sheer number of generated dataset, we did not include computationnaly costly boosted trees in the candidate family.  than the one used for the data generation process. An important point is that the . For the semi-simulated datasets, we chose . For a forest estimator, a T learner or a S learner are quite similar . The fact that the . 
 
 Language comments:
 ------------------

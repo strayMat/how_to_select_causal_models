@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex how_to_select_latex"] 1724607477 "how_to_select_latex.aux" "how_to_select_latex.bbl" "how_to_select_latex" 1724607508
+["bibtex how_to_select_latex"] 1724956856 "how_to_select_latex.aux" "how_to_select_latex.bbl" "how_to_select_latex" 1724956858
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "biblio.bib" 1703868112 90431 8f011a81971b2f8f2792685e0441b456 ""
-  "how_to_select_latex.aux" 1724607508 52832 e9b56eb42f0ece90fb9bd1e85713819d "pdflatex"
+  "how_to_select_latex.aux" 1724956858 52838 bda0c0a9743ff9b24450be649db44b3b "pdflatex"
   (generated)
   "how_to_select_latex.bbl"
   "how_to_select_latex.blg"
-["pdflatex"] 1724607505 "/home/matthieu/boulot/research/papiers/how_to_select_causal_models/how_to_select_latex.tex" "how_to_select_latex.pdf" "how_to_select_latex" 1724607508
+["pdflatex"] 1724956856 "/home/matthieu/boulot/research/papiers/how_to_select_causal_models/how_to_select_latex.tex" "how_to_select_latex.pdf" "how_to_select_latex" 1724956858
   "/etc/texmf/web2c/texmf.cnf" 1669369330 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/matthieu/boulot/research/papiers/how_to_select_causal_models/how_to_select_latex.tex" 1724607505 114758 e536e37d165520d9bc26acbb369b6416 ""
+  "/home/matthieu/boulot/research/papiers/how_to_select_causal_models/how_to_select_latex.tex" 1724956858 114749 4811fd1cf857221be9e766d8c19230e5 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_ags7qn.enc" 1598908638 3044 b0c65da7c9528299e61a76b0fbb779de ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_owzwzj.enc" 1598908638 3232 ef51d03b653093676eb36fc969d4ae7e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/merriweather/merriwthr_posqbl.enc" 1598908638 3040 77bed73251d3e4e602c256d699396a7f ""
@@ -248,10 +248,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1677228346 4271227 d672d4662bed749f7922e92e70a51875 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710969234 1435841 4f0e64d92077411d442938ac43378c14 ""
   "gigascience-logo.pdf" 1718350036 26675 f4ea200f02bb24fe6ae82ed73605e2b2 ""
-  "how_to_select_latex.aux" 1724607508 52832 e9b56eb42f0ece90fb9bd1e85713819d "pdflatex"
-  "how_to_select_latex.bbl" 1724607477 29628 b41c9922740ba343bb59166a918da326 "bibtex how_to_select_latex"
-  "how_to_select_latex.out" 1724607508 8284 f4d0c0139117814e80d885f98346e1ee "pdflatex"
-  "how_to_select_latex.tex" 1724607505 114758 e536e37d165520d9bc26acbb369b6416 ""
+  "how_to_select_latex.aux" 1724956858 52838 bda0c0a9743ff9b24450be649db44b3b "pdflatex"
+  "how_to_select_latex.bbl" 1724956856 29628 b41c9922740ba343bb59166a918da326 "bibtex how_to_select_latex"
+  "how_to_select_latex.out" 1724956858 8284 f4d0c0139117814e80d885f98346e1ee "pdflatex"
+  "how_to_select_latex.tex" 1724956858 114749 4811fd1cf857221be9e766d8c19230e5 ""
   "images//_1_r_risk_domination_mrisks_by_ds.pdf" 1703868112 58847 8a0a03b0f3deeffaa06896f086bcfbea ""
   "images//_1_r_risk_domination_mrisks_by_ds_feasible.pdf" 1703868112 43739 0a902a585fd56a96e636473cb25916e5 ""
   "images//_2_overlap_influence_by_bin_k_by_ds.pdf" 1703868112 61452 496967102bf2fe0e893b63f5a26f997a ""

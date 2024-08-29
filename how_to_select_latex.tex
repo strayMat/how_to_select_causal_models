@@ -423,13 +423,13 @@ causal estimands \cite{rubin_causal_2005}. The usual
 strictly positive probability to receive each treatment, \emph{3)}
 \emph{consistency}, and \emph{4)} \emph{generalization}.
 
-\paragraph{Estimating treatment effects with outcome models -- g-computation \cite{robins_new_1986}}\label{subsec:estimators}
+\paragraph{Identifying treatment effects with outcome models -- g-computation \cite{robins_new_1986}}\label{subsec:estimators}
 
-Should we know the two expected outcomes for a given $X$,
+Should we know the two potential outcomes for a given $X$,
 we could compute the
 difference between them, which gives the causal effect of the treatment.
 %
-These two expected outcomes can be estimated from observed data:
+These two potential outcomes can be estimated from observed data:
 the consistency \ref{assumption:consistency} and unconfoundedness
 \ref{assumption:ignorability} assumptions imply the following equality:
 \begin{equation}\label{eq:mu_identification}
@@ -1767,8 +1767,8 @@ illustrates 2D examples of the simulation.
           Gaussians, for the treated and non treated. We vary the separation
           between the two Gaussians to control the overlap between treated and
           non-treated populations, an important parameter for causal inference
-          (related to $\eta$ in Proposition
-          \ref{theory:prop:mu_risk_ipw_bound}). Finally, we generate observed
+          (related to $\eta$ in Assumption
+          \ref{assumption:overlap}). Finally, we generate observed
           outcomes adding Gaussian noise.
 
           More formally, we generate the basis following the original data

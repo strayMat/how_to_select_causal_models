@@ -109,7 +109,7 @@
         %the door to a plethora of models, but also the Pandora box of model
         %selection: which of these models yield the most valid causal estimates? 
         \textbf{Methods:}
-        We study such a variety of model selection procedures in practical settings:
+        We study a large variety of model selection procedures in practical settings:
         finite samples settings and without theoretical assumption of
         \emph{well-specified} models. Beyond standard cross-validation or
         internal validation procedures, we also study elaborate causal risks.
@@ -197,7 +197,7 @@ causal-inference task, as it can be easily compromised by confounding:
 spurious associations between treatment
 allocation and baseline health, \eg~only prescribing a drug to mild cases
 \cite{hernan_causal_2020,vanderweele2019principles}.
-Predictive modeling bridges to causal inference theory under the name of
+Predictive modeling is linked to causal inference theory by the concept of
 \emph{outcome models} (or G-computation,
 G-formula \cite{robins_role_1986}, Q-model
 \cite{snowden_implementation_2011}, conditional mean regression
@@ -262,7 +262,7 @@ more quantities to estimate, which may bring additional variance, leading to
 worse model selection.
 
 We first illustrate the problem of causal model selection. Then we anchor causal model selection in the \emph{potential outcome}
-framework and details the causal risks and model-selection procedure. We then
+framework and detail the causal risks and model-selection procedure. We then
 rewrite the so-called $R\text{-risk}$ as a reweighted version of mean squared
 difference between the true and estimated individualized treatment effect.
 Finally, we conduct a thorough empirical study comparing the different metrics
@@ -627,7 +627,7 @@ each candidate model on the test set. This procedure is described in Algorithm
 \begin{algorithm}[!htbp]
     \caption{Model selection procedure}\label{problem:estimation_procedure:algo} {%
         Given train and test sets $(\mathcal{T}, \mathcal{S}) \sim \mathcal{D}$,
-        a candidate estimators $f$, a causal
+        a candidate estimator $f$, a causal
         metrics $\ell$:
         \begin{enumerate}
             \item Prefit: Learn estimators for unknown nuisance quantities $(\check e,\,\check m)$ on the training set $\mathcal{T}$
@@ -755,7 +755,7 @@ with random overlap parameters. Example shown in Figure
 
 We test model selection across different candidate estimators that
 approximate imperfectly the
-data-generating process. To build such estimators, we first use a RBF
+data-generating process. To build such estimators, we first use an RBF
 expansion similar to that used for data generation. We choose two random
 knots and transform the raw data features with a Gaussian
 kernel. This step is referred as the featurization. Then, we fit a linear
@@ -765,7 +765,7 @@ these steps for outcome model; we use common nomenclature
 meta-learners that differ on how they model, jointly or not, the treated and the
 non treated:
 \begin{itemize}
-    \item SLearner: A single learner for both population, taking the treatment as
+    \item SLearner: A single learner for both populations, taking the treatment as
           a supplementary covariate.
     \item SftLearner: A single set of basis functions is sampled at random for both
           populations, leading to a given feature space used to model both the treated and

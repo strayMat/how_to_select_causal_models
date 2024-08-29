@@ -58,6 +58,9 @@ Overall: I am no fully convinced that R-risk is always the best.  The answer cou
 
 Another question: do the differences between risks in experiments follow known theoretical results?  For example, it is well known (e.g. https://www.semanticscholar.org/reader/112aba9c62f98b9684693f4c20c30274bc9eb1dc or [Rudas ans jaroszewisz, 2017](https://link.springer.com/content/pdf/10.1007/s10618-018-0576-8.pdf)) that the tau risk performs poorly.
 
+> The differences between risks have been explored *theoretically* by XX for the lose performance of the U-risk. For the other risk, we are not aware of any theoretical results. 
+> The differences between risks have been highlighted *experimentally* in other papers such as [Schuler, et al., 2018](https://arxiv.org/pdf/1804.05146) for quadratic and stepwise data generation processes or [Curt et Van der Schaar, 2023](https://proceedings.mlr.press/v202/curth23b/curth23b.pdf) exploring more diverse outcome generation processes such as CATE complexity. They both underline good performances for the R risk. 
+
 > The second paper is from the uplift regression literature. It focus on full randomization problems and a linear specification with gaussian predictors. It shows theoretically that a linear T-learner (called double model approach in their approach) has smaller asymptotical variance than a treatment ratio reweighted outcome S learner. However, they note that in non normal cases the  T-learner can be ill-defined or with high variance. They propose a corrected reweighted S-learner approach to reduce this  variance. They show empirically that it behaves better than the non corrected version on a simulation and two real world problems. 
 > I am not sure to see the link with the tau-risk. The paper does not compare risks but corrected or uncorrected vs T-learners. In addition, they only consider full randomization and linear problems. In our case, we consider a more general setting with a variety of data generation procedures and we focus on non-randomized situations where the distribution of the treatment is conditioned by the predictors.
 
@@ -77,13 +80,13 @@ Equation 2: should the expectation be over X not Y?
 
 page 17: proposition number is missing
 
-> Thanks. Fixed.
+> Thanks for this remark. We fixed it.
 
 A.7: the data generation procedure needs better explanations.  Why not call (7) P(d|A) since that's how its used later?  On page 17 you say '[b1,bD]~P(x)' and later 'x~P(x)' which causes confusion.  Also, how are beta vectors generated?
 
 page 4: TLearner uses different feature representation for each treatment arm.  Does this really happen in practice?  Usually all subgroups are described with the same set of features.
 
-> It is indeed true that all subgroups are described with the same set of features. However, 
+> It is indeed true that in usual practice all subgroups are described with the same set of features. However, as soon as we are using a machine learning (necessary to model CATE) such as a random forest or boosted trees, the inner representations of the features inside the model is different for both population. This idea has been exploited to build representation aware neural net models for cate estimation by [Johansson et al., 2022](https://www.jmlr.org/papers/volume23/19-511/19-511.pdf). It is also the case for simpler models such as a linear model with treatment interaction and lasso regularization. 
 
 page 4/5: Family of candidate estimators: why are only linear models used in some dataset and forests for other?  The leaf sizes of forests are chosen from a rather small range, why not use some percentage of the size of the training set?
 
@@ -109,5 +112,4 @@ throughout: "an RBF expansion" is more commonly used than "a RBF expansion"
 
 page 4: 'for both population' should be 'for both populations'
 
-
-
+> Thanks for the remarks. We corrected the typos and improved the language as suggested.

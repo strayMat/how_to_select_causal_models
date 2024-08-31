@@ -727,6 +727,8 @@ processes and three semi-simulated datasets \footnote{Scripts for the simulation
     \url{https://github.com/soda-inria/caussim}.
 }.
 
+The simulation has been designed to control precisely the overlap parameter. The semi-simulated datasets have been included to explore more diverse and noisy covariate distributions than simulated covariates. These simulations cover a wide range of causal settings, such ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
+
 \subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
 
 \paragraph{Data Generation}
@@ -1246,7 +1248,7 @@ patients \cite{johansson2022generalization}. However, they use this upper bound 
 and do not give insights on model selection. In addition, for hyperparameter
 selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
 counterfactual nearest neighbors, which has been shown ineffective
-\cite{schuler_comparison_2018}.
+\cite{schuler_comparison_2018}. An interesting direction is taken in \cite{foster2023orthogonal} where the authors derive convergence rates for orthogonal losses such as the R-loss, or the DR-Loss without assuming well-specification of the model for target parameter.
 
 
 \subsection{Causal assumptions}\label{apd:causal_assumptions}
@@ -1773,8 +1775,7 @@ illustrates 2D examples of the simulation.
           More formally, we generate the basis following the original data
           distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
           with D=2 in our simulations. Then, we compute an approximation
-          of the full kernel of the data generation process $RBF(x,
-              \cdot) \;  with \; x \sim \mathbb P(x)$ with these
+          of the full kernel of the data generation process with these
           representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
               Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
           kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
@@ -1791,6 +1792,7 @@ illustrates 2D examples of the simulation.
           \begin{equation*}
               \tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T
           \end{equation*}
+          Where $\beta_{\mu}$ and $\beta_{\tau}$ are sampled from two normal distributions with mean 0 and unit variances $\mathcal{N}(0, I_{D+1})$.
     \item Adding a Gaussian noise, $\varepsilon \sim \mathcal N(0, \sigma(x;a))$,
           we construct the potential outcomes:
           $y(a) = \mu_0(x) + a\,\tau(x) + \varepsilon(x, a)$

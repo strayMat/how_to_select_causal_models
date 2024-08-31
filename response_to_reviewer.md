@@ -56,7 +56,7 @@ Overall: I am no fully convinced that R-risk is always the best.  The answer cou
 
 Another question: do the differences between risks in experiments follow known theoretical results?  For example, it is well known (e.g. https://www.semanticscholar.org/reader/112aba9c62f98b9684693f4c20c30274bc9eb1dc or [Rudas ans jaroszewisz, 2017](https://link.springer.com/content/pdf/10.1007/s10618-018-0576-8.pdf)) that the tau risk performs poorly.
 
-> The high variability of the U-learner has already been noted by [Nie and Wager, 2017](https://arxiv.org/pdf/1712.04912). This instability is naturally found in the U-risk. For the other risk, we are not aware of any theoretical results justifying differences between risks. 
+> The high variability of the U-learner has already been noted by [Nie and Wager, 2021](https://arxiv.org/pdf/1712.04912). This advantage of the R-loss that does not have a propensity score to the denominator is also discussed in [Chernozhukov et al. 2024, chapter 15.](https://causalml-book.org/assets/chapters/CausalML_chap_15.pdf). The convergence rate of the R-loss has been proven in [Foster and Syrgkanis, 2023](https://arxiv.org/pdf/1901.09036). We are  not aware of theoretical results comparing simple robust losses (such as mu-risk or mu-risk IPW) to orthogonal losses such as R-loss, U-loss or DR-Loss.
 > Empirically, the differences between risks have been highlighted in other papers such as [Schuler, et al., 2018](https://arxiv.org/pdf/1804.05146) for quadratic and stepwise data generation processes or [Curth et Van der Schaar, 2023](https://proceedings.mlr.press/v202/curth23b/curth23b.pdf) exploring more diverse outcome generation processes focusing on CATE sparsity (as a proxy of its complexity) based on a semi-simulated dataset for the covariate (ACIC2016). They both underline good performances for the R-risk (see Table.1 for Schuler and Fig. 3 for Curth). A remark that we made in our manuscript is that the results of Schuler are convincing for randomization setups but not for observational (non-randomized) setups. Curth's results are more convincing for observational setups but did not explore the overlap assumption.
 
 > The second paper is from the uplift regression literature. It focus on full randomization problems and a linear specification with gaussian predictors. It shows theoretically that a linear T-learner (called double model approach in their approach) has smaller asymptotical variance than a treatment ratio reweighted outcome S learner. However, they note that in non normal cases the  T-learner can be ill-defined or with high variance. They propose a corrected reweighted S-learner approach to reduce this  variance. They show empirically that it behaves better than the non corrected version on a simulation and two real world problems. 
@@ -65,7 +65,9 @@ Another question: do the differences between risks in experiments follow known t
 
 Another problem is that the paper is hard to follow. The authors rapidly switch between topics: risk, selection, nuisance parameter estimation so the reader quickly gets lost.  The sections in supplementary materials contain important information but not all are referenced in main text.  The paper gives an impression of several experiments put together in some order without guiding the reader through the maze.  I think organization should be improved before publication.
 
-**TODO**
+
+> We tried to better guide the reader through the method section and to clarify the motivation behind the different experiments. 
+> We checked the supplementary materials but we did not find any appendix that was not referenced at least once in the main text. Did you have a specific appendix in mind that would require a reference in the main text? 
 
 Other comments:
 ---------------
@@ -84,8 +86,10 @@ page 17: proposition number is missing
 
 A.7: the data generation procedure needs better explanations.  Why not call (7) P(d|A) since that's how its used later?  On page 17 you say '[b1,bD]~P(x)' and later 'x~P(x)' which causes confusion.  Also, how are beta vectors generated?
 
-**TODO**
-
+> We assumed that you talked about the equation 17 rather than 7. Could you point where we use the P(d|A) notation? We did not find it in the manuscript. 
+> The notation b1, ..bD ~P(x) was meant to be understood as the beta vectors are drawn from a distribution P(x). The later mention of 'x~P(x)' was meant to be understood as the definition if the RBF function. We removed the second mention which causes confusion.
+> The beta vectors are drawn from two normal distributions with mean 0 and unit variances. We added this information in the manuscript.
+ 
 page 4: TLearner uses different feature representation for each treatment arm.  Does this really happen in practice?  Usually all subgroups are described with the same set of features.
 
 > It is indeed true that in usual practice all subgroups are described with the same set of features. However, as soon as we are using a machine learning (necessary to model CATE) such as a random forest or boosted trees, the inner representations of the features inside the model is different for both population. This idea has been exploited to build representation aware neural net models for cate estimation by [Johansson et al., 2022](https://www.jmlr.org/papers/volume23/19-511/19-511.pdf). It is also the case for simpler models such as a linear model with treatment interaction and lasso regularization. 

@@ -16,18 +16,13 @@ Other reference on g-computation to consider in the study can be for example:
 
 I understand that Eq. (2) and in Eq. (3) consider both treated and non-treated sample (or patient?), but those sums can be also equal to 0, even if their single terms are different from 0. Moreover, it is not clear if, and how Eq. (3) is related to Eq. (2): is it a variant? Is Eq. (3) derived from Eq. (2) under special assumptions?
 
-> Eq. (3) is the definition of the estimator of the ATE based on a model of the outcome. It is sometimes called g-estimation. It  is unbiased under under consistency (Assumption. 3) and unconfoundedness (Assumption 1).  To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) which is true under consistency (Assumption 3) and unconfoundedness (Assumption 1). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2).
-
+> Eq. (3) is the definition of the estimator of the ATE based on a model of the outcome. It is sometimes called g-estimation. It  is unbiased under under consistency (Assumption. 3) and unconfoundedness (Assumption 1). To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) which is true under consistency (Assumption 3) and unconfoundedness (Assumption 1). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2).
+> G-estimation itself does not control error on both populations as highlighted in Figure 1. Specific inductive biases of ML models are able to favor such regularization(see for example [Johannson et al., 2022](https://www.jmlr.org/papers/volume23/19-511/19-511.pdf)). Selection procedures, more elaborated than RMSE are needed to favor such models. I added this last explanation in the method (par. Model-selection risks, oracle and feasible) trying to clarify the link between the hint on error control on both population, g-estimation and the selection procedure which is our main focus.
 
 Furthermore, the Robinson decomposition (R-decomposition) should be better discussed and its role in the context of causal inference should be better commented.
 R-decomposition introduces two quantities, the conditional mean outcome and the probability to be treated (known as propensity score). What is the role of the propensity score? How is it calculated? Is it calculated simply by a frequentist approach (number fo treated/total number of patients?
 
-> The R-decomposition can be understood  as a writing trick that separate the mean outcome from the treatment effect. The mean outcome is the part of the counterfactual outcome that can be best estimated from the full population (treated or not). The treatment effect $(a-e(x)) \tau(x)$ should take into account the difference between the two population covariates which is captured by the propensity score.  
-
-> The R-decomposition inspires two different risks, this is why we are introducing it here. I developped a little bit on the role of this decomposition and why we are introducing it. 
-
-> The propensity score is a nuisance quantity that is necessary to estimate . 
-**TODO: unfinished**
+> G-computation is one choice of decomposition of the CATE estimation into a sequence of regressions, where the only statistical estimate is the response function µa(x) [49 , chapter 15]. Other choices of decomposition exist, such as the R-decomposition [57], the Double robust estimation, the X-learner... The R-decomposition is one way of identifying the causal quantity of interest which introduce two statistical quantity that have to be modelled: the mean outcome from the treatment effect and the propensity score. Any statistical estimator can be chosen to model these quantities. The frequentist approach is one (naive) such estimator. In practice, researchers often estimate the propensity score with a logistic regression, but other methods such as Boosted trees, Random Forests, or Neural Networks can be used. A good ps estimator should be well calibrated but this question is out of scope for this paper. We briefly mentioned in the discussion this research question on selecting a good estimator for the propensity score. 
 
 Finally, I note that the paper mentions inference methods specific to machine learning (random forest, etc.). In this regard, there is a great deal of study in the literature as to their actual usefulness in this field. I suggest the authors consider/review some of the following literature in the paper (those that the authors consider most appropriate to be included in their manuscript):
 
@@ -43,7 +38,7 @@ https://aisel.aisnet.org/pacis2022/181/
 
 or some other that can be easily found in literature.
 
-> Thanks for the references. I am in favor of adding some of them to the manuscript such as [Chernozhukov et al., 2024](https://causalml-book.org/) or [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475) which clearly distangle the different subfields at the intersection of causal inference and machine learning. I have added them at the beginning of the manuscript before focusing on the model selection problem for cate. 
+> Thanks for the references. I added two references to Causal ML to the manuscript such as [Chernozhukov et al., 2024](https://causalml-book.org/) or [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475). Both of them cover most of the subfields at the intersection of causal inference and machine learning. I have added them at the beginning of the manuscript before stating our focus on model selection for CATE. 
 
 # Reviewer 2
 

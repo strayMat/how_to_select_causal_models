@@ -136,7 +136,7 @@
     \end{abstract}
 
     \begin{keywords}
-        Model Selection, Predictive model, Treatment Effect, G-formula, Machine Learning
+        Model Selection, Predictive model, Treatment Effect, G-computation, Machine Learning
     \end{keywords}
 
 \end{frontmatter}
@@ -198,8 +198,8 @@ spurious associations between treatment
 allocation and baseline health, \eg~only prescribing a drug to mild cases
 \cite{hernan_causal_2020,vanderweele2019principles}.
 Predictive modeling is linked to causal inference theory by the concept of
-\emph{outcome models} (or G-computation,
-G-formula \cite{robins_role_1986}, Q-model
+\emph{outcome models} (or g-computation, g-estimation,
+g-formula \cite{robins_role_1986}, Q-model
 \cite{snowden_implementation_2011}, conditional mean regression
 \cite{wendling_comparing_2018}).
 % Controlled allocation of treatment, as in randomized controlled trials (RCTs),
@@ -219,7 +219,7 @@ For this purpose, such methods are also invaluable for randomized trials
 % Recent empirical results \cite{wendling_comparing_2018,dorie_automated_2019}
 % show benefits of outcome modeling to estimate average treatment effects.
 
-%\idea{There is a variety of models for g-estimation}
+%\idea{There is a variety of models for g-computation}
 % There is an explosion of outcome modeling or machine learning methods, either 
 % developed for
 % For instance, many deep-learning methods have been developed for medical
@@ -239,7 +239,7 @@ The wide variety of methods raises the problem
 of selecting between different estimators based on the data at hand. %TODO: might be removed since repeated two sentences below
 %
 Indeed, estimates of treatment effects can vary markedly across different
-predictive models \cite{fang2019applying,dorie_automated_2019} (illustration in
+predictive models \cite{fang2019applying,dorie_automated_2019,leborgne2021g,ren2023comparing} (illustration in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
 Given complex health data, which predictive model is to be most trusted to yield
@@ -251,7 +251,8 @@ inference.
 
 \paragraph{Objectives and structure of the paper}
 
-We study \textit{model selection procedures} in practical settings,
+The intersection between machine learning and causal inference is growing rapidly
+\cite{kaddour2022causal,chernozhukov2024applied}. We focus on \textit{model selection procedures} in practical settings,
 without theoretical assumptions often made in statistical literature such
 as \textit{infinite} data or \textit{well-specified} models (Appendix
 \ref{apd:prior_work}). Asymptotic causal-inference theory recommends complex
@@ -370,7 +371,7 @@ weaker assumptions on the data, thus has higher $R^2$ score but is biased
 by the treated population in the poor-overlap region, leading
 to bad causal estimates.
 
-This toy example illustrates that the classic minimum Mean Square Error
+This toy example illustrates that the classic minimum mean squared error (MSE)
 criterion is not suited to choosing a model among candidate
 estimators for causal inference.
 
@@ -431,7 +432,7 @@ difference between them, which gives the causal effect of the treatment.
 %
 These two potential outcomes can be estimated from observed data:
 the consistency \ref{assumption:consistency} and unconfoundedness
-\ref{assumption:ignorability} assumptions imply the following equality:
+\ref{assumption:ignorability} assumptions imply the following equality, linking the target potential quantity to the observed data:
 \begin{equation}\label{eq:mu_identification}
     \mathbb E_{Y(a) \sim \mathcal{D^{\star}}} [Y(a)|X=x] = \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
 \end{equation}
@@ -477,11 +478,9 @@ Similarly to the ATE, at the individual level, the CATE:
     \label{eq:cate_estimate}
 \end{equation}
 
-%TODO: not well located here. The reader does not know why we introduce this decomoositon her.
 \paragraph{Robinson decomposition}
-The \emph{R-decomposition}
-of the outcome model\cite{robinson_rootnconsistent_1988} links the counterfactual outcomes $y(a)$ to the CATE by introducing two quantities, the conditional mean outcome
-and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}).:
+G-computation is one choice of decomposition of the CATE estimation into a sequence of regressions, where the only statistical estimate is the response function $\mu_{a}(x)$ \cite[chapter 15]{chernozhukov2024applied}. Other choices of decomposition exist, such as the R-decomposition \cite{robinson_rootnconsistent_1988}. It introduces two new statistical estimates, the conditional mean outcome
+and the probability to be treated (known as propensity score \cite{rosenbaum_central_1983}):
 \begin{flalign}
     \text{Conditional mean outcome} &                    & m(x) \myeq \; & \mathbb E_{Y \sim
     \mathcal{D}} [Y|X=x]            &                    &
@@ -556,13 +555,14 @@ $m$ and $e$ are often called
 
 \paragraph{Causal model selection}\label{sec:problem:causal_selection}
 
-We formalize model selection for causal estimation. Thanks to the g-formula
-identification (\autoref{eq:mu_identification}), a given outcome model $f: \mathcal X
+We formalize model selection for causal estimation. Thanks to the outcome model identification (\autoref{eq:mu_identification}), a given model $f: \mathcal X
     \times \mathcal A \rightarrow \mathcal{Y}$ --learned from data or built from
 domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
 \ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
 %
-Let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
+However, g-computation itself does not control error on both populations as highlighted in \ref{fig:toy_example}. Specific inductive biases of ML models are able to favor such regularization \cite{johansson2022generalization}. Thus, selection procedures, more elaborated than MSE are needed to favor such models. A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ on the observed data $O$ and a splitting strategy of the data.
+%
+Formally, let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
 a family of such estimators. Our goal is to select the best candidate in this
 family for the observed dataset $O$ using a risk
 $\ell$:
@@ -1201,8 +1201,7 @@ causal risks, concluding that for CATE estimation the best
 model-selection risk is the so-called $R\text{-risk}$
 \cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
 empirical results are clear for randomized treatment allocation but less
-convincing for observational settings where both simple Mean Squared
-Error --MSE, $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
+convincing for observational settings where both simple MSE --$\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
 reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
 appear to perform better than $R\text{-risk}$ on half of the simulations.
 Another work \cite{alaa_validating_2019} studied empirically both MSE and

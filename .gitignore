@@ -1,4 +1,4 @@
-# unwanted latex outputs                                                                                                                                                                    *.aux                                                                                                                                                                                       *.fdb_latexmk                                                                                                                                                                               *.log
+*fdb_latexmk
 *.fls
 *.jmlr-sample.out
 *.bbl
@@ -10,6 +10,5 @@
 *.xml
 *.bcf
 *.bbl
-how_to_select_causal_models.aux
-how_to_select_causal_models.log
-how_to_select_causal_models.fdb_latexmk
+*.aux
+*.log

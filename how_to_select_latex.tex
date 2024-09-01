@@ -244,7 +244,7 @@ Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
 Given complex health data, which predictive model is to be most trusted to yield
 valid causal estimates needed to motivate individual treatment decisions?
-As no single machine-learning method performs best across all data sets, there is a
+As no single machine-learning method performs best across all datasets, there is a
 pressing need for clear guidelines to select outcome models for causal
 inference.
 
@@ -472,7 +472,7 @@ distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
 $\hat \ell$ to note its finite sum version. In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
 
-Similarly to the ATE, at the individual level, the CATE:
+Similarly to the ATE, at the individual level Eq.\ref{eq:mu_identification} links the CATE to statistical quantities:
 \begin{equation}
     \tau(x) = \mu_{1}(x) - \mu_{0}(x)
     \label{eq:cate_estimate}
@@ -497,7 +497,7 @@ the outcome can be written
     \\\ &&\text{with}\quad \mathbb E[\varepsilon(X; A)|X, A] = 0&&
 \end{flalign}
 $m$ and $e$ are often called
-\emph{nuisances} \cite{chernozhukov_double_2018}; they are unknown and are estimated in practice thanks to statistical models.
+\emph{nuisances} \cite{chernozhukov_double_2018}. They are unknown and are estimated in practice thanks to statistical models (eg. linear models or forest based estimators).
 
 %As noted by \cite{johansson2022generalization}, the machine learning
 %community often referred to the CATE by ITE, the Individual Treatment Effect.
@@ -550,8 +550,7 @@ $m$ and $e$ are often called
 \end{table*}
 
 
-
-\subsection{Model-selection risks, oracle and feasible}\label{sec:problem:model_selection}
+\subsection{Model-selection, oracle and feasible risks}\label{sec:problem:model_selection}
 
 \paragraph{Causal model selection}\label{sec:problem:causal_selection}
 
@@ -560,7 +559,7 @@ We formalize model selection for causal estimation. Thanks to the outcome model 
 domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
 \ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
 %
-However, g-computation itself does not control error on both populations as highlighted in \ref{fig:toy_example}. Specific inductive biases of ML models are able to favor such regularization \cite{johansson2022generalization}. Thus, selection procedures, more elaborated than MSE are needed to favor such models. A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ on the observed data $O$ and a splitting strategy of the data.
+However, g-computation itself does not control error on both populations as highlighted in Figure \ref{fig:toy_example}. Specific inductive biases of ML models are able to favor such regularization \cite{johansson2022generalization}. Thus, selection procedures, more elaborated than MSE are needed to favor the best model for each dataset. A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ with observed data $O$ and a splitting strategy of the data for estimating the different regressions (nuisances) involved in the risk.
 %
 Formally, let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
 a family of such estimators. Our goal is to select the best candidate in this
@@ -600,7 +599,7 @@ function of the true unknown nuisances, but later instantiate them with
 estimated nuisances, noted $\big(\check e, \check m \big)$. Semi-oracles risks
 are superscripted with the $^{\star}$ symbol.
 
-\subsection{Estimation and model selection procedure}\label{problem:estimation_procedure}
+\subsection{Model selection procedure}\label{problem:estimation_procedure}
 
 Causal model selection (eq
 \ref{eq:causal_model_selection}) may involve estimating various quantities
@@ -727,7 +726,7 @@ processes and three semi-simulated datasets \footnote{Scripts for the simulation
     \url{https://github.com/soda-inria/caussim}.
 }.
 
-The simulation has been designed to control precisely the overlap parameter. The semi-simulated datasets have been included to explore more diverse and noisy covariate distributions than simulated covariates. These simulations cover a wide range of causal settings, such ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
+The simulations have been designed to evaluate the effect of the overlap parameter. The semi-simulated datasets have been included to explore more diverse and noisy covariate distributions. These simulations cover a wide range of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
 
 \subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
 
@@ -933,7 +932,7 @@ nuisance estimates is a form of double dipping which can lead errors in
 nuisances correlated to that of outcome models
 \cite{nie_quasioracle_2017}. In theory, these correlations can bias model
 selection and, strictly speaking, push
-to split out a third separated data set --a ``nuisance set''-- to fit the
+to split out a third separated dataset --a ``nuisance set''-- to fit the
 nuisance models. The drawback is that it depletes the data available for
 model estimation and selection. However, Figure
 \ref{fig:procedures_comparison} shows no substantial difference between a procedure with a separated

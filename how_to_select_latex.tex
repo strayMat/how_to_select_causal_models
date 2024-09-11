@@ -63,6 +63,7 @@
 \usepackage{titlesec} % for title formatting
 %\titleformat*{\subsection}{\color{jnlclr}\bfseries} % force colored subsection font for paragraphs
 %\titleformat*{\paragraph}{\bfseries} % force bold font for paragraphs
+\usepackage{algpseudocode} % for algorithmic
 
 \bibliographystyle{unsrtnat}
 % add external bibliography
@@ -1732,7 +1733,7 @@ well known spline expansion. The estimators of the response function are learned
 with a linear model on another random basis (which can be seen as a stochastic
 approximation of the full data kernel \cite{rahimi_random_2008}). We carefully
 control the amount of overlap between treated and control populations, a crucial
-assumption for causal inference. Figure \ref{fig:simulation_examples}
+assumption for causal inference. Algorithm \ref{apd:experiments:generation:algo} describes the generation process for one simulation. Figure \ref{fig:simulation_examples}
 illustrates 2D examples of the simulation.
 
 \begin{itemize}
@@ -1794,10 +1795,47 @@ illustrates 2D examples of the simulation.
           Where $\beta_{\mu}$ and $\beta_{\tau}$ are sampled from two normal distributions with mean 0 and unit variances $\mathcal{N}(0, I_{D+1})$.
     \item Adding a Gaussian noise, $\varepsilon \sim \mathcal N(0, \sigma(x;a))$,
           we construct the potential outcomes:
-          $y(a) = \mu_0(x) + a\,\tau(x) + \varepsilon(x, a)$
+          $y(a) = (1-\omega)\mu_0(x) + a\,\omega\tau(x) + \varepsilon(x, a)$ with $\omega$ the treatment effect relative size with respect to the baseline response.
 \end{itemize}
 We generated 1000 instances of this dataset with uniformly random overlap
 parameters $\theta \in \left[ 0, 2.5 \right]$.
+
+\begin{algorithm}
+    \caption{Data simulation for the simulated dataset caussim}
+    \label{apd:experiments:generation:algo}
+    Let the parameters of a given simulation be:
+    \begin{itemize}
+        \item N the number of samples.
+        \item D the dimension of the basis expansion.
+        \item $p_A$ the proportion of treated individuals.
+        \item $\theta$ the overlap parameter.
+        \item $\mathbb P(x|A=a) = W \cdot \mathcal N \Big( \begin{bmatrix} (1-2a) \theta \\ 0\end{bmatrix} ; \begin{bmatrix} \sigma_0 & 0 \\ 0 & \sigma_1\end{bmatrix} \Big)$ the rotated gaussian for each population covariate. $W$ is a random rotation matrix and $\sigma_0^2=2;\sigma_1^2=5$ are scaling parameters.
+        \item $e(x)=\mathbb P(A=1|X=x)$ the oracle propensity score, obtained analytically from $\mathbb P(x|A=a)$.
+        \item $\mathbb P(X) = p_A \mathbb P(X|A=1) + (1- p_A) \mathbb P(X|A=0)$ the mixture of gaussian for the whole population covariates.
+        \item $b_1, .., b_D \sim \mathbb P(X)$, the basis sampled from the gaussian mixture.
+        \item $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot Z^T \in
+                  \mathbb{R}^D$ the Nystroem expansion. $RBF_{\gamma}$ is the
+              Gaussian kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z is the
+              normalization constant of the kernel basis, computed as the root
+              inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
+                  {1..D}}^{-1/2}$.
+        \item $\beta_{\mu}$ and $\beta_{\tau}$, the linear coefficients on top of the basis expansion. They are sampled from two normal distributions with mean 0 and unit variances $\mathcal{N}(0, I_{D+1})$.
+        \item $\omega$ the treatment effect relative size with respect to the baseline response.
+        \item $\varepsilon(x, a) \sim \mathcal N(0, \sigma_y)$ an exogen gaussian noise with $\sigma_y$ the scale of the noise.
+    \end{itemize}
+
+    Generation process for one sample ($x$, $a$, e(x), $y(0)$, $y(1)$, $y$):
+    \begin{algorithmic}[1]
+        \State $x \sim \mathbb P(X)$ \Comment{Sample from rotated gaussian mixture}
+        \State  $z(x)$ \Comment{Compute the Nystroem expansion}
+        \State $\mu_0(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\mu}^T$ \Comment{Compute the non-treated response surface, ie. the baseline}
+        \State  $\tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T$ \Comment{Compute the conditional treatment effect (CATE)}
+        \State $y(a) = (1-\omega) \mu_0(x) + a\,\omega\tau(x) + \varepsilon(x, a) + \varepsilon(x, a)$ \Comment{Compute the potential outcomes}
+        \State $a \sim \operatorname{Bernoulli}(e(x))$ \Comment{Compute the treatment status}
+        \State $y = a\,y(1) + (1-a)\,y(0)$ \Comment{Compute the observed outcome}
+    \end{algorithmic}
+
+\end{algorithm}
 
 \begin{figure}[!t]
     \centering

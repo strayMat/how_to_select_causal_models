@@ -124,7 +124,7 @@
         \textbf{Results:} Among all metrics, the mean squared error,
         classically used to evaluate predictive modes,
         is worse. Re-weighting it with propensity score
-        does not bring much improvements. The
+        does not bring much improvements in most cases. On average, the
         $R\text{-risk}$, which uses as nuisances a model of
         mean outcome and propensity scores, leads to the best performances.
         Nuisance corrections are best estimated with flexible estimators such
@@ -994,6 +994,18 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 \end{figure}
 
 
+\paragraph{R-risk is robust to a wide range of effect ratio}
+
+We focused on the
+
+\begin{figure}[!tb]
+    % XXX: for submission
+    \centering\begin{minipage}{\linewidth}
+        \includegraphics[width=\linewidth]{_6_effect_ratio_by_bin_comparaison_kendall_by_Dataset.pdf}
+    \end{minipage}
+
+    \caption{\textbf{R-risk is robust to a wide range of effect ratio}: Kendall’s $\tau$ agreement with $\tau$-risk. Strong, medium and Weak Causal effect ratio are the tertiles of the absolute ratio causal effect to baseline response, ranging from 1 to 300. Appendix \ref{apd:effect_ratio} details this simulation.}\label{fig:effect_ratio_influence}
+\end{figure}
 
 
 \section{Discussion and conclusion}\label{sec:discussion}\label{sec:conclusion}
@@ -1855,51 +1867,51 @@ parameters $\theta \in \left[ 0, 2.5 \right]$.
 
 \begin{itemize}
     \item[ACIC 2018] \cite{dorie_automated_2019}:  The initial intervention was a child’s birth
-        weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
-        IQ after a follow-up period. The study contained $N=4\,802$ data
-        points with $D=55$ features (5 binary, 27 count data, and 23
-        continuous). They simulated 77 different setups varying parameters
-        for treatment and response models, overlap, and interactions between treatment and
-        covariates \footnote{Original R code available at
-            \url{https://github.com/vdorie/aciccomp/tree/master/2016}
-            to generate 77 simulations settings.}. We used 10 different seeds
-        for each setup, totaling 770 dataset instances.
+          weight $(A = 1 \text{ if weight} < 2.5 kg)$, and outcome was the child’s
+          IQ after a follow-up period. The study contained $N=4\,802$ data
+          points with $D=55$ features (5 binary, 27 count data, and 23
+          continuous). They simulated 77 different setups varying parameters
+          for treatment and response models, overlap, and interactions between treatment and
+          covariates \footnote{Original R code available at
+              \url{https://github.com/vdorie/aciccomp/tree/master/2016}
+              to generate 77 simulations settings.}. We used 10 different seeds
+          for each setup, totaling 770 dataset instances.
 
     \item[ACIC 2018] \cite{shimoni_benchmarking_2018}: Starting from data from
-        the Linked Births and Infant Deaths Database (LBIDD)
-        \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
-        outcome models are simulated with complex models to reflect different
-        scenarii. The data do not provide the true propensity scores, so we
-        evaluate only feasible metrics, which do not require this nuisance
-        parameter. We used all 432 datasets\footnote{Using the scaling part of
-            the data, from
-            \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}}
-        of size $N=5\,000$.
+          the Linked Births and Infant Deaths Database (LBIDD)
+          \cite{macdorman_infant_1998} with $D=177$ covariates, treatment and
+          outcome models are simulated with complex models to reflect different
+          scenarii. The data do not provide the true propensity scores, so we
+          evaluate only feasible metrics, which do not require this nuisance
+          parameter. We used all 432 datasets\footnote{Using the scaling part of
+              the data, from
+              \href{https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}{github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework}}
+          of size $N=5\,000$.
 
 
     \item[Twins] \cite{louizos_causal_2017}: It is an augmentation of
-        real data on twin births and mortality rates
-        \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
-        and $D=50$ covariates\footnote{We obtained the dataset from
-            \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
-        weight of the heavier twin at birth. This is a "true" counterfactual dataset
-        \cite{curth_really_2021} in the sense that we have
-        both potential outcomes with each twin. They simulate the treatment with a
-        sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
-        the 45 other covariates:
-        \begin{align}
-            \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
-            \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
-            \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
-            w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
-        \end{align}
-        We add a non-constant slope in the
-        sigmoid to control the overlap between
-        treated and control populations.
-        We sampled uniformly 1\,000 different overlap parameters between 0 and
-        2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
-        only the overlap varies for these instances. The response surfaces are
-        set by the original outcomes.
+          real data on twin births and mortality rates
+          \cite{almond_costs_2005}. There are $N=11\,984$ samples (pairs of twins),
+          and $D=50$ covariates\footnote{We obtained the dataset from
+              \href{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}{https://github.com/AMLab-Amsterdam/CEVAE/tree/master/datasets/TWINS}}, The outcome is the mortality and the treatment is the
+          weight of the heavier twin at birth. This is a "true" counterfactual dataset
+          \cite{curth_really_2021} in the sense that we have
+          both potential outcomes with each twin. They simulate the treatment with a
+          sigmoid model based on GESTAT10 (number of gestation weeks before birth) and x
+          the 45 other covariates:
+          \begin{align}
+              \mathbf{t}_{i} & \mid \mathbf{x}_{i}, \mathbf{z}_{i} \sim
+              \operatorname{Bern}\left(\sigma\left(w_{o}^{\top}
+              \mathbf{x}+w_{h}(\mathbf{z} / 10-0.1)\right)\right)       \\ & \text{with} \;
+              w_{o} \sim \mathcal{N}(0,0.1 \cdot I),\; w_{h} \sim \mathcal{N}(5,0.1) \nonumber
+          \end{align}
+          We add a non-constant slope in the
+          sigmoid to control the overlap between
+          treated and control populations.
+          We sampled uniformly 1\,000 different overlap parameters between 0 and
+          2.5, totaling 1\,000 dataset instances. Unlike the previous datasets,
+          only the overlap varies for these instances. The response surfaces are
+          set by the original outcomes.
 \end{itemize}
 
 \subsubsection{Model selection procedures}
@@ -2331,6 +2343,10 @@ training the nuisances on the first half of the data, and using the
 second half to estimate the $R\text{-risk}$ and select the best treatment
 effect model.
 
+
+\subsection{Sensitivity of the results to different ratio of causal effect to baseline response}\label{apd:effect_ratio}
+
+TODO
 
 \bibliography{biblio}
 %\printbibliography

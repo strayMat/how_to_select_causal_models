@@ -51,7 +51,9 @@ I am however not sure about the overall conclusions, which are that R-risk is al
 
 Overall: I am no fully convinced that R-risk is always the best.  The answer could be dependent on other factors and I hope the authors would explore more scenarios.
 
-**TODO**
+> We thank the reviewer for this remark and the suggestion to explore more diverse simulation scenarii. Exploring the sensitivity of our result on the R-risk appears to us particularly necessary. Thus, we ran a dedicated experiment focusing on the ratio of causal effect to background response. 
+
+> We did not explore more sophisticated treatment/control distributions for our simulation. Building these new data generation processes would imply a big modification of our simulation. We rely on the easy inversion of the distribution functions of the gaussians (p(X|A=a)) to analytically compute the true propensity score. In addition, we think that the semi-simulated datasets already provide some interesting argument in favor of r-risk with more complex treatment/control covariate distributions. However, we mentionned in the discussion the need to explore more diverse data generation processes for simulations.
 
 
 Another question: do the differences between risks in experiments follow known theoretical results?  For example, it is well known (e.g. https://www.semanticscholar.org/reader/112aba9c62f98b9684693f4c20c30274bc9eb1dc or [Rudas ans jaroszewisz, 2017](https://link.springer.com/content/pdf/10.1007/s10618-018-0576-8.pdf)) that the tau risk performs poorly.

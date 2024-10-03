@@ -862,7 +862,7 @@ summarizing the overlap between both populations (Appendix
 \section{Results: factors driving good model selection}\label{empirical_study:results}
 
 
-\paragraph{The $R\text{-risk}$ is the best metric}
+\paragraph{The $R\text{-risk}$ is the best metric on average}
 
 Figure \ref{fig:relative_kendalls_all_datasets} shows the agreement between the
 ideal ranking of outcome models given the oracle $\tau\text{-risk}$ and the different
@@ -1068,7 +1068,7 @@ have flourished because their predictions can be easily
 demonstrated and validated on left-out data. But using them to underpin a
 decision on whether to treat or not requires more careful validation,
 using a metric accounting for the
-putative intervention, the $R\text{-risk}$. The $R\text{-risk}$
+putative intervention, the $R\text{-risk}$. On average, the $R\text{-risk}$
 brings a sizeable benefit to select the most adequate model, even when
 model development is based on treated and
 untreated population with little differences, as in RCTs. To facilitate better model selection, we provide Python
@@ -1083,6 +1083,14 @@ This model-selection procedure puts no constraints on the models used to
 build predictive models: it opens the door to evaluating a wide range of
 models, from gradient boosting to convolutional neutral, or language
 models.
+
+\paragraph{Research question needing more work}
+
+On average, the R-risk outperforms other risks, but it is not optimal for every
+situations. If one possess some prior knowledge on the data generation process,
+another risk might be more adapted. This is typically the case for big causal
+effect ratio to baseline and low overlap where the $\tau\text{-risk}_{IPW}$
+should be better.
 
 %\renewcommand\thefigure{S\arabic{figure}}
 %\renewcommand\thetable{S\arabic{table}}

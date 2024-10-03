@@ -996,7 +996,15 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 
 \paragraph{R-risk is robust to a wide range of effect ratio}
 
-We focused on the
+Beyond overlap, we study the effect of varying ratio of causal effect ratio to
+baseline on model selection. In our simulation, we vary the empirical mean
+absolute difference between the causal effect and the baseline, $\Delta_{\mu} =
+    \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i)}
+    \big|$, covering a range of ratio from 1 to 300. Figure
+\ref{fig:effect_ratio_influence} shows that for high values of the ratio,
+$R-\text{risk}$ is outperformed by the $\mu\text{-risk}_{IPW}$ and the
+$\tau\text{-risk}_{IPW}$. However, on average, the $R-\text{risk}$ is still the
+better risk.
 
 \begin{figure}[!tb]
     % XXX: for submission
@@ -1004,7 +1012,11 @@ We focused on the
         \includegraphics[width=\linewidth]{_6_effect_ratio_by_bin_comparaison_kendall_by_Dataset.pdf}
     \end{minipage}
 
-    \caption{\textbf{R-risk is robust to a wide range of effect ratio}: Kendall’s $\tau$ agreement with $\tau$-risk. Strong, medium and Weak Causal effect ratio are the tertiles of the absolute ratio causal effect to baseline response, ranging from 1 to 300. Appendix \ref{apd:effect_ratio} details this simulation.}\label{fig:effect_ratio_influence}
+    \caption{\textbf{R-risk is robust to a wide range of effect ratio}:
+        Kendall’s $\tau$ agreement with $\tau$-risk. Strong, medium and Weak Causal
+        effect ratio are the tertiles of the absolute ratio causal effect to
+        baseline response, ranging from 1 to 300. Appendix \ref{apd:effect_ratio}
+        details this simulation.}\label{fig:effect_ratio_influence}
 \end{figure}
 
 
@@ -1084,7 +1096,7 @@ build predictive models: it opens the door to evaluating a wide range of
 models, from gradient boosting to convolutional neutral, or language
 models.
 
-\paragraph{Research question needing more work}
+\paragraph{Limitations}
 
 On average, the R-risk outperforms other risks, but it is not optimal for every
 situations. If one possess some prior knowledge on the data generation process,
@@ -2354,10 +2366,27 @@ effect model.
 
 \subsection{Sensitivity of the results to different ratio of causal effect to baseline response}\label{apd:effect_ratio}
 
-TODO
+Going beyond overlap, we study the effect of another important parameter of the
+data generation process: the ratio of causal effect to the baseline response.
+
+For each dataset of our simulation (caussim), we measure it as the absolute mean
+difference between the causal effect and the baseline response, measured
+empirically on each dataset instance $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N
+    \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i)} \big|$. We vary a
+dedicated parameter ($\omega$ in Algorithm 2) in the simulation to force this
+ratio to cover a wide range of values. For 90 dataset instances, it ranges from 1
+to 300 with the full distribution of values given in Table \ref{apd:effect_ratio_distribution}.
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+        \hline
+        ~             & count & mean    & std     & min     & 10\%    & 25\%    & 50\%    & 75\%    & 90\%    & max     \\ \hline
+        effect\_ratio & 89    & 99.1291 & 132.525 & 1.24843 & 2.82881 & 4.07361 & 30.1524 & 184.996 & 316.999 & 510.897 \\ \hline
+    \end{tabular}
+    \caption{Distribution of the causal effect ratio $\Delta_\mu$ for the experiment.}\label{apd:effect_ratio_distribution}
+\end{table}
 
 \bibliography{biblio}
-%\printbibliography
-
 
 \end{document}

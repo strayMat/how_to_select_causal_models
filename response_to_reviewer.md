@@ -11,7 +11,7 @@ as clarifications in the revised manuscript.
 > sentence at the begining of the section to stress that it is a section
 > summarizing a classic framework.
 
-> Eq. (3) is the definition of the estimator of the ATE based on a model of the outcome. It is sometimes called g-estimation. It  is unbiased under under consistency (Assumption. 3) and unconfoundedness (Assumption 1). To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) which is true under consistency (Assumption 3) and unconfoundedness (Assumption 1). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2).
+> Eq. (3) is the expression of the estimator of the ATE based on a model of the outcome, sometimes called g-estimation. It is unbiased under consistency (Assumption. 3) and unconfoundedness (Assumption 1). To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) which is true under consistency (Assumption 3) and unconfoundedness (Assumption 1). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2).
 
 > G-estimation itself does not control error on both populations as highlighted in Figure 1. Specific inductive biases of ML models are able to favor such regularization(see for example [Johannson et al., 2022](https://www.jmlr.org/papers/volume23/19-511/19-511.pdf)). Selection procedures, more elaborated than RMSE are needed to favor such models. I added this last explanation in the method (par. Model-selection risks, oracle and feasible) trying to clarify the link between the hint on error control on both population, g-estimation and the selection procedure which is our main focus.
 

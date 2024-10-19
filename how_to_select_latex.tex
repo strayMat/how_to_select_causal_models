@@ -476,7 +476,12 @@ $,
 which involves an expectation taken on the full
 distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
-$\hat \ell$ to note its finite sum version. In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
+$\hat \ell$ to note its finite sum version. 
+The formulas in Eq. (1-3) are all partly oracle formulas: they rely on
+conditional expectations, the response functions, but give no specific
+procedures on how to compute or select them. This last point is the topic
+of our work, describe in the next section.
+%In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
 
 Similarly to the ATE, at the individual level Eq.\ref{eq:mu_identification} links the CATE to statistical quantities:
 \begin{equation}
@@ -485,9 +490,7 @@ Similarly to the ATE, at the individual level Eq.\ref{eq:mu_identification} link
 \end{equation}
 
 \paragraph{Robinson decomposition}
-G-computation is a choice of decomposition of the CATE estimation into a
-sequence of regressions, where the only statistical estimate is the response
-function $\mu_{a}(x)$ \cite[chapter 15]{chernozhukov2024applied}. Other choices
+G-computation is a choice of decomposition of the CATE estimation. Other choices
 of decomposition exist, such as the R-decomposition
 \cite{robinson_rootnconsistent_1988}. The latter introduces two new statistical
 estimates, the conditional mean outcome and the probability of being treated (known
@@ -570,7 +573,12 @@ We formalize model selection for causal estimation. Thanks to the outcome model 
 domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
 \ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
 %
-However, g-computation itself does not control error on both populations as highlighted in Figure \ref{fig:toy_example}. Specific inductive biases of ML models are able to favor such regularization \cite{johansson2022generalization}. Thus, selection procedures, more elaborated than MSE are needed to favor the best model for each dataset. A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ with observed data $O$ and a splitting strategy of the data for estimating the different regressions (nuisances) involved in the risk.
+However, the g-computation framework presented above is written in terms
+of ``perfect'' conditional expectations (oracles), it does not control an
+error, \emph{eg} on both populations as highlighted in Figure
+\ref{fig:toy_example}. Selection procedures are needed to favor the best model for each dataset. 
+
+A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ with observed data $O$ and a splitting strategy of the data for estimating the different regressions (nuisances) involved in the risk.
 %
 Formally, let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
 a family of such estimators. Our goal is to select the best candidate in this

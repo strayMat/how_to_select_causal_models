@@ -1,22 +1,18 @@
+We thank the reviewers for their time, thoughts, and feedback on the
+manuscript. We have addresed the comments through additional work as well
+as clarifications in the revised manuscript.
+
 # Reviewer 1
 
-I appreciate the approach and the level of detail that this paper offers on an issue that is, to say the least, a hot topic in bioinformatics and data science in general: the evaluation of the best 'error' model when choosing a causal model for predictive purposes. Indeed, there is much confusion on the subject and very often error models are applied without any real awareness of their potential and limitations.
+*[...] The authors conceivably state that "The problem is that causal estimation requires controlling an error on both treated and non-treated outcome for the same individual.". Consequently, they report on estimator that attempt to consider this (in Section "Methods"). However, I cannot understand how this hint ("controlling error on both treated and non-treated sample (or patient?)") has been implemented by the procedure the authors describe in Equations (1), (2), and (3). If, I correctly understand", in Eq. (2) we see the g-computation estimators, a well-known concept introduced by [21] (and recently used also by https://www.nature.com/articles/s41598-020-65917-x ), that splits the two configurations "treated" and "non-treated". [...] I understand that Eq. (2) and in Eq. (3) consider both treated and non-treated sample (or patient?), but those sums can be also equal to 0, even if their single terms are different from 0. Moreover, it is not clear if, and how Eq. (3) is related to Eq. (2): is it a variant? Is Eq. (3) derived from Eq. (2) under special assumptions?*
 
-That is why I think the paper can be of great educational value as well as research.
-
-Of particular interest is the statement "the best predictor may not estimate best causal effects".
-Central to the understanding of the paper is Figure 1 and the concept it seeks to explain. The figure clearly shows that if we rely on R^2, a predictor is preferred which on average is efficient but not on estimating causal quantities. The authors conceivably state that "The problem is that causal estimation requires controlling an error on both treated and non-treated outcome for the same individual.". Consequently, they report on estimator that attempt to consider this (in Section "Methods"). However, I cannot understand how this hint ("controlling error on both treated and non-treated sample (or patient?)") has been implemented by the procedure the authors describe in Equations (1), (2), and (3). If, I correctly understand", in Eq. (2) we see the g-computation estimators, a well-known concept introduced by [21] (and recently used also by https://www.nature.com/articles/s41598-020-65917-x ), that splits the two configurations "treated" and "non-treated".
-
-Other reference on g-computation to consider in the study can be for example:
-
--       [Le Borgne et al. 2021](https://www.nature.com/articles/s41598-021-81110-0)
--       https://www.sciencedirect.com/science/article/pii/S0167947306002076
--       https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-023-01835-6
--       https://pubmed.ncbi.nlm.nih.gov/34861799/
-
-I understand that Eq. (2) and in Eq. (3) consider both treated and non-treated sample (or patient?), but those sums can be also equal to 0, even if their single terms are different from 0. Moreover, it is not clear if, and how Eq. (3) is related to Eq. (2): is it a variant? Is Eq. (3) derived from Eq. (2) under special assumptions?
+> The reviewer is right that Eq. (2) is part of constructing the classic
+> g-computation estimator, as well as Eq. (1) and Eq. (3). We added a
+> sentence at the begining of the section to stress that it is a section
+> summarizing a classic framework.
 
 > Eq. (3) is the definition of the estimator of the ATE based on a model of the outcome. It is sometimes called g-estimation. It  is unbiased under under consistency (Assumption. 3) and unconfoundedness (Assumption 1). To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) which is true under consistency (Assumption 3) and unconfoundedness (Assumption 1). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2).
+
 > G-estimation itself does not control error on both populations as highlighted in Figure 1. Specific inductive biases of ML models are able to favor such regularization(see for example [Johannson et al., 2022](https://www.jmlr.org/papers/volume23/19-511/19-511.pdf)). Selection procedures, more elaborated than RMSE are needed to favor such models. I added this last explanation in the method (par. Model-selection risks, oracle and feasible) trying to clarify the link between the hint on error control on both population, g-estimation and the selection procedure which is our main focus.
 
 Furthermore, the Robinson decomposition (R-decomposition) should be better discussed and its role in the context of causal inference should be better commented.

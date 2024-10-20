@@ -77,8 +77,9 @@ Despite some attempts this is still lacking in literature.  I especially like th
 > We thank the reviewer for the thoughful comments and the call for
 > nuance. Our first response is that our thoughts did not come out right
 > and that it is not clear, indeed, that R-risk is always the best.
-> Rather, that it is a good default solution. We have rewritten parts of
-> the paper to convey this nuance better.
+> Rather, that it is a good default solution. We have reformulate parts of
+> the paper to convey this nuance better and added the nuance in the
+> conclusion.
 
 > In addition, the reviewer is correct that factors beyond overlap
 > probably affect which risk is best. We have followed the suggestion to
@@ -98,11 +99,7 @@ Despite some attempts this is still lacking in literature.  I especially like th
 > 9675), the reweighted mu-risk and the the tau-risk_IPW are better than
 > the R-risk. However, for low value of the ratio,  the R-risk largely
 > outperforms all other metrics. We added these new results to the main
-> paper. We also nuanced our conclusion on the R-risk, underlying that it
-> is better on average but that in some situations, other risks might be
-> more adapted. A typical such situation would be when the applied
-> scientist is interested in estimating an effect with a big ratio and
-> want to focus on the part of the population where there is low overlap.  
+> paper. 
 
 > We did not explore more sophisticated treatment/control distributions for our simulation. Building these new data generation processes would imply a big modification to our setup. We rely on the easy inversion of the distribution functions of the gaussians (p(X|A=a)) to analytically compute the true propensity score. In addition, we think that the semi-simulated datasets already provide some interesting argument in favor of r-risk with more more diverse treatment/control covariate distributions.
 

@@ -22,9 +22,29 @@ in the revised manuscript are all shifted by one.
 *Furthermore, the Robinson decomposition (R-decomposition) should be better discussed and its role in the context of causal inference should be better commented.
 R-decomposition introduces two quantities, the conditional mean outcome and the probability to be treated (known as propensity score). What is the role of the propensity score? How is it calculated? Is it calculated simply by a frequentist approach (number of treated/total number of patients)?*
 
-> G-computation relies on one choice of decomposition of the CATE estimation (Eq. (2)), which leads to into a sequence of regressions, where the only statistical estimate is the response function µa(x)  [Chernozhukov et al., 2024, chapter 15](https://causalml-book.org/). Other decomposition of the outcome exist, as a decomposition is just a mathematical rewriting... The R-decomposition is one way of identifying the causal quantity of interest which introduce two statistical quantity that have to be modelled: the mean outcome from the treatment effect and the propensity score. Any statistical estimator can be chosen to model these quantities. The frequentist approach is one (naive) such estimator. In practice, researchers often estimate the propensity score with a logistic regression, but other methods such as Boosted trees, Random Forests, or Neural Networks can be used. A good ps estimator should be well calibrated but this question is out of scope for this paper. In our discussion, we briefly mentioned this interesting research question on what properties should have a good estimator for the propensity score. 
+> G-computation relies on one choice of decomposition of the CATE
+> estimation (Eq. (2)), which leads to into a sequence of regressions,
+> where the only statistical estimate is the response function µa(x)
+> [Chernozhukov et al., 2024, chapter 15](https://causalml-book.org/). We
+> have clarified that this decomposition is just a mathematical
+> rewriting. The mean outcome from the treatment effect and the
+> propensity score are two statistical quantity that enable this
+> rewritting . Any statistical estimator can be chosen to model these
+> quantities, in particular in the section were we introduce them, they
+> are written in term of expectations, not detailing an estimation
+> procedure, as this is discussed later. We have clarfied this below
+> formula 4 (formely 3) and in the begining of the section containing
+> formula 9 (formely 8). A frequentist approach counting rations of
+> patients is one such estimator, but it will work only for a small
+> number of discrete covariate. In practice, researchers often estimate
+> the propensity score with a logistic regression, but other methods such
+> as Boosted trees, Random Forests, or Neural Networks can be used. A
+> good ps estimator should be well calibrated but this question is out of
+> scope for this paper. In our discussion, we briefly mentioned this
+> interesting research question on what properties should have a good
+> estimator for the propensity score. 
 
-Finally, I note that the paper mentions inference methods specific to machine learning (random forest, etc.). In this regard, there is a great deal of study in the literature as to their actual usefulness in this field. I suggest the authors consider/review some of the following literature in the paper (those that the authors consider most appropriate to be included in their manuscript):
+*Finally, I note that the paper mentions inference methods specific to machine learning (random forest, etc.). In this regard, there is a great deal of study in the literature as to their actual usefulness in this field. I suggest the authors consider/review some of the following literature in the paper (those that the authors consider most appropriate to be included in their manuscript):*
 
 https://link.springer.com/book/10.1007/978-3-031-35051-1
 
@@ -38,7 +58,7 @@ https://aisel.aisnet.org/pacis2022/181/
 
 or some other that can be easily found in literature.
 
-> Thanks for the references. I added two references for Causal ML into the manuscript: [Chernozhukov et al., 2024](https://causalml-book.org/) and [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475). Both of them cover most of the subfields at the intersection of causal inference and machine learning. I have added them at the beginning of the manuscript before stating our focus on model selection for CATE. 
+> We thank the reviewer for the references. We have added two references for Causal ML into the manuscript: [Chernozhukov et al., 2024](https://causalml-book.org/) and [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475). Both of them cover most of the subfields at the intersection of causal inference and machine learning. I have added them at the beginning of the manuscript before stating our focus on model selection for CATE. 
 
 # Reviewer 2
 

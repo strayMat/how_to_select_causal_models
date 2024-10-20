@@ -1,7 +1,7 @@
 %%
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL original_manuscript.tex   Sat Oct 19 22:41:29 2024
-%DIF ADD how_to_select_latex.tex   Sun Oct 20 10:54:53 2024
+%DIF ADD how_to_select_latex.tex   Sun Oct 20 12:39:00 2024
 %% Copyright 2022 OXFORD UNIVERSITY PRESS
 %%
 %% This file is part of the 'oup-authoring-template Bundle'.
@@ -516,13 +516,29 @@ at the individual level, to model heterogeneity, the Conditional Average Treatme
 \paragraph{Causal assumptions}
 
 A given data needs to meet a few assumptions to enable identifying
-causal estimands \cite{rubin_causal_2005}. The usual
-\emph{strong ignorability} assumptions are  (details in
-\ref{apd:causal_assumptions}): \emph{1)}
-\emph{unconfoundedness} \mbox{$\{Y(0),
-        Y(1) \} \indep A | X$}, \emph{~2)} \emph{strong overlap} ie. every patient has a
-strictly positive probability to receive each treatment, \emph{3)}
-\emph{consistency}, and \emph{4)} \emph{generalization}.
+causal estimands \cite{rubin_causal_2005}. \DIFdelbegin \DIFdel{The usual
+}\emph{\DIFdel{strong ignorability}} %DIFAUXCMD
+\DIFdel{assumptions are  (details in
+\ref{apd:causal_assumptions}): }\DIFdelend \emph{1)} \DIFaddbegin \DIFadd{an individual's
+outcome $Y$ is solely governed by the corresponding potential outcome:
+}\begin{flalign}
+    \DIFadd{\text{\emph{Consistency} assumption,}
+    }&&
+    \DIFadd{Y = A\, Y(1) + (1 - A)\, Y(0)
+    \label{eq:consistency}
+    }&&
+\DIFadd{}\end{flalign}
+\emph{\DIFadd{2)}}
+\DIFaddend \emph{unconfoundedness} \mbox{$\{Y(0),
+        Y(1) \} \indep A | X$}, \emph{~\DIFdelbegin \DIFdel{2}\DIFdelend \DIFaddbegin \DIFadd{3}\DIFaddend )} \emph{strong overlap} ie. every patient has a
+strictly positive probability to receive each treatment, 
+\DIFdelbegin \emph{\DIFdel{3)}}
+%DIFAUXCMD
+\emph{\DIFdel{consistency}}%DIFAUXCMD
+\DIFdel{, }\DIFdelend and \emph{4)} \emph{generalization} \DIFaddbegin \DIFadd{--no covariate shift.
+These classic assumptions, called
+}\emph{\DIFadd{strong ignorability}}\DIFadd{, are formally detailed in
+\ref{apd:causal_assumptions}}\DIFaddend .
 
 \paragraph{\DIFdelbegin \DIFdel{Estimating }\DIFdelend \DIFaddbegin \DIFadd{Identifying }\DIFaddend treatment effects with outcome models -- g-computation \cite{robins_new_1986}}\label{subsec:estimators}
 
@@ -575,7 +591,7 @@ which involves an expectation taken on the full
 distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
 $\hat \ell$ to note its finite sum version. 
-\DIFaddbegin \DIFadd{The formulas in Eq. (1-3) are all partly oracle formulas: they rely on
+\DIFaddbegin \DIFadd{The formulas in Eq. (\ref{eq:mu_identification}-\ref{eq:ate_estimate}) are all partly oracle formulas: they rely on
 conditional expectations, the response functions, but give no specific
 procedures on how to compute or select them. This last point is the topic
 of our work, describe in the next section.
@@ -610,7 +626,7 @@ as propensity score \cite{rosenbaum_central_1983}):
     e(x) \myeq \;                   & \mathbb P[A=1|X=x]
     \label{def:propensity_score}
 \end{flalign}
-the outcome can be written
+\DIFdelbegin \DIFdel{the outcome }\DIFdelend \DIFaddbegin \DIFadd{with these, the outcome (Eq.\,\ref{eq:consistency}) }\DIFaddend can be written
 \begin{flalign}\label{eq:r_decomposition}
     \text{R-decomposition}            &  & y(a) = m(x) + \big( a - e(x) \big)
     \tau(x) + \varepsilon(x; a)\notag &  &
@@ -1425,7 +1441,20 @@ where the authors derive convergence rates for orthogonal losses such as the R-l
 We assume the following four assumptions, referred as strong ignorability and
 necessary to assure identifiability of the causal estimands with observational
 data \cite{rubin_causal_2005}:
-\begin{assumption}[Unconfoundedness]\label{assumption:ignorability}
+\DIFaddbegin \begin{assumption}[Consistency]\label{assumption:consistency} \DIFadd{The observed
+    outcome is the potential outcome of the assigned treatment:
+    }\begin{equation*}\DIFadd{\label{eq:consistancy}
+        Y = A \, Y(1) + (1-A) \, Y(0)
+    }\end{equation*}
+    \DIFadd{Here, we assume that the intervention $A$ has been well defined. This
+    assumption focuses on the design of the experiment. It clearly states the link
+    between the observed outcome and the potential outcomes through the
+    intervention \mbox{%DIFAUXCMD
+\cite{hernan_causal_2020}}\hskip0pt%DIFAUXCMD
+.
+}\end{assumption}
+
+\DIFaddend \begin{assumption}[Unconfoundedness]\label{assumption:ignorability}
     \begin{equation*}\label{eq:ignorability}
         \{Y(0), Y(1) \} \indep A | X
     \end{equation*}
@@ -1454,18 +1483,24 @@ could lead to arbitrarily small propensity scores.
 % remark: There is a major counter example to these colliders (variables which
 % are caused by both the outcome and the treatment),
 
-\begin{assumption}[Consistency]\label{assumption:consistency} The observed
+\DIFdelbegin %DIFDELCMD < \begin{assumption}[Consistency]\label{assumption:consistency} %%%
+\DIFdel{The observed
     outcome is the potential outcome of the assigned treatment:
-    \begin{equation*}\label{eq:consistancy}
+    }\begin{displaymath}\DIFdel{%DIFDELCMD < \label{eq:consistancy}%%%
         Y = A \, Y(1) + (1-A) \, Y(0)
-    \end{equation*}
-    Here, we assume that the intervention $A$ has been well defined. This
+    }\end{displaymath}%DIFAUXCMD
+%DIFDELCMD <     %%%
+\DIFdel{Here, we assume that the intervention $A$ has been well defined. This
     assumption focuses on the design of the experiment. It clearly states the link
     between the observed outcome and the potential outcomes through the
-    intervention \cite{hernan_causal_2020}.
-\end{assumption}
+    intervention \mbox{%DIFAUXCMD
+\cite{hernan_causal_2020}}\hskip0pt%DIFAUXCMD
+.
+}%DIFDELCMD < \end{assumption}
+%DIFDELCMD < 
 
-\begin{assumption}[Generalization]\label{assumption:generalization} The training
+%DIFDELCMD < %%%
+\DIFdelend \begin{assumption}[Generalization]\label{assumption:generalization} The training
     data on which we build the estimator and the test data on which we make the
     estimation are drawn from the same distribution $\mathcal D^*$, also known as
     the ``no covariate shift'' assumption \cite{jesson_identifying_2020}.

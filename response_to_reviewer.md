@@ -2,6 +2,10 @@ We thank the reviewers for their time, thoughts, and feedback on the
 manuscript. We have addresed the comments through additional work as well
 as clarifications in the revised manuscript.
 
+To clarify the origin of the Robinson decomposition, as suggested by
+reviewer 1, we have added an equation. As a result the equation numbers
+in the revised manuscript are all shifted by one.
+
 # Reviewer 1
 
 *[...] The authors conceivably state that "The problem is that causal estimation requires controlling an error on both treated and non-treated outcome for the same individual.". Consequently, they report on estimator that attempt to consider this (in Section "Methods"). However, I cannot understand how this hint ("controlling error on both treated and non-treated sample (or patient?)") has been implemented by the procedure the authors describe in Equations (1), (2), and (3). If, I correctly understand", in Eq. (2) we see the g-computation estimators, a well-known concept introduced by [21] (and recently used also by https://www.nature.com/articles/s41598-020-65917-x ), that splits the two configurations "treated" and "non-treated". [...] I understand that Eq. (2) and in Eq. (3) consider both treated and non-treated sample (or patient?), but those sums can be also equal to 0, even if their single terms are different from 0. Moreover, it is not clear if, and how Eq. (3) is related to Eq. (2): is it a variant? Is Eq. (3) derived from Eq. (2) under special assumptions?*
@@ -11,9 +15,9 @@ as clarifications in the revised manuscript.
 > sentence at the begining of the section to stress that it is a section
 > summarizing a classic framework.
 
-> Eq. (3) is an expression of the estimator of the ATE based on a model of the outcome, sometimes called g-estimation. It is unbiased under consistency (Assumption. 3) and unconfoundedness (Assumption 1). To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) which is true under consistency (Assumption 3) and unconfoundedness (Assumption 1). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2).
+> Eq. (3) (now 4) is an expression of the estimator of the ATE based on a model of the outcome, sometimes called g-estimation. It is unbiased under consistency (Assumption. 3) and unconfoundedness (Assumption 1). To prove that, take the expectation of Eq. (3).  Then apply  Eq. (1) (now 2) which is true under consistency (Eq. 1 and Assumption 1) and unconfoundedness (Assumption 3). Then by the law of total expectancy, the conditionnality on X disappear and we recover Eq. (2) (now 3)
 
-> G-estimation itself does not control error on both populations. The formulas in Eq. (1-3) are all partly oracle formulas: they rely on conditional expectations but give no specific procedures on how to compute them. We added a clarification on this topic above Eq. (4) and above Eq. (8).
+> G-estimation itself does not control error on both populations. The formulas in Eq. (1-3) (now 2-4) are all partly oracle formulas: they rely on conditional expectations but give no specific procedures on how to compute them. We added a clarification on this topic above Eq. (4) (now 5) and above Eq. (8) (now 9).
 
 *Furthermore, the Robinson decomposition (R-decomposition) should be better discussed and its role in the context of causal inference should be better commented.
 R-decomposition introduces two quantities, the conditional mean outcome and the probability to be treated (known as propensity score). What is the role of the propensity score? How is it calculated? Is it calculated simply by a frequentist approach (number of treated/total number of patients)?*

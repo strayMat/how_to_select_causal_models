@@ -438,7 +438,7 @@ difference between them, which gives the causal effect of the treatment.
 These two potential outcomes can be estimated from observed data:
 the consistency \ref{assumption:consistency} and unconfoundedness
 \ref{assumption:ignorability} assumptions imply the following
-equality, linking the target potential quantity to the observed data:
+equality, linking the target quantity to the observed data:
 \begin{equation}\label{eq:mu_identification}
     \mathbb E_{Y(a) \sim \mathcal{D^{\star}}} [Y(a)|X=x] = \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
 \end{equation}
@@ -576,9 +576,12 @@ domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
 However, the g-computation framework presented above is written in terms
 of ``perfect'' conditional expectations (oracles), it does not control an
 error, \emph{eg} on both populations as highlighted in Figure
-\ref{fig:toy_example}. Selection procedures are needed to favor the best model for each dataset. 
+\ref{fig:toy_example}. Selection procedures are needed to find the best
+conditional-expectation models. 
 
-A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ with observed data $O$ and a splitting strategy of the data for estimating the different regressions (nuisances) involved in the risk.
+A selection procedure combines a risk $\ell$, evaluating the quality of a
+model $f$ with observed data $O$, and a splitting strategy of the data to
+estimate different regressions (nuisances) involved in the risk.
 %
 Formally, let $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
 a family of such estimators. Our goal is to select the best candidate in this

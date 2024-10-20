@@ -1,7 +1,7 @@
 %%
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL original_manuscript.tex   Wed Oct  2 22:29:19 2024
-%DIF ADD how_to_select_latex.tex   Sun Oct  6 18:35:41 2024
+%DIF DEL original_manuscript.tex   Sat Oct 19 22:41:29 2024
+%DIF ADD how_to_select_latex.tex   Sun Oct 20 10:54:53 2024
 %% Copyright 2022 OXFORD UNIVERSITY PRESS
 %%
 %% This file is part of the 'oup-authoring-template Bundle'.
@@ -478,7 +478,14 @@ estimators for causal inference.
 \subsection{Neyman-Rubin Potential Outcomes framework}%
 \label{sec:neyman_rubin}%
 
-\paragraph{Settings}
+\DIFaddbegin \DIFadd{We first expose the classic construction of the outcome modeling (or
+G-computation) estimators of causal effect
+\mbox{%DIFAUXCMD
+\cite{robins_new_1986,snowden_implementation_2011,hernan_causal_2020}}\hskip0pt%DIFAUXCMD
+.
+}
+
+\DIFaddend \paragraph{Settings}
 
 The Neyman-Rubin Potential Outcomes framework
 \cite{naimi2023defining,imbens_causal_2015} enables statistical reasoning on
@@ -525,7 +532,8 @@ difference between them, which gives the causal effect of the treatment.
 %
 These two \DIFdelbegin \DIFdel{expected }\DIFdelend \DIFaddbegin \DIFadd{potential }\DIFaddend outcomes can be estimated from observed data:
 the consistency \ref{assumption:consistency} and unconfoundedness
-\ref{assumption:ignorability} assumptions imply the following equality\DIFaddbegin \DIFadd{, linking the target potential quantity to the observed data}\DIFaddend :
+\ref{assumption:ignorability} assumptions imply the following
+equality\DIFaddbegin \DIFadd{, linking the target quantity to the observed data}\DIFaddend :
 \begin{equation}\label{eq:mu_identification}
     \mathbb E_{Y(a) \sim \mathcal{D^{\star}}} [Y(a)|X=x] = \mathbb E_{Y \sim \mathcal{D}} [Y|X=x, A=a]
 \end{equation}
@@ -566,9 +574,12 @@ $,
 which involves an expectation taken on the full
 distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
-$\hat \ell$ to note its finite sum version. \DIFaddbegin \DIFadd{In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \mbox{%DIFAUXCMD
-\cite{kunzel_metalearners_2019}}\hskip0pt%DIFAUXCMD
-.
+$\hat \ell$ to note its finite sum version. 
+\DIFaddbegin \DIFadd{The formulas in Eq. (1-3) are all partly oracle formulas: they rely on
+conditional expectations, the response functions, but give no specific
+procedures on how to compute or select them. This last point is the topic
+of our work, describe in the next section.
+%DIF > In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
 }\DIFaddend 
 
 Similarly to the ATE, at the individual level \DIFdelbegin \DIFdel{, the CATE }\DIFdelend \DIFaddbegin \DIFadd{Eq.\ref{eq:mu_identification} links the CATE to statistical quantities}\DIFaddend :
@@ -583,11 +594,7 @@ Similarly to the ATE, at the individual level \DIFdelbegin \DIFdel{, the CATE }\
 \DIFdel{of the outcome model\mbox{%DIFAUXCMD
 \cite{robinson_rootnconsistent_1988}}\hskip0pt%DIFAUXCMD
 plays an important role:
-introducing two quantities}\DIFdelend \DIFaddbegin \DIFadd{G-computation is a choice of decomposition of the CATE estimation into a
-sequence of regressions, where the only statistical estimate is the response
-function $\mu_{a}(x)$ \mbox{%DIFAUXCMD
-\cite[chapter 15]{chernozhukov2024applied}}\hskip0pt%DIFAUXCMD
-. Other choices
+introducing two quantities}\DIFdelend \DIFaddbegin \DIFadd{G-computation is a choice of decomposition of the CATE estimation. Other choices
 of decomposition exist, such as the R-decomposition
 \mbox{%DIFAUXCMD
 \cite{robinson_rootnconsistent_1988}}\hskip0pt%DIFAUXCMD
@@ -673,9 +680,16 @@ We formalize model selection for causal estimation. Thanks to the \DIFdelbegin \
 domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
 \ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
 %
-\DIFdelbegin \DIFdel{Let }\DIFdelend \DIFaddbegin \DIFadd{However, g-computation itself does not control error on both populations as highlighted in Figure \ref{fig:toy_example}. Specific inductive biases of ML models are able to favor such regularization \mbox{%DIFAUXCMD
-\cite{johansson2022generalization}}\hskip0pt%DIFAUXCMD
-. Thus, selection procedures, more elaborated than MSE are needed to favor the best model for each dataset. A selection procedure is defined by a risk $\ell$ evaluating the quality of a model $f$ with observed data $O$ and a splitting strategy of the data for estimating the different regressions (nuisances) involved in the risk.
+\DIFdelbegin \DIFdel{Let }\DIFdelend \DIFaddbegin \DIFadd{However, the g-computation framework presented above is written in terms
+of ``perfect'' conditional expectations (oracles), it does not control an
+error, }\emph{\DIFadd{eg}} \DIFadd{on both populations as highlighted in Figure
+\ref{fig:toy_example}. Selection procedures are needed to find the best
+conditional-expectation models. 
+}
+
+\DIFadd{A selection procedure combines a risk $\ell$, evaluating the quality of a
+model $f$ with observed data $O$, and a splitting strategy of the data to
+estimate different regressions (nuisances) involved in the risk.
 %DIF > 
 Formally, let }\DIFaddend $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
 a family of such estimators. Our goal is to select the best candidate in this

@@ -96,7 +96,7 @@ Despite some attempts this is still lacking in literature.  I especially like th
 > orders of magnitude from 0.005 to 9675. Figure 7 gives the main results
 > of this experiment. We see that R-risk is still the best risk on
 > average, but when the effect ratio is high (tertile between 9 and
-> 9675), the reweighted mu-risk and the the tau-risk_IPW are better than
+> 9675), the reweighted mu-risk and the tau-risk_IPW are better than
 > the R-risk. However, for low value of the ratio,  the R-risk largely
 > outperforms all other metrics. We added these new results to the main
 > paper. 

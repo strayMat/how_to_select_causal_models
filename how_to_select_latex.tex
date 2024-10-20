@@ -521,7 +521,17 @@ with these, the outcome (Eq.\,\ref{eq:consistency}) can be written
     \\\ &&\text{with}\quad \mathbb E[\varepsilon(X; A)|X, A] = 0&&
 \end{flalign}
 $m$ and $e$ are often called
-\emph{nuisances} \cite{chernozhukov_double_2018}. They are unknown and are estimated in practice thanks to statistical models (eg. linear models or forest based estimators).
+\emph{nuisances} \cite{chernozhukov_double_2018}. They are unknown and must be estimated from the data.
+
+\bigskip
+
+Both the in the ATE and CATE formula Eq.\,(\ref{eq:ate_estimate},
+\ref{eq:cate_estimate}), and the Robinson decomposition involve
+conditional expectations --the response functions $\mu_a(x)$ or the
+nuisances $m(x)$ and $e(x)$. In practice those are given by statistical
+models: linear models, random forests, etc
+\cite{kaddour2022causal,chernozhukov2024applied}.
+
 
 %As noted by \cite{johansson2022generalization}, the machine learning
 %community often referred to the CATE by ITE, the Individual Treatment Effect.
@@ -575,6 +585,7 @@ $m$ and $e$ are often called
 
 
 \subsection{Model-selection, oracle and feasible risks}\label{sec:problem:model_selection}
+
 
 \paragraph{Causal model selection}\label{sec:problem:causal_selection}
 

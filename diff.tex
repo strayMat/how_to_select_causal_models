@@ -1,7 +1,7 @@
 %%
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL original_manuscript.tex   Sat Oct 19 22:41:29 2024
-%DIF ADD how_to_select_latex.tex   Sun Oct 20 12:39:34 2024
+%DIF ADD how_to_select_latex.tex   Sun Oct 20 14:39:36 2024
 %% Copyright 2022 OXFORD UNIVERSITY PRESS
 %%
 %% This file is part of the 'oup-authoring-template Bundle'.
@@ -633,7 +633,20 @@ as propensity score \cite{rosenbaum_central_1983}):
     \\\ &&\text{with}\quad \mathbb E[\varepsilon(X; A)|X, A] = 0&&
 \end{flalign}
 $m$ and $e$ are often called
-\emph{nuisances} \cite{chernozhukov_double_2018}\DIFdelbegin \DIFdel{; they are unknown }\DIFdelend \DIFaddbegin \DIFadd{. They are unknown and are estimated in practice thanks to statistical models (eg. linear models or forest based estimators)}\DIFaddend .
+\emph{nuisances} \cite{chernozhukov_double_2018}\DIFdelbegin \DIFdel{; they are unknown }\DIFdelend \DIFaddbegin \DIFadd{. They are unknown and must be estimated from the data.
+}
+
+\bigskip
+
+\DIFadd{Both the in the ATE and CATE formula Eq.\,(\ref{eq:ate_estimate},
+\ref{eq:cate_estimate}), and the Robinson decomposition involve
+conditional expectations --the response functions $\mu_a(x)$ or the
+nuisances $m(x)$ and $e(x)$. In practice those are given by statistical
+models: linear models, random forests, etc
+\mbox{%DIFAUXCMD
+\cite{kaddour2022causal,chernozhukov2024applied}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .
+
 
 %As noted by \cite{johansson2022generalization}, the machine learning
 %community often referred to the CATE by ITE, the Individual Treatment Effect.
@@ -687,6 +700,7 @@ $m$ and $e$ are often called
 
 
 \subsection{Model-selection\DIFdelbegin \DIFdel{risks}\DIFdelend , oracle and feasible \DIFaddbegin \DIFadd{risks}\DIFaddend }\label{sec:problem:model_selection}
+
 
 \paragraph{Causal model selection}\label{sec:problem:causal_selection}
 

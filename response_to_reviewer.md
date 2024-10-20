@@ -32,9 +32,9 @@ R-decomposition introduces two quantities, the conditional mean outcome and the 
 > rewritting . Any statistical estimator can be chosen to model these
 > quantities, in particular in the section were we introduce them, they
 > are written in term of expectations, not detailing an estimation
-> procedure, as this is discussed later. We have clarfied this below
+> procedure, as this is discussed later. We have clarified this below
 > formula 4 (formely 3) and in the begining of the section containing
-> formula 9 (formely 8). A frequentist approach counting rations of
+> formula 9 (formely 8). A frequentist approach counting ratios of
 > patients is one such estimator, but it will work only for a small
 > number of discrete covariate. In practice, researchers often estimate
 > the propensity score with a logistic regression, but other methods such
@@ -46,19 +46,22 @@ R-decomposition introduces two quantities, the conditional mean outcome and the 
 
 *Finally, I note that the paper mentions inference methods specific to machine learning (random forest, etc.). In this regard, there is a great deal of study in the literature as to their actual usefulness in this field. I suggest the authors consider/review some of the following literature in the paper (those that the authors consider most appropriate to be included in their manuscript):*
 
-https://link.springer.com/book/10.1007/978-3-031-35051-1
+*https://link.springer.com/book/10.1007/978-3-031-35051-1*
 
-https://www.causal-machine-learning.com/
+*https://www.causal-machine-learning.com/*
 
-https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2021.746712/full
+*https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2021.746712/full*
 
-https://www.research-collection.ethz.ch/handle/20.500.11850/650703
+*https://www.research-collection.ethz.ch/handle/20.500.11850/650703*
 
-https://aisel.aisnet.org/pacis2022/181/
+*https://aisel.aisnet.org/pacis2022/181/*
 
-or some other that can be easily found in literature.
+*or some other that can be easily found in literature.*
 
-> We thank the reviewer for the references. We have added two references for Causal ML into the manuscript: [Chernozhukov et al., 2024](https://causalml-book.org/) and [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475). Both of them cover most of the subfields at the intersection of causal inference and machine learning. I have added them at the beginning of the manuscript before stating our focus on model selection for CATE. 
+> We thank the reviewer for the references. We have added several
+> references for Causal ML into the manuscript, in particular [Kaddour et al., 2022](https://arxiv.org/pdf/2206.15475), corresponding to
+> https://www.causal-machine-learning.com/, and [Chernozhukov et al., 2024](https://causalml-book.org/) which both cover most of the
+> subfields at the intersection of causal inference and machine learning.
 
 # Reviewer 2
 

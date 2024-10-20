@@ -769,7 +769,9 @@ processes and three semi-simulated datasets \footnote{Scripts for the simulation
     \url{https://github.com/soda-inria/caussim}.
 }.
 
-The simulations have been designed to evaluate the effect of the overlap parameter. The semi-simulated datasets have been included to explore more diverse and noisy covariate distributions. These simulations cover a wide range of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
+The simulations, designed to evaluate the effect of the overlap
+parameter, also explore more diverse and noisy covariate distributions.
+They cover a diversity of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
 
 \subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
 
@@ -1126,7 +1128,21 @@ using a metric accounting for the
 putative intervention, the $R\text{-risk}$. On average, the $R\text{-risk}$
 brings a sizeable benefit to select the most adequate model, even when
 model development is based on treated and
-untreated population with little differences, as in RCTs. To facilitate better model selection, we provide Python
+untreated population with little differences, as in RCTs. 
+%
+Our conclusions are that without prior knowledge, the R-risk is a good
+default. However, there is much remaining variation, and the R-risk will
+not be optimal for every situation. We have identified one such specific
+situation: when the causal effect is large compared to the variation of
+the baseline effect.
+
+%If one possesses some prior knowledge on the data generation process,
+%another risk might be more adapted. This is typically the case for big causal
+%effect ratio to baseline and low overlap where the $\tau\text{-risk}_{IPW}$
+%should be better.
+
+
+To facilitate better model selection, we provide Python
 code\footnote{\url{https://github.com/soda-inria/causal_model_selection}}.
 % Using the $R\text{-risk}$ does make evaluation more
 % complicated not only because the procedure is more involved, but also
@@ -1139,13 +1155,6 @@ build predictive models: it opens the door to evaluating a wide range of
 models, from gradient boosting to convolutional neural network, or language
 models.
 
-\paragraph{Limitations}
-
-On average, the R-risk outperforms other risks, but it is not optimal for every
-situations. If one possesses some prior knowledge on the data generation process,
-another risk might be more adapted. This is typically the case for big causal
-effect ratio to baseline and low overlap where the $\tau\text{-risk}_{IPW}$
-should be better.
 
 %\renewcommand\thefigure{S\arabic{figure}}
 %\renewcommand\thetable{S\arabic{table}}
@@ -2057,7 +2066,7 @@ the variance since clipping is performed.
     \centering
     \includegraphics[width=\linewidth]{_1_r_risk_domination_mrisks_by_ds.pdf}
     %\hfill
-    \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$
+    \caption{\textbf{The $R$-risk is the best metric on average}: Relative Kendall's $\tau$
         agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
         the first and last tertiles of the overlap distribution measured with
         Normalized Total Variation eq. \ref{eq:ntv}.

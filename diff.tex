@@ -1,7 +1,7 @@
 %%
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL original_manuscript.tex   Sat Oct 19 22:41:29 2024
-%DIF ADD how_to_select_latex.tex   Sun Oct 20 14:39:36 2024
+%DIF ADD how_to_select_latex.tex   Sun Oct 20 22:09:42 2024
 %% Copyright 2022 OXFORD UNIVERSITY PRESS
 %%
 %% This file is part of the 'oup-authoring-template Bundle'.
@@ -886,7 +886,9 @@ processes and three semi-simulated datasets \footnote{Scripts for the simulation
     \url{https://github.com/soda-inria/caussim}.
 }.
 
-\DIFaddbegin \DIFadd{The simulations have been designed to evaluate the effect of the overlap parameter. The semi-simulated datasets have been included to explore more diverse and noisy covariate distributions. These simulations cover a wide range of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
+\DIFaddbegin \DIFadd{The simulations, designed to evaluate the effect of the overlap
+parameter, also explore more diverse and noisy covariate distributions.
+They cover a diversity of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
 }
 
 \DIFaddend \subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
@@ -1245,7 +1247,22 @@ using a metric accounting for the
 putative intervention, the $R\text{-risk}$. \DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{On average, the }\DIFaddend $R\text{-risk}$
 brings a sizeable benefit to select the most adequate model, even when
 model development is based on treated and
-untreated population with little differences, as in RCTs. To facilitate better model selection, we provide Python
+untreated population with little differences, as in RCTs. 
+%DIF > 
+\DIFaddbegin \DIFadd{Our conclusions are that without prior knowledge, the R-risk is a good
+default. However, there is much remaining variation, and the R-risk will
+not be optimal for every situation. We have identified one such specific
+situation: when the causal effect is large compared to the variation of
+the baseline effect.
+}
+
+%DIF > If one possesses some prior knowledge on the data generation process,
+%DIF > another risk might be more adapted. This is typically the case for big causal
+%DIF > effect ratio to baseline and low overlap where the $\tau\text{-risk}_{IPW}$
+%DIF > should be better.
+
+
+\DIFaddend To facilitate better model selection, we provide Python
 code\footnote{\url{https://github.com/soda-inria/causal_model_selection}}.
 % Using the $R\text{-risk}$ does make evaluation more
 % complicated not only because the procedure is more involved, but also
@@ -1258,16 +1275,8 @@ build predictive models: it opens the door to evaluating a wide range of
 models, from gradient boosting to convolutional \DIFdelbegin \DIFdel{neutral}\DIFdelend \DIFaddbegin \DIFadd{neural network}\DIFaddend , or language
 models.
 
-\DIFaddbegin \paragraph{\DIFadd{Limitations}}
 
-\DIFadd{On average, the R-risk outperforms other risks, but it is not optimal for every
-situations. If one possesses some prior knowledge on the data generation process,
-another risk might be more adapted. This is typically the case for big causal
-effect ratio to baseline and low overlap where the $\tau\text{-risk}_{IPW}$
-should be better.
-}
-
-\DIFaddend %\renewcommand\thefigure{S\arabic{figure}}
+%\renewcommand\thefigure{S\arabic{figure}}
 %\renewcommand\thetable{S\arabic{table}}
 %\setcounter{figure}{0}
 %\setcounter{table}{0}
@@ -2215,7 +2224,8 @@ the variance since clipping is performed.
     \centering
     \includegraphics[width=\linewidth]{_1_r_risk_domination_mrisks_by_ds.pdf}
     %\hfill
-    \caption{\textbf{The $R$-risk is the best metric}: Relative Kendall's $\tau$
+    \caption{\DIFdelbeginFL \textbf{\DIFdelFL{The $R$-risk is the best metric}}%DIFAUXCMD
+\DIFdelendFL \DIFaddbeginFL \textbf{\DIFaddFL{The $R$-risk is the best metric on average}}\DIFaddendFL : Relative Kendall's $\tau$
         agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
         the first and last tertiles of the overlap distribution measured with
         Normalized Total Variation eq. \ref{eq:ntv}.

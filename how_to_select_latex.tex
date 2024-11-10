@@ -1042,8 +1042,7 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 
 Beyond overlap, we study for caussim simulations, the effect on model selection
 of different causal effect ratio to baseline. We vary the empirical mean
-absolute difference between the causal effect and the baseline, $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_0(x_j) + \mu_1(x_j)} \big |$, covering a ratio range from 0.04 to 206 ($\text{median}=9.1$, full
-distribution in Appendix \ref{apd:effect_ratio}). Figure
+absolute difference between the causal effect and the baseline, $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_0(x_j) + \mu_1(x_j)} \big |$, covering a ratio range from 0.04 to 206 ($\text{median}=9.1$). Appendix \ref{apd:effect_ratio} details this setup as well as an alternive measure of effect ratio. Figure
 \ref{fig:effect_ratio_influence} shows that for high values of the ratio,
 $R-\text{risk}$ is outperformed by the $\mu\text{-risk}_{IPW}$ and the
 $\tau\text{-risk}_{IPW}$. However, on average, the $R-\text{risk}$ is still the
@@ -2419,6 +2418,7 @@ effect model.
 
 Going beyond overlap, we study the effect of another important parameter of the
 data generation process: the ratio of causal effect to the baseline response.
+
 Here, we detail the experimental setup of the results presented in Figure \ref{fig:effect_ratio_influence}.
 
 For each dataset of our simulation (caussim), we measure this ratio as the absolute mean
@@ -2428,7 +2428,6 @@ dedicated parameter ($\omega$ in Algorithm 2) in the simulation to force this
 ratio to cover a wide range of values. For 179 dataset instances, it ranges
 several order of magnitudes with the full distribution of values given in
 Table \ref{apd:effect_ratio_distribution}.
-
 
 \begin{table}[!ht]
     \centering
@@ -2440,6 +2439,41 @@ Table \ref{apd:effect_ratio_distribution}.
         \end{tabular}
     }
     \caption{Distribution of the causal effect ratio $\Delta_\mu$ for the experiment on causal effect ratio, results in Figure \ref{fig:effect_ratio_influence}.}\label{apd:effect_ratio_distribution}
+\end{table}
+
+
+We also studied another measure, focusing on the ratio of the variance of the causal effect to the variance of the mean shared response ($\mu_0 + \mu_1$) of both population: $\frac{\hat{var}(\mu_{1}(x_i) - \mu_{0}(x_i))}{\hat{var}(\mu_{1}(x_i) + \mu_{0}(x_i))}$, covering a range from 0 to 11.08 with the full
+distribution described in Table \ref{table:effect_variance}. Figure
+\ref{fig:effect_variance_influence} shows that for high values of the variance,
+$R-\text{risk}$ is outperformed by the $\mu\text{-risk}_{IPW}$ and the
+$\tau\text{-risk}_{IPW}$. However, on average, the $R-\text{risk}$ is still the
+better risk.
+
+\begin{figure}[!tb]
+    \centering
+    \begin{minipage}{\linewidth}
+        \includegraphics[width=0.9\linewidth]{_6_effect_variance_by_bin_comparaison_kendall_by_Dataset.pdf}
+    \end{minipage}
+
+    \caption{\textbf{R-risk is robust to a wide range of effect variance}:
+    Kendall's $\tau$ agreement with $\tau$-risk. Strong, medium and Weak Causal
+    effect variance are the tertiles of the ratio of causal effect variance to
+    the mean outcome variance: Low $[0;0.04[$, Medium $[0.04; 1.04[$,
+    High $[1.04;11.08[$.}\label{fig:effect_variance_influence}
+\end{figure}
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{\textwidth}{!}{ % Adjusts the table to fit the text width
+        \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|}
+            \hline
+                                      & \textbf{count} & \textbf{mean} & \textbf{std} & \textbf{min} & \textbf{1\%} & \textbf{10\%} & \textbf{25\%} & \textbf{50\%} & \textbf{75\%} & \textbf{90\%} & \textbf{99\%} & \textbf{max} \\ \hline
+            \textbf{effect\_variance} & 179            & 1.013         & 1.781        & 1.680e-5     & 1.734e-5     & 4.875e-4      & 6.449e-3      & 0.789         & 1.160         & 1.807         & 9.641         & 11.079       \\
+            \hline
+        \end{tabular}
+    }
+    \caption{Statistical summary of the causal effect variance.}
+    \label{table:effect_variance}
 \end{table}
 
 \bibliography{biblio}

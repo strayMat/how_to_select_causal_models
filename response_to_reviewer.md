@@ -99,7 +99,7 @@ Despite some attempts this is still lacking in literature.  I especially like th
 > 9675), the reweighted mu-risk and the tau-risk_IPW are better than
 > the R-risk. However, for low value of the ratio,  the R-risk largely
 > outperforms all other metrics. We added these new results to the main
-> paper. We also studied the effect of the variance of the effect measured as the empirical version of $\frac{var(\mu_1 - \mu_0)}{ var(\mu_1+\mu_0)}$. For this last experiment, we found similar results to the causal effect experiment.
+> paper. We also studied another characteristic of the simulation: the variance of the causal effect measured as the empirical version of $\frac{var(\mu_1 - \mu_0)}{var(\mu_1+\mu_0)}$. For this last experiment, we found similar results to the causal effect experiment. We include it in the supp mat for completeness about our reflexion.
 
 > We did not explore more sophisticated treatment/control distributions for our simulation. Building these new data generation processes would imply a big modification to our setup. We rely on the easy inversion of the distribution functions of the gaussians (p(X|A=a)) to analytically compute the true propensity score. In addition, we think that the semi-simulated datasets already provide some interesting argument in favor of r-risk with more more diverse treatment/control covariate distributions.
 

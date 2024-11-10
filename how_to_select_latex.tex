@@ -425,15 +425,15 @@ causal estimands \cite{rubin_causal_2005}. \emph{1)} an individual's
 outcome $Y$ is solely governed by the corresponding potential outcome:
 \begin{flalign}
     \text{\emph{Consistency} assumption,}
-    &&
+     &  &
     Y = A\, Y(1) + (1 - A)\, Y(0)
     \label{eq:consistency}
-    &&
+     &  &
 \end{flalign}
 \emph{2)}
 \emph{unconfoundedness} \mbox{$\{Y(0),
         Y(1) \} \indep A | X$}, \emph{~3)} \emph{strong overlap} ie. every patient has a
-strictly positive probability to receive each treatment, 
+strictly positive probability to receive each treatment,
 and \emph{4)} \emph{generalization} --no covariate shift.
 These classic assumptions, called
 \emph{strong ignorability}, are formally detailed in
@@ -486,7 +486,7 @@ $,
 which involves an expectation taken on the full
 distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
-$\hat \ell$ to note its finite sum version. 
+$\hat \ell$ to note its finite sum version.
 The formulas in Eq. (\ref{eq:mu_identification}-\ref{eq:ate_estimate}) are all partly oracle formulas: they rely on
 conditional expectations, the response functions, but give no specific
 procedures on how to compute or select them. This last point is the topic
@@ -598,7 +598,7 @@ However, the g-computation framework presented above is written in terms
 of ``perfect'' conditional expectations (oracles), it does not control an
 error, \emph{eg} on both populations as highlighted in Figure
 \ref{fig:toy_example}. Selection procedures are needed to find the best
-conditional-expectation models. 
+conditional-expectation models.
 
 A selection procedure combines a risk $\ell$, evaluating the quality of a
 model $f$ with observed data $O$, and a splitting strategy of the data to
@@ -1042,9 +1042,7 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 
 Beyond overlap, we study for caussim simulations, the effect on model selection
 of different causal effect ratio to baseline. We vary the empirical mean
-absolute difference between the causal effect and the baseline, $\Delta_{\mu} =
-    \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i)}
-    \big|$, covering a ratio range from 0.05 to 1000 ($\text{median}=1.9$, full
+absolute difference between the causal effect and the baseline, $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_0(x_j) + \mu_1(x_j)} \big |$, covering a ratio range from 0.04 to 206 ($\text{median}=9.1$, full
 distribution in Appendix \ref{apd:effect_ratio}). Figure
 \ref{fig:effect_ratio_influence} shows that for high values of the ratio,
 $R-\text{risk}$ is outperformed by the $\mu\text{-risk}_{IPW}$ and the
@@ -1054,14 +1052,14 @@ better risk.
 \begin{figure}[!tb]
     \centering
     \begin{minipage}{\linewidth}
-        \includegraphics[width=0.9\linewidth]{_6_effect_ratio_by_bin_comparaison_kendall_by_Dataset.pdf}
+        \includegraphics[width=0.9\linewidth]{_6_effect_ratio_sym_by_bin_comparaison_kendall_by_Dataset.pdf}
     \end{minipage}
 
     \caption{\textbf{R-risk is robust to a wide range of effect ratio}:
     Kendall's $\tau$ agreement with $\tau$-risk. Strong, medium and Weak Causal
     effect ratio are the tertiles of the absolute ratio causal effect to
-    baseline response, $\Delta_{\mu}$: Low $[0.005;0.4[$, Medium $[0.44; 9[$,
-    High $[9;9675[$. Appendix \ref{apd:effect_ratio} details this
+    baseline response, $\Delta_{\mu}$: Low $[0.04;2.86[$, Medium $[2.86; 16.65[$,
+    High $[16.65;206.53[$. Appendix \ref{apd:effect_ratio} details this
     simulation.}\label{fig:effect_ratio_influence}
 \end{figure}
 
@@ -1128,13 +1126,13 @@ using a metric accounting for the
 putative intervention, the $R\text{-risk}$. On average, the $R\text{-risk}$
 brings a sizeable benefit to select the most adequate model, even when
 model development is based on treated and
-untreated population with little differences, as in RCTs. 
+untreated population with little differences, as in RCTs.
 %
 Our conclusions are that without prior knowledge, the R-risk is a good
 default. However, there is much remaining variation, and the R-risk will
 not be optimal for every situation. We have identified one such specific
 situation: when the causal effect is large compared to the variation of
-the baseline effect, the $\tau\text{-risk}_{IPW}$ performs slightly
+the baseline effect, the $\mu\text{-risk}_{IPW}$ performs slightly
 better.
 
 %If one possesses some prior knowledge on the data generation process,
@@ -2421,11 +2419,11 @@ effect model.
 
 Going beyond overlap, we study the effect of another important parameter of the
 data generation process: the ratio of causal effect to the baseline response.
+Here, we detail the experimental setup of the results presented in Figure \ref{fig:effect_ratio_influence}.
 
 For each dataset of our simulation (caussim), we measure this ratio as the absolute mean
 difference between the causal effect and the baseline response, measured
-empirically on each dataset instance $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N
-    \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i)} \big|$. We vary a
+empirically on each dataset instance $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_0(x_j) + \mu_1(x_j)} \big |$. We vary a
 dedicated parameter ($\omega$ in Algorithm 2) in the simulation to force this
 ratio to cover a wide range of values. For 179 dataset instances, it ranges
 several order of magnitudes with the full distribution of values given in
@@ -2438,7 +2436,7 @@ Table \ref{apd:effect_ratio_distribution}.
         \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|}
             \hline
                                    & \textbf{count} & \textbf{mean} & \textbf{std} & \textbf{min} & \textbf{1\%} & \textbf{10\%} & \textbf{25\%} & \textbf{50\%} & \textbf{75\%} & \textbf{90\%} & \textbf{99\%} & \textbf{max} \\ \hline
-            \textbf{effect\_ratio} & 179            & 159.6         & 852.4        & 0.004674     & 0.004765     & 0.02483       & 0.1566        & 1.879         & 21.12         & 135.1         & 3394          & 9675         \\ \hline
+            \textbf{effect\_ratio} & 179            & 16.95         & 24.92        & 0.043        & 0.054        & 0.32          & 1.34          & 9.12          & 22.55         & 39.97         & 101.12        & 206.53       \\ \hline
         \end{tabular}
     }
     \caption{Distribution of the causal effect ratio $\Delta_\mu$ for the experiment on causal effect ratio, results in Figure \ref{fig:effect_ratio_influence}.}\label{apd:effect_ratio_distribution}

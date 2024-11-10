@@ -90,16 +90,16 @@ Despite some attempts this is still lacking in literature.  I especially like th
 > mean difference between the causal effect and the baseline response,
 > measured empirically on each dataset instance $\Delta_{\mu} =
 > \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) -
-> \mu_{0}(x_i)}{\mu_{0}(x_i)} \big|$. We vary a dedicated parameter
+> \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_{0}(x_i) + \mu_{1}(x_i)} \big|$. We vary a dedicated parameter
 > ($\omega$ in Algorithm 2) in the simulation to force this ratio to
 > cover a wide range of values. In 90 dataset instance, it ranges several
-> orders of magnitude from 0.005 to 9675. Figure 7 gives the main results
+> orders of magnitude from 0.04 to 206. Figure 7 gives the main results
 > of this experiment. We see that R-risk is still the best risk on
 > average, but when the effect ratio is high (tertile between 9 and
 > 9675), the reweighted mu-risk and the tau-risk_IPW are better than
 > the R-risk. However, for low value of the ratio,  the R-risk largely
 > outperforms all other metrics. We added these new results to the main
-> paper. 
+> paper. We also studied the effect of the variance of the effect measured as the empirical version of $\frac{var(\mu_1 - \mu_0)}{ var(\mu_1+\mu_0)}$. For this last experiment, we found similar results to the causal effect experiment.
 
 > We did not explore more sophisticated treatment/control distributions for our simulation. Building these new data generation processes would imply a big modification to our setup. We rely on the easy inversion of the distribution functions of the gaussians (p(X|A=a)) to analytically compute the true propensity score. In addition, we think that the semi-simulated datasets already provide some interesting argument in favor of r-risk with more more diverse treatment/control covariate distributions.
 

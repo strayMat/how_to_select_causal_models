@@ -1,7 +1,7 @@
 %%
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL original_manuscript.tex   Sat Oct 19 22:41:29 2024
-%DIF ADD how_to_select_latex.tex   Sun Oct 20 22:09:42 2024
+%DIF DEL original_manuscript.tex   Sun Sep  1 18:46:04 2024
+%DIF ADD how_to_select_latex.tex   Sun Nov 10 13:35:38 2024
 %% Copyright 2022 OXFORD UNIVERSITY PRESS
 %%
 %% This file is part of the 'oup-authoring-template Bundle'.
@@ -284,7 +284,7 @@ allocation and baseline health, \eg~only prescribing a drug to mild cases
 \cite{hernan_causal_2020,vanderweele2019principles}.
 Predictive modeling \DIFdelbegin \DIFdel{bridges }\DIFdelend \DIFaddbegin \DIFadd{is linked }\DIFaddend to causal inference theory \DIFdelbegin \DIFdel{under the name }\DIFdelend \DIFaddbegin \DIFadd{by the concept }\DIFaddend of
 \emph{outcome models} (or \DIFdelbegin \DIFdel{G-computation, G-formula }\DIFdelend \DIFaddbegin \DIFadd{g-computation, g-estimation,
-g-formula }\DIFaddend \cite{robins_role_1986}, Q-model
+    g-formula }\DIFaddend \cite{robins_role_1986}, Q-model
 \cite{snowden_implementation_2011}, conditional mean regression
 \cite{wendling_comparing_2018}).
 % Controlled allocation of treatment, as in randomized controlled trials (RCTs),
@@ -326,9 +326,9 @@ of selecting between different estimators based on the data at hand. %TODO: migh
 %
 Indeed, estimates of treatment effects can vary markedly across different
 predictive models \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-\cite{fang2019applying,dorie_automated_2019} }\hskip0pt%DIFAUXCMD
+        \cite{fang2019applying,dorie_automated_2019} }\hskip0pt%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\cite{fang2019applying,dorie_automated_2019,leborgne2021g,ren2023comparing} }\hskip0pt%DIFAUXCMD
+        \cite{fang2019applying,dorie_automated_2019,leborgne2021g,ren2023comparing} }\hskip0pt%DIFAUXCMD
 }\DIFaddend (illustration in
 Appendix \ref{apd:toy_example:acic_2016_ate_variability}).
 
@@ -342,9 +342,9 @@ inference.
 \paragraph{Objectives and structure of the paper}
 
 \DIFdelbegin \DIFdel{We study }\DIFdelend \DIFaddbegin \DIFadd{The intersection between machine learning and causal inference is growing rapidly
-\mbox{%DIFAUXCMD
-\cite{kaddour2022causal,chernozhukov2024applied}}\hskip0pt%DIFAUXCMD
-. We focus on }\DIFaddend \textit{model selection procedures} in practical settings,
+    \mbox{%DIFAUXCMD
+        \cite{kaddour2022causal,chernozhukov2024applied}}\hskip0pt%DIFAUXCMD
+    . We focus on }\DIFaddend \textit{model selection procedures} in practical settings,
 without theoretical assumptions often made in statistical literature such
 as \textit{infinite} data or \textit{well-specified} models (Appendix
 \ref{apd:prior_work}). Asymptotic causal-inference theory recommends complex
@@ -479,10 +479,10 @@ estimators for causal inference.
 \label{sec:neyman_rubin}%
 
 \DIFaddbegin \DIFadd{We first expose the classic construction of the outcome modeling (or
-G-computation) estimators of causal effect
-\mbox{%DIFAUXCMD
-\cite{robins_new_1986,snowden_implementation_2011,hernan_causal_2020}}\hskip0pt%DIFAUXCMD
-.
+    G-computation) estimators of causal effect
+    \mbox{%DIFAUXCMD
+        \cite{robins_new_1986,snowden_implementation_2011,hernan_causal_2020}}\hskip0pt%DIFAUXCMD
+    .
 }
 
 \DIFaddend \paragraph{Settings}
@@ -519,26 +519,26 @@ A given data needs to meet a few assumptions to enable identifying
 causal estimands \cite{rubin_causal_2005}. \DIFdelbegin \DIFdel{The usual
 }\emph{\DIFdel{strong ignorability}} %DIFAUXCMD
 \DIFdel{assumptions are  (details in
-\ref{apd:causal_assumptions}): }\DIFdelend \emph{1)} \DIFaddbegin \DIFadd{an individual's
-outcome $Y$ is solely governed by the corresponding potential outcome:
+    \ref{apd:causal_assumptions}): }\DIFdelend \emph{1)} \DIFaddbegin \DIFadd{an individual's
+    outcome $Y$ is solely governed by the corresponding potential outcome:
 }\begin{flalign}
     \DIFadd{\text{\emph{Consistency} assumption,}
-    }&&
+    } &  &
     \DIFadd{Y = A\, Y(1) + (1 - A)\, Y(0)
-    \label{eq:consistency}
-    }&&
-\DIFadd{}\end{flalign}
+        \label{eq:consistency}
+    } &  &
+    \DIFadd{}\end{flalign}
 \emph{\DIFadd{2)}}
 \DIFaddend \emph{unconfoundedness} \mbox{$\{Y(0),
         Y(1) \} \indep A | X$}, \emph{~\DIFdelbegin \DIFdel{2}\DIFdelend \DIFaddbegin \DIFadd{3}\DIFaddend )} \emph{strong overlap} ie. every patient has a
-strictly positive probability to receive each treatment, 
+strictly positive probability to receive each treatment,
 \DIFdelbegin \emph{\DIFdel{3)}}
 %DIFAUXCMD
 \emph{\DIFdel{consistency}}%DIFAUXCMD
 \DIFdel{, }\DIFdelend and \emph{4)} \emph{generalization} \DIFaddbegin \DIFadd{--no covariate shift.
-These classic assumptions, called
+    These classic assumptions, called
 }\emph{\DIFadd{strong ignorability}}\DIFadd{, are formally detailed in
-\ref{apd:causal_assumptions}}\DIFaddend .
+    \ref{apd:causal_assumptions}}\DIFaddend .
 
 \paragraph{\DIFdelbegin \DIFdel{Estimating }\DIFdelend \DIFaddbegin \DIFadd{Identifying }\DIFaddend treatment effects with outcome models -- g-computation \cite{robins_new_1986}}\label{subsec:estimators}
 
@@ -569,7 +569,7 @@ g-computation estimators \cite{snowden_implementation_2011}):
 \end{eqnarray}
 This equation builds on \DIFdelbegin \DIFdel{two quantities: the conditional expectancy
 }\DIFdelend \DIFaddbegin \DIFadd{the conditional expectation }\DIFaddend of the outcome given the \DIFdelbegin \DIFdel{covariates and either
-treatment or no no treatment }\DIFdelend \DIFaddbegin \DIFadd{treatment $\mathbb E_{\sim \mathcal{D}}[Y|A]$. Outcome based methods target this quantity conditionally on the covariates}\DIFaddend , called \emph{response function}:
+    treatment or no no treatment }\DIFdelend \DIFaddbegin \DIFadd{treatment $\mathbb E_{\sim \mathcal{D}}[Y|A]$. Outcome based methods target this quantity conditionally on the covariates}\DIFaddend , called \emph{response function}:
 \begin{flalign*}
     \text{Response function}
      &  &
@@ -590,13 +590,13 @@ $,
 which involves an expectation taken on the full
 distribution $\mathcal D$, which is observable but requires infinite data. For
 each estimator $\ell$ taking an expectation over $\mathcal D$, we use the symbol
-$\hat \ell$ to note its finite sum version. 
+$\hat \ell$ to note its finite sum version.
 \DIFaddbegin \DIFadd{The formulas in Eq. (\ref{eq:mu_identification}-\ref{eq:ate_estimate}) are all partly oracle formulas: they rely on
-conditional expectations, the response functions, but give no specific
-procedures on how to compute or select them. This last point is the topic
-of our work, describe in the next section.
-%DIF > In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
-}\DIFaddend 
+    conditional expectations, the response functions, but give no specific
+    procedures on how to compute or select them. This last point is the topic
+    of our work, describe in the next section.
+    %DIF > In practice the response function can be estimated with one statistical model taking the treatment as a supplementary covariate $\hat \mu(x, a)$ (called S-learner) or by two separate model fitted on each population, treated or not $(\hat \mu_0(x), \hat \mu_1(x))$ (T-learner) \cite{kunzel_metalearners_2019}.
+}\DIFaddend
 
 Similarly to the ATE, at the individual level \DIFdelbegin \DIFdel{, the CATE }\DIFdelend \DIFaddbegin \DIFadd{Eq.\ref{eq:mu_identification} links the CATE to statistical quantities}\DIFaddend :
 \begin{equation}
@@ -608,14 +608,14 @@ Similarly to the ATE, at the individual level \DIFdelbegin \DIFdel{, the CATE }\
 \DIFdelbegin \DIFdel{The }\emph{\DIFdel{R-decomposition}}
 %DIFAUXCMD
 \DIFdel{of the outcome model\mbox{%DIFAUXCMD
-\cite{robinson_rootnconsistent_1988}}\hskip0pt%DIFAUXCMD
-plays an important role:
-introducing two quantities}\DIFdelend \DIFaddbegin \DIFadd{G-computation is a choice of decomposition of the CATE estimation. Other choices
-of decomposition exist, such as the R-decomposition
-\mbox{%DIFAUXCMD
-\cite{robinson_rootnconsistent_1988}}\hskip0pt%DIFAUXCMD
-. The latter introduces two new statistical
-estimates}\DIFaddend , the conditional mean outcome and the probability \DIFdelbegin \DIFdel{to be }\DIFdelend \DIFaddbegin \DIFadd{of being }\DIFaddend treated (known
+        \cite{robinson_rootnconsistent_1988}}\hskip0pt%DIFAUXCMD
+    plays an important role:
+    introducing two quantities}\DIFdelend \DIFaddbegin \DIFadd{G-computation is a choice of decomposition of the CATE estimation. Other choices
+    of decomposition exist, such as the R-decomposition
+    \mbox{%DIFAUXCMD
+        \cite{robinson_rootnconsistent_1988}}\hskip0pt%DIFAUXCMD
+    . The latter introduces two new statistical
+    estimates}\DIFaddend , the conditional mean outcome and the probability \DIFdelbegin \DIFdel{to be }\DIFdelend \DIFaddbegin \DIFadd{of being }\DIFaddend treated (known
 as propensity score \cite{rosenbaum_central_1983}):
 \begin{flalign}
     \text{Conditional mean outcome} &                    & m(x) \myeq \; & \mathbb E_{Y \sim
@@ -639,12 +639,12 @@ $m$ and $e$ are often called
 \bigskip
 
 \DIFadd{Both the in the ATE and CATE formula Eq.\,(\ref{eq:ate_estimate},
-\ref{eq:cate_estimate}), and the Robinson decomposition involve
-conditional expectations --the response functions $\mu_a(x)$ or the
-nuisances $m(x)$ and $e(x)$. In practice those are given by statistical
-models: linear models, random forests, etc
-\mbox{%DIFAUXCMD
-\cite{kaddour2022causal,chernozhukov2024applied}}\hskip0pt%DIFAUXCMD
+    \ref{eq:cate_estimate}), and the Robinson decomposition involve
+    conditional expectations --the response functions $\mu_a(x)$ or the
+    nuisances $m(x)$ and $e(x)$. In practice those are given by statistical
+    models: linear models, random forests, etc
+    \mbox{%DIFAUXCMD
+        \cite{kaddour2022causal,chernozhukov2024applied}}\hskip0pt%DIFAUXCMD
 }\DIFaddend .
 
 
@@ -711,17 +711,17 @@ domain knowledge-- induces feasible estimates of the ATE and CATE (eqs
 \ref{eq:ate_estimate} and \ref{eq:cate_estimate}), $\hat \tau_{f}$ and $\hat \tau_{f}(x)$.
 %
 \DIFdelbegin \DIFdel{Let }\DIFdelend \DIFaddbegin \DIFadd{However, the g-computation framework presented above is written in terms
-of ``perfect'' conditional expectations (oracles), it does not control an
-error, }\emph{\DIFadd{eg}} \DIFadd{on both populations as highlighted in Figure
-\ref{fig:toy_example}. Selection procedures are needed to find the best
-conditional-expectation models. 
+    of ``perfect'' conditional expectations (oracles), it does not control an
+    error, }\emph{\DIFadd{eg}} \DIFadd{on both populations as highlighted in Figure
+    \ref{fig:toy_example}. Selection procedures are needed to find the best
+    conditional-expectation models.
 }
 
 \DIFadd{A selection procedure combines a risk $\ell$, evaluating the quality of a
-model $f$ with observed data $O$, and a splitting strategy of the data to
-estimate different regressions (nuisances) involved in the risk.
-%DIF > 
-Formally, let }\DIFaddend $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
+    model $f$ with observed data $O$, and a splitting strategy of the data to
+    estimate different regressions (nuisances) involved in the risk.
+    %DIF > 
+    Formally, let }\DIFaddend $\mathcal F=\{f: \mathcal X \times \mathcal A \rightarrow \mathcal{Y}\}$ be
 a family of such estimators. Our goal is to select the best candidate in this
 family for the observed dataset $O$ using a risk
 $\ell$:
@@ -887,8 +887,8 @@ processes and three semi-simulated datasets \footnote{Scripts for the simulation
 }.
 
 \DIFaddbegin \DIFadd{The simulations, designed to evaluate the effect of the overlap
-parameter, also explore more diverse and noisy covariate distributions.
-They cover a diversity of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
+    parameter, also explore more diverse and noisy covariate distributions.
+    They cover a diversity of causal settings such as different ratio of causal effect to background responses, and functional links between covariates, outcome and treatment.
 }
 
 \DIFaddend \subsection{Caussim: Extensive simulation settings}\label{subsec:simulations}
@@ -1159,28 +1159,26 @@ stacking linear models and gradient-boosted trees-- suffices to estimate nuisanc
 \DIFaddbegin \paragraph{\DIFadd{R-risk is robust to a wide range of effect ratio values}}
 
 \DIFadd{Beyond overlap, we study for caussim simulations, the effect on model selection
-of different causal effect ratio to baseline. We vary the empirical mean
-absolute difference between the causal effect and the baseline, $\Delta_{\mu} =
-    \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i)}
-    \big|$, covering a ratio range from 0.05 to 1000 ($\text{median}=1.9$, full
-distribution in Appendix \ref{apd:effect_ratio}). Figure
-\ref{fig:effect_ratio_influence} shows that for high values of the ratio,
-$R-\text{risk}$ is outperformed by the $\mu\text{-risk}_{IPW}$ and the
-$\tau\text{-risk}_{IPW}$. However, on average, the $R-\text{risk}$ is still the
-better risk.
+    of different causal effect ratio to baseline. We vary the empirical mean
+    absolute difference between the causal effect and the baseline, $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_0(x_j) + \mu_1(x_j)} \big |$, covering a ratio range from 0.04 to 206 ($\text{median}=9.1$, full
+    distribution in Appendix \ref{apd:effect_ratio}). Figure
+    \ref{fig:effect_ratio_influence} shows that for high values of the ratio,
+    $R-\text{risk}$ is outperformed by the $\mu\text{-risk}_{IPW}$ and the
+    $\tau\text{-risk}_{IPW}$. However, on average, the $R-\text{risk}$ is still the
+    better risk.
 }
 
 \begin{figure}[!tb]
     \centering
     \begin{minipage}{\linewidth}
-        \includegraphics[width=0.9\linewidth]{_6_effect_ratio_by_bin_comparaison_kendall_by_Dataset.pdf}
+        \includegraphics[width=0.9\linewidth]{_6_effect_ratio_sym_by_bin_comparaison_kendall_by_Dataset.pdf}
     \end{minipage}
 
     \caption{\textbf{\DIFaddFL{R-risk is robust to a wide range of effect ratio}}\DIFaddFL{:
     Kendall's $\tau$ agreement with $\tau$-risk. Strong, medium and Weak Causal
     effect ratio are the tertiles of the absolute ratio causal effect to
-    baseline response, $\Delta_{\mu}$: Low $[0.005;0.4[$, Medium $[0.44; 9[$,
-    High $[9;9675[$. Appendix \ref{apd:effect_ratio} details this
+    baseline response, $\Delta_{\mu}$: Low $[0.04;2.86[$, Medium $[2.86; 16.65[$,
+    High $[16.65;206.53[$. Appendix \ref{apd:effect_ratio} details this
     simulation.}}\label{fig:effect_ratio_influence}
 \end{figure}
 
@@ -1247,13 +1245,14 @@ using a metric accounting for the
 putative intervention, the $R\text{-risk}$. \DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{On average, the }\DIFaddend $R\text{-risk}$
 brings a sizeable benefit to select the most adequate model, even when
 model development is based on treated and
-untreated population with little differences, as in RCTs. 
+untreated population with little differences, as in RCTs.
 %DIF > 
 \DIFaddbegin \DIFadd{Our conclusions are that without prior knowledge, the R-risk is a good
-default. However, there is much remaining variation, and the R-risk will
-not be optimal for every situation. We have identified one such specific
-situation: when the causal effect is large compared to the variation of
-the baseline effect.
+    default. However, there is much remaining variation, and the R-risk will
+    not be optimal for every situation. We have identified one such specific
+    situation: when the causal effect is large compared to the variation of
+    the baseline effect, the $\mu\text{-risk}_{IPW}$ performs slightly
+    better.
 }
 
 %DIF > If one possesses some prior knowledge on the data generation process,
@@ -1408,7 +1407,7 @@ model-selection risk is the so-called $R\text{-risk}$
 \cite{nie_quasioracle_2017} --def.\,\ref{def:r_risk}, below. Their
 empirical results are clear for randomized treatment allocation but less
 convincing for observational settings where both simple \DIFdelbegin \DIFdel{Mean Squared
-Error --MSE, }\DIFdelend \DIFaddbegin \DIFadd{MSE --}\DIFaddend $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
+    Error --MSE, }\DIFdelend \DIFaddbegin \DIFadd{MSE --}\DIFaddend $\mu\text{-risk}(f)$ def.\,\ref{def:mu_risk}-- and
 reweighted MSE --$\mu\text{-risk}_{IPW}$ def.\,\ref{def:mu_ipw_risk}--
 appear to perform better than $R\text{-risk}$ on half of the simulations.
 Another work \cite{alaa_validating_2019} studied empirically both MSE and
@@ -1454,9 +1453,9 @@ and do not give insights on model selection. In addition, for hyperparameter
 selection, they rely on a plugin estimate of the $\tau\text{-risk}$ built with
 counterfactual nearest neighbors, which has been shown ineffective
 \cite{schuler_comparison_2018}. \DIFaddbegin \DIFadd{An interesting direction is taken in \mbox{%DIFAUXCMD
-\cite{foster2023orthogonal} }\hskip0pt%DIFAUXCMD
-where the authors derive convergence rates for orthogonal losses such as the R-loss, or the DR-Loss without assuming well-specification of the model for target parameter.
-}\DIFaddend 
+        \cite{foster2023orthogonal} }\hskip0pt%DIFAUXCMD
+    where the authors derive convergence rates for orthogonal losses such as the R-loss, or the DR-Loss without assuming well-specification of the model for target parameter.
+}\DIFaddend
 
 
 \subsection{Causal assumptions}\label{apd:causal_assumptions}
@@ -1465,17 +1464,17 @@ We assume the following four assumptions, referred as strong ignorability and
 necessary to assure identifiability of the causal estimands with observational
 data \cite{rubin_causal_2005}:
 \DIFaddbegin \begin{assumption}[Consistency]\label{assumption:consistency} \DIFadd{The observed
-    outcome is the potential outcome of the assigned treatment:
+        outcome is the potential outcome of the assigned treatment:
     }\begin{equation*}\DIFadd{\label{eq:consistancy}
-        Y = A \, Y(1) + (1-A) \, Y(0)
-    }\end{equation*}
+            Y = A \, Y(1) + (1-A) \, Y(0)
+        }\end{equation*}
     \DIFadd{Here, we assume that the intervention $A$ has been well defined. This
-    assumption focuses on the design of the experiment. It clearly states the link
-    between the observed outcome and the potential outcomes through the
-    intervention \mbox{%DIFAUXCMD
-\cite{hernan_causal_2020}}\hskip0pt%DIFAUXCMD
-.
-}\end{assumption}
+        assumption focuses on the design of the experiment. It clearly states the link
+        between the observed outcome and the potential outcomes through the
+        intervention \mbox{%DIFAUXCMD
+            \cite{hernan_causal_2020}}\hskip0pt%DIFAUXCMD
+        .
+    }\end{assumption}
 
 \DIFaddend \begin{assumption}[Unconfoundedness]\label{assumption:ignorability}
     \begin{equation*}\label{eq:ignorability}
@@ -1509,7 +1508,7 @@ could lead to arbitrarily small propensity scores.
 \DIFdelbegin %DIFDELCMD < \begin{assumption}[Consistency]\label{assumption:consistency} %%%
 \DIFdel{The observed
     outcome is the potential outcome of the assigned treatment:
-    }\begin{displaymath}\DIFdel{%DIFDELCMD < \label{eq:consistancy}%%%
+}\begin{displaymath}\DIFdel{%DIFDELCMD < \label{eq:consistancy}%%%
         Y = A \, Y(1) + (1-A) \, Y(0)
     }\end{displaymath}%DIFAUXCMD
 %DIFDELCMD <     %%%
@@ -1517,8 +1516,8 @@ could lead to arbitrarily small propensity scores.
     assumption focuses on the design of the experiment. It clearly states the link
     between the observed outcome and the potential outcomes through the
     intervention \mbox{%DIFAUXCMD
-\cite{hernan_causal_2020}}\hskip0pt%DIFAUXCMD
-.
+        \cite{hernan_causal_2020}}\hskip0pt%DIFAUXCMD
+    .
 }%DIFDELCMD < \end{assumption}
 %DIFDELCMD < 
 
@@ -1996,15 +1995,15 @@ illustrates 2D examples of the simulation.
           between the two Gaussians to control the overlap between treated and
           non-treated populations, an important parameter for causal inference
           (related to $\eta$ in \DIFdelbegin \DIFdel{Proposition
-          \ref{theory:prop:mu_risk_ipw_bound}}\DIFdelend \DIFaddbegin \DIFadd{Assumption
-          \ref{assumption:overlap}}\DIFaddend ). Finally, we generate observed
+              \ref{theory:prop:mu_risk_ipw_bound}}\DIFdelend \DIFaddbegin \DIFadd{Assumption
+              \ref{assumption:overlap}}\DIFaddend ). Finally, we generate observed
           outcomes adding Gaussian noise.
 
           More formally, we generate the basis following the original data
           distribution, $\left [ b_1 .. b_D \right ] \sim \mathbb P(x)$,
           with D=2 in our simulations. Then, we compute an approximation
           of the full kernel of the data generation process \DIFdelbegin \DIFdel{$RBF(x,
-              \cdot) \;  with \; x \sim \mathbb P(x)$ }\DIFdelend with these
+                  \cdot) \;  with \; x \sim \mathbb P(x)$ }\DIFdelend with these
           representers: $z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot
               Z^T \in \mathbb{R}^D$ with $RBF_{\gamma}$ being the Gaussian
           kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z the
@@ -2022,11 +2021,11 @@ illustrates 2D examples of the simulation.
               \tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T
           \end{equation*}
           \DIFaddbegin \DIFadd{Where $\beta_{\mu}$ and $\beta_{\tau}$ are sampled from two normal distributions with mean 0 and unit variances $\mathcal{N}(0, I_{D+1})$.
-    }\DIFaddend \item Adding a Gaussian noise, $\varepsilon \sim \mathcal N(0, \sigma(x;a))$,
+          }\DIFaddend \item Adding a Gaussian noise, $\varepsilon \sim \mathcal N(0, \sigma(x;a))$,
           we construct the potential outcomes:
           \DIFdelbegin \DIFdel{$y(a) = \mu_0(x) + a\,\tau(x) + \varepsilon(x, a)$
-}\DIFdelend \DIFaddbegin \DIFadd{$y(a) = (1-\omega)\mu_0(x) + a\,\omega\tau(x) + \varepsilon(x, a)$ with $\omega$ the treatment effect relative size with respect to the baseline response.
-}\DIFaddend \end{itemize}
+          }\DIFdelend \DIFaddbegin \DIFadd{$y(a) = (1-\omega)\mu_0(x) + a\,\omega\tau(x) + \varepsilon(x, a)$ with $\omega$ the treatment effect relative size with respect to the baseline response.
+          }\DIFaddend \end{itemize}
 We generated 1000 instances of this dataset with uniformly random overlap
 parameters $\theta \in \left[ 0, 2.5 \right]$.
 
@@ -2036,42 +2035,42 @@ parameters $\theta \in \left[ 0, 2.5 \right]$.
     \DIFadd{Let the parameters of a given simulation be:
     }\begin{itemize}
         \item \DIFadd{N the number of samples.
-        }\item \DIFadd{D the dimension of the basis expansion.
-        }\item \DIFadd{$p_A$ the proportion of treated individuals.
-        }\item \DIFadd{$\theta$ the overlap parameter.
-        }\item \DIFadd{%
-\mbox{%DIFAUXCMD
-$\mathbb P(x|A=a) = W \cdot \mathcal N \Big( \begin{bmatrix} (1-2a) \theta \\ 0\end{bmatrix} ; \begin{bmatrix} \sigma_0 & 0 \\ 0 & \sigma_1\end{bmatrix} \Big)$
-}%DIFAUXCMD
-the rotated gaussian for each population covariate. $W$ is a random rotation matrix and $\sigma_0^2=2;\sigma_1^2=5$ are scaling parameters.
-        }\item \DIFadd{$e(x)=\mathbb P(A=1|X=x)$ the oracle propensity score, obtained analytically from $\mathbb P(x|A=a)$.
-        }\item \DIFadd{$\mathbb P(X) = p_A \mathbb P(X|A=1) + (1- p_A) \mathbb P(X|A=0)$ the mixture of gaussian for the whole population covariates.
-        }\item \DIFadd{$b_1, .., b_D \sim \mathbb P(X)$, the basis sampled from the gaussian mixture.
-        }\item \DIFadd{$z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot Z^T \in
+              }\item \DIFadd{D the dimension of the basis expansion.
+              }\item \DIFadd{$p_A$ the proportion of treated individuals.
+              }\item \DIFadd{$\theta$ the overlap parameter.
+              }\item \DIFadd{%
+                  \mbox{%DIFAUXCMD
+                      $\mathbb P(x|A=a) = W \cdot \mathcal N \Big( \begin{bmatrix} (1-2a) \theta \\ 0\end{bmatrix} ; \begin{bmatrix} \sigma_0 & 0 \\ 0 & \sigma_1\end{bmatrix} \Big)$
+                  }%DIFAUXCMD
+                  the rotated gaussian for each population covariate. $W$ is a random rotation matrix and $\sigma_0^2=2;\sigma_1^2=5$ are scaling parameters.
+              }\item \DIFadd{$e(x)=\mathbb P(A=1|X=x)$ the oracle propensity score, obtained analytically from $\mathbb P(x|A=a)$.
+              }\item \DIFadd{$\mathbb P(X) = p_A \mathbb P(X|A=1) + (1- p_A) \mathbb P(X|A=0)$ the mixture of gaussian for the whole population covariates.
+              }\item \DIFadd{$b_1, .., b_D \sim \mathbb P(X)$, the basis sampled from the gaussian mixture.
+              }\item \DIFadd{$z(x) = [RBF_{\gamma}(x, b_d)]_{d=1..D} \cdot Z^T \in
                   \mathbb{R}^D$ the Nystroem expansion. $RBF_{\gamma}$ is the
               Gaussian kernel $K(x, y) = exp(-\gamma ||x-y||^2)$ and Z is the
               normalization constant of the kernel basis, computed as the root
               inverse of the basis kernel $Z=[K(b_i, b_j)]_{i, j \in
                   {1..D}}^{-1/2}$.
-        }\item \DIFadd{$\beta_{\mu}$ and $\beta_{\tau}$, the linear coefficients on top of the basis expansion. They are sampled from two normal distributions with mean 0 and unit variances $\mathcal{N}(0, I_{D+1})$.
-        }\item \DIFadd{$\omega$ the treatment effect relative size with respect to the baseline response.
-        }\item \DIFadd{$\varepsilon(x, a) \sim \mathcal N(0, \sigma_y)$ an exogen gaussian noise with $\sigma_y$ the scale of the noise.
-    }\end{itemize}
+              }\item \DIFadd{$\beta_{\mu}$ and $\beta_{\tau}$, the linear coefficients on top of the basis expansion. They are sampled from two normal distributions with mean 0 and unit variances $\mathcal{N}(0, I_{D+1})$.
+              }\item \DIFadd{$\omega$ the treatment effect relative size with respect to the baseline response.
+              }\item \DIFadd{$\varepsilon(x, a) \sim \mathcal N(0, \sigma_y)$ an exogen gaussian noise with $\sigma_y$ the scale of the noise.
+              }\end{itemize}
 
     \DIFadd{Generation process for one sample ($x$, $a$, e(x), $y(0)$, $y(1)$, $y$):
     }\begin{algorithmic}[1]
         \State \DIFadd{$x \sim \mathbb P(X)$ }\Comment{Sample from rotated gaussian mixture}
         \State  \DIFadd{$z(x)$ }\Comment{Compute the Nystroem expansion}
         \State \DIFadd{%
-\mbox{%DIFAUXCMD
-$\mu_0(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\mu}^T$
-}%DIFAUXCMD
-}\Comment{Compute the non-treated response surface, ie. the baseline}
+            \mbox{%DIFAUXCMD
+                $\mu_0(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\mu}^T$
+            }%DIFAUXCMD
+        }\Comment{Compute the non-treated response surface, ie. the baseline}
         \State  \DIFadd{%
-\mbox{%DIFAUXCMD
-$\tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T$
-}%DIFAUXCMD
-}\Comment{Compute the conditional treatment effect (CATE)}
+            \mbox{%DIFAUXCMD
+                $\tau(x) = \begin{bmatrix} z(x); 1 \end{bmatrix} \cdot \beta_{\tau}^T$
+            }%DIFAUXCMD
+        }\Comment{Compute the conditional treatment effect (CATE)}
         \State \DIFadd{$y(a) = (1-\omega) \mu_0(x) + a\,\omega\tau(x) + \varepsilon(x, a) + \varepsilon(x, a)$ }\Comment{Compute the potential outcomes}
         \State \DIFadd{$a \sim \operatorname{Bernoulli}(e(x))$ }\Comment{Compute the treatment status}
         \State \DIFadd{$y = a\,y(1) + (1-a)\,y(0)$ }\Comment{Compute the observed outcome}
@@ -2225,7 +2224,7 @@ the variance since clipping is performed.
     \includegraphics[width=\linewidth]{_1_r_risk_domination_mrisks_by_ds.pdf}
     %\hfill
     \caption{\DIFdelbeginFL \textbf{\DIFdelFL{The $R$-risk is the best metric}}%DIFAUXCMD
-\DIFdelendFL \DIFaddbeginFL \textbf{\DIFaddFL{The $R$-risk is the best metric on average}}\DIFaddendFL : Relative Kendall's $\tau$
+        \DIFdelendFL \DIFaddbeginFL \textbf{\DIFaddFL{The $R$-risk is the best metric on average}}\DIFaddendFL : Relative Kendall's $\tau$
         agreement with $\tau\text{-risk}$. Strong and Weak overlap correspond to
         the first and last tertiles of the overlap distribution measured with
         Normalized Total Variation eq. \ref{eq:ntv}.
@@ -2578,17 +2577,17 @@ effect model.
 \DIFaddbegin \subsection{\DIFadd{Sensitivity of the results to different ratio of causal effect to baseline response}}\label{apd:effect_ratio}
 
 \DIFadd{Going beyond overlap, we study the effect of another important parameter of the
-data generation process: the ratio of causal effect to the baseline response.
+    data generation process: the ratio of causal effect to the baseline response.
+    Here, we detail the experimental setup of the results presented in Figure \ref{fig:effect_ratio_influence}.
 }
 
 \DIFadd{For each dataset of our simulation (caussim), we measure this ratio as the absolute mean
-difference between the causal effect and the baseline response, measured
-empirically on each dataset instance $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N
-    \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i)} \big|$. We vary a
-dedicated parameter ($\omega$ in Algorithm 2) in the simulation to force this
-ratio to cover a wide range of values. For 179 dataset instances, it ranges
-several order of magnitudes with the full distribution of values given in
-Table \ref{apd:effect_ratio_distribution}.
+    difference between the causal effect and the baseline response, measured
+    empirically on each dataset instance $\Delta_{\mu} = \frac{1}{N} \sum_{i=1}^N \big | \frac{\mu_{1}(x_i) - \mu_{0}(x_i)}{\mu_{0}(x_i) + \mu_{1}(x_i) - \frac{1}{N} \sum_{j=1}^N \mu_0(x_j) + \mu_1(x_j)} \big |$. We vary a
+    dedicated parameter ($\omega$ in Algorithm 2) in the simulation to force this
+    ratio to cover a wide range of values. For 179 dataset instances, it ranges
+    several order of magnitudes with the full distribution of values given in
+    Table \ref{apd:effect_ratio_distribution}.
 }
 
 
@@ -2598,7 +2597,7 @@ Table \ref{apd:effect_ratio_distribution}.
         \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|}
             \hline
                                    & \textbf{count} & \textbf{mean} & \textbf{std} & \textbf{min} & \textbf{1\%} & \textbf{10\%} & \textbf{25\%} & \textbf{50\%} & \textbf{75\%} & \textbf{90\%} & \textbf{99\%} & \textbf{max} \\ \hline
-            \textbf{effect\_ratio} & 179            & 159.6         & 852.4        & 0.004674     & 0.004765     & 0.02483       & 0.1566        & 1.879         & 21.12         & 135.1         & 3394          & 9675         \\ \hline
+            \textbf{effect\_ratio} & 179            & 16.95         & 24.92        & 0.043        & 0.054        & 0.32          & 1.34          & 9.12          & 22.55         & 39.97         & 101.12        & 206.53       \\ \hline
         \end{tabular}
     }
     \caption{\DIFaddFL{Distribution of the causal effect ratio $\Delta_\mu$ for the experiment on causal effect ratio, results in Figure \ref{fig:effect_ratio_influence}.}}\label{apd:effect_ratio_distribution}

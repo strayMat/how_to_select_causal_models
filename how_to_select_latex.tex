@@ -75,8 +75,8 @@
 \title{How to select predictive models for decision-making or causal inference?}
 
 %%% Use the \authfn to add symbols for additional footnotes, if any. 1 is reserved for correspondence emails; then continuing with 2 etc for contributions.
-\author[1,\authfn{1}]{Matthieu Doutreligne}
-\author[2]{Gaël Varoquaux}
+\author[1,\authfn{1}]{Matthieu Doutreligne (ORCID: 0000-0001-8072-9966)}
+\author[2]{Gaël Varoquaux (ORCID: 0000-0003-1076-5122)}
 
 \affil[1]{Soda, Inria Saclay, France}
 \affil[2]{Mission Data, Haute Autorité de Santé, France}
@@ -765,9 +765,7 @@ $\widehat{U\text{-risk}}$,
 $\widehat{\tau\text{-risk}_{IPW}}$.
 We benchmark the metrics in a variety of settings:
 many different simulated data generation
-processes and three semi-simulated datasets \footnote{Scripts for the simulations and the selection procedure are available at
-    \url{https://github.com/soda-inria/caussim}.
-}.
+processes and three semi-simulated datasets.We provide scripts for the simulations \cite{doutreligne2025caussim} and the selection procedure \cite{doutreligne2025causal}.
 
 The simulations, designed to evaluate the effect of the overlap
 parameter, also explore more diverse and noisy covariate distributions.
@@ -861,10 +859,7 @@ different treatment allocations. Appendix
 
 For these three datasets, the family of candidate estimators are gradient
 boosting trees for both the response surfaces and the treatment
-\footnote{Scikit-learn regressor,
-    \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html}{HistGradientBoostingRegressor},
-    and classifier,
-    \href{https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html}{HistGradientBoostingClassifier}.}
+(scikit-learn HistGradientBoostingRegressor HistGradientBoostingClassifier  \cite{pedregosa_scikitlearn_2011})
 with S-learner, learning rate
 in $\{0.01, 0.1, 1\}$, and maximum number of leaf nodes in $\{25, 27, 30, 32,
     35, 40\}$ resulting in a family of size 18.
@@ -909,14 +904,14 @@ summarizing the overlap between both populations (Appendix
 \paragraph{The $R\text{-risk}$ is the best metric on average}
 
 Figure \ref{fig:relative_kendalls_all_datasets} shows the agreement between the
-ideal ranking of outcome models given the oracle $\tau\text{-risk}$ and the different
-feasible causal metrics. We measure this agreement with relative\footnote{To
-    remove the variance across datasets (some datasets lead to easier model
-    selection than others), we report values for one metric relative to the mean of
-    all metrics for a given dataset instance: $\text{Relative} \,
-        \kappa(\ell,\tau\mathrm{{-risk}})= \kappa(\ell,\tau\mathrm{{-risk}}) -
-        mean_{\ell}\big(\kappa(\ell,\tau\mathrm{{-risk}})\big)$} Kendall tau $\kappa$
-(eq. \ref{eq:kendall_tau}) \cite{kendall_new_1938}. Given the importance of
+ideal ranking of outcome models given the oracle $\tau\text{-risk}$ and the
+different feasible causal metrics. We measure this agreement with relative
+Kendall tau $\kappa$ (eq. \ref{eq:kendall_tau}) \cite{kendall_new_1938}. To
+remove the variance across datasets (some datasets lead to easier model
+selection than others), we report values for one metric relative to the mean of
+all metrics for a given dataset instance: $\text{Relative} \,
+    \kappa(\ell,\tau\mathrm{{-risk}})= \kappa(\ell,\tau\mathrm{{-risk}}) -
+    mean_{\ell}\big(\kappa(\ell,\tau\mathrm{{-risk}})\big)$. Given the importance of
 overlap in how well metrics approximate the oracle $\tau\text{-risk}$, we
 separate strong and weak overlap.
 
@@ -1141,7 +1136,7 @@ better.
 
 
 To facilitate better model selection, we provide Python
-code\footnote{\url{https://github.com/soda-inria/causal_model_selection}}.
+code \cite{doutreligne2025causal}.
 % Using the $R\text{-risk}$ does make evaluation more
 % complicated not only because the procedure is more involved, but also
 % because each intervention requires a dedicated evaluation. However, such
@@ -1165,11 +1160,11 @@ models.
 
 \subsection{Source code to replicate the experiments of the paper}
 
-The following repository is self-contained to allow anyone to replicate all experiments of the paper. It contains different codes to cover the full content of the paper. Thus it requires a bit of work to install and run the code. 
+The following repository is self-contained to allow anyone to replicate all experiments of the paper. It contains different codes to cover the full content of the paper. Thus it requires a bit of work to install and run the code.
 
 \begin{itemize}
     \item Project name: Caussim
-    \item Project home page: \url{https://github.com/soda-inria/caussim}
+    \item Project home page: \cite{doutreligne2025caussim}
     \item Operating system(s): Platform independent
     \item Programming language: Python
     \item License: BSD 3-Clause License
@@ -1182,7 +1177,7 @@ Code for cross-validation to select the best predictive model to guide decision 
 
 \begin{itemize}
     \item Project name: Causal Model Selection
-    \item Project home page: \url{https://github.com/soda-inria/causal_model_selection}
+    \item Project home page: \cite{doutreligne2025causal}
     \item Operating system(s): Platform independent
     \item Programming language: Python
     \item License: BSD 2-Clause License
@@ -1193,24 +1188,24 @@ Code for cross-validation to select the best predictive model to guide decision 
 
 \subsection{Semi-simulated datasets for the experiments}
 
-The semi-simulated and simulated datasets used for the experiments are available at the following urls. 
+The semi-simulated and simulated datasets used for the experiments are available at the following urls.
 
-Detailed explanations on how to generate the datasets are available in the readme of the data section of our github: \url{https://github.com/soda-inria/caussim/tree/main/data}.
+Detailed explanations on how to generate the datasets are available in the readme of the data section of our github \cite{doutreligne2025caussim}.
 
 \begin{itemize}
-    \item ACIC 2016: dataset provided through R package aciccomp2016: \url{https://github.com/vdorie/aciccomp}
+    \item ACIC 2016: dataset provided through R package aciccomp2016 \cite{dorie_automated_2019}
 
-    \item ACIC 2018: scaling subset from link to Synapse : \url{https://www.synapse.org/Synapse:syn11738767}
+    \item ACIC 2018: scaling subset from the Synapse repository : \cite{shimoni2018ibm}
 
-    \item TWINS: dataset from \url{https://github.com/AMLab-Amsterdam/CEVAE}, the version that we are using is on the following zenodo repository: \url{https://zenodo.org/records/14674618}.
-      
-    \item Caussim Dataset: generated dataset - instructions from \url{https://github.com/soda-inria/caussim}
+    \item TWINS: dataset from \cite{louizos_causal_2017}, our version is on a zenodo repository \cite{doutreligne2025twins}.
+
+    \item Caussim Dataset: generated dataset with the source code \cite{doutreligne2025caussim}.
 \end{itemize}
 \subsection{Experiments result data}
 
-The result data generated by the experiments are available at a dedicated zenodo repository \url{https://zenodo.org/records/13765465}. We provide the data for the simulations and the semi-simulated datasets to allow an easy replication of the main graphic (Fig. \ref{fig:relative_kendalls_all_datasets}) in the result section (detailed steps on our github: \url{https://github.com/soda-inria/caussim/tree/main?tab=readme-ov-file#reports}).
+The result data generated by the experiments are available at a dedicated zenodo repository \cite{doutreligne2024how}. We provide the data for the simulations and the semi-simulated datasets to allow an easy replication of the main graphic (Fig. \ref{fig:relative_kendalls_all_datasets}) in the result section.
 
-
+\bibliography{biblio}
 
 \section{Declaration}
 \subsection{Competing interests}
@@ -2066,7 +2061,7 @@ fixed $\eta=10^{-10}$, ensuring strict overlap for numerical stability.
 \end{table}
 
 
-\subsubsection{Additional Results}
+\subsubsection{Additional Results}\label{apd:experiments:additional_results}
 
 \paragraph{Definition of the Kendall's tau, $\kappa$}\label{apd:experiments:additional_results}
 
@@ -2514,7 +2509,5 @@ better risk.
     \caption{Statistical summary of the causal effect variance.}
     \label{table:effect_variance}
 \end{table}
-
-\bibliography{biblio}
 
 \end{document}

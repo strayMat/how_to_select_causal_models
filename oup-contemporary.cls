@@ -142,7 +142,7 @@
     \color{jcolour}%
     \textbf{\thepage}%
     \hspace{1em}\raisebox{-0.5pt}{|}\hspace{1em}%
-    \textit{\@jname}, \@jyear, Vol.~\@jvolume, No.~\@jnumber
+    \textit{\@jname}, \@jyear %Vol.~\@jvolume, No.~\@jnumber
 }
 \fancyhead[RO]{%
     \fontsize{7.8pt}{10pt}\selectfont%

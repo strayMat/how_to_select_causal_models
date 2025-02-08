@@ -12,3 +12,7 @@ count:
 
 simple-diff:
 	latexdiff original_manuscript.tex  $(MAIN).tex  > diff.tex
+
+# Create main pdf for additional files 
+additional_files_submission:
+	pdftk how_to_select_latex.pdf cat 8-29 output additional_files_submission.pdf
